@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triage Agent</title>
+    <meta
+      name="description"
+      content="Realtime enrollment triage dashboard for omnichannel inquiries, automated drafts, human handoffs, and CRM routing."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231463ff'/%3E%3Cstop offset='100%25' stop-color='%230ea5a4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M14 20h36v6H14zm8 12h28v6H22zm-4 12h32v6H18z' fill='white' opacity='.95'/%3E%3Ccircle cx='50' cy='16' r='6' fill='%23ef5b44'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell" id="page-shell">
+      <div class="background-orbs" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+      </div>
+
+      <header class="hero panel reveal-stagger">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-Augmented Enrollment Engine • Triage Agent</p>
+          <h1>Triage Agent</h1>
+          <div class="hero-lede">
+            <p>
+              This dashboard shows how inbound enrollment demand is converted into action within minutes instead of hours: every message is intercepted, classified, routed, and answered (or escalated) with a documented next step. Teams get immediate coverage across email, web, text, social and phone without adding headcount for every volume spike.
+            </p>
+            <p>
+              In institutions running this workflow well, organizations typically see first-response times drop from multi-hour delays to under 5 minutes for routine inquiries, while human advisors focus on the highest-value conversations such as transfer credit, aid package review, privacy-sensitive cases and distressed students.
+            </p>
+            <p>
+              The result is better lead recovery, fewer dropped inquiries, higher counselor productivity, and more consistent service quality with traceable routing, confidence scoring, and CRM updates on every interaction.
+            </p>
+          </div>
+          <div class="hero-pills" id="hero-pills">
+            <span class="pill">FERPA-aware routing</span>
+            <span class="pill">Omnichannel identity resolution</span>
+            <span class="pill">Human heart, AI hands</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="live-status-card">
+            <div class="live-status-top">
+              <span class="live-dot" id="live-dot"></span>
+              <span id="playback-status-label">Connecting intake stream…</span>
+            </div>
+            <div class="live-status-grid">
+              <div>
+                <div class="mini-label">Client</div>
+                <div class="mini-value" id="dataset-name">—</div>
+              </div>
+              <div>
+                <div class="mini-label">Inquiries Seen</div>
+                <div class="mini-value" id="dataset-count">0</div>
+              </div>
+              <div>
+                <div class="mini-label">Number of Agents</div>
+                <div class="mini-value"><span id="speed-label">1 agent</span></div>
+              </div>
+              <div>
+                <div class="mini-label">State</div>
+                <div class="mini-value" id="mode-label">Live</div>
+              </div>
+            </div>
+          </div>
+
+          <details class="controls-panel" id="controls-panel" open>
+            <summary>
+              <span>Controls</span>
+              <span class="summary-hint">Start, pause, restart, scale</span>
+            </summary>
+            <div class="controls-inner">
+              <div class="button-row">
+                <button id="play-btn" class="control-btn primary" type="button">Start</button>
+                <button id="pause-btn" class="control-btn" type="button">Pause</button>
+                <button id="reset-btn" class="control-btn" type="button">Restart</button>
+              </div>
+              <div class="speed-control">
+                <label for="speed-range">Number of agents</label>
+                <input id="speed-range" type="range" min="1" max="8" step="1" value="1" />
+                <div class="speed-presets" id="speed-presets">
+                  <button type="button" data-speed="1">1</button>
+                  <button type="button" data-speed="2">2</button>
+                  <button type="button" data-speed="4">4</button>
+                  <button type="button" data-speed="6">6</button>
+                  <button type="button" data-speed="8">8</button>
+                </div>
+              </div>
+              <div class="control-meta">
+                <label class="check-row">
+                  <input id="auto-scroll-feed" type="checkbox" checked />
+                  Auto-scroll resolution feed
+                </label>
+                <label class="check-row">
+                  <input id="burst-mode" type="checkbox" checked />
+                  Burst traffic pattern
+                </label>
+              </div>
+            </div>
+          </details>
+        </div>
+      </header>
+
+      <section class="metric-strip" id="metric-strip" aria-label="Realtime metrics">
+        <article class="metric-card panel">
+          <div class="metric-label">Inquiries Intercepted</div>
+          <div class="metric-value" id="metric-arrived">0</div>
+          <div class="metric-foot">Across email, web, SMS, WhatsApp, social, and voicemail</div>
+        </article>
+        <article class="metric-card panel accent-teal">
+          <div class="metric-label">Processed by Triage Agent</div>
+          <div class="metric-value" id="metric-processed">0</div>
+          <div class="metric-foot"><span id="metric-throughput">0</span> / min throughput</div>
+        </article>
+        <article class="metric-card panel accent-blue">
+          <div class="metric-label">Auto Drafts</div>
+          <div class="metric-value"><span id="metric-auto">0</span><small id="metric-auto-rate">0%</small></div>
+          <div class="micro-icons" id="metric-auto-icons" aria-hidden="true"></div>
+          <div class="metric-foot">Personalized response drafts with metadata</div>
+        </article>
+        <article class="metric-card panel accent-coral">
+          <div class="metric-label">Human Handoffs</div>
+          <div class="metric-value"><span id="metric-escalations">0</span><small id="metric-escalation-rate">0%</small></div>
+          <div class="micro-icons handoff" id="metric-handoff-icons" aria-hidden="true"></div>
+          <div class="metric-foot">FERPA, account-specific, security, specialist cases</div>
+        </article>
+        <article class="metric-card panel accent-lime">
+          <div class="metric-label">Avg First Response (Equivalent)</div>
+          <div class="metric-value" id="metric-response-time">—</div>
+          <div class="metric-foot">Compared to a legacy baseline of <span id="baseline-time-label">4h 00m</span></div>
+        </article>
+        <article class="metric-card panel accent-gold">
+          <div class="metric-label">Under 5 Min Coverage</div>
+          <div class="metric-value" id="metric-under5">0%</div>
+          <div class="metric-foot">Immediate acknowledgment or draft generated</div>
+        </article>
+        <article class="metric-card panel accent-violet">
+          <div class="metric-label">Queue Backlog</div>
+          <div class="metric-value" id="metric-backlog">0</div>
+          <div class="metric-foot">Waiting for triage processing</div>
+        </article>
+        <article class="metric-card panel accent-rose">
+          <div class="metric-label">Satisfaction Signal</div>
+          <div class="metric-value"><span id="metric-satisfaction">—</span><small id="metric-sat-delta">composite</small></div>
+          <div class="metric-foot">Composite score based on sentiment + response quality + timeliness</div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="panel flow-panel">
+          <div class="panel-head">
+            <div>
+              <h2>Flow</h2>
+              <p class="panel-subtitle">Animated packets show inquiries arriving from different channels and moving through triage.</p>
+            </div>
+            <div class="panel-badge" id="flow-badge">No activity yet</div>
+          </div>
+          <div class="flow-map" id="flow-map">
+            <svg class="flow-paths" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="pathGlowA" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="rgba(20,99,255,0.08)" />
+                  <stop offset="65%" stop-color="rgba(20,99,255,0.25)" />
+                  <stop offset="100%" stop-color="rgba(11,31,74,0.1)" />
+                </linearGradient>
+                <linearGradient id="pathGlowB" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="rgba(239,91,68,0.08)" />
+                  <stop offset="60%" stop-color="rgba(239,91,68,0.25)" />
+                  <stop offset="100%" stop-color="rgba(11,31,74,0.1)" />
+                </linearGradient>
+              </defs>
+              <path d="M130,70 C320,70 360,160 505,160" />
+              <path d="M130,130 C300,130 360,190 505,190" />
+              <path d="M130,190 C290,190 355,215 505,220" />
+              <path d="M130,250 C290,250 355,245 505,250" />
+              <path d="M130,310 C300,310 355,275 505,280" />
+              <path d="M130,370 C320,370 365,315 505,310" />
+              <path d="M130,430 C340,430 385,345 505,340" />
+              <path d="M130,490 C360,490 400,375 505,370" />
+              <path class="agent-out" d="M590,250 C720,250 755,160 890,150" />
+              <path class="agent-out alt" d="M590,265 C720,265 770,350 890,360" />
+            </svg>
+
+            <div class="flow-region channel-region" id="channel-region">
+              <button class="channel-node" data-channel="email" type="button"><span class="icon">✉</span><span class="label">Email</span><span class="count" id="count-email">0</span></button>
+              <button class="channel-node" data-channel="web_chat" type="button"><span class="icon">◍</span><span class="label">Web Chat</span><span class="count" id="count-web_chat">0</span></button>
+              <button class="channel-node" data-channel="web_form" type="button"><span class="icon">▤</span><span class="label">Web Form</span><span class="count" id="count-web_form">0</span></button>
+              <button class="channel-node" data-channel="sms" type="button"><span class="icon">SMS</span><span class="label">SMS</span><span class="count" id="count-sms">0</span></button>
+              <button class="channel-node" data-channel="whatsapp" type="button"><span class="icon">WA</span><span class="label">WhatsApp</span><span class="count" id="count-whatsapp">0</span></button>
+              <button class="channel-node" data-channel="phone_voicemail" type="button"><span class="icon">☎</span><span class="label">Voicemail</span><span class="count" id="count-phone_voicemail">0</span></button>
+              <button class="channel-node" data-channel="facebook_messenger" type="button"><span class="icon">f</span><span class="label">Messenger</span><span class="count" id="count-facebook_messenger">0</span></button>
+              <button class="channel-node" data-channel="instagram_dm" type="button"><span class="icon">◎</span><span class="label">Instagram DM</span><span class="count" id="count-instagram_dm">0</span></button>
+            </div>
+
+            <div class="agent-core" id="agent-core">
+              <div class="agent-core-ring"></div>
+              <div class="agent-core-inner">
+                <div class="agent-core-title">Triage Agent</div>
+                <div class="agent-core-sub">Intent • Policy • CRM • Drafting</div>
+                <div class="agent-core-stats">
+                  <span><strong id="core-processing">0</strong> active</span>
+                  <span><strong id="core-queue">0</strong> queued</span>
+                </div>
+              </div>
+              <div class="agent-core-pulse pulse-a"></div>
+              <div class="agent-core-pulse pulse-b"></div>
+            </div>
+
+            <div class="outcome-node auto" id="auto-node">
+              <div class="outcome-node-icon">✍</div>
+              <div>
+                <div class="outcome-node-label">Auto Drafts</div>
+                <div class="outcome-node-value" id="outcome-auto-count">0</div>
+                <div class="node-mini-icons" id="outcome-auto-icons" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="outcome-node handoff" id="handoff-node">
+              <div class="outcome-node-icon">↗</div>
+              <div>
+                <div class="outcome-node-label">Human Handoffs</div>
+                <div class="outcome-node-value" id="outcome-handoff-count">0</div>
+                <div class="node-mini-icons handoff" id="outcome-handoff-icons" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="packet-layer" id="packet-layer" aria-hidden="true"></div>
+            <div class="spark-layer" id="spark-layer" aria-hidden="true"></div>
+          </div>
+          <div class="flow-caption" id="flow-caption">
+            Packets animate from channel nodes into the Triage Agent, then route to auto-draft or human handoff outcomes based on the message metadata.
+          </div>
+        </section>
+
+        <section class="panel processing-panel">
+          <div class="panel-head compact">
+            <div>
+              <h2>Live Message Processing</h2>
+              <p class="panel-subtitle">Current message, triage reasoning, and draft response streaming in real time.</p>
+            </div>
+            <div class="panel-badge" id="current-phase-badge">Idle</div>
+          </div>
+
+          <div class="processing-layout">
+            <article class="message-focus card" id="message-focus">
+              <div class="card-head">
+                <div class="channel-pill" id="focus-channel-pill">—</div>
+                <div class="message-meta-top">
+                  <span id="focus-message-id">No message selected</span>
+                  <span id="focus-timestamp">—</span>
+                </div>
+              </div>
+              <div class="focus-persona">
+                <div>
+                  <div class="small-label">Audience</div>
+                  <div id="focus-audience">—</div>
+                </div>
+                <div>
+                  <div class="small-label">Program</div>
+                  <div id="focus-program">—</div>
+                </div>
+                <div>
+                  <div class="small-label">Stage</div>
+                  <div id="focus-stage">—</div>
+                </div>
+              </div>
+              <div class="message-text-wrap">
+                <div class="small-label">Inbound Message</div>
+                <pre id="focus-message-text" class="message-text">Waiting for traffic…</pre>
+              </div>
+              <div class="chip-grid" id="focus-message-chips"></div>
+              <div class="raw-meta-grid">
+                <div><span class="small-label">Identity Match</span><div id="focus-match">—</div></div>
+                <div><span class="small-label">Language</span><div id="focus-language">—</div></div>
+                <div><span class="small-label">Consent</span><div id="focus-consent">—</div></div>
+                <div><span class="small-label">Priority Signal</span><div id="focus-priority-signal">—</div></div>
+              </div>
+            </article>
+
+            <article class="agent-workbench card" id="agent-workbench">
+              <div class="card-head">
+                <div>
+                  <div class="small-label">Agent State</div>
+                  <div class="workbench-title" id="workbench-title">Awaiting first message</div>
+                </div>
+                <div class="thinking-pill" id="thinking-pill">Standby</div>
+              </div>
+
+              <div class="thinking-stage" id="thinking-stage">
+                <div class="thinking-visual">
+                  <div class="thinking-ring"></div>
+                  <div class="thinking-ring inner"></div>
+                  <div class="thinking-core"></div>
+                </div>
+                <div class="thinking-copy">
+                  <div class="thinking-lines" id="thinking-lines">
+                    <span>Classifying intent</span>
+                    <span>Checking privacy/guardrails</span>
+                    <span>Preparing CRM updates</span>
+                    <span>Drafting response</span>
+                  </div>
+                  <div class="thinking-progress-track">
+                    <div class="thinking-progress-fill" id="thinking-progress-fill"></div>
+                  </div>
+                  <div class="thinking-estimate" id="thinking-estimate">—</div>
+                </div>
+              </div>
+
+              <div class="metadata-panel" id="metadata-panel">
+                <div class="metadata-group">
+                  <div class="small-label">Triage</div>
+                  <div class="chip-grid" id="triage-chip-grid"></div>
+                </div>
+                <div class="metadata-group two-col">
+                  <div>
+                    <div class="small-label">Routing</div>
+                    <div class="stacked-list" id="routing-details"></div>
+                  </div>
+                  <div>
+                    <div class="small-label">CRM Actions</div>
+                    <div class="stacked-list" id="crm-actions-list"></div>
+                  </div>
+                </div>
+                <div class="metadata-group two-col">
+                  <div>
+                    <div class="small-label">Draft Metadata</div>
+                    <div class="stacked-list" id="draft-meta-list"></div>
+                  </div>
+                  <div>
+                    <div class="small-label">Citations / Guardrails</div>
+                    <div class="stacked-list" id="citations-guardrails-list"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="response-stream-panel" id="response-stream-panel">
+                <div class="response-head">
+                  <div>
+                    <div class="small-label">Draft Response</div>
+                    <div class="response-subtitle" id="response-subtitle">Waiting for agent output</div>
+                  </div>
+                  <div class="response-status" id="response-status">—</div>
+                </div>
+                <pre class="response-stream" id="response-stream"></pre>
+                <div class="stream-caret" id="stream-caret" aria-hidden="true"></div>
+              </div>
+
+              <div class="escalation-card" id="escalation-card" hidden>
+                <div class="escalation-head">
+                  <span class="escalation-badge">Human Handoff</span>
+                  <span id="escalation-priority">—</span>
+                </div>
+                <div class="stacked-list" id="escalation-list"></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="panel outcome-panel">
+          <div class="panel-head compact">
+            <div>
+              <h2>Activity Log</h2>
+              <p class="panel-subtitle">Completed work items across channels. Click any card to inspect the full message, draft, routing and handoff metadata.</p>
+            </div>
+            <div class="panel-badge" id="feed-badge">0 completed</div>
+          </div>
+          <div class="feed-list" id="feed-list" aria-live="polite"></div>
+        </aside>
+      </section>
+
+      <section class="viz-grid" aria-label="Live analytics visualizations">
+        <article class="panel viz-card">
+          <div class="panel-head compact">
+            <div>
+              <h2>Throughput + Backlog</h2>
+              <p class="panel-subtitle">How quickly the agent keeps up with arriving inquiries.</p>
+            </div>
+          </div>
+          <p class="viz-lede">
+            When throughput stays ahead of arrivals, the queue stays flat and students get answers while intent is still high. When backlog grows, response delay compounds fast, increasing drop-off risk and advisor load later in the day.
+          </p>
+          <svg id="throughput-chart" class="viz-svg" viewBox="0 0 420 220" role="img" aria-label="Throughput and backlog chart"></svg>
+          <div class="viz-note"><span class="legend-dot teal"></span>Processed cumulative <span class="legend-dot coral"></span>Backlog</div>
+        </article>
+
+        <article class="panel viz-card">
+          <div class="panel-head compact">
+            <div>
+              <h2>Response Time Distribution + SLA Bands</h2>
+              <p class="panel-subtitle">Where completed work lands against response-time targets, split by auto drafts and human handoffs.</p>
+            </div>
+          </div>
+          <svg id="response-time-chart" class="viz-svg" viewBox="0 0 420 220" role="img" aria-label="Response time distribution chart"></svg>
+          <div class="viz-note">
+            <span class="legend-dot teal"></span>Auto draft
+            <span class="legend-dot coral"></span>Human handoff
+            <span class="legend-dot blue"></span>5-min SLA cutoff
+            <span class="viz-inline-stat" id="response-time-summary">Waiting for completed responses…</span>
+          </div>
+        </article>
+
+        <article class="panel viz-card">
+          <div class="panel-head compact">
+            <div>
+              <h2>Auto-Draft vs Human Handoff</h2>
+              <p class="panel-subtitle">A balanced view: automation for routine questions, humans for privacy/sensitive cases.</p>
+            </div>
+          </div>
+          <div class="donut-wrap">
+            <svg id="outcome-donut" class="donut-svg" viewBox="0 0 220 220" role="img" aria-label="Outcome donut chart"></svg>
+            <div class="donut-center">
+              <div class="donut-label">Escalation Rate</div>
+              <div class="donut-value" id="donut-escalation-rate">0%</div>
+            </div>
+          </div>
+          <div class="viz-note two-col" id="outcome-breakdown-note"></div>
+        </article>
+
+        <article class="panel viz-card">
+          <div class="panel-head compact">
+            <div>
+              <h2>Routing Pressure</h2>
+              <p class="panel-subtitle">Top queues receiving traffic and specialist handoffs.</p>
+            </div>
+          </div>
+          <div id="queue-bars" class="bar-viz compact"></div>
+        </article>
+
+        <article class="panel viz-card special">
+          <div class="panel-head compact">
+            <div>
+              <h2>Impact Storyboard</h2>
+              <p class="panel-subtitle">Business-facing indicators that make the “black hole” problem visible and measurable.</p>
+            </div>
+          </div>
+          <div class="impact-layout">
+            <div class="impact-funnel" id="impact-funnel"></div>
+            <div class="impact-meters">
+              <div class="impact-meter">
+                <div class="small-label">Satisfaction Signal</div>
+                <div class="gauge" id="satisfaction-gauge">
+                  <div class="gauge-fill" id="satisfaction-gauge-fill"></div>
+                  <div class="gauge-center"><span id="satisfaction-gauge-value">—</span></div>
+                </div>
+              </div>
+              <div class="impact-meter">
+                <div class="small-label">Estimated Staff Hours Saved</div>
+                <div class="impact-big-number" id="hours-saved">0.0h</div>
+                <div class="impact-subtext">Compared to 4h baseline first-response cycle per inquiry</div>
+              </div>
+              <div class="impact-meter">
+                <div class="small-label">High-Intent Leads Surfaced</div>
+                <div class="impact-big-number" id="high-intent-count">0</div>
+                <div class="impact-subtext" id="high-intent-share">0% of processed</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer class="page-footer panel">
+        <div>
+          <strong>Note:</strong> Satisfaction and hours-saved are composite operational indicators shown for leadership visibility and workload planning.
+        </div>
+        <div id="footer-status">Ready.</div>
+      </footer>
+    </div>
+
+    <template id="feed-item-template">
+      <article class="feed-item" role="button" tabindex="0" aria-label="Open activity details">
+        <div class="feed-item-head">
+          <span class="feed-channel"></span>
+          <span class="feed-outcome"></span>
+          <span class="feed-time"></span>
+        </div>
+        <div class="feed-message-line"></div>
+        <div class="feed-meta-row"></div>
+      </article>
+    </template>
+
+    <dialog class="detail-modal" id="detail-modal" aria-labelledby="detail-modal-title">
+      <form method="dialog" class="detail-modal-shell">
+        <header class="detail-modal-head">
+          <div>
+            <div class="small-label">Activity Details</div>
+            <h3 id="detail-modal-title">Message Detail</h3>
+          </div>
+          <button class="detail-close" id="detail-close-btn" type="submit" aria-label="Close details">×</button>
+        </header>
+        <div class="detail-modal-body" id="detail-modal-body"></div>
+      </form>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
