@@ -1,0 +1,535 @@
+{
+  "dataset_id": "super-fast-ai-credit-checking.synthetic-applicant-bundles.v1",
+  "generated_on": "2026-02-24",
+  "rendered_to": "/home/vscode/code/school-enrollment/credit-checking/data/applicants",
+  "manifests_dir": "/home/vscode/code/school-enrollment/credit-checking/data/manifests",
+  "previews_dir": "/home/vscode/code/school-enrollment/credit-checking/data/previews",
+  "webp_backend": "gemimg",
+  "applicants": [
+    {
+      "Applicant_ID": "APPL-001",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Folder": "credit-checking/data/applicants/APPL-001_Miguel_Rivera",
+      "Documents": [
+        {
+          "Document_ID": "APPL-001-D1",
+          "Document_Type": "DD214",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-001_Miguel_Rivera/IMG_1044_dd214_rivera.webp"
+        },
+        {
+          "Document_ID": "APPL-001-D2",
+          "Document_Type": "JST",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-001_Miguel_Rivera/JST_MRivera_2024-11-12.txt"
+        },
+        {
+          "Document_ID": "APPL-001-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-001_Miguel_Rivera/CompTIA_SecurityPlus_Miguel_Rivera.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "webp": 1,
+        "txt": 1,
+        "pdf": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "txt",
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-002",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Folder": "credit-checking/data/applicants/APPL-002_Ashley_Kim",
+      "Documents": [
+        {
+          "Document_ID": "APPL-002-D1",
+          "Document_Type": "DD214",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-002_Ashley_Kim/scan_ashley_kim_dd214_final.pdf"
+        },
+        {
+          "Document_ID": "APPL-002-D2",
+          "Document_Type": "JST",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-002_Ashley_Kim/JST_AKim_reserve_copy.pdf"
+        },
+        {
+          "Document_ID": "APPL-002-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-002_Ashley_Kim/SecurityPlus_Certificate_AshleyKim_2025.webp"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 2,
+        "webp": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-003",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Folder": "credit-checking/data/applicants/APPL-003_Darnell_Turner",
+      "Documents": [
+        {
+          "Document_ID": "APPL-003-D1",
+          "Document_Type": "DD214",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-003_Darnell_Turner/phone-photo_dd214_turner.webp"
+        },
+        {
+          "Document_ID": "APPL-003-D2",
+          "Document_Type": "JST",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-003_Darnell_Turner/Turner_Darnell_JST_unofficial.webp"
+        },
+        {
+          "Document_ID": "APPL-003-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-003_Darnell_Turner/comptia_security_plus_turner.webp"
+        }
+      ],
+      "Format_Counts": {
+        "webp": 3
+      },
+      "Format_Mix": [
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-004",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Folder": "credit-checking/data/applicants/APPL-004_Brianna_Patel",
+      "Documents": [
+        {
+          "Document_ID": "APPL-004-D1",
+          "Document_Type": "DD214",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-004_Brianna_Patel/BPatel_DD214_scan.pdf"
+        },
+        {
+          "Document_ID": "APPL-004-D2",
+          "Document_Type": "JST",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-004_Brianna_Patel/JST_BriannaPatel_guard.pdf"
+        },
+        {
+          "Document_ID": "APPL-004-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-004_Brianna_Patel/BriannaPatel_SecurityPlus_Credential.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 3
+      },
+      "Format_Mix": [
+        "pdf"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-005",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Folder": "credit-checking/data/applicants/APPL-005_Nicole_Hernandez",
+      "Documents": [
+        {
+          "Document_ID": "APPL-005-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-005_Nicole_Hernandez/hs_attestation_signed_nhernandez.webp"
+        },
+        {
+          "Document_ID": "APPL-005-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-005_Nicole_Hernandez/scan0001_BHCC_transcript_2008.webp"
+        },
+        {
+          "Document_ID": "APPL-005-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-005_Nicole_Hernandez/SophiaLearning-Transcript-NH-2025.txt"
+        },
+        {
+          "Document_ID": "APPL-005-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-005_Nicole_Hernandez/Google_Project_Management_Certificate_Nicole_Hernandez.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "webp": 2,
+        "txt": 1,
+        "pdf": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "txt",
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-006",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Folder": "credit-checking/data/applicants/APPL-006_Brandon_ONeal",
+      "Documents": [
+        {
+          "Document_ID": "APPL-006-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-006_Brandon_ONeal/attestation_form_boneal_scan.pdf"
+        },
+        {
+          "Document_ID": "APPL-006-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-006_Brandon_ONeal/mcc_old_transcript_copy_2005.pdf"
+        },
+        {
+          "Document_ID": "APPL-006-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-006_Brandon_ONeal/BrandonONeal_Sophia_Transcript.pdf"
+        },
+        {
+          "Document_ID": "APPL-006-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-006_Brandon_ONeal/BrandonONeal_GooglePM_ProfCert.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 4
+      },
+      "Format_Mix": [
+        "pdf"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-007",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Folder": "credit-checking/data/applicants/APPL-007_Tasha_Nguyen",
+      "Documents": [
+        {
+          "Document_ID": "APPL-007-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-007_Tasha_Nguyen/HS_completion_attestation_tnguyen.webp"
+        },
+        {
+          "Document_ID": "APPL-007-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-007_Tasha_Nguyen/NECC_transcript_scanned_03.webp"
+        },
+        {
+          "Document_ID": "APPL-007-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-007_Tasha_Nguyen/SophiaTranscript_TNguyen_102925.webp"
+        },
+        {
+          "Document_ID": "APPL-007-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-007_Tasha_Nguyen/GooglePMCert_TashaNguyen.webp"
+        }
+      ],
+      "Format_Counts": {
+        "webp": 4
+      },
+      "Format_Mix": [
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-008",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Folder": "credit-checking/data/applicants/APPL-008_Kevin_Morales",
+      "Documents": [
+        {
+          "Document_ID": "APPL-008-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-008_Kevin_Morales/kmorales_hs_attestation_scan.webp"
+        },
+        {
+          "Document_ID": "APPL-008-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-008_Kevin_Morales/qcc_transcript_2010_scan-copy.pdf"
+        },
+        {
+          "Document_ID": "APPL-008-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-008_Kevin_Morales/KMorales_Sophia_Learning_Transcript.txt"
+        },
+        {
+          "Document_ID": "APPL-008-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-008_Kevin_Morales/Google_Project_Mgmt_Certificate_KMorales.webp"
+        }
+      ],
+      "Format_Counts": {
+        "webp": 2,
+        "pdf": 1,
+        "txt": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "txt",
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-009",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Folder": "credit-checking/data/applicants/APPL-009_Priya_Nair",
+      "Documents": [
+        {
+          "Document_ID": "APPL-009-D1",
+          "Document_Type": "WES_Course_By_Course_Evaluation",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-009_Priya_Nair/WES_CourseByCourse_PriyaNair.pdf"
+        },
+        {
+          "Document_ID": "APPL-009-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-009_Priya_Nair/TOEFL_iBT_PriyaNair_2025.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 2
+      },
+      "Format_Mix": [
+        "pdf"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-010",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Folder": "credit-checking/data/applicants/APPL-010_Wei_Chen",
+      "Documents": [
+        {
+          "Document_ID": "APPL-010-D1",
+          "Document_Type": "ECE_Course_By_Course_Evaluation",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-010_Wei_Chen/ECE_Evaluation_WeiChen_course_by_course.pdf"
+        },
+        {
+          "Document_ID": "APPL-010-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-010_Wei_Chen/TOEFL_WeiChen_official_score_report.webp"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 1,
+        "webp": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "webp"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-011",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Folder": "credit-checking/data/applicants/APPL-011_Maria_Lopes",
+      "Documents": [
+        {
+          "Document_ID": "APPL-011-D1",
+          "Document_Type": "WES_Course_By_Course_Evaluation",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-011_Maria_Lopes/WES_MariaLopes_CourseByCourse_Report.pdf"
+        },
+        {
+          "Document_ID": "APPL-011-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-011_Maria_Lopes/TOEFL_MariaLopes_ETS_Report.pdf"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 2
+      },
+      "Format_Mix": [
+        "pdf"
+      ]
+    },
+    {
+      "Applicant_ID": "APPL-012",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Folder": "credit-checking/data/applicants/APPL-012_Samuel_Ofori",
+      "Documents": [
+        {
+          "Document_ID": "APPL-012-D1",
+          "Document_Type": "ECE_Course_By_Course_Evaluation",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Render_Engine": "local",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-012_Samuel_Ofori/ECE_SamuelOfori_Credential_Evaluation.pdf"
+        },
+        {
+          "Document_ID": "APPL-012-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Render_Engine": "gemimg",
+          "Render_Status": "ok",
+          "Output_File": "credit-checking/data/applicants/APPL-012_Samuel_Ofori/SamuelOfori_TOEFL_iBT_ScoreReport.webp"
+        }
+      ],
+      "Format_Counts": {
+        "pdf": 1,
+        "webp": 1
+      },
+      "Format_Mix": [
+        "pdf",
+        "webp"
+      ]
+    }
+  ],
+  "total_applicants": 12,
+  "total_documents": 36,
+  "gemimg_job_count": 15,
+  "bundle_mix_summary": {
+    "pdf_only": 4,
+    "image_only": 2,
+    "text_only": 0,
+    "mixed": 6,
+    "contains_txt": 3
+  },
+  "render_engine_counts": {
+    "gemimg": 15,
+    "local": 21
+  },
+  "preview_contact_sheet": "credit-checking/data/previews/scan_contact_sheet.webp"
+}

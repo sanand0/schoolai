@@ -1,0 +1,3362 @@
+{
+  "dataset_id": "super-fast-ai-credit-checking.synthetic-applicant-bundles.v1",
+  "generated_on": "2026-02-24",
+  "dataset_notes": [
+    "Synthetic records only; names, IDs, and credentials are fictitious.",
+    "Document_Bundle arrays intentionally mix pristine, dense-text, and scan-style artifacts for ingestion testing.",
+    "SCNC bundles include both high school attestation and Sophia transcript to satisfy multiple demo scenarios.",
+    "Bundle formats intentionally vary by applicant (PDF-only, image-only, mixed PDF/WEBP/TXT) to mimic real submission behavior."
+  ],
+  "applicants": [
+    {
+      "Applicant_ID": "APPL-001",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Persona": {
+        "full_name": "Miguel Rivera",
+        "preferred_name": "Miguel",
+        "career_goal": "Move from Army HR operations into corporate HRIS and cybersecurity-aware IT support roles.",
+        "prior_learning_sources": [
+          "U.S. Army service (MOS 42A Human Resources Specialist)",
+          "Joint Services Transcript (ACE credit recommendations)",
+          "CompTIA Security+ certification"
+        ],
+        "demo_storyline": "Veteran with strong personnel records experience wants a business/IT degree path without losing military credit."
+      },
+      "Target_Program": "BS in Information Technologies",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-001-D1",
+          "Document_Type": "DD214",
+          "Title": "Certificate of Release or Discharge from Active Duty (DD Form 214)",
+          "Issuing_Organization": "Department of Defense",
+          "Issue_Date": "2014-09-30",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "IMG_1044_dd214_rivera.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Miguel Rivera",
+            "document_number": "DD214-8471-AR-2006",
+            "date_range": {
+              "start": "2006-08-15",
+              "end": "2014-09-30"
+            },
+            "service_record": {
+              "branch": "U.S. Army",
+              "component": "Active Duty",
+              "rank_at_separation": "SSG / E-6",
+              "mos_code": "42A",
+              "mos_title": "Human Resources Specialist",
+              "service_start": "2006-08-15",
+              "service_end": "2014-09-30",
+              "character_of_service": "Honorable",
+              "deployments_count": 1
+            },
+            "summary_lines": [
+              "Name: Miguel Rivera",
+              "Branch: U.S. Army",
+              "MOS: 42A Human Resources Specialist",
+              "Rank at Separation: SSG / E-6",
+              "Character of Service: Honorable"
+            ],
+            "notes": [
+              "Synthetic DD-214 facsimile for demo ingestion only.",
+              "Form fields intentionally varied to simulate scan quality issues."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "warm_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": 2.0,
+              "blur_px": 0.8,
+              "notes": "Monochrome artifacting, compression halos, faint fold crease."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic smartphone photo of a printed DD-214 discharge form on a dark desk, slight perspective skew, grayscale copier text, faint coffee ring, mild motion blur, realistic paper texture, legible form labels, no hands. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Miguel Rivera."
+        },
+        {
+          "Document_ID": "APPL-001-D2",
+          "Document_Type": "JST",
+          "Title": "Joint Services Transcript",
+          "Issuing_Organization": "Joint Services Transcript / American Council on Education",
+          "Issue_Date": "2024-11-12",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Output_File_Name": "JST_MRivera_2024-11-12.txt",
+          "Page_Count": 3,
+          "Structured_Content": {
+            "student_name": "Miguel Rivera",
+            "student_id_on_document": "JST-AR-5729441",
+            "summary_lines": [
+              "Joint Services Transcript for Miguel Rivera",
+              "Army MOS history includes 42A Human Resources Specialist",
+              "ACE credit recommendations included for training and occupational experience"
+            ],
+            "raw_text_preview": [
+              "JOINT SERVICES TRANSCRIPT (UNOFFICIAL COPY FOR REVIEW)",
+              "STUDENT: MIGUEL RIVERA   JST ID: JST-AR-5729441",
+              "SERVICE BRANCH: ARMY",
+              "PRIMARY MOS: 42A HUMAN RESOURCES SPECIALIST",
+              "ACE CREDIT RECOMMENDATIONS:",
+              "  - HUMAN RESOURCE MANAGEMENT / PERSONNEL ADMINISTRATION: 3 LL / 3 UL",
+              "  - BUSINESS COMMUNICATIONS / INFO SYSTEMS SUPPORT: 3 LL"
+            ],
+            "courses": [
+              {
+                "course_code": "HR-42A-BLC",
+                "course_title": "Basic Leader Course",
+                "term_label": "Military Training",
+                "year": 2012,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "HR-42A-ADV",
+                "course_title": "Human Resources Specialist Course",
+                "term_label": "Military Training",
+                "year": 2008,
+                "credits": 4.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "ARMY-OPS",
+                "course_title": "Personnel Administration in Unit Operations",
+                "term_label": "Military Occupation",
+                "year": 2013,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Upper",
+                "source_system": "JST"
+              }
+            ],
+            "ace_recommendations": [
+              {
+                "experience_or_training": "MOS 42A Duty Performance",
+                "subject": "Human Resource Management / Personnel Administration",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 3.0,
+                "recommendation_basis": "ACE military guide recommendation for Army MOS 42A (skill level reflected on JST)."
+              },
+              {
+                "experience_or_training": "Army Structured Self-Development + HR systems workflow",
+                "subject": "Business Communications / Information Systems",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 0.0,
+                "recommendation_basis": "ACE recommendation derived from completed military schooling and documented duty assignments."
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (HR / Personnel Administration)",
+                "proposed_college_course_code": "HRM-ELEC",
+                "proposed_college_course_title": "Human Resource Management elective credit",
+                "credits": 3.0,
+                "rationale": "MOS 42A duties and ACE recommendation align with HR operations and personnel records workflows."
+              },
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (upper-division HR / personnel)",
+                "proposed_college_course_code": "HRM-3XX",
+                "proposed_college_course_title": "Advanced Human Resource Management elective",
+                "credits": 3.0,
+                "rationale": "Upper-division ACE recommendation supports leadership-level personnel administration credit review."
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Monospaced utilitarian JST text export style."
+            },
+            "notes": [
+              "Content provided as a plain-text export file instead of scanned pages."
+            ]
+          }
+        },
+        {
+          "Document_ID": "APPL-001-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Title": "CompTIA Security+ Certification",
+          "Issuing_Organization": "CompTIA",
+          "Issue_Date": "2025-06-21",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "CompTIA_SecurityPlus_Miguel_Rivera.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Miguel Rivera",
+            "certificate_record": {
+              "certificate_name": "CompTIA Security+",
+              "provider": "CompTIA",
+              "credential_id": "COMP-SEC-8A1R-1927",
+              "issue_date": "2025-06-21",
+              "expiration_date": "2028-06-21",
+              "verification_url": "https://www.certmetrics.com/comptia/public/verification.aspx",
+              "skills": [
+                "Threat management",
+                "Network security",
+                "Risk mitigation",
+                "Security operations"
+              ]
+            },
+            "summary_lines": [
+              "CompTIA Security+ digital certificate for Miguel Rivera",
+              "Credential ID: COMP-SEC-8A1R-1927",
+              "AI demo hook: maps to IT-253 (Computer Systems Security)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "CompTIA Security+ certificate",
+                "proposed_college_course_code": "IT-253",
+                "proposed_college_course_title": "Computer Systems Security",
+                "credits": 3.0,
+                "rationale": "Current Security+ coverage aligns with foundational cybersecurity and systems security outcomes."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern digital certificate with seal and QR-like footer."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Information Technologies",
+        "Pathway_Theme": "Military-to-business/IT accelerated transfer review",
+        "Proposed_Transfer_Credits_Total": 12.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "JST MOS 42A ACE recommendation",
+            "proposed_college_course_code": "HRM-ELEC",
+            "proposed_college_course_title": "Human Resource Management elective credit",
+            "credits": 3.0,
+            "rationale": "Personnel administration, records management, and HR workflow experience documented on JST."
+          },
+          {
+            "source_evidence": "JST MOS 42A ACE upper-division recommendation",
+            "proposed_college_course_code": "HRM-3XX",
+            "proposed_college_course_title": "Upper-level Human Resource Management elective",
+            "credits": 3.0,
+            "rationale": "ACE upper-division recommendation supports advisor review for advanced HR elective placement."
+          },
+          {
+            "source_evidence": "CompTIA Security+",
+            "proposed_college_course_code": "IT-253",
+            "proposed_college_course_title": "Computer Systems Security",
+            "credits": 3.0,
+            "rationale": "Certification outcomes match course competencies in computer systems security."
+          },
+          {
+            "source_evidence": "JST training + ACE communication/systems recommendation",
+            "proposed_college_course_code": "BUS/IT-ELEC",
+            "proposed_college_course_title": "Business or IT elective credit",
+            "credits": 3.0,
+            "rationale": "Military training indicates structured administrative systems and business communication skills."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official JST delivery status",
+          "Verify CompTIA credential active status on evaluation date"
+        ],
+        "Advisor_Review_Focus": [
+          "Approve MOS 42A HR management elective mapping",
+          "Determine whether upper-division HR elective can be transcripted directly",
+          "Sequence IT-253 with degree plan prerequisites"
+        ],
+        "Narrative": "Bundle demonstrates cross-domain mapping: Army MOS 42A personnel administration experience supports Human Resource Management credit consideration, while Security+ yields a direct IT-253 equivalency for a business/IT transition pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-002",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Persona": {
+        "full_name": "Ashley Kim",
+        "preferred_name": "Ashley",
+        "career_goal": "Pivot into HR operations and compliance technology roles in a healthcare employer.",
+        "prior_learning_sources": [
+          "U.S. Army service (MOS 42A Human Resources Specialist)",
+          "Joint Services Transcript (ACE credit recommendations)",
+          "CompTIA Security+ certification"
+        ],
+        "demo_storyline": "Reserve service and recent IT certification create a mixed HR/IT profile that benefits from fast cross-walking."
+      },
+      "Target_Program": "BS in Business Administration",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-002-D1",
+          "Document_Type": "DD214",
+          "Title": "Certificate of Release or Discharge from Active Duty (DD Form 214)",
+          "Issuing_Organization": "Department of Defense",
+          "Issue_Date": "2018-05-18",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Output_File_Name": "scan_ashley_kim_dd214_final.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Ashley Kim",
+            "document_number": "DD214-1120-AK-2009",
+            "date_range": {
+              "start": "2009-03-10",
+              "end": "2018-05-18"
+            },
+            "service_record": {
+              "branch": "U.S. Army",
+              "component": "Army Reserve",
+              "rank_at_separation": "SGT / E-5",
+              "mos_code": "42A",
+              "mos_title": "Human Resources Specialist",
+              "service_start": "2009-03-10",
+              "service_end": "2018-05-18",
+              "character_of_service": "Honorable",
+              "deployments_count": 0
+            },
+            "summary_lines": [
+              "Name: Ashley Kim",
+              "Branch: U.S. Army",
+              "MOS: 42A Human Resources Specialist",
+              "Rank at Separation: SGT / E-5",
+              "Character of Service: Honorable"
+            ],
+            "notes": [
+              "Synthetic DD-214 facsimile for demo ingestion only.",
+              "Form fields intentionally varied to simulate scan quality issues."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "warm_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": 2.0,
+              "blur_px": 0.8,
+              "notes": "Monochrome artifacting, compression halos, faint fold crease."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-002-D2",
+          "Document_Type": "JST",
+          "Title": "Joint Services Transcript",
+          "Issuing_Organization": "Joint Services Transcript / American Council on Education",
+          "Issue_Date": "2025-01-09",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Output_File_Name": "JST_AKim_reserve_copy.pdf",
+          "Page_Count": 3,
+          "Structured_Content": {
+            "student_name": "Ashley Kim",
+            "student_id_on_document": "JST-AK-4482020",
+            "summary_lines": [
+              "Joint Services Transcript for Ashley Kim",
+              "Army MOS history includes 42A Human Resources Specialist",
+              "ACE credit recommendations included for training and occupational experience"
+            ],
+            "raw_text_preview": [
+              "JOINT SERVICES TRANSCRIPT (UNOFFICIAL COPY FOR REVIEW)",
+              "STUDENT: ASHLEY KIM   JST ID: JST-AK-4482020",
+              "SERVICE BRANCH: ARMY",
+              "PRIMARY MOS: 42A HUMAN RESOURCES SPECIALIST",
+              "ACE CREDIT RECOMMENDATIONS:",
+              "  - HUMAN RESOURCE MANAGEMENT / PERSONNEL ADMINISTRATION: 3 LL / 3 UL",
+              "  - BUSINESS COMMUNICATIONS / INFO SYSTEMS SUPPORT: 3 LL"
+            ],
+            "courses": [
+              {
+                "course_code": "HR-42A-BLC",
+                "course_title": "Basic Leader Course",
+                "term_label": "Military Training",
+                "year": 2013,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "HR-42A-ADV",
+                "course_title": "Human Resources Specialist Course",
+                "term_label": "Military Training",
+                "year": 2009,
+                "credits": 4.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "ARMY-OPS",
+                "course_title": "Personnel Administration in Unit Operations",
+                "term_label": "Military Occupation",
+                "year": 2014,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Upper",
+                "source_system": "JST"
+              }
+            ],
+            "ace_recommendations": [
+              {
+                "experience_or_training": "MOS 42A Duty Performance",
+                "subject": "Human Resource Management / Personnel Administration",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 3.0,
+                "recommendation_basis": "ACE military guide recommendation for Army MOS 42A (skill level reflected on JST)."
+              },
+              {
+                "experience_or_training": "Army Structured Self-Development + HR systems workflow",
+                "subject": "Business Communications / Information Systems",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 0.0,
+                "recommendation_basis": "ACE recommendation derived from completed military schooling and documented duty assignments."
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (HR / Personnel Administration)",
+                "proposed_college_course_code": "HRM-ELEC",
+                "proposed_college_course_title": "Human Resource Management elective credit",
+                "credits": 3.0,
+                "rationale": "MOS 42A duties and ACE recommendation align with HR operations and personnel records workflows."
+              },
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (upper-division HR / personnel)",
+                "proposed_college_course_code": "HRM-3XX",
+                "proposed_college_course_title": "Advanced Human Resource Management elective",
+                "credits": 3.0,
+                "rationale": "Upper-division ACE recommendation supports leadership-level personnel administration credit review."
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Monospaced utilitarian JST text export style."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-002-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Title": "CompTIA Security+ Certification",
+          "Issuing_Organization": "CompTIA",
+          "Issue_Date": "2025-09-04",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "SecurityPlus_Certificate_AshleyKim_2025.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Ashley Kim",
+            "certificate_record": {
+              "certificate_name": "CompTIA Security+",
+              "provider": "CompTIA",
+              "credential_id": "COMP-SEC-4K2M-0083",
+              "issue_date": "2025-09-04",
+              "expiration_date": "2028-09-04",
+              "verification_url": "https://www.certmetrics.com/comptia/public/verification.aspx",
+              "skills": [
+                "Threat management",
+                "Network security",
+                "Risk mitigation",
+                "Security operations"
+              ]
+            },
+            "summary_lines": [
+              "CompTIA Security+ digital certificate for Ashley Kim",
+              "Credential ID: COMP-SEC-4K2M-0083",
+              "AI demo hook: maps to IT-253 (Computer Systems Security)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "CompTIA Security+ certificate",
+                "proposed_college_course_code": "IT-253",
+                "proposed_college_course_title": "Computer Systems Security",
+                "credits": 3.0,
+                "rationale": "Current Security+ coverage aligns with foundational cybersecurity and systems security outcomes."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern digital certificate with seal and QR-like footer."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic phone screenshot or printed certificate photo of a modern CompTIA Security+ certificate, clean digital certificate styling, seal/badge visible, slight glare and perspective, readable name and credential area. Synthetic demo document for Ashley Kim."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Business Administration",
+        "Pathway_Theme": "Military-to-business/IT accelerated transfer review",
+        "Proposed_Transfer_Credits_Total": 12.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "JST MOS 42A ACE recommendation",
+            "proposed_college_course_code": "HRM-ELEC",
+            "proposed_college_course_title": "Human Resource Management elective credit",
+            "credits": 3.0,
+            "rationale": "Personnel administration, records management, and HR workflow experience documented on JST."
+          },
+          {
+            "source_evidence": "JST MOS 42A ACE upper-division recommendation",
+            "proposed_college_course_code": "HRM-3XX",
+            "proposed_college_course_title": "Upper-level Human Resource Management elective",
+            "credits": 3.0,
+            "rationale": "ACE upper-division recommendation supports advisor review for advanced HR elective placement."
+          },
+          {
+            "source_evidence": "CompTIA Security+",
+            "proposed_college_course_code": "IT-253",
+            "proposed_college_course_title": "Computer Systems Security",
+            "credits": 3.0,
+            "rationale": "Certification outcomes match course competencies in computer systems security."
+          },
+          {
+            "source_evidence": "JST training + ACE communication/systems recommendation",
+            "proposed_college_course_code": "BUS/IT-ELEC",
+            "proposed_college_course_title": "Business or IT elective credit",
+            "credits": 3.0,
+            "rationale": "Military training indicates structured administrative systems and business communication skills."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official JST delivery status",
+          "Verify CompTIA credential active status on evaluation date"
+        ],
+        "Advisor_Review_Focus": [
+          "Approve MOS 42A HR management elective mapping",
+          "Determine whether upper-division HR elective can be transcripted directly",
+          "Sequence IT-253 with degree plan prerequisites"
+        ],
+        "Narrative": "Bundle demonstrates cross-domain mapping: Army MOS 42A personnel administration experience supports Human Resource Management credit consideration, while Security+ yields a direct IT-253 equivalency for a business/IT transition pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-003",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Persona": {
+        "full_name": "Darnell Turner",
+        "preferred_name": "Darnell",
+        "career_goal": "Translate military personnel leadership into civilian HR management while keeping IT security credibility.",
+        "prior_learning_sources": [
+          "U.S. Army service (MOS 42A Human Resources Specialist)",
+          "Joint Services Transcript (ACE credit recommendations)",
+          "CompTIA Security+ certification"
+        ],
+        "demo_storyline": "Senior NCO HR specialist needs rapid review of ACE and certification credit to choose the best degree track."
+      },
+      "Target_Program": "BS in Business Administration",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-003-D1",
+          "Document_Type": "DD214",
+          "Title": "Certificate of Release or Discharge from Active Duty (DD Form 214)",
+          "Issuing_Organization": "Department of Defense",
+          "Issue_Date": "2016-02-01",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "phone-photo_dd214_turner.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Darnell Turner",
+            "document_number": "DD214-5399-DT-2004",
+            "date_range": {
+              "start": "2004-01-12",
+              "end": "2016-02-01"
+            },
+            "service_record": {
+              "branch": "U.S. Army",
+              "component": "Active Duty",
+              "rank_at_separation": "SFC / E-7",
+              "mos_code": "42A",
+              "mos_title": "Human Resources Specialist",
+              "service_start": "2004-01-12",
+              "service_end": "2016-02-01",
+              "character_of_service": "Honorable",
+              "deployments_count": 2
+            },
+            "summary_lines": [
+              "Name: Darnell Turner",
+              "Branch: U.S. Army",
+              "MOS: 42A Human Resources Specialist",
+              "Rank at Separation: SFC / E-7",
+              "Character of Service: Honorable"
+            ],
+            "notes": [
+              "Synthetic DD-214 facsimile for demo ingestion only.",
+              "Form fields intentionally varied to simulate scan quality issues."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "warm_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": 2.0,
+              "blur_px": 0.8,
+              "notes": "Monochrome artifacting, compression halos, faint fold crease."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic smartphone photo of a printed DD-214 discharge form on a dark desk, slight perspective skew, grayscale copier text, faint coffee ring, mild motion blur, realistic paper texture, legible form labels, no hands. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Darnell Turner."
+        },
+        {
+          "Document_ID": "APPL-003-D2",
+          "Document_Type": "JST",
+          "Title": "Joint Services Transcript",
+          "Issuing_Organization": "Joint Services Transcript / American Council on Education",
+          "Issue_Date": "2024-08-28",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "Turner_Darnell_JST_unofficial.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Darnell Turner",
+            "student_id_on_document": "JST-DT-3319475",
+            "summary_lines": [
+              "Joint Services Transcript for Darnell Turner",
+              "Army MOS history includes 42A Human Resources Specialist",
+              "ACE credit recommendations included for training and occupational experience"
+            ],
+            "raw_text_preview": [
+              "JOINT SERVICES TRANSCRIPT (UNOFFICIAL COPY FOR REVIEW)",
+              "STUDENT: DARNELL TURNER   JST ID: JST-DT-3319475",
+              "SERVICE BRANCH: ARMY",
+              "PRIMARY MOS: 42A HUMAN RESOURCES SPECIALIST",
+              "ACE CREDIT RECOMMENDATIONS:",
+              "  - HUMAN RESOURCE MANAGEMENT / PERSONNEL ADMINISTRATION: 3 LL / 3 UL",
+              "  - BUSINESS COMMUNICATIONS / INFO SYSTEMS SUPPORT: 3 LL"
+            ],
+            "courses": [
+              {
+                "course_code": "HR-42A-BLC",
+                "course_title": "Basic Leader Course",
+                "term_label": "Military Training",
+                "year": 2011,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "HR-42A-ADV",
+                "course_title": "Human Resources Specialist Course",
+                "term_label": "Military Training",
+                "year": 2007,
+                "credits": 4.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "ARMY-OPS",
+                "course_title": "Personnel Administration in Unit Operations",
+                "term_label": "Military Occupation",
+                "year": 2012,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Upper",
+                "source_system": "JST"
+              }
+            ],
+            "ace_recommendations": [
+              {
+                "experience_or_training": "MOS 42A Duty Performance",
+                "subject": "Human Resource Management / Personnel Administration",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 3.0,
+                "recommendation_basis": "ACE military guide recommendation for Army MOS 42A (skill level reflected on JST)."
+              },
+              {
+                "experience_or_training": "Army Structured Self-Development + HR systems workflow",
+                "subject": "Business Communications / Information Systems",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 0.0,
+                "recommendation_basis": "ACE recommendation derived from completed military schooling and documented duty assignments."
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (HR / Personnel Administration)",
+                "proposed_college_course_code": "HRM-ELEC",
+                "proposed_college_course_title": "Human Resource Management elective credit",
+                "credits": 3.0,
+                "rationale": "MOS 42A duties and ACE recommendation align with HR operations and personnel records workflows."
+              },
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (upper-division HR / personnel)",
+                "proposed_college_course_code": "HRM-3XX",
+                "proposed_college_course_title": "Advanced Human Resource Management elective",
+                "credits": 3.0,
+                "rationale": "Upper-division ACE recommendation supports leadership-level personnel administration credit review."
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Monospaced utilitarian JST text export style."
+            },
+            "notes": [
+              "Applicant uploaded a single image capture of this document (page 1 / summary page only); remaining pages may be requested."
+            ]
+          },
+          "Gemimg_Prompt": "Photorealistic scan/photo of a Joint Services Transcript page, dense monospaced text table, Army transcript formatting, ACE credit recommendation section visible, slight skew, scanner noise, high OCR-friendly contrast with realistic artifacts. Show a line mentioning MOS 42A Human Resources Specialist. Synthetic demo document for Darnell Turner."
+        },
+        {
+          "Document_ID": "APPL-003-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Title": "CompTIA Security+ Certification",
+          "Issuing_Organization": "CompTIA",
+          "Issue_Date": "2024-12-10",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "comptia_security_plus_turner.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Darnell Turner",
+            "certificate_record": {
+              "certificate_name": "CompTIA Security+",
+              "provider": "CompTIA",
+              "credential_id": "COMP-SEC-7D9T-5512",
+              "issue_date": "2024-12-10",
+              "expiration_date": "2027-12-10",
+              "verification_url": "https://www.certmetrics.com/comptia/public/verification.aspx",
+              "skills": [
+                "Threat management",
+                "Network security",
+                "Risk mitigation",
+                "Security operations"
+              ]
+            },
+            "summary_lines": [
+              "CompTIA Security+ digital certificate for Darnell Turner",
+              "Credential ID: COMP-SEC-7D9T-5512",
+              "AI demo hook: maps to IT-253 (Computer Systems Security)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "CompTIA Security+ certificate",
+                "proposed_college_course_code": "IT-253",
+                "proposed_college_course_title": "Computer Systems Security",
+                "credits": 3.0,
+                "rationale": "Current Security+ coverage aligns with foundational cybersecurity and systems security outcomes."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern digital certificate with seal and QR-like footer."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic phone screenshot or printed certificate photo of a modern CompTIA Security+ certificate, clean digital certificate styling, seal/badge visible, slight glare and perspective, readable name and credential area. Synthetic demo document for Darnell Turner."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Business Administration",
+        "Pathway_Theme": "Military-to-business/IT accelerated transfer review",
+        "Proposed_Transfer_Credits_Total": 12.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "JST MOS 42A ACE recommendation",
+            "proposed_college_course_code": "HRM-ELEC",
+            "proposed_college_course_title": "Human Resource Management elective credit",
+            "credits": 3.0,
+            "rationale": "Personnel administration, records management, and HR workflow experience documented on JST."
+          },
+          {
+            "source_evidence": "JST MOS 42A ACE upper-division recommendation",
+            "proposed_college_course_code": "HRM-3XX",
+            "proposed_college_course_title": "Upper-level Human Resource Management elective",
+            "credits": 3.0,
+            "rationale": "ACE upper-division recommendation supports advisor review for advanced HR elective placement."
+          },
+          {
+            "source_evidence": "CompTIA Security+",
+            "proposed_college_course_code": "IT-253",
+            "proposed_college_course_title": "Computer Systems Security",
+            "credits": 3.0,
+            "rationale": "Certification outcomes match course competencies in computer systems security."
+          },
+          {
+            "source_evidence": "JST training + ACE communication/systems recommendation",
+            "proposed_college_course_code": "BUS/IT-ELEC",
+            "proposed_college_course_title": "Business or IT elective credit",
+            "credits": 3.0,
+            "rationale": "Military training indicates structured administrative systems and business communication skills."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official JST delivery status",
+          "Verify CompTIA credential active status on evaluation date"
+        ],
+        "Advisor_Review_Focus": [
+          "Approve MOS 42A HR management elective mapping",
+          "Determine whether upper-division HR elective can be transcripted directly",
+          "Sequence IT-253 with degree plan prerequisites"
+        ],
+        "Narrative": "Bundle demonstrates cross-domain mapping: Army MOS 42A personnel administration experience supports Human Resource Management credit consideration, while Security+ yields a direct IT-253 equivalency for a business/IT transition pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-004",
+      "Archetype_Code": "A",
+      "Archetype_Label": "Military Veteran Transitioning to Business/IT",
+      "Persona": {
+        "full_name": "Brianna Patel",
+        "preferred_name": "Brianna",
+        "career_goal": "Advance from administrative roles into IT governance and systems security support.",
+        "prior_learning_sources": [
+          "U.S. Army service (MOS 42A Human Resources Specialist)",
+          "Joint Services Transcript (ACE credit recommendations)",
+          "CompTIA Security+ certification"
+        ],
+        "demo_storyline": "Guard HR specialist completed Security+ and wants immediate visibility into transfer credit before enrolling."
+      },
+      "Target_Program": "BS in Information Technologies",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-004-D1",
+          "Document_Type": "DD214",
+          "Title": "Certificate of Release or Discharge from Active Duty (DD Form 214)",
+          "Issuing_Organization": "Department of Defense",
+          "Issue_Date": "2022-10-14",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Output_File_Name": "BPatel_DD214_scan.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Brianna Patel",
+            "document_number": "DD214-2886-BP-2010",
+            "date_range": {
+              "start": "2010-07-06",
+              "end": "2022-10-14"
+            },
+            "service_record": {
+              "branch": "U.S. Army",
+              "component": "National Guard",
+              "rank_at_separation": "SSG / E-6",
+              "mos_code": "42A",
+              "mos_title": "Human Resources Specialist",
+              "service_start": "2010-07-06",
+              "service_end": "2022-10-14",
+              "character_of_service": "Honorable",
+              "deployments_count": 1
+            },
+            "summary_lines": [
+              "Name: Brianna Patel",
+              "Branch: U.S. Army",
+              "MOS: 42A Human Resources Specialist",
+              "Rank at Separation: SSG / E-6",
+              "Character of Service: Honorable"
+            ],
+            "notes": [
+              "Synthetic DD-214 facsimile for demo ingestion only.",
+              "Form fields intentionally varied to simulate scan quality issues."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "warm_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": 2.0,
+              "blur_px": 0.8,
+              "notes": "Monochrome artifacting, compression halos, faint fold crease."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-004-D2",
+          "Document_Type": "JST",
+          "Title": "Joint Services Transcript",
+          "Issuing_Organization": "Joint Services Transcript / American Council on Education",
+          "Issue_Date": "2025-03-03",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Output_File_Name": "JST_BriannaPatel_guard.pdf",
+          "Page_Count": 3,
+          "Structured_Content": {
+            "student_name": "Brianna Patel",
+            "student_id_on_document": "JST-BP-9021547",
+            "summary_lines": [
+              "Joint Services Transcript for Brianna Patel",
+              "Army MOS history includes 42A Human Resources Specialist",
+              "ACE credit recommendations included for training and occupational experience"
+            ],
+            "raw_text_preview": [
+              "JOINT SERVICES TRANSCRIPT (UNOFFICIAL COPY FOR REVIEW)",
+              "STUDENT: BRIANNA PATEL   JST ID: JST-BP-9021547",
+              "SERVICE BRANCH: ARMY",
+              "PRIMARY MOS: 42A HUMAN RESOURCES SPECIALIST",
+              "ACE CREDIT RECOMMENDATIONS:",
+              "  - HUMAN RESOURCE MANAGEMENT / PERSONNEL ADMINISTRATION: 3 LL / 3 UL",
+              "  - BUSINESS COMMUNICATIONS / INFO SYSTEMS SUPPORT: 3 LL"
+            ],
+            "courses": [
+              {
+                "course_code": "HR-42A-BLC",
+                "course_title": "Basic Leader Course",
+                "term_label": "Military Training",
+                "year": 2014,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "HR-42A-ADV",
+                "course_title": "Human Resources Specialist Course",
+                "term_label": "Military Training",
+                "year": 2010,
+                "credits": 4.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Lower",
+                "source_system": "JST"
+              },
+              {
+                "course_code": "ARMY-OPS",
+                "course_title": "Personnel Administration in Unit Operations",
+                "term_label": "Military Occupation",
+                "year": 2015,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "level": "Upper",
+                "source_system": "JST"
+              }
+            ],
+            "ace_recommendations": [
+              {
+                "experience_or_training": "MOS 42A Duty Performance",
+                "subject": "Human Resource Management / Personnel Administration",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 3.0,
+                "recommendation_basis": "ACE military guide recommendation for Army MOS 42A (skill level reflected on JST)."
+              },
+              {
+                "experience_or_training": "Army Structured Self-Development + HR systems workflow",
+                "subject": "Business Communications / Information Systems",
+                "lower_division_credits": 3.0,
+                "upper_division_credits": 0.0,
+                "recommendation_basis": "ACE recommendation derived from completed military schooling and documented duty assignments."
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (HR / Personnel Administration)",
+                "proposed_college_course_code": "HRM-ELEC",
+                "proposed_college_course_title": "Human Resource Management elective credit",
+                "credits": 3.0,
+                "rationale": "MOS 42A duties and ACE recommendation align with HR operations and personnel records workflows."
+              },
+              {
+                "source_evidence": "JST ACE recommendation for MOS 42A (upper-division HR / personnel)",
+                "proposed_college_course_code": "HRM-3XX",
+                "proposed_college_course_title": "Advanced Human Resource Management elective",
+                "credits": 3.0,
+                "rationale": "Upper-division ACE recommendation supports leadership-level personnel administration credit review."
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Monospaced utilitarian JST text export style."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-004-D3",
+          "Document_Type": "CompTIA_SecurityPlus_Certificate",
+          "Title": "CompTIA Security+ Certification",
+          "Issuing_Organization": "CompTIA",
+          "Issue_Date": "2025-11-16",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "BriannaPatel_SecurityPlus_Credential.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Brianna Patel",
+            "certificate_record": {
+              "certificate_name": "CompTIA Security+",
+              "provider": "CompTIA",
+              "credential_id": "COMP-SEC-2P7L-7644",
+              "issue_date": "2025-11-16",
+              "expiration_date": "2028-11-16",
+              "verification_url": "https://www.certmetrics.com/comptia/public/verification.aspx",
+              "skills": [
+                "Threat management",
+                "Network security",
+                "Risk mitigation",
+                "Security operations"
+              ]
+            },
+            "summary_lines": [
+              "CompTIA Security+ digital certificate for Brianna Patel",
+              "Credential ID: COMP-SEC-2P7L-7644",
+              "AI demo hook: maps to IT-253 (Computer Systems Security)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "CompTIA Security+ certificate",
+                "proposed_college_course_code": "IT-253",
+                "proposed_college_course_title": "Computer Systems Security",
+                "credits": 3.0,
+                "rationale": "Current Security+ coverage aligns with foundational cybersecurity and systems security outcomes."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern digital certificate with seal and QR-like footer."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Information Technologies",
+        "Pathway_Theme": "Military-to-business/IT accelerated transfer review",
+        "Proposed_Transfer_Credits_Total": 12.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "JST MOS 42A ACE recommendation",
+            "proposed_college_course_code": "HRM-ELEC",
+            "proposed_college_course_title": "Human Resource Management elective credit",
+            "credits": 3.0,
+            "rationale": "Personnel administration, records management, and HR workflow experience documented on JST."
+          },
+          {
+            "source_evidence": "JST MOS 42A ACE upper-division recommendation",
+            "proposed_college_course_code": "HRM-3XX",
+            "proposed_college_course_title": "Upper-level Human Resource Management elective",
+            "credits": 3.0,
+            "rationale": "ACE upper-division recommendation supports advisor review for advanced HR elective placement."
+          },
+          {
+            "source_evidence": "CompTIA Security+",
+            "proposed_college_course_code": "IT-253",
+            "proposed_college_course_title": "Computer Systems Security",
+            "credits": 3.0,
+            "rationale": "Certification outcomes match course competencies in computer systems security."
+          },
+          {
+            "source_evidence": "JST training + ACE communication/systems recommendation",
+            "proposed_college_course_code": "BUS/IT-ELEC",
+            "proposed_college_course_title": "Business or IT elective credit",
+            "credits": 3.0,
+            "rationale": "Military training indicates structured administrative systems and business communication skills."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official JST delivery status",
+          "Verify CompTIA credential active status on evaluation date"
+        ],
+        "Advisor_Review_Focus": [
+          "Approve MOS 42A HR management elective mapping",
+          "Determine whether upper-division HR elective can be transcripted directly",
+          "Sequence IT-253 with degree plan prerequisites"
+        ],
+        "Narrative": "Bundle demonstrates cross-domain mapping: Army MOS 42A personnel administration experience supports Human Resource Management credit consideration, while Security+ yields a direct IT-253 equivalency for a business/IT transition pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-005",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Persona": {
+        "full_name": "Nicole Hernandez",
+        "preferred_name": "Nicole",
+        "career_goal": "Move from office coordinator work into operations/project management with a bachelor's pathway.",
+        "prior_learning_sources": [
+          "High school completion documentation",
+          "Regional community college coursework at Bunker Hill Community College",
+          "Sophia Learning self-paced coursework",
+          "Google Project Management Professional Certificate"
+        ],
+        "demo_storyline": "Classic SCNC profile: old community college credits, new online upskilling, and a high-value Google PM certificate."
+      },
+      "Target_Program": "BS in Operations Management",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-005-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Title": "High School Completion Attestation",
+          "Issuing_Organization": "Springfield Adult Learning Center",
+          "Issue_Date": "2025-09-11",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "hs_attestation_signed_nhernandez.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Nicole Hernandez",
+            "summary_lines": [
+              "High school completion attestation form",
+              "School/attestor: Springfield Adult Learning Center",
+              "Attestation date: 2025-09-11"
+            ],
+            "signature_block": {
+              "signed_by": "L. McCarthy",
+              "title": "Registrar / Records Officer",
+              "signed_date": "2025-09-11"
+            },
+            "notes": [
+              "Synthetic form included to test low-quality scanned admissions paperwork ingestion."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "yellowed_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": -1.6,
+              "blur_px": 0.6,
+              "notes": "Fax streaks and toner dropout around signature block."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic scanned high school completion attestation form, checkbox fields, blue-ink signature, fax artifacts, slightly yellowed paper, office copier grain, mild skew. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Nicole Hernandez."
+        },
+        {
+          "Document_ID": "APPL-005-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Title": "Official Transcript - Bunker Hill Community College",
+          "Issuing_Organization": "Bunker Hill Community College",
+          "Issue_Date": "2025-10-02",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "scan0001_BHCC_transcript_2008.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Nicole Hernandez",
+            "student_id_on_document": "BH-00492177",
+            "education_record": {
+              "institution_name": "Bunker Hill Community College",
+              "student_number": "BH-00492177",
+              "program": "General Studies (no credential completed)",
+              "credential_awarded": "No Credential",
+              "attendance_start": "2007-09-01",
+              "attendance_end": "2008-05-20",
+              "gpa": 3.11,
+              "graduation_date": null
+            },
+            "gpa_summary": {
+              "gpa": 3.11,
+              "scale": 4.0,
+              "credits_attempted": 12.0,
+              "credits_earned": 12.0
+            },
+            "summary_lines": [
+              "Legacy transcript from Bunker Hill Community College",
+              "Attendance years: 2007-2008",
+              "Key demo hook: includes Intro to Psychology for instant transfer mapping"
+            ],
+            "courses": [
+              {
+                "course_code": "PSY101",
+                "course_title": "Intro to Psychology",
+                "term_label": "Fall",
+                "year": 2007,
+                "credits": 3.0,
+                "grade": "B+",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "ENG111",
+                "course_title": "English Composition I",
+                "term_label": "Fall",
+                "year": 2007,
+                "credits": 3.0,
+                "grade": "B",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "MAT092",
+                "course_title": "Beginning Algebra",
+                "term_label": "Fall",
+                "year": 2007,
+                "credits": 3.0,
+                "grade": "C+",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "CIS105",
+                "course_title": "Computer Applications",
+                "term_label": "Spring",
+                "year": 2008,
+                "credits": 3.0,
+                "grade": "A-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Bunker Hill Community College PSY101 Intro to Psychology",
+                "proposed_college_course_code": "PSY-108",
+                "proposed_college_course_title": "Introduction to Psychology",
+                "credits": 3.0,
+                "rationale": "Standard lower-division psychology course with transferable grade."
+              }
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "gray_white",
+              "artifact_level": "heavy",
+              "rotation_degrees": 2.2,
+              "blur_px": 1.1,
+              "notes": "2000s copier compression, edge shadowing, mild speckle noise."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic 2000s community college transcript scan, monochrome registrar transcript table, staple shadow, slight 2-degree skew, copier speckle noise, readable course rows and GPA section. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Nicole Hernandez."
+        },
+        {
+          "Document_ID": "APPL-005-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Title": "Sophia Learning Transcript",
+          "Issuing_Organization": "Sophia Learning",
+          "Issue_Date": "2025-12-06",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Output_File_Name": "SophiaLearning-Transcript-NH-2025.txt",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Nicole Hernandez",
+            "summary_lines": [
+              "Sophia Learning transcript export",
+              "Competency-based coursework transcripted as pass/fail"
+            ],
+            "raw_text_preview": [
+              "SOPHIA LEARNING UNOFFICIAL TRANSCRIPT",
+              "LEARNER: NICOLE HERNANDEZ",
+              "COURSES COMPLETED",
+              " - Introduction to Statistics ........ PASS .... 3.0 credits",
+              " - Project Management ................ PASS .... 3.0 credits",
+              " - Business Communication ............ PASS .... 3.0 credits"
+            ],
+            "courses": [
+              {
+                "course_code": "SOPH-STAT1001",
+                "course_title": "Introduction to Statistics",
+                "term_label": "Self-Paced",
+                "year": 2024,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-PM1001",
+                "course_title": "Project Management",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-BUS1001",
+                "course_title": "Business Communication",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Plain text export PDF for utility-style parser testing."
+            },
+            "notes": [
+              "Content provided as a plain-text export file instead of scanned pages."
+            ]
+          }
+        },
+        {
+          "Document_ID": "APPL-005-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Title": "Google Project Management Professional Certificate",
+          "Issuing_Organization": "Google / Coursera",
+          "Issue_Date": "2025-11-21",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "Google_Project_Management_Certificate_Nicole_Hernandez.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Nicole Hernandez",
+            "certificate_record": {
+              "certificate_name": "Google Project Management Professional Certificate",
+              "provider": "Google via Coursera",
+              "credential_id": "GPM-NH-8452-2025",
+              "issue_date": "2025-11-21",
+              "expiration_date": null,
+              "verification_url": "https://coursera.org/verify/professional-cert",
+              "skills": [
+                "Project initiation",
+                "Agile project management",
+                "Stakeholder communication",
+                "Risk and schedule management"
+              ]
+            },
+            "summary_lines": [
+              "Google Project Management Professional Certificate",
+              "AI demo hook: maps to QSO340, QSO355, QSO420, QSO435 (12 credits)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO340",
+                "proposed_college_course_title": "Project Management",
+                "credits": 3.0,
+                "rationale": "Certificate competency coverage aligns to project management fundamentals."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO355",
+                "proposed_college_course_title": "Resource Estimating and Scheduling",
+                "credits": 3.0,
+                "rationale": "Includes scheduling, estimation, and planning modules."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO420",
+                "proposed_college_course_title": "Integrated Cost and Schedule Control",
+                "credits": 3.0,
+                "rationale": "Includes tracking, reporting, and project controls concepts."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO435",
+                "proposed_college_course_title": "Adaptive Project Management",
+                "credits": 3.0,
+                "rationale": "Agile/scrum and adaptive delivery content included."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern certificate layout with colored branding stripe."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Operations Management",
+        "Pathway_Theme": "SCNC fast-track credit aggregation across old and new learning",
+        "Proposed_Transfer_Credits_Total": 18.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "Bunker Hill Community College PSY101 Intro to Psychology",
+            "proposed_college_course_code": "PSY-108",
+            "proposed_college_course_title": "Introduction to Psychology",
+            "credits": 3.0,
+            "rationale": "Legacy community college course transfers as foundational psychology credit."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO340",
+            "proposed_college_course_title": "Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO355",
+            "proposed_college_course_title": "Resource Estimating and Scheduling",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO420",
+            "proposed_college_course_title": "Integrated Cost and Schedule Control",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO435",
+            "proposed_college_course_title": "Adaptive Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Sophia Introduction to Statistics",
+            "proposed_college_course_code": "MAT/STAT-ELEC",
+            "proposed_college_course_title": "Statistics elective (advisor review)",
+            "credits": 3.0,
+            "rationale": "Sophia ACE-backed statistics course is commonly evaluated for lower-division statistics transfer."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official community college transcript source",
+          "Verify Coursera certificate credential link if required by policy",
+          "Finalize Sophia transfer policy limits for current catalog year"
+        ],
+        "Advisor_Review_Focus": [
+          "Confirm Google PM articulation pack (QSO340/QSO355/QSO420/QSO435)",
+          "Review math placement impact of MAT092 legacy coursework",
+          "Sequence remaining degree requirements after 12-credit QSO jump"
+        ],
+        "Narrative": "Bundle demonstrates high-value aggregation for a working adult with some college, no credential: the AI picks up the old Intro to Psychology course from a noisy transcript, adds modern Sophia work, and applies a 12-credit Google PM articulation block to accelerate the pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-006",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Persona": {
+        "full_name": "Brandon ONeal",
+        "preferred_name": "Brandon",
+        "career_goal": "Grow from warehouse team lead to operations project coordinator in manufacturing.",
+        "prior_learning_sources": [
+          "High school completion documentation",
+          "Regional community college coursework at Middlesex Community College",
+          "Sophia Learning self-paced coursework",
+          "Google Project Management Professional Certificate"
+        ],
+        "demo_storyline": "Has old credits and recent self-paced coursework but needs quick clarity on what still counts."
+      },
+      "Target_Program": "BS in Operations Management",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-006-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Title": "High School Completion Attestation",
+          "Issuing_Organization": "Metro Regional Adult Education Program",
+          "Issue_Date": "2025-08-19",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Output_File_Name": "attestation_form_boneal_scan.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Brandon ONeal",
+            "summary_lines": [
+              "High school completion attestation form",
+              "School/attestor: Metro Regional Adult Education Program",
+              "Attestation date: 2025-08-19"
+            ],
+            "signature_block": {
+              "signed_by": "T. Alvarez",
+              "title": "Registrar / Records Officer",
+              "signed_date": "2025-08-19"
+            },
+            "notes": [
+              "Synthetic form included to test low-quality scanned admissions paperwork ingestion."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "yellowed_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": -1.6,
+              "blur_px": 0.6,
+              "notes": "Fax streaks and toner dropout around signature block."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-006-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Title": "Official Transcript - Middlesex Community College",
+          "Issuing_Organization": "Middlesex Community College",
+          "Issue_Date": "2025-09-30",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Output_File_Name": "mcc_old_transcript_copy_2005.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Brandon ONeal",
+            "student_id_on_document": "MX-7712043",
+            "education_record": {
+              "institution_name": "Middlesex Community College",
+              "student_number": "MX-7712043",
+              "program": "General Studies (no credential completed)",
+              "credential_awarded": "No Credential",
+              "attendance_start": "2004-09-01",
+              "attendance_end": "2005-05-20",
+              "gpa": 3.22,
+              "graduation_date": null
+            },
+            "gpa_summary": {
+              "gpa": 3.22,
+              "scale": 4.0,
+              "credits_attempted": 12.0,
+              "credits_earned": 12.0
+            },
+            "summary_lines": [
+              "Legacy transcript from Middlesex Community College",
+              "Attendance years: 2004-2005",
+              "Key demo hook: includes Intro to Psychology for instant transfer mapping"
+            ],
+            "courses": [
+              {
+                "course_code": "PSY101",
+                "course_title": "Intro to Psychology",
+                "term_label": "Fall",
+                "year": 2004,
+                "credits": 3.0,
+                "grade": "A-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "ENG111",
+                "course_title": "English Composition I",
+                "term_label": "Fall",
+                "year": 2004,
+                "credits": 3.0,
+                "grade": "B-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "MAT092",
+                "course_title": "Beginning Algebra",
+                "term_label": "Fall",
+                "year": 2004,
+                "credits": 3.0,
+                "grade": "B",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "CIS105",
+                "course_title": "Computer Applications",
+                "term_label": "Spring",
+                "year": 2005,
+                "credits": 3.0,
+                "grade": "B+",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Middlesex Community College PSY101 Intro to Psychology",
+                "proposed_college_course_code": "PSY-108",
+                "proposed_college_course_title": "Introduction to Psychology",
+                "credits": 3.0,
+                "rationale": "Standard lower-division psychology course with transferable grade."
+              }
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "gray_white",
+              "artifact_level": "heavy",
+              "rotation_degrees": 2.2,
+              "blur_px": 1.1,
+              "notes": "2000s copier compression, edge shadowing, mild speckle noise."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-006-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Title": "Sophia Learning Transcript",
+          "Issuing_Organization": "Sophia Learning",
+          "Issue_Date": "2025-11-27",
+          "Document_Format": "pdf",
+          "Rendering_Method": "raw_text_pdf",
+          "Output_File_Name": "BrandonONeal_Sophia_Transcript.pdf",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Brandon ONeal",
+            "summary_lines": [
+              "Sophia Learning transcript export",
+              "Competency-based coursework transcripted as pass/fail"
+            ],
+            "raw_text_preview": [
+              "SOPHIA LEARNING UNOFFICIAL TRANSCRIPT",
+              "LEARNER: BRANDON ONEAL",
+              "COURSES COMPLETED",
+              " - Introduction to Statistics ........ PASS .... 3.0 credits",
+              " - Project Management ................ PASS .... 3.0 credits",
+              " - Business Communication ............ PASS .... 3.0 credits"
+            ],
+            "courses": [
+              {
+                "course_code": "SOPH-STAT1001",
+                "course_title": "Introduction to Statistics",
+                "term_label": "Self-Paced",
+                "year": 2024,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-PM1001",
+                "course_title": "Project Management",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-BUS1001",
+                "course_title": "Business Communication",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Plain text export PDF for utility-style parser testing."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-006-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Title": "Google Project Management Professional Certificate",
+          "Issuing_Organization": "Google / Coursera",
+          "Issue_Date": "2025-10-18",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "BrandonONeal_GooglePM_ProfCert.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Brandon ONeal",
+            "certificate_record": {
+              "certificate_name": "Google Project Management Professional Certificate",
+              "provider": "Google via Coursera",
+              "credential_id": "GPM-BO-1922-2025",
+              "issue_date": "2025-10-18",
+              "expiration_date": null,
+              "verification_url": "https://coursera.org/verify/professional-cert",
+              "skills": [
+                "Project initiation",
+                "Agile project management",
+                "Stakeholder communication",
+                "Risk and schedule management"
+              ]
+            },
+            "summary_lines": [
+              "Google Project Management Professional Certificate",
+              "AI demo hook: maps to QSO340, QSO355, QSO420, QSO435 (12 credits)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO340",
+                "proposed_college_course_title": "Project Management",
+                "credits": 3.0,
+                "rationale": "Certificate competency coverage aligns to project management fundamentals."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO355",
+                "proposed_college_course_title": "Resource Estimating and Scheduling",
+                "credits": 3.0,
+                "rationale": "Includes scheduling, estimation, and planning modules."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO420",
+                "proposed_college_course_title": "Integrated Cost and Schedule Control",
+                "credits": 3.0,
+                "rationale": "Includes tracking, reporting, and project controls concepts."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO435",
+                "proposed_college_course_title": "Adaptive Project Management",
+                "credits": 3.0,
+                "rationale": "Agile/scrum and adaptive delivery content included."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern certificate layout with colored branding stripe."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Operations Management",
+        "Pathway_Theme": "SCNC fast-track credit aggregation across old and new learning",
+        "Proposed_Transfer_Credits_Total": 18.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "Middlesex Community College PSY101 Intro to Psychology",
+            "proposed_college_course_code": "PSY-108",
+            "proposed_college_course_title": "Introduction to Psychology",
+            "credits": 3.0,
+            "rationale": "Legacy community college course transfers as foundational psychology credit."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO340",
+            "proposed_college_course_title": "Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO355",
+            "proposed_college_course_title": "Resource Estimating and Scheduling",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO420",
+            "proposed_college_course_title": "Integrated Cost and Schedule Control",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO435",
+            "proposed_college_course_title": "Adaptive Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Sophia Introduction to Statistics",
+            "proposed_college_course_code": "MAT/STAT-ELEC",
+            "proposed_college_course_title": "Statistics elective (advisor review)",
+            "credits": 3.0,
+            "rationale": "Sophia ACE-backed statistics course is commonly evaluated for lower-division statistics transfer."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official community college transcript source",
+          "Verify Coursera certificate credential link if required by policy",
+          "Finalize Sophia transfer policy limits for current catalog year"
+        ],
+        "Advisor_Review_Focus": [
+          "Confirm Google PM articulation pack (QSO340/QSO355/QSO420/QSO435)",
+          "Review math placement impact of MAT092 legacy coursework",
+          "Sequence remaining degree requirements after 12-credit QSO jump"
+        ],
+        "Narrative": "Bundle demonstrates high-value aggregation for a working adult with some college, no credential: the AI picks up the old Intro to Psychology course from a noisy transcript, adds modern Sophia work, and applies a 12-credit Google PM articulation block to accelerate the pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-007",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Persona": {
+        "full_name": "Tasha Nguyen",
+        "preferred_name": "Tasha",
+        "career_goal": "Transition from customer service supervision to project operations and process improvement.",
+        "prior_learning_sources": [
+          "High school completion documentation",
+          "Regional community college coursework at Northern Essex Community College",
+          "Sophia Learning self-paced coursework",
+          "Google Project Management Professional Certificate"
+        ],
+        "demo_storyline": "Long gap since community college makes the AI transcript read/normalize capability especially compelling."
+      },
+      "Target_Program": "BS in Operations Management",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-007-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Title": "High School Completion Attestation",
+          "Issuing_Organization": "North Shore Adult Diploma Office",
+          "Issue_Date": "2025-07-08",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "HS_completion_attestation_tnguyen.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Tasha Nguyen",
+            "summary_lines": [
+              "High school completion attestation form",
+              "School/attestor: North Shore Adult Diploma Office",
+              "Attestation date: 2025-07-08"
+            ],
+            "signature_block": {
+              "signed_by": "R. Patel",
+              "title": "Registrar / Records Officer",
+              "signed_date": "2025-07-08"
+            },
+            "notes": [
+              "Synthetic form included to test low-quality scanned admissions paperwork ingestion."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "yellowed_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": -1.6,
+              "blur_px": 0.6,
+              "notes": "Fax streaks and toner dropout around signature block."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic scanned high school completion attestation form, checkbox fields, blue-ink signature, fax artifacts, slightly yellowed paper, office copier grain, mild skew. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Tasha Nguyen."
+        },
+        {
+          "Document_ID": "APPL-007-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Title": "Official Transcript - Northern Essex Community College",
+          "Issuing_Organization": "Northern Essex Community College",
+          "Issue_Date": "2025-09-04",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "NECC_transcript_scanned_03.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Tasha Nguyen",
+            "student_id_on_document": "NE-229915",
+            "education_record": {
+              "institution_name": "Northern Essex Community College",
+              "student_number": "NE-229915",
+              "program": "General Studies (no credential completed)",
+              "credential_awarded": "No Credential",
+              "attendance_start": "2002-09-01",
+              "attendance_end": "2003-05-20",
+              "gpa": 2.94,
+              "graduation_date": null
+            },
+            "gpa_summary": {
+              "gpa": 2.94,
+              "scale": 4.0,
+              "credits_attempted": 12.0,
+              "credits_earned": 12.0
+            },
+            "summary_lines": [
+              "Legacy transcript from Northern Essex Community College",
+              "Attendance years: 2002-2003",
+              "Key demo hook: includes Intro to Psychology for instant transfer mapping"
+            ],
+            "courses": [
+              {
+                "course_code": "PSY101",
+                "course_title": "Intro to Psychology",
+                "term_label": "Spring",
+                "year": 2002,
+                "credits": 3.0,
+                "grade": "B",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "ENG111",
+                "course_title": "English Composition I",
+                "term_label": "Spring",
+                "year": 2002,
+                "credits": 3.0,
+                "grade": "A-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "MAT092",
+                "course_title": "Beginning Algebra",
+                "term_label": "Spring",
+                "year": 2002,
+                "credits": 3.0,
+                "grade": "C",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "CIS105",
+                "course_title": "Computer Applications",
+                "term_label": "Fall",
+                "year": 2003,
+                "credits": 3.0,
+                "grade": "B",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Northern Essex Community College PSY101 Intro to Psychology",
+                "proposed_college_course_code": "PSY-108",
+                "proposed_college_course_title": "Introduction to Psychology",
+                "credits": 3.0,
+                "rationale": "Standard lower-division psychology course with transferable grade."
+              }
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "gray_white",
+              "artifact_level": "heavy",
+              "rotation_degrees": 2.2,
+              "blur_px": 1.1,
+              "notes": "2000s copier compression, edge shadowing, mild speckle noise."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic 2000s community college transcript scan, monochrome registrar transcript table, staple shadow, slight 2-degree skew, copier speckle noise, readable course rows and GPA section. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Tasha Nguyen."
+        },
+        {
+          "Document_ID": "APPL-007-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Title": "Sophia Learning Transcript",
+          "Issuing_Organization": "Sophia Learning",
+          "Issue_Date": "2025-10-29",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "SophiaTranscript_TNguyen_102925.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Tasha Nguyen",
+            "summary_lines": [
+              "Sophia Learning transcript export",
+              "Competency-based coursework transcripted as pass/fail"
+            ],
+            "raw_text_preview": [
+              "SOPHIA LEARNING UNOFFICIAL TRANSCRIPT",
+              "LEARNER: TASHA NGUYEN",
+              "COURSES COMPLETED",
+              " - Introduction to Statistics ........ PASS .... 3.0 credits",
+              " - Project Management ................ PASS .... 3.0 credits",
+              " - Business Communication ............ PASS .... 3.0 credits"
+            ],
+            "courses": [
+              {
+                "course_code": "SOPH-STAT1001",
+                "course_title": "Introduction to Statistics",
+                "term_label": "Self-Paced",
+                "year": 2024,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-PM1001",
+                "course_title": "Project Management",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-BUS1001",
+                "course_title": "Business Communication",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Plain text export PDF for utility-style parser testing."
+            },
+            "notes": [
+              "Applicant uploaded a single image capture of this document (page 1 / summary page only); remaining pages may be requested."
+            ]
+          },
+          "Gemimg_Prompt": "Photorealistic screenshot/printout of a Sophia Learning transcript export, simple tabular course completion list, text-heavy layout, slight screen moire or print scan noise, readable rows. Synthetic demo document for Tasha Nguyen."
+        },
+        {
+          "Document_ID": "APPL-007-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Title": "Google Project Management Professional Certificate",
+          "Issuing_Organization": "Google / Coursera",
+          "Issue_Date": "2025-12-01",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "GooglePMCert_TashaNguyen.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Tasha Nguyen",
+            "certificate_record": {
+              "certificate_name": "Google Project Management Professional Certificate",
+              "provider": "Google via Coursera",
+              "credential_id": "GPM-TN-7710-2025",
+              "issue_date": "2025-12-01",
+              "expiration_date": null,
+              "verification_url": "https://coursera.org/verify/professional-cert",
+              "skills": [
+                "Project initiation",
+                "Agile project management",
+                "Stakeholder communication",
+                "Risk and schedule management"
+              ]
+            },
+            "summary_lines": [
+              "Google Project Management Professional Certificate",
+              "AI demo hook: maps to QSO340, QSO355, QSO420, QSO435 (12 credits)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO340",
+                "proposed_college_course_title": "Project Management",
+                "credits": 3.0,
+                "rationale": "Certificate competency coverage aligns to project management fundamentals."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO355",
+                "proposed_college_course_title": "Resource Estimating and Scheduling",
+                "credits": 3.0,
+                "rationale": "Includes scheduling, estimation, and planning modules."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO420",
+                "proposed_college_course_title": "Integrated Cost and Schedule Control",
+                "credits": 3.0,
+                "rationale": "Includes tracking, reporting, and project controls concepts."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO435",
+                "proposed_college_course_title": "Adaptive Project Management",
+                "credits": 3.0,
+                "rationale": "Agile/scrum and adaptive delivery content included."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern certificate layout with colored branding stripe."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic screenshot or printed certificate photo of a Google Project Management Professional Certificate, modern Coursera/Google certificate layout, colored branding strip, slight desk shadow, readable credential block. Synthetic demo document for Tasha Nguyen."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Operations Management",
+        "Pathway_Theme": "SCNC fast-track credit aggregation across old and new learning",
+        "Proposed_Transfer_Credits_Total": 18.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "Northern Essex Community College PSY101 Intro to Psychology",
+            "proposed_college_course_code": "PSY-108",
+            "proposed_college_course_title": "Introduction to Psychology",
+            "credits": 3.0,
+            "rationale": "Legacy community college course transfers as foundational psychology credit."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO340",
+            "proposed_college_course_title": "Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO355",
+            "proposed_college_course_title": "Resource Estimating and Scheduling",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO420",
+            "proposed_college_course_title": "Integrated Cost and Schedule Control",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO435",
+            "proposed_college_course_title": "Adaptive Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Sophia Introduction to Statistics",
+            "proposed_college_course_code": "MAT/STAT-ELEC",
+            "proposed_college_course_title": "Statistics elective (advisor review)",
+            "credits": 3.0,
+            "rationale": "Sophia ACE-backed statistics course is commonly evaluated for lower-division statistics transfer."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official community college transcript source",
+          "Verify Coursera certificate credential link if required by policy",
+          "Finalize Sophia transfer policy limits for current catalog year"
+        ],
+        "Advisor_Review_Focus": [
+          "Confirm Google PM articulation pack (QSO340/QSO355/QSO420/QSO435)",
+          "Review math placement impact of MAT092 legacy coursework",
+          "Sequence remaining degree requirements after 12-credit QSO jump"
+        ],
+        "Narrative": "Bundle demonstrates high-value aggregation for a working adult with some college, no credential: the AI picks up the old Intro to Psychology course from a noisy transcript, adds modern Sophia work, and applies a 12-credit Google PM articulation block to accelerate the pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-008",
+      "Archetype_Code": "B",
+      "Archetype_Label": "SCNC Corporate Upskiller (Some College, No Credential)",
+      "Persona": {
+        "full_name": "Kevin Morales",
+        "preferred_name": "Kevin",
+        "career_goal": "Advance from field service logistics to operations program management.",
+        "prior_learning_sources": [
+          "High school completion documentation",
+          "Regional community college coursework at Quinsigamond Community College",
+          "Sophia Learning self-paced coursework",
+          "Google Project Management Professional Certificate"
+        ],
+        "demo_storyline": "Strong mix of older academic credits and modern credentialing for a dramatic credit-jump demo."
+      },
+      "Target_Program": "BS in Operations Management",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-008-D1",
+          "Document_Type": "High_School_Attestation_Form",
+          "Title": "High School Completion Attestation",
+          "Issuing_Organization": "City Schools Records Verification Office",
+          "Issue_Date": "2025-10-03",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "kmorales_hs_attestation_scan.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Kevin Morales",
+            "summary_lines": [
+              "High school completion attestation form",
+              "School/attestor: City Schools Records Verification Office",
+              "Attestation date: 2025-10-03"
+            ],
+            "signature_block": {
+              "signed_by": "J. Bennett",
+              "title": "Registrar / Records Officer",
+              "signed_date": "2025-10-03"
+            },
+            "notes": [
+              "Synthetic form included to test low-quality scanned admissions paperwork ingestion."
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "yellowed_offwhite",
+              "artifact_level": "medium",
+              "rotation_degrees": -1.6,
+              "blur_px": 0.6,
+              "notes": "Fax streaks and toner dropout around signature block."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic scanned high school completion attestation form, checkbox fields, blue-ink signature, fax artifacts, slightly yellowed paper, office copier grain, mild skew. Include subtle copier dust, compression noise, and edge shadowing. Synthetic demo document for Kevin Morales."
+        },
+        {
+          "Document_ID": "APPL-008-D2",
+          "Document_Type": "Community_College_Transcript",
+          "Title": "Official Transcript - Quinsigamond Community College",
+          "Issuing_Organization": "Quinsigamond Community College",
+          "Issue_Date": "2025-11-14",
+          "Document_Format": "pdf",
+          "Rendering_Method": "scanned_pdf",
+          "Output_File_Name": "qcc_transcript_2010_scan-copy.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Kevin Morales",
+            "student_id_on_document": "QCC-518884",
+            "education_record": {
+              "institution_name": "Quinsigamond Community College",
+              "student_number": "QCC-518884",
+              "program": "General Studies (no credential completed)",
+              "credential_awarded": "No Credential",
+              "attendance_start": "2009-09-01",
+              "attendance_end": "2010-05-20",
+              "gpa": 3.45,
+              "graduation_date": null
+            },
+            "gpa_summary": {
+              "gpa": 3.45,
+              "scale": 4.0,
+              "credits_attempted": 12.0,
+              "credits_earned": 12.0
+            },
+            "summary_lines": [
+              "Legacy transcript from Quinsigamond Community College",
+              "Attendance years: 2009-2010",
+              "Key demo hook: includes Intro to Psychology for instant transfer mapping"
+            ],
+            "courses": [
+              {
+                "course_code": "PSY101",
+                "course_title": "Intro to Psychology",
+                "term_label": "Fall",
+                "year": 2009,
+                "credits": 3.0,
+                "grade": "A",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "ENG111",
+                "course_title": "English Composition I",
+                "term_label": "Fall",
+                "year": 2009,
+                "credits": 3.0,
+                "grade": "B+",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "MAT092",
+                "course_title": "Beginning Algebra",
+                "term_label": "Fall",
+                "year": 2009,
+                "credits": 3.0,
+                "grade": "B-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              },
+              {
+                "course_code": "CIS105",
+                "course_title": "Computer Applications",
+                "term_label": "Spring",
+                "year": 2010,
+                "credits": 3.0,
+                "grade": "A-",
+                "status": "Completed",
+                "source_system": "CommunityCollege"
+              }
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Quinsigamond Community College PSY101 Intro to Psychology",
+                "proposed_college_course_code": "PSY-108",
+                "proposed_college_course_title": "Introduction to Psychology",
+                "credits": 3.0,
+                "rationale": "Standard lower-division psychology course with transferable grade."
+              }
+            ],
+            "visual_profile": {
+              "style": "scanned_photo",
+              "paper_tone": "gray_white",
+              "artifact_level": "heavy",
+              "rotation_degrees": 2.2,
+              "blur_px": 1.1,
+              "notes": "2000s copier compression, edge shadowing, mild speckle noise."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-008-D3",
+          "Document_Type": "Sophia_Learning_Transcript",
+          "Title": "Sophia Learning Transcript",
+          "Issuing_Organization": "Sophia Learning",
+          "Issue_Date": "2025-12-19",
+          "Document_Format": "txt",
+          "Rendering_Method": "raw_text_txt",
+          "Output_File_Name": "KMorales_Sophia_Learning_Transcript.txt",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Kevin Morales",
+            "summary_lines": [
+              "Sophia Learning transcript export",
+              "Competency-based coursework transcripted as pass/fail"
+            ],
+            "raw_text_preview": [
+              "SOPHIA LEARNING UNOFFICIAL TRANSCRIPT",
+              "LEARNER: KEVIN MORALES",
+              "COURSES COMPLETED",
+              " - Introduction to Statistics ........ PASS .... 3.0 credits",
+              " - Project Management ................ PASS .... 3.0 credits",
+              " - Business Communication ............ PASS .... 3.0 credits"
+            ],
+            "courses": [
+              {
+                "course_code": "SOPH-STAT1001",
+                "course_title": "Introduction to Statistics",
+                "term_label": "Self-Paced",
+                "year": 2024,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-PM1001",
+                "course_title": "Project Management",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              },
+              {
+                "course_code": "SOPH-BUS1001",
+                "course_title": "Business Communication",
+                "term_label": "Self-Paced",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": "Pass",
+                "status": "Completed",
+                "source_system": "Sophia"
+              }
+            ],
+            "visual_profile": {
+              "style": "dense_text_dump",
+              "paper_tone": "plain_white",
+              "artifact_level": "light",
+              "notes": "Plain text export PDF for utility-style parser testing."
+            },
+            "notes": [
+              "Content provided as a plain-text export file instead of scanned pages."
+            ]
+          }
+        },
+        {
+          "Document_ID": "APPL-008-D4",
+          "Document_Type": "Google_Project_Management_Certificate",
+          "Title": "Google Project Management Professional Certificate",
+          "Issuing_Organization": "Google / Coursera",
+          "Issue_Date": "2025-12-09",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "Google_Project_Mgmt_Certificate_KMorales.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Kevin Morales",
+            "certificate_record": {
+              "certificate_name": "Google Project Management Professional Certificate",
+              "provider": "Google via Coursera",
+              "credential_id": "GPM-KM-3348-2025",
+              "issue_date": "2025-12-09",
+              "expiration_date": null,
+              "verification_url": "https://coursera.org/verify/professional-cert",
+              "skills": [
+                "Project initiation",
+                "Agile project management",
+                "Stakeholder communication",
+                "Risk and schedule management"
+              ]
+            },
+            "summary_lines": [
+              "Google Project Management Professional Certificate",
+              "AI demo hook: maps to QSO340, QSO355, QSO420, QSO435 (12 credits)"
+            ],
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO340",
+                "proposed_college_course_title": "Project Management",
+                "credits": 3.0,
+                "rationale": "Certificate competency coverage aligns to project management fundamentals."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO355",
+                "proposed_college_course_title": "Resource Estimating and Scheduling",
+                "credits": 3.0,
+                "rationale": "Includes scheduling, estimation, and planning modules."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO420",
+                "proposed_college_course_title": "Integrated Cost and Schedule Control",
+                "credits": 3.0,
+                "rationale": "Includes tracking, reporting, and project controls concepts."
+              },
+              {
+                "source_evidence": "Google PM Certificate",
+                "proposed_college_course_code": "QSO435",
+                "proposed_college_course_title": "Adaptive Project Management",
+                "credits": 3.0,
+                "rationale": "Agile/scrum and adaptive delivery content included."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Modern certificate layout with colored branding stripe."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic screenshot or printed certificate photo of a Google Project Management Professional Certificate, modern Coursera/Google certificate layout, colored branding strip, slight desk shadow, readable credential block. Synthetic demo document for Kevin Morales."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Operations Management",
+        "Pathway_Theme": "SCNC fast-track credit aggregation across old and new learning",
+        "Proposed_Transfer_Credits_Total": 18.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "Quinsigamond Community College PSY101 Intro to Psychology",
+            "proposed_college_course_code": "PSY-108",
+            "proposed_college_course_title": "Introduction to Psychology",
+            "credits": 3.0,
+            "rationale": "Legacy community college course transfers as foundational psychology credit."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO340",
+            "proposed_college_course_title": "Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO355",
+            "proposed_college_course_title": "Resource Estimating and Scheduling",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO420",
+            "proposed_college_course_title": "Integrated Cost and Schedule Control",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Google Project Management Certificate",
+            "proposed_college_course_code": "QSO435",
+            "proposed_college_course_title": "Adaptive Project Management",
+            "credits": 3.0,
+            "rationale": "Direct certificate-to-course articulation."
+          },
+          {
+            "source_evidence": "Sophia Introduction to Statistics",
+            "proposed_college_course_code": "MAT/STAT-ELEC",
+            "proposed_college_course_title": "Statistics elective (advisor review)",
+            "credits": 3.0,
+            "rationale": "Sophia ACE-backed statistics course is commonly evaluated for lower-division statistics transfer."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official community college transcript source",
+          "Verify Coursera certificate credential link if required by policy",
+          "Finalize Sophia transfer policy limits for current catalog year"
+        ],
+        "Advisor_Review_Focus": [
+          "Confirm Google PM articulation pack (QSO340/QSO355/QSO420/QSO435)",
+          "Review math placement impact of MAT092 legacy coursework",
+          "Sequence remaining degree requirements after 12-credit QSO jump"
+        ],
+        "Narrative": "Bundle demonstrates high-value aggregation for a working adult with some college, no credential: the AI picks up the old Intro to Psychology course from a noisy transcript, adds modern Sophia work, and applies a 12-credit Google PM articulation block to accelerate the pathway."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-009",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Persona": {
+        "full_name": "Priya Nair",
+        "preferred_name": "Priya",
+        "career_goal": "Move into U.S.-based operations and finance management after relocating.",
+        "prior_learning_sources": [
+          "Bachelor of Commerce from University of Mumbai (India)",
+          "WES course-by-course U.S. credential evaluation",
+          "TOEFL iBT score report"
+        ],
+        "demo_storyline": "International applicant needs simultaneous credential evaluation ingestion and English proficiency verification."
+      },
+      "Target_Program": "BS in Business Administration",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-009-D1",
+          "Document_Type": "WES_Course_By_Course_Evaluation",
+          "Title": "WES Course-by-Course Credential Evaluation",
+          "Issuing_Organization": "WES",
+          "Issue_Date": "2025-11-05",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "WES_CourseByCourse_PriyaNair.pdf",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Priya Nair",
+            "evaluation_record": {
+              "agency": "WES",
+              "report_type": "Course-by-Course",
+              "origin_country": "India",
+              "origin_institution": "University of Mumbai",
+              "origin_credential": "Bachelor of Commerce",
+              "us_equivalency": "U.S. Bachelor's degree (4 years) in Business Administration",
+              "us_gpa": 3.18,
+              "report_date": "2025-11-05",
+              "reference_number": "WES-7349912"
+            },
+            "summary_lines": [
+              "WES course-by-course evaluation report",
+              "Origin credential: Bachelor of Commerce (India)",
+              "U.S. equivalency: U.S. Bachelor's degree (4 years) in Business Administration"
+            ],
+            "courses": [
+              {
+                "course_code": "WES-EVAL-ACC",
+                "course_title": "Financial Accounting",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-MKT",
+                "course_title": "Principles of Marketing",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-MGMT",
+                "course_title": "Principles of Management",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-ECON",
+                "course_title": "Microeconomics",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              }
+            ],
+            "gpa_summary": {
+              "gpa": 3.18,
+              "scale": 4.0,
+              "credits_attempted": 90.0,
+              "credits_earned": 90.0
+            },
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "WES course equivalency: Financial Accounting",
+                "proposed_college_course_code": "ACC-201",
+                "proposed_college_course_title": "Financial Accounting",
+                "credits": 3.0,
+                "rationale": "Evaluator identifies equivalent lower-division accounting coursework."
+              },
+              {
+                "source_evidence": "WES course equivalency: Principles of Management",
+                "proposed_college_course_code": "BUS-210",
+                "proposed_college_course_title": "Managing and Leading in Business",
+                "credits": 3.0,
+                "rationale": "Management fundamentals align to business core outcomes."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Credential evaluation report table layout with agency header."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-009-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Title": "TOEFL iBT Score Report",
+          "Issuing_Organization": "ETS",
+          "Issue_Date": "2025-09-17",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "TOEFL_iBT_PriyaNair_2025.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Priya Nair",
+            "document_number": "ETS-IBT-99150012",
+            "summary_lines": [
+              "Official TOEFL iBT score report",
+              "Total score: 98",
+              "Used for English proficiency review in admissions workflow"
+            ],
+            "scores": [
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Reading",
+                "score": 26,
+                "scale": "0-30",
+                "test_date": "2025-09-17"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Listening",
+                "score": 24,
+                "scale": "0-30",
+                "test_date": "2025-09-17"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Speaking",
+                "score": 23,
+                "scale": "0-30",
+                "test_date": "2025-09-17"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Writing",
+                "score": 25,
+                "scale": "0-30",
+                "test_date": "2025-09-17"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Total",
+                "score": 98,
+                "scale": "0-120",
+                "test_date": "2025-09-17"
+              }
+            ],
+            "notes": [
+              "ETS registration number ETS-IBT-99150012"
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Digital score report with boxed section scores."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Business Administration",
+        "Pathway_Theme": "International transfer with credential evaluation + language verification",
+        "Proposed_Transfer_Credits_Total": 60.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "WES course equivalency: Financial Accounting",
+            "proposed_college_course_code": "ACC-201",
+            "proposed_college_course_title": "Financial Accounting",
+            "credits": 3.0,
+            "rationale": "Evaluator identifies equivalent lower-division accounting coursework."
+          },
+          {
+            "source_evidence": "WES course equivalency: Principles of Management",
+            "proposed_college_course_code": "BUS-210",
+            "proposed_college_course_title": "Managing and Leading in Business",
+            "credits": 3.0,
+            "rationale": "Management fundamentals align to business core outcomes."
+          },
+          {
+            "source_evidence": "TOEFL iBT total 98",
+            "proposed_college_course_code": "ENGL-PROF",
+            "proposed_college_course_title": "English proficiency satisfied (admissions requirement)",
+            "credits": 0.0,
+            "rationale": "TOEFL score meets demonstration threshold for English proficiency review; no transfer credits awarded."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official evaluator PDF authenticity/reference number",
+          "Validate TOEFL score delivery policy window"
+        ],
+        "Advisor_Review_Focus": [
+          "Review major-course equivalencies from evaluator report",
+          "Confirm residency and catalog requirements for remaining credits"
+        ],
+        "Narrative": "Bundle shows international admissions acceleration: a course-by-course evaluation supplies U.S.-equivalent credit details while the TOEFL report resolves English proficiency in the same intake pass."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-010",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Persona": {
+        "full_name": "Wei Chen",
+        "preferred_name": "Wei",
+        "career_goal": "Complete a U.S. IT bachelor's while working in technical support.",
+        "prior_learning_sources": [
+          "Associate Degree in Information Technology from Shanghai Open University (China)",
+          "ECE course-by-course U.S. credential evaluation",
+          "TOEFL iBT score report"
+        ],
+        "demo_storyline": "ECE report plus TOEFL lets the AI intake both transfer and language documentation in one pass."
+      },
+      "Target_Program": "BS in Information Technologies",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-010-D1",
+          "Document_Type": "ECE_Course_By_Course_Evaluation",
+          "Title": "ECE Course-by-Course Credential Evaluation",
+          "Issuing_Organization": "ECE",
+          "Issue_Date": "2025-10-21",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "ECE_Evaluation_WeiChen_course_by_course.pdf",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Wei Chen",
+            "evaluation_record": {
+              "agency": "ECE",
+              "report_type": "Course-by-Course",
+              "origin_country": "China",
+              "origin_institution": "Shanghai Open University",
+              "origin_credential": "Associate Degree in Information Technology",
+              "us_equivalency": "U.S. Associate degree in Information Technology",
+              "us_gpa": 3.01,
+              "report_date": "2025-10-21",
+              "reference_number": "ECE-8821045"
+            },
+            "summary_lines": [
+              "ECE course-by-course evaluation report",
+              "Origin credential: Associate Degree in Information Technology (China)",
+              "U.S. equivalency: U.S. Associate degree in Information Technology"
+            ],
+            "courses": [
+              {
+                "course_code": "ECE-EVAL-PROG",
+                "course_title": "Programming Fundamentals",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-NET",
+                "course_title": "Computer Networking",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-DB",
+                "course_title": "Database Concepts",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-MATH",
+                "course_title": "Discrete Mathematics",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              }
+            ],
+            "gpa_summary": {
+              "gpa": 3.01,
+              "scale": 4.0,
+              "credits_attempted": 63.0,
+              "credits_earned": 63.0
+            },
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "ECE evaluated course: Computer Networking",
+                "proposed_college_course_code": "IT-212",
+                "proposed_college_course_title": "Introduction to Computer Networks",
+                "credits": 3.0,
+                "rationale": "Evaluator course equivalency aligns with lower-division networking outcomes."
+              },
+              {
+                "source_evidence": "ECE evaluated course: Database Concepts",
+                "proposed_college_course_code": "IT-235",
+                "proposed_college_course_title": "Database Design",
+                "credits": 3.0,
+                "rationale": "Database fundamentals are suitable for transfer articulation review."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Credential evaluation report table layout with agency header."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-010-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Title": "TOEFL iBT Score Report",
+          "Issuing_Organization": "ETS",
+          "Issue_Date": "2025-08-28",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "TOEFL_WeiChen_official_score_report.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Wei Chen",
+            "document_number": "ETS-IBT-99200418",
+            "summary_lines": [
+              "Official TOEFL iBT score report",
+              "Total score: 90",
+              "Used for English proficiency review in admissions workflow"
+            ],
+            "scores": [
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Reading",
+                "score": 23,
+                "scale": "0-30",
+                "test_date": "2025-08-28"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Listening",
+                "score": 22,
+                "scale": "0-30",
+                "test_date": "2025-08-28"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Speaking",
+                "score": 21,
+                "scale": "0-30",
+                "test_date": "2025-08-28"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Writing",
+                "score": 24,
+                "scale": "0-30",
+                "test_date": "2025-08-28"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Total",
+                "score": 90,
+                "scale": "0-120",
+                "test_date": "2025-08-28"
+              }
+            ],
+            "notes": [
+              "ETS registration number ETS-IBT-99200418"
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Digital score report with boxed section scores."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic photo of a printed TOEFL iBT score report on a desk, boxed section scores, slight fold crease, mild shadow and lens distortion, readable score fields. Synthetic demo document for Wei Chen."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Information Technologies",
+        "Pathway_Theme": "International transfer with credential evaluation + language verification",
+        "Proposed_Transfer_Credits_Total": 45.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "ECE evaluated course: Computer Networking",
+            "proposed_college_course_code": "IT-212",
+            "proposed_college_course_title": "Introduction to Computer Networks",
+            "credits": 3.0,
+            "rationale": "Evaluator course equivalency aligns with lower-division networking outcomes."
+          },
+          {
+            "source_evidence": "ECE evaluated course: Database Concepts",
+            "proposed_college_course_code": "IT-235",
+            "proposed_college_course_title": "Database Design",
+            "credits": 3.0,
+            "rationale": "Database fundamentals are suitable for transfer articulation review."
+          },
+          {
+            "source_evidence": "TOEFL iBT total 90",
+            "proposed_college_course_code": "ENGL-PROF",
+            "proposed_college_course_title": "English proficiency satisfied (admissions requirement)",
+            "credits": 0.0,
+            "rationale": "TOEFL score meets demonstration threshold for English proficiency review; no transfer credits awarded."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official evaluator PDF authenticity/reference number",
+          "Validate TOEFL score delivery policy window"
+        ],
+        "Advisor_Review_Focus": [
+          "Review major-course equivalencies from evaluator report",
+          "Confirm residency and catalog requirements for remaining credits"
+        ],
+        "Narrative": "Bundle shows international admissions acceleration: a course-by-course evaluation supplies U.S.-equivalent credit details while the TOEFL report resolves English proficiency in the same intake pass."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-011",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Persona": {
+        "full_name": "Maria Lopes",
+        "preferred_name": "Maria",
+        "career_goal": "Advance into supply chain and operations leadership in a U.S. employer.",
+        "prior_learning_sources": [
+          "Tecnologo em Logistica from Universidade Paulista (Brazil)",
+          "WES course-by-course U.S. credential evaluation",
+          "TOEFL iBT score report"
+        ],
+        "demo_storyline": "International transfer into operations management with evaluator report and TOEFL ready for same-day review."
+      },
+      "Target_Program": "BS in Operations Management",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-011-D1",
+          "Document_Type": "WES_Course_By_Course_Evaluation",
+          "Title": "WES Course-by-Course Credential Evaluation",
+          "Issuing_Organization": "WES",
+          "Issue_Date": "2025-12-02",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "WES_MariaLopes_CourseByCourse_Report.pdf",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Maria Lopes",
+            "evaluation_record": {
+              "agency": "WES",
+              "report_type": "Course-by-Course",
+              "origin_country": "Brazil",
+              "origin_institution": "Universidade Paulista",
+              "origin_credential": "Tecnologo em Logistica",
+              "us_equivalency": "U.S. Associate degree in Logistics / Operations",
+              "us_gpa": 3.34,
+              "report_date": "2025-12-02",
+              "reference_number": "WES-7411228"
+            },
+            "summary_lines": [
+              "WES course-by-course evaluation report",
+              "Origin credential: Tecnologo em Logistica (Brazil)",
+              "U.S. equivalency: U.S. Associate degree in Logistics / Operations"
+            ],
+            "courses": [
+              {
+                "course_code": "WES-EVAL-LOG",
+                "course_title": "Logistics Management",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-SCM",
+                "course_title": "Supply Chain Fundamentals",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-QM",
+                "course_title": "Quality Management",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              },
+              {
+                "course_code": "WES-EVAL-STATS",
+                "course_title": "Business Statistics",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "WES"
+              }
+            ],
+            "gpa_summary": {
+              "gpa": 3.34,
+              "scale": 4.0,
+              "credits_attempted": 66.0,
+              "credits_earned": 66.0
+            },
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "WES evaluated course: Logistics Management",
+                "proposed_college_course_code": "QSO-330",
+                "proposed_college_course_title": "Logistics Management",
+                "credits": 3.0,
+                "rationale": "Evaluator's translated course content matches logistics management competencies."
+              },
+              {
+                "source_evidence": "WES evaluated course: Business Statistics",
+                "proposed_college_course_code": "QSO/STAT-ELEC",
+                "proposed_college_course_title": "Business Statistics elective",
+                "credits": 3.0,
+                "rationale": "Transferable quantitative business/statistics content."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Credential evaluation report table layout with agency header."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-011-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Title": "TOEFL iBT Score Report",
+          "Issuing_Organization": "ETS",
+          "Issue_Date": "2025-09-29",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "TOEFL_MariaLopes_ETS_Report.pdf",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Maria Lopes",
+            "document_number": "ETS-IBT-99087165",
+            "summary_lines": [
+              "Official TOEFL iBT score report",
+              "Total score: 94",
+              "Used for English proficiency review in admissions workflow"
+            ],
+            "scores": [
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Reading",
+                "score": 24,
+                "scale": "0-30",
+                "test_date": "2025-09-29"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Listening",
+                "score": 23,
+                "scale": "0-30",
+                "test_date": "2025-09-29"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Speaking",
+                "score": 24,
+                "scale": "0-30",
+                "test_date": "2025-09-29"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Writing",
+                "score": 23,
+                "scale": "0-30",
+                "test_date": "2025-09-29"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Total",
+                "score": 94,
+                "scale": "0-120",
+                "test_date": "2025-09-29"
+              }
+            ],
+            "notes": [
+              "ETS registration number ETS-IBT-99087165"
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Digital score report with boxed section scores."
+            }
+          }
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Operations Management",
+        "Pathway_Theme": "International transfer with credential evaluation + language verification",
+        "Proposed_Transfer_Credits_Total": 48.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "WES evaluated course: Logistics Management",
+            "proposed_college_course_code": "QSO-330",
+            "proposed_college_course_title": "Logistics Management",
+            "credits": 3.0,
+            "rationale": "Evaluator's translated course content matches logistics management competencies."
+          },
+          {
+            "source_evidence": "WES evaluated course: Business Statistics",
+            "proposed_college_course_code": "QSO/STAT-ELEC",
+            "proposed_college_course_title": "Business Statistics elective",
+            "credits": 3.0,
+            "rationale": "Transferable quantitative business/statistics content."
+          },
+          {
+            "source_evidence": "TOEFL iBT total 94",
+            "proposed_college_course_code": "ENGL-PROF",
+            "proposed_college_course_title": "English proficiency satisfied (admissions requirement)",
+            "credits": 0.0,
+            "rationale": "TOEFL score meets demonstration threshold for English proficiency review; no transfer credits awarded."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official evaluator PDF authenticity/reference number",
+          "Validate TOEFL score delivery policy window"
+        ],
+        "Advisor_Review_Focus": [
+          "Review major-course equivalencies from evaluator report",
+          "Confirm residency and catalog requirements for remaining credits"
+        ],
+        "Narrative": "Bundle shows international admissions acceleration: a course-by-course evaluation supplies U.S.-equivalent credit details while the TOEFL report resolves English proficiency in the same intake pass."
+      }
+    },
+    {
+      "Applicant_ID": "APPL-012",
+      "Archetype_Code": "C",
+      "Archetype_Label": "International Adult Learner",
+      "Persona": {
+        "full_name": "Samuel Ofori",
+        "preferred_name": "Samuel",
+        "career_goal": "Complete a bachelor's in business while continuing full-time employment.",
+        "prior_learning_sources": [
+          "Higher National Diploma in Business Studies from Kumasi Technical University (Ghana)",
+          "ECE course-by-course U.S. credential evaluation",
+          "TOEFL iBT score report"
+        ],
+        "demo_storyline": "International adult learner needs rapid clarity on how prior HND coursework converts into a U.S. degree pathway."
+      },
+      "Target_Program": "BS in Business Administration",
+      "Admissions_Term": "2026FA",
+      "Document_Bundle": [
+        {
+          "Document_ID": "APPL-012-D1",
+          "Document_Type": "ECE_Course_By_Course_Evaluation",
+          "Title": "ECE Course-by-Course Credential Evaluation",
+          "Issuing_Organization": "ECE",
+          "Issue_Date": "2025-10-07",
+          "Document_Format": "pdf",
+          "Rendering_Method": "pristine_pdf",
+          "Output_File_Name": "ECE_SamuelOfori_Credential_Evaluation.pdf",
+          "Page_Count": 2,
+          "Structured_Content": {
+            "student_name": "Samuel Ofori",
+            "evaluation_record": {
+              "agency": "ECE",
+              "report_type": "Course-by-Course",
+              "origin_country": "Ghana",
+              "origin_institution": "Kumasi Technical University",
+              "origin_credential": "Higher National Diploma in Business Studies",
+              "us_equivalency": "U.S. Associate degree in Business",
+              "us_gpa": 2.92,
+              "report_date": "2025-10-07",
+              "reference_number": "ECE-8793310"
+            },
+            "summary_lines": [
+              "ECE course-by-course evaluation report",
+              "Origin credential: Higher National Diploma in Business Studies (Ghana)",
+              "U.S. equivalency: U.S. Associate degree in Business"
+            ],
+            "courses": [
+              {
+                "course_code": "ECE-EVAL-BUSCOM",
+                "course_title": "Business Communication",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-MGMT",
+                "course_title": "Management Principles",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-ACC",
+                "course_title": "Accounting Principles",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              },
+              {
+                "course_code": "ECE-EVAL-MKT",
+                "course_title": "Marketing Principles",
+                "term_label": "Evaluated",
+                "year": 2025,
+                "credits": 3.0,
+                "grade": null,
+                "status": "Evaluated",
+                "source_system": "ECE"
+              }
+            ],
+            "gpa_summary": {
+              "gpa": 2.92,
+              "scale": 4.0,
+              "credits_attempted": 60.0,
+              "credits_earned": 60.0
+            },
+            "ai_mapping_hints": [
+              {
+                "source_evidence": "ECE evaluated course: Management Principles",
+                "proposed_college_course_code": "BUS-210",
+                "proposed_college_course_title": "Managing and Leading in Business",
+                "credits": 3.0,
+                "rationale": "Foundational management content transfers to business core review."
+              },
+              {
+                "source_evidence": "ECE evaluated course: Business Communication",
+                "proposed_college_course_code": "BUS-COMM-ELEC",
+                "proposed_college_course_title": "Business Communication elective",
+                "credits": 3.0,
+                "rationale": "Communication content is directly relevant to business communication requirements."
+              }
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Credential evaluation report table layout with agency header."
+            }
+          }
+        },
+        {
+          "Document_ID": "APPL-012-D2",
+          "Document_Type": "TOEFL_Score_Report",
+          "Title": "TOEFL iBT Score Report",
+          "Issuing_Organization": "ETS",
+          "Issue_Date": "2025-08-14",
+          "Document_Format": "webp",
+          "Rendering_Method": "gemimg_scan_webp",
+          "Output_File_Name": "SamuelOfori_TOEFL_iBT_ScoreReport.webp",
+          "Page_Count": 1,
+          "Structured_Content": {
+            "student_name": "Samuel Ofori",
+            "document_number": "ETS-IBT-99311804",
+            "summary_lines": [
+              "Official TOEFL iBT score report",
+              "Total score: 87",
+              "Used for English proficiency review in admissions workflow"
+            ],
+            "scores": [
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Reading",
+                "score": 21,
+                "scale": "0-30",
+                "test_date": "2025-08-14"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Listening",
+                "score": 23,
+                "scale": "0-30",
+                "test_date": "2025-08-14"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Speaking",
+                "score": 22,
+                "scale": "0-30",
+                "test_date": "2025-08-14"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Writing",
+                "score": 21,
+                "scale": "0-30",
+                "test_date": "2025-08-14"
+              },
+              {
+                "test_name": "TOEFL iBT",
+                "section": "Total",
+                "score": 87,
+                "scale": "0-120",
+                "test_date": "2025-08-14"
+              }
+            ],
+            "notes": [
+              "ETS registration number ETS-IBT-99311804"
+            ],
+            "visual_profile": {
+              "style": "pristine_digital",
+              "paper_tone": "bright_white",
+              "artifact_level": "none",
+              "notes": "Digital score report with boxed section scores."
+            }
+          },
+          "Gemimg_Prompt": "Photorealistic photo of a printed TOEFL iBT score report on a desk, boxed section scores, slight fold crease, mild shadow and lens distortion, readable score fields. Synthetic demo document for Samuel Ofori."
+        }
+      ],
+      "Expected_AI_Output": {
+        "Target_Pathway": "BS in Business Administration",
+        "Pathway_Theme": "International transfer with credential evaluation + language verification",
+        "Proposed_Transfer_Credits_Total": 42.0,
+        "Mapped_Courses": [
+          {
+            "source_evidence": "ECE evaluated course: Management Principles",
+            "proposed_college_course_code": "BUS-210",
+            "proposed_college_course_title": "Managing and Leading in Business",
+            "credits": 3.0,
+            "rationale": "Foundational management content transfers to business core review."
+          },
+          {
+            "source_evidence": "ECE evaluated course: Business Communication",
+            "proposed_college_course_code": "BUS-COMM-ELEC",
+            "proposed_college_course_title": "Business Communication elective",
+            "credits": 3.0,
+            "rationale": "Communication content is directly relevant to business communication requirements."
+          },
+          {
+            "source_evidence": "TOEFL iBT total 87",
+            "proposed_college_course_code": "ENGL-PROF",
+            "proposed_college_course_title": "English proficiency satisfied (admissions requirement)",
+            "credits": 0.0,
+            "rationale": "TOEFL score meets demonstration threshold for English proficiency review; no transfer credits awarded."
+          }
+        ],
+        "Remaining_Admissions_Checks": [
+          "Confirm official evaluator PDF authenticity/reference number",
+          "Validate TOEFL score delivery policy window"
+        ],
+        "Advisor_Review_Focus": [
+          "Review major-course equivalencies from evaluator report",
+          "Confirm residency and catalog requirements for remaining credits"
+        ],
+        "Narrative": "Bundle shows international admissions acceleration: a course-by-course evaluation supplies U.S.-equivalent credit details while the TOEFL report resolves English proficiency in the same intake pass."
+      }
+    }
+  ]
+}

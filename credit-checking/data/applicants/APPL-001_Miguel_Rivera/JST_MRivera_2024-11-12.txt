@@ -1,0 +1,46 @@
+==========================================================================================================
+JOINT SERVICES TRANSCRIPT
+==========================================================================================================
+JOINT SERVICES TRANSCRIPT
+Issuer: Joint Services Transcript / American Council on Education
+Issue Date: 2024-11-12
+Document Type: JST
+Student: Miguel Rivera
+Document Student ID: JST-AR-5729441
+
+SUMMARY
+Joint Services Transcript for Miguel Rivera
+Army MOS history includes 42A Human Resources Specialist
+ACE credit recommendations included for training and occupational experience
+
+COURSE RECORDS
+Code           | Title                             | Term   | Yr | Cr | Grade | Status
+----------------------------------------------------------------------------------------------
+HR-42A-BLC    | Basic Leader Course               | Milita | 2012 |  3.0 |       | Evaluated
+HR-42A-ADV    | Human Resources Specialist Course | Milita | 2008 |  4.0 |       | Evaluated
+ARMY-OPS      | Personnel Administration in Unit  | Milita | 2013 |  3.0 |       | Evaluated
+
+ACE CREDIT RECOMMENDATIONS
+MOS 42A Duty Performance: Human Resource Management / Personnel Administration (LL 3.0 / UL 3.0)
+Basis: ACE military guide recommendation for Army MOS 42A (skill level reflected on JST).
+Army Structured Self-Development + HR systems workflow: Business Communications / Information Systems (LL 3.0 / UL 0.0)
+Basis: ACE recommendation derived from completed military schooling and documented duty
+assignments.
+
+AI MAPPING HINTS
+JST ACE recommendation for MOS 42A (HR / Personnel Administration) -> HRM-ELEC (Human Resource Management elective credit, 3.0 cr)
+JST ACE recommendation for MOS 42A (upper-division HR / personnel) -> HRM-3XX (Advanced Human Resource Management elective, 3.0 cr)
+
+RAW TEXT PREVIEW
+JOINT SERVICES TRANSCRIPT (UNOFFICIAL COPY FOR REVIEW)
+STUDENT: MIGUEL RIVERA   JST ID: JST-AR-5729441
+SERVICE BRANCH: ARMY
+PRIMARY MOS: 42A HUMAN RESOURCES SPECIALIST
+ACE CREDIT RECOMMENDATIONS:
+  - HUMAN RESOURCE MANAGEMENT / PERSONNEL ADMINISTRATION: 3 LL / 3 UL
+  - BUSINESS COMMUNICATIONS / INFO SYSTEMS SUPPORT: 3 LL
+
+NOTES
+Content provided as a plain-text export file instead of scanned pages.
+
+END OF DOCUMENT

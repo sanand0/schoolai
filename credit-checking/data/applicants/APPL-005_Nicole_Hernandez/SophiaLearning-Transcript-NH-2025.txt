@@ -1,0 +1,32 @@
+==========================================================================================================
+SOPHIA LEARNING TRANSCRIPT
+==========================================================================================================
+SOPHIA LEARNING TRANSCRIPT
+Issuer: Sophia Learning
+Issue Date: 2025-12-06
+Document Type: Sophia_Learning_Transcript
+Student: Nicole Hernandez
+
+SUMMARY
+Sophia Learning transcript export
+Competency-based coursework transcripted as pass/fail
+
+COURSE RECORDS
+Code           | Title                             | Term   | Yr | Cr | Grade | Status
+----------------------------------------------------------------------------------------------
+SOPH-STAT1001 | Introduction to Statistics        | Self-P | 2024 |  3.0 | Pass  | Completed
+SOPH-PM1001   | Project Management                | Self-P | 2025 |  3.0 | Pass  | Completed
+SOPH-BUS1001  | Business Communication            | Self-P | 2025 |  3.0 | Pass  | Completed
+
+RAW TEXT PREVIEW
+SOPHIA LEARNING UNOFFICIAL TRANSCRIPT
+LEARNER: NICOLE HERNANDEZ
+COURSES COMPLETED
+ - Introduction to Statistics ........ PASS .... 3.0 credits
+ - Project Management ................ PASS .... 3.0 credits
+ - Business Communication ............ PASS .... 3.0 credits
+
+NOTES
+Content provided as a plain-text export file instead of scanned pages.
+
+END OF DOCUMENT

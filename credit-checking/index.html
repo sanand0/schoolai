@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super-Fast AI Credit Checking Demo</title>
+    <meta
+      name="description"
+      content="Interactive demo showing AI-assisted credit checking across military, community college, certification, and international evaluation documents."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Archivo+SemiCondensed:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true">
+      <div class="bg-orb orb-1"></div>
+      <div class="bg-orb orb-2"></div>
+      <div class="bg-grid"></div>
+      <div class="bg-noise"></div>
+    </div>
+
+    <header class="hero-shell">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Super-Fast AI Credit Checking</p>
+          <h1>
+            Turn a chaotic folder of life experience into a
+            <span class="accent-underline">clear degree pathway</span>
+            in minutes.
+          </h1>
+          <p class="hero-lede">
+            This demo simulates an AI reviewing mixed evidence (old transcripts, military records, certificates,
+            international evaluations, score reports) and producing a standardized credit picture a human advisor can
+            act on immediately.
+          </p>
+          <div class="hero-metrics" id="hero-metrics" aria-live="polite"></div>
+          <div id="before-after-kpi" class="before-after-kpi" aria-live="polite"></div>
+        </div>
+        <div class="hero-viz" aria-label="Document diversity visualization">
+          <div class="viz-header">
+            <h2>Intake Diversity Map</h2>
+            <p>12 applicants, mixed formats, mixed quality, one standardized workflow</p>
+          </div>
+          <div id="diversity-map" class="diversity-map"></div>
+          <div class="viz-legend">
+            <span><i class="dot pdf"></i> PDF</span>
+            <span><i class="dot webp"></i> Image / photo</span>
+            <span><i class="dot txt"></i> Text export</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="section-head">
+        <div>
+          <p class="eyebrow">Applicant Intake Wall</p>
+          <h2>12 synthetic applicants with realistic upload behavior</h2>
+          <p>
+            Each card shows only the uploaded base file names so the diversity of evidence is obvious at a glance.
+            Click any file for a preview. Click <strong>Credit Check</strong> to watch the AI process the folder.
+          </p>
+        </div>
+        <div class="section-statboard" id="section-statboard"></div>
+      </section>
+
+      <section id="applicant-grid" class="applicant-grid" aria-live="polite"></section>
+    </main>
+
+    <div class="modal-shell hidden" id="analyzer-modal" role="dialog" aria-modal="true" aria-labelledby="analyzer-title">
+      <div class="modal-backdrop" data-close="analyzer"></div>
+      <div class="modal-window analyzer-window">
+        <header class="modal-header analyzer-header">
+          <div>
+            <p class="eyebrow">Folder Analysis</p>
+            <h2 id="analyzer-title">Credit Check</h2>
+            <p id="analyzer-subtitle" class="muted"></p>
+          </div>
+          <div class="analyzer-header-actions">
+            <div id="analyzer-progress-pill" class="progress-pill">Ready</div>
+            <button class="icon-btn" id="analyzer-close-btn" type="button" aria-label="Close analyzer">✕</button>
+          </div>
+        </header>
+
+        <div class="analyzer-layout">
+          <aside class="task-pane">
+            <div class="pane-header">
+              <h3>Task List</h3>
+              <p id="task-summary" class="muted"></p>
+            </div>
+            <div class="task-progress-track" aria-hidden="true">
+              <div id="task-progress-fill" class="task-progress-fill"></div>
+            </div>
+            <ul id="task-list" class="task-list"></ul>
+          </aside>
+
+          <section class="analysis-stage">
+            <div class="stage-frame">
+              <div class="stage-label-row">
+                <div>
+                  <p class="eyebrow">Current Evidence</p>
+                  <h3 id="current-file-name">Select an applicant to begin</h3>
+                </div>
+                <button class="ghost-btn hidden" id="open-current-file-btn" type="button">Open file preview</button>
+              </div>
+              <div class="live-preview-shell">
+                <div class="scanner-beam" aria-hidden="true"></div>
+                <div id="live-preview" class="live-preview empty-state">
+                  <div class="empty-illustration" aria-hidden="true">
+                    <span class="paper-stack paper-a"></span>
+                    <span class="paper-stack paper-b"></span>
+                    <span class="paper-stack paper-c"></span>
+                  </div>
+                  <p>Run a Credit Check to start processing uploaded documents.</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="final-pathway-panel" class="final-pathway-panel hidden"></div>
+          </section>
+
+          <aside class="console-pane">
+            <div class="pane-header">
+              <h3>AI Analyst Console</h3>
+              <p class="muted">Streaming internal reasoning (simulated)</p>
+            </div>
+            <div id="thought-stream" class="thought-stream" aria-live="polite"></div>
+
+            <div class="extracted-shell">
+              <div class="extracted-header">
+                <h4>Extracted Data (Advisor Format)</h4>
+                <p id="extracted-status" class="muted">Waiting for file analysis…</p>
+              </div>
+              <div id="extracted-table-wrap" class="extracted-table-wrap empty-state compact">
+                <p>Standardized fields will appear here as each file is processed.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-shell hidden" id="file-modal" role="dialog" aria-modal="true" aria-labelledby="file-modal-title">
+      <div class="modal-backdrop" data-close="file"></div>
+      <div class="modal-window file-window">
+        <header class="modal-header">
+          <div>
+            <p class="eyebrow" id="file-modal-eyebrow">File Preview</p>
+            <h2 id="file-modal-title">Document</h2>
+            <p id="file-modal-meta" class="muted"></p>
+          </div>
+          <div class="file-modal-actions">
+            <a id="file-modal-open-link" class="ghost-btn" href="#" target="_blank" rel="noopener noreferrer">Open original</a>
+            <button class="icon-btn" id="file-modal-close-btn" type="button" aria-label="Close preview">✕</button>
+          </div>
+        </header>
+        <div class="file-modal-layout">
+          <section class="file-preview-pane">
+            <div id="file-preview-container" class="file-preview-container loading">
+              <div class="loading-sheen"></div>
+            </div>
+          </section>
+          <section class="file-detail-pane">
+            <div class="detail-pane-header">
+              <h3 id="file-detail-title">Document Snapshot</h3>
+              <p id="file-detail-subtitle" class="muted"></p>
+            </div>
+            <div id="file-detail-content" class="file-detail-content"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <template id="card-template">
+      <article class="applicant-card">
+        <div class="card-noise" aria-hidden="true"></div>
+        <header class="card-header">
+          <div class="card-badges"></div>
+          <button class="credit-check-btn" type="button">Credit Check</button>
+        </header>
+        <div class="card-title-wrap">
+          <h3 class="applicant-name"></h3>
+          <p class="card-subtitle"></p>
+        </div>
+        <p class="storyline"></p>
+        <div class="mini-fingerprint"></div>
+        <div class="file-cluster"></div>
+        <footer class="card-footer">
+          <div class="card-metrics"></div>
+        </footer>
+      </article>
+    </template>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
