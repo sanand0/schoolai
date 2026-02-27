@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Penny+ â€¢ Agentic Financial Aid</title>
-  
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%231d5b7c%27/%3E%3Cpath d=%27M18 34h28v6H18zm8-12h12v6H26z%27 fill=%27%23fef3c7%27/%3E%3Ctext x=%2732%27 y=%2752%27 text-anchor=%27middle%27 font-size=%2718%27 fill=%27%23fef3c7%27 font-family=%27Arial%27%3E+%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <title>Penny+ - Agentic Financial Aid</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d5b7c'/%3E%3Cpath d='M18 34h28v6H18zm8-12h12v6H26z' fill='%23fef3c7'/%3E%3Ctext x='32' y='52' text-anchor='middle' font-size='18' fill='%23fef3c7' font-family='Arial'%3E+%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2-family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Archivo+SemiCondensed:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Archivo+SemiCondensed:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" /></head>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
   <div class="page-bg" aria-hidden="true">
     <div class="bg-orb orb-1"></div>
@@ -24,13 +24,55 @@
   <div class="page">
     <header class="hero">
       <div>
-        <p class="eyebrow">SNHU Demo â€¢ Agentic Financial Aid</p>
+        <p class="eyebrow">SNHU Demo - Agentic Financial Aid</p>
         <h1>Penny+ : Agentic Financial Aid Assistant</h1>
         <p class="subhead">
           A domain-intelligent agent that completes financial aid forms, infers eligibility, explains why it asks, and ingests documents in real time. Automation is the hand; Straive support is the heart.
         </p>
       </div>
     </header>
+
+    <section class="benefits">
+      <div class="benefits-head">
+        <h2>Why Penny+ Wins</h2>
+        <p class="muted">Structured, explainable automation that turns complex aid intake into a guided, auditable workflow.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"></div>
+          <h3>What It Does</h3>
+          <dl>
+            <dt>Documents</dt>
+            <dd>Ingests FAFSA summaries, transcripts, tax forms, and DD-214s automatically.</dd>
+            <dt>Forms</dt>
+            <dd>Fills student identity, dependency, income, and aid eligibility fields in one pass.</dd>
+            <dt>Guidance</dt>
+            <dd>Asks the minimum set of questions to unlock the maximum number of fields.</dd>
+          </dl>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon alt"></div>
+          <h3>Why It Is Smarter</h3>
+          <ul>
+            <li>Explains every question with a FAFSA-specific reason and rule.</li>
+            <li>Detects veteran status, dependency overrides, and institutional checklists.</li>
+            <li>Recommends refund banking options based on the student profile.</li>
+          </ul>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon teal"></div>
+          <h3>Proof and Traceability</h3>
+          <dl>
+            <dt>Rationale Trace</dt>
+            <dd>Each response includes the reason, rule, and fields unlocked.</dd>
+            <dt>Source Capture</dt>
+            <dd>Raw text and extracted fields are logged with citations.</dd>
+            <dt>Audit Ready</dt>
+            <dd>Every decision is visible to counselors and compliance teams.</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
 
     <section class="metrics-bar" aria-live="polite">
       <div class="metric-card">
@@ -43,7 +85,7 @@
       </div>
       <div class="metric-card">
         <p class="metric-label">Student Mix</p>
-        <strong id="metric-mix" class="metric-value">â€”</strong>
+        <strong id="metric-mix" class="metric-value">-</strong>
       </div>
       <div class="metric-card">
         <p class="metric-label">Completion Rate</p>
@@ -58,114 +100,326 @@
     <section class="live-layout">
       <div class="streams-section">
         <div class="streams-header">
-          <h2>Live Conversation Streams</h2>
-          <p>Live student journeys running in accelerated time. Hover any segment to preview; click to pin the form state.</p>
+          <div>
+            <h2>Conversation Streams</h2>
+            <p>Live student journeys in accelerated time. Hover to preview, click to inspect details.</p>
+          </div>
+          <div class="streams-controls">
+            <div class="control-label">Number of Agents</div>
+            <div class="control-row">
+              <input id="agents-range" type="range" min="1" max="8" step="1" value="3" />
+              <span id="agents-value">3 agents</span>
+            </div>
+          </div>
         </div>
-        <div id="streams" class="streams" aria-live="polite"></div>
+
+        <div class="stream-blocks">
+          <div class="stream-block">
+            <div class="stream-block-header">
+              <h3>Live Conversations</h3>
+              <span class="muted" id="live-count">0 active</span>
+            </div>
+            <div id="live-streams" class="streams live-streams" aria-live="polite"></div>
+          </div>
+
+          <div class="stream-block">
+            <div class="stream-block-header">
+              <div>
+                <h3>Past Conversations</h3>
+                <p class="muted">Completed or paused intakes with snapshots and documents.</p>
+              </div>
+            </div>
+            <div class="filter-bar" id="filter-bar">
+              <label>
+                Status
+                <select id="filter-status">
+                  <option value="all">All</option>
+                  <option value="complete">Complete</option>
+                  <option value="incomplete">Incomplete</option>
+                </select>
+              </label>
+              <label>
+                Language
+                <select id="filter-language">
+                  <option value="all">All</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <label>
+                Attachments
+                <select id="filter-attachments">
+                  <option value="all">All</option>
+                  <option value="has">Has attachments</option>
+                  <option value="none">No attachments</option>
+                </select>
+              </label>
+              <label>
+                Completion
+                <select id="filter-completion">
+                  <option value="all">All</option>
+                  <option value="0-50">0-50%</option>
+                  <option value="50-80">50-80%</option>
+                  <option value="80-100">80-100%</option>
+                </select>
+              </label>
+              <label>
+                Recency
+                <select id="filter-recency">
+                  <option value="all">All</option>
+                  <option value="7">Last 7 days</option>
+                  <option value="14">Last 14 days</option>
+                  <option value="30">Last 30 days</option>
+                </select>
+              </label>
+            </div>
+            <div id="past-streams" class="streams past-streams" aria-live="polite"></div>
+          </div>
+        </div>
       </div>
 
       <div class="detail-modal" id="detail-modal">
         <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"></div>
         <aside class="live-panel modal-panel" id="detail-panel" role="dialog" aria-modal="false">
-        <header class="panel-header">
-          <div class="panel-head-row">
-            <div>
-              <p class="eyebrow" id="detail-eyebrow">Active Conversation</p>
-              <h2 id="detail-title">Waiting for intake</h2>
-              <p class="muted" id="detail-subtitle">Select any segment to inspect a specific moment.</p>
-            </div>
-            <div class="panel-jumps">
-              <button class="ghost-btn small" type="button" data-jump="latest">Latest</button>
-              <button class="ghost-btn small" type="button" data-jump="rationale">Rationale</button>
-              <button class="ghost-btn small" type="button" data-jump="sources">Sources</button>
-            </div>
-          </div>
-        </header>
-        <div class="panel-body">
-          <div class="modal-top">
-            <section class="detail-chat">
-              <div class="detail-section-header">
-                <h3>Transcript</h3>
-                <p class="muted">Click a message to update the form snapshot.</p>
+          <header class="panel-header">
+            <div class="panel-head-row">
+              <div>
+                <p class="eyebrow" id="detail-eyebrow">Active Conversation</p>
+                <h2 id="detail-title">Waiting for intake</h2>
+                <p class="muted" id="detail-subtitle">Select any segment to inspect a specific moment.</p>
               </div>
-              <div id="detail-messages" class="detail-messages empty-state">No conversation selected.</div>
-            </section>
+              <div class="panel-jumps">
+                <button class="ghost-btn small" type="button" data-jump="latest">Latest</button>
+                <button class="ghost-btn small" type="button" data-jump="rationale">Rationale</button>
+                <button class="ghost-btn small" type="button" data-jump="sources">Sources</button>
+              </div>
+            </div>
+          </header>
+          <div class="panel-body">
+            <div class="modal-top">
+              <section class="detail-chat">
+                <div class="detail-section-header">
+                  <h3>Transcript</h3>
+                  <p class="muted">Click a message to update the form snapshot.</p>
+                </div>
+                <div id="detail-messages" class="detail-messages empty-state">No conversation selected.</div>
+              </section>
 
-            <section class="detail-form">
-              <div class="detail-section-header">
-                <div class="section-title-row">
-                  <h3>Form State</h3>
+              <section class="detail-form">
+                <div class="detail-section-header">
+                  <div class="section-title-row">
+                    <h3>Form State</h3>
+                  </div>
+                  <p class="muted" id="detail-form-subtitle">-</p>
                 </div>
-                <p class="muted" id="detail-form-subtitle">-</p>
-              </div>
-              <div class="form-progress">
-                <div class="form-progress-label">
-                  <span id="form-progress-count">0/14 fields</span>
-                  <span id="form-progress-percent">0%</span>
-                </div>
+                <div class="form-progress">
+                  <div class="form-progress-label">
+                    <span id="form-progress-count">0/14 fields</span>
+                    <span id="form-progress-percent">0%</span>
+                  </div>
                 <div class="form-progress-track">
                   <div id="form-progress-fill" class="form-progress-fill" style="width: 0%;"></div>
                 </div>
+                <div id="form-stage-bar" class="form-stage-bar"></div>
+                <div id="form-stage-preview" class="form-stage-preview"></div>
               </div>
-              <div id="detail-form-body" class="detail-form-body"></div>
+                <div id="detail-form-body" class="detail-form-body"></div>
+              </section>
+            </div>
+
+            <section class="detail-timeline" id="timeline-section">
+              <div class="detail-section-header">
+                <h3>Timeline</h3>
+                <p class="muted">Only the newest stage is expanded.</p>
+              </div>
+              <div id="detail-timeline" class="detail-timeline-body"></div>
+            </section>
+
+            <section class="detail-reasoning" id="rationale-section">
+              <div class="detail-section-header">
+                <h3>Agent Rationale</h3>
+                <p class="muted">Why it asked, what it unlocked, and what a generic bot would miss.</p>
+              </div>
+              <div id="detail-reasoning" class="detail-reasoning-body">
+                <div class="reason-empty">Select a message to see the reasoning trace.</div>
+              </div>
+            </section>
+
+            <section class="detail-sources" id="sources-section">
+              <div class="detail-section-header">
+                <h3>Sources and Extracted Data</h3>
+                <p class="muted">Live document intake, raw text, and extracted fields.</p>
+              </div>
+              <div class="detail-sources-body">
+                <div class="auto-panel">
+                  <div class="auto-panel-header">
+                    <div>
+                      <p class="auto-label">Document intake</p>
+                      <p class="muted auto-subtitle">Documents are ingested and processed in real time.</p>
+                    </div>
+                    <span id="transcriptionStatus" class="status-pill"></span>
+                  </div>
+                  <div id="auto-docs" class="auto-docs"></div>
+                </div>
+                <div class="transcription-wrap">
+                  <p class="auto-label">Raw extractions</p>
+                  <div id="transcription-log" class="transcription-log"></div>
+                </div>
+              </div>
             </section>
           </div>
-
-          <section class="detail-reasoning" id="rationale-section">
-            <div class="detail-section-header">
-              <h3>Agent Rationale</h3>
-              <p class="muted">Why it asked, what it unlocked, and what a generic bot would miss.</p>
-            </div>
-            <div id="detail-reasoning" class="detail-reasoning-body">
-              <div class="reason-empty">Select a message to see the reasoning trace.</div>
-            </div>
-          </section>
-
-          <section class="detail-sources" id="sources-section">
-            <div class="detail-section-header">
-              <h3>Sources & Extracted Data</h3>
-              <p class="muted">Live document intake, raw text, and extracted fields.</p>
-            </div>
-            <div class="detail-sources-body">
-              <div class="auto-panel">
-                <div class="auto-panel-header">
-                  <div>
-                    <p class="auto-label">Document intake</p>
-                    <p class="muted auto-subtitle">Documents are ingested and processed in real time.</p>
-                  </div>
-                  <span id="transcriptionStatus" class="status-pill"></span>
-                </div>
-                <div id="auto-docs" class="auto-docs"></div>
-              </div>
-              <div class="transcription-wrap">
-                <p class="auto-label">Raw extractions</p>
-                <div id="transcription-log" class="transcription-log"></div>
-              </div>
-            </div>
-          </section>
-        </div>
-              </aside>
+        </aside>
       </div>
     </section>
+
+    <section class="impact-section">
+      <div class="impact-head">
+        <h2>Impact Dashboard</h2>
+        <p class="muted">Operational and student outcomes with compliance visibility.</p>
+      </div>
+      <div class="impact-strip">
+        <article class="impact-metric-card accent-teal">
+          <div class="metric-label">Intakes handled</div>
+          <div class="metric-value" id="impact-intakes">0</div>
+          <div class="metric-foot">Live and completed in the last 24h</div>
+        </article>
+        <article class="impact-metric-card accent-blue">
+          <div class="metric-label">Fields auto-filled</div>
+          <div class="metric-value" id="impact-autofill">0%</div>
+          <div class="metric-foot">Average per student profile</div>
+        </article>
+        <article class="impact-metric-card accent-coral">
+          <div class="metric-label">Docs processed</div>
+          <div class="metric-value" id="impact-docs">0</div>
+          <div class="metric-foot">Transcripts, FAFSA, tax, DD-214</div>
+        </article>
+        <article class="impact-metric-card accent-gold">
+          <div class="metric-label">Aid dollars unlocked</div>
+          <div class="metric-value" id="impact-aid-unlocked">$0</div>
+          <div class="metric-foot">Projected eligibility captured</div>
+        </article>
+        <article class="impact-metric-card accent-lime">
+          <div class="metric-label">Drop-off risk flagged</div>
+          <div class="metric-value" id="impact-dropoff">0%</div>
+          <div class="metric-foot">Students needing follow-up</div>
+        </article>
+        <article class="impact-metric-card accent-violet">
+          <div class="metric-label">Compliance checks passed</div>
+          <div class="metric-value" id="impact-compliance">0%</div>
+          <div class="metric-foot">Title IV + FAFSA rules</div>
+        </article>
+      </div>
+      <div class="impact-grid">
+        <article class="impact-card">
+          <h3>Student Impact</h3>
+          <div class="impact-kpis">
+            <div>
+              <span class="impact-label">Students served</span>
+              <strong id="impact-students">0</strong>
+            </div>
+            <div>
+              <span class="impact-label">Avg intake time</span>
+              <strong id="impact-time">--</strong>
+            </div>
+            <div>
+              <span class="impact-label">Completion rate</span>
+              <strong id="impact-completion">0%</strong>
+            </div>
+          </div>
+          <div class="impact-chart" id="chart-dropoff"></div>
+          <p class="impact-foot">Shows where students slow down (documents, dependency checks, FAFSA summary) so outreach can target the right step.</p>
+        </article>
+        <article class="impact-card">
+          <h3>Operational Impact</h3>
+          <div class="impact-kpis">
+            <div>
+              <span class="impact-label">Staff hours saved</span>
+              <strong id="impact-hours">0</strong>
+            </div>
+            <div>
+              <span class="impact-label">Cost per intake</span>
+              <strong id="impact-cost">$0</strong>
+            </div>
+            <div>
+              <span class="impact-label">Error reduction</span>
+              <strong id="impact-errors">0%</strong>
+            </div>
+          </div>
+          <div class="impact-chart" id="chart-throughput"></div>
+          <p class="impact-foot">Throughput reflects how many intakes were handled per hour at the current agent concurrency.</p>
+        </article>
+        <article class="impact-card">
+          <h3>Financial Aid Planning</h3>
+          <div class="impact-kpis">
+            <div>
+              <span class="impact-label">Projected aid volume</span>
+              <strong id="impact-aid-volume">$0</strong>
+            </div>
+            <div>
+              <span class="impact-label">Grant mix</span>
+              <strong id="impact-grant-mix">--</strong>
+            </div>
+            <div>
+              <span class="impact-label">Refund routing</span>
+              <strong id="impact-refunds">--</strong>
+            </div>
+          </div>
+          <div class="impact-chart" id="chart-aid"></div>
+          <p class="impact-foot">Breaks down aid by type to help the school plan budget windows and grant mix.</p>
+        </article>
+        <article class="impact-card">
+          <h3>Compliance Readiness</h3>
+          <div class="impact-kpis">
+            <div>
+              <span class="impact-label">Title IV checks</span>
+              <strong id="impact-title">--</strong>
+            </div>
+            <div>
+              <span class="impact-label">FAFSA audit log</span>
+              <strong id="impact-audit">--</strong>
+            </div>
+            <div>
+              <span class="impact-label">State reporting</span>
+              <strong id="impact-reporting">--</strong>
+            </div>
+          </div>
+          <div class="impact-chart" id="chart-compliance"></div>
+          <p class="impact-foot">Tracks audit readiness and Title IV checks without exposing student PII.</p>
+        </article>
+      </div>
+      <div class="impact-visuals">
+        <article class="impact-card">
+          <h3>Aid Volume Trend</h3>
+          <div class="impact-chart sparkline" id="chart-aid-trend"></div>
+          <p class="impact-foot">Weekly projection of aid dollars captured by the intake agent.</p>
+        </article>
+        <article class="impact-card">
+          <h3>Document Turnaround</h3>
+          <div class="impact-chart sparkline" id="chart-doc-turnaround"></div>
+          <p class="impact-foot">Median minutes from upload to verified extraction.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div class="attachment-modal" id="attachment-modal" aria-hidden="true">
+    <div class="attachment-backdrop" id="attachment-backdrop"></div>
+    <div class="attachment-panel" role="dialog" aria-modal="true">
+      <div class="attachment-header">
+        <div>
+          <p class="eyebrow">Attachment Preview</p>
+          <h3 id="attachment-title">Document</h3>
+        </div>
+        <button id="attachment-close" class="ghost-btn small" type="button">Close</button>
+      </div>
+      <div class="attachment-body">
+        <iframe id="attachment-frame" title="Attachment preview"></iframe>
+        <pre id="attachment-text"></pre>
+      </div>
+    </div>
   </div>
 
   <script src="app.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

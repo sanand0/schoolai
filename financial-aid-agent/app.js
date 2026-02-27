@@ -1,5 +1,14 @@
 
-const streamsEl = document.getElementById('streams');
+const liveStreamsEl = document.getElementById('live-streams');
+const pastStreamsEl = document.getElementById('past-streams');
+const liveCountEl = document.getElementById('live-count');
+const agentsRange = document.getElementById('agents-range');
+const agentsValue = document.getElementById('agents-value');
+const filterStatus = document.getElementById('filter-status');
+const filterLanguage = document.getElementById('filter-language');
+const filterAttachments = document.getElementById('filter-attachments');
+const filterCompletion = document.getElementById('filter-completion');
+const filterRecency = document.getElementById('filter-recency');
 const metricCompleted = document.getElementById('metric-completed');
 const metricAid = document.getElementById('metric-aid');
 const metricMix = document.getElementById('metric-mix');
@@ -15,7 +24,10 @@ const detailFormSubtitle = document.getElementById('detail-form-subtitle');
 const formProgressCount = document.getElementById('form-progress-count');
 const formProgressPercent = document.getElementById('form-progress-percent');
 const formProgressFill = document.getElementById('form-progress-fill');
+const formStageBar = document.getElementById('form-stage-bar');
+const formStagePreview = document.getElementById('form-stage-preview');
 const detailReasoning = document.getElementById('detail-reasoning');
+const detailTimeline = document.getElementById('detail-timeline');
 const transcriptionStatus = document.getElementById('transcriptionStatus');
 const transcriptionLog = document.getElementById('transcription-log');
 const autoDocsEl = document.getElementById('auto-docs');
@@ -26,9 +38,34 @@ const modalBody = document.querySelector('#detail-panel .panel-body');
 const jumpButtons = document.querySelectorAll('[data-jump]');
 const rationaleSection = document.getElementById('rationale-section');
 const sourcesSection = document.getElementById('sources-section');
+const attachmentModal = document.getElementById('attachment-modal');
+const attachmentBackdrop = document.getElementById('attachment-backdrop');
+const attachmentClose = document.getElementById('attachment-close');
+const attachmentTitle = document.getElementById('attachment-title');
+const attachmentFrame = document.getElementById('attachment-frame');
+const attachmentText = document.getElementById('attachment-text');
+const impactStudents = document.getElementById('impact-students');
+const impactTime = document.getElementById('impact-time');
+const impactCompletion = document.getElementById('impact-completion');
+const impactHours = document.getElementById('impact-hours');
+const impactCost = document.getElementById('impact-cost');
+const impactErrors = document.getElementById('impact-errors');
+const impactAidVolume = document.getElementById('impact-aid-volume');
+const impactGrantMix = document.getElementById('impact-grant-mix');
+const impactRefunds = document.getElementById('impact-refunds');
+const impactTitle = document.getElementById('impact-title');
+const impactAudit = document.getElementById('impact-audit');
+const impactReporting = document.getElementById('impact-reporting');
+const impactIntakes = document.getElementById('impact-intakes');
+const impactAutofill = document.getElementById('impact-autofill');
+const impactDocs = document.getElementById('impact-docs');
+const impactAidUnlocked = document.getElementById('impact-aid-unlocked');
+const impactDropoff = document.getElementById('impact-dropoff');
+const impactCompliance = document.getElementById('impact-compliance');
 
 const lockState = { active: false, conversationId: null };
 const lastAuto = { conversationId: null, messageIndex: 0 };
+let lastImpactChartRender = 0;
 
 const FIELD_LABELS = [
   { key: 'name', label: 'Student Name' },
@@ -75,6 +112,7 @@ const SAMPLE_DOCS = [
     id: 'fafsa-01',
     label: 'FAFSA Submission Summary (Ava Carter)',
     file: 'demo-docs/fafsa-summary-01.txt',
+    previewFile: 'demo-docs/financial-aid-form.pdf',
     type: 'fafsa',
     rawText: `FAFSA Submission Summary (Demo)\nStudent Name: Ava Carter\nStudent Aid Index (SAI): -620\nDependency Status: Independent\nEnrollment Status: Full-time\nInstitution: SNHU`,
     data: {
@@ -89,6 +127,7 @@ const SAMPLE_DOCS = [
     id: 'fafsa-02',
     label: 'FAFSA Submission Summary (Liam Nguyen)',
     file: 'demo-docs/fafsa-summary-02.txt',
+    previewFile: 'demo-docs/financial-aid-form.pdf',
     type: 'fafsa',
     rawText: `FAFSA Submission Summary (Demo)\nStudent Name: Liam Nguyen\nSAI: 1450\nDependency Status: Dependent\nEnrollment Status: Half-time\nInstitution: Metro State`,
     data: {
@@ -103,6 +142,7 @@ const SAMPLE_DOCS = [
     id: 'transcript-01',
     label: 'Transcript (Ava Carter)',
     file: 'demo-docs/transcript.txt',
+    previewFile: 'demo-docs/transcript.pdf',
     type: 'transcript',
     rawText: `SNHU Transcript (Demo)\nStudent Name: Ava Carter\nEnrollment Status: Full-time\nInstitution: SNHU\nGPA: 3.42\nCredits: 54`,
     data: {
@@ -116,6 +156,7 @@ const SAMPLE_DOCS = [
     id: 'transcript-02',
     label: 'Transcript (Liam Nguyen)',
     file: 'demo-docs/transcript-02.txt',
+    previewFile: 'demo-docs/transcript.pdf',
     type: 'transcript',
     rawText: `Metro State Transcript (Demo)\nStudent Name: Liam Nguyen\nEnrollment Status: Half-time\nInstitution: Metro State\nGPA: 3.78\nCredits: 36`,
     data: {
@@ -129,6 +170,7 @@ const SAMPLE_DOCS = [
     id: 'tax-01',
     label: 'IRS 1040 Summary',
     file: 'demo-docs/tax-document.txt',
+    previewFile: 'demo-docs/tax-document.pdf',
     type: 'tax',
     rawText: `IRS 1040 Summary (Demo)\nTax Year: 2025\nAdjusted Gross Income: 28450\nHousehold Income: 28450\nFiling Status: Single`,
     data: {
@@ -139,6 +181,7 @@ const SAMPLE_DOCS = [
     id: 'dd214-01',
     label: 'DD-214',
     file: 'demo-docs/dd214.txt',
+    previewFile: 'demo-docs/dd214.pdf',
     type: 'military',
     rawText: `DD-214 (Demo)\nBranch: U.S. Navy\nService Years: 6\nDischarge: Honorable\nVeteran: Yes`,
     data: {
@@ -153,8 +196,12 @@ const TAX_DOCS = SAMPLE_DOCS.filter((doc) => doc.type === 'tax');
 const VETERAN_DOCS = SAMPLE_DOCS.filter((doc) => doc.type === 'military');
 
 const conversationMap = new Map();
-const activeRows = [];
+const liveRows = [];
+const pastRows = [];
 let activeConversationId = null;
+let agentsCount = parseInt(agentsRange?.value || '3', 10);
+let maxLiveRows = 18 + agentsCount * 2;
+let transcriptAutoScroll = true;
 
 const metrics = {
   completed: 0,
@@ -165,12 +212,18 @@ const metrics = {
 };
 
 const TIMING = {
-  studentBase: 900,
-  agentBase: 1600,
-  perWordStudent: 70,
-  perWordAgent: 110,
-  jitter: 520,
-  pauseAfter: 600
+  studentBase: 1500,
+  agentBase: 2400,
+  perWordStudent: 110,
+  perWordAgent: 170,
+  jitter: 900,
+  pauseAfter: 1100
+};
+
+const STANDARD_GREETING = {
+  en: 'Hi, I am Penny. I can complete your financial aid form, extract documents, and explain why each question matters. Share your school and any documents you already have to begin.',
+  es: 'Hola, soy Penny. Puedo completar tu formulario de ayuda financiera, extraer documentos y explicar por que cada pregunta importa. Comparte tu escuela y los documentos que tengas para empezar.',
+  pt: 'Oi, sou a Penny. Posso completar seu formulario de ajuda financeira, extrair documentos e explicar por que cada pergunta importa. Compartilhe sua escola e os documentos que tiver para comecar.'
 };
 
 function pickRandom(list) {
@@ -207,8 +260,118 @@ function formatCurrency(value) {
   return `$${value.toLocaleString()}`;
 }
 
-function t(lang, en, es) {
-  return lang === 'es' ? es : en;
+let hoverTooltip = null;
+
+function ensureHoverTooltip() {
+  if (hoverTooltip) return hoverTooltip;
+  const existing = document.getElementById('hover-tooltip');
+  if (existing) {
+    hoverTooltip = existing;
+    return hoverTooltip;
+  }
+  hoverTooltip = document.createElement('div');
+  hoverTooltip.id = 'hover-tooltip';
+  hoverTooltip.className = 'hover-tooltip';
+  document.body.appendChild(hoverTooltip);
+  return hoverTooltip;
+}
+
+function positionHoverTooltipAt(x, y) {
+  const tooltip = ensureHoverTooltip();
+  const padding = 12;
+  const rect = tooltip.getBoundingClientRect();
+  let left = x + 14;
+  let top = y + 14;
+
+  if (left + rect.width > window.innerWidth - padding) {
+    left = x - rect.width - 14;
+  }
+  if (left < padding) left = padding;
+
+  if (top + rect.height > window.innerHeight - padding) {
+    top = y - rect.height - 14;
+  }
+  if (top < padding) top = padding;
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function showHoverTooltip(html, x, y) {
+  const tooltip = ensureHoverTooltip();
+  tooltip.innerHTML = html;
+  tooltip.classList.add('visible');
+  positionHoverTooltipAt(x, y);
+}
+
+function hideHoverTooltip() {
+  if (!hoverTooltip) return;
+  hoverTooltip.classList.remove('visible');
+}
+
+function t(lang, en, es, pt) {
+  if (lang === 'es') return es;
+  if (lang === 'pt') return pt || en;
+  return en;
+}
+
+function makeMessyText(text) {
+  const tweaks = [
+    (s) => s.replace('your', 'ur'),
+    (s) => s.replace('please', 'pls'),
+    (s) => s.replace('and', '&'),
+    (s) => s.replace('because', 'bc'),
+    (s) => s.replace('I am', "I'm"),
+    (s) => s.replace('financial', 'fin aid'),
+    (s) => s.replace('cannot', "can't"),
+    (s) => s.replace('with', 'w/'),
+    (s) => s.replace('about', 'abt'),
+    (s) => s.replace('document', 'doc')
+  ];
+  let result = text;
+  const count = randomInt(1, 3);
+  for (let i = 0; i < count; i += 1) {
+    result = tweaks[randomInt(0, tweaks.length - 1)](result);
+  }
+  return result;
+}
+
+function studentIntroText(name, institution, lang) {
+  if (lang === 'pt') {
+    return `Oi, sou ${name}. Preciso de ajuda com ajuda financeira para ${institution}.`;
+  }
+  const templates = [
+    `hi im ${name} need help w/ aid for ${institution}`,
+    `hey, ${name} here. trying to finish fin aid for ${institution}`,
+    `yo i'm ${name}... can u help w financial aid for ${institution}?`,
+    `Hi, I'm ${name}. I'm trying to finish my financial aid for ${institution}.`
+  ];
+  const base = templates[randomInt(0, templates.length - 1)];
+  return Math.random() > 0.5 ? makeMessyText(base) : base;
+}
+
+function studentProvideBasics(name, dob, enrollmentStatus, lang) {
+  const english = `Name ${name}. DOB ${dob}. Enrollment ${enrollmentStatus}.`;
+  const spanish = `Nombre ${name}. Nacimiento ${dob}. Inscripcion ${enrollmentStatus}.`;
+  const portuguese = `Nome ${name}. Nascimento ${dob}. Matricula ${enrollmentStatus}.`;
+  const base = lang === 'es' ? spanish : (lang === 'pt' ? portuguese : english);
+  return Math.random() > 0.5 ? makeMessyText(base) : base;
+}
+
+function studentDependencyText(dependencyStatus, maritalStatus, veteranStatus, lang) {
+  const english = `I'm ${dependencyStatus}, ${maritalStatus}. Military: ${veteranStatus === 'Yes' ? 'Yes' : 'No'}.`;
+  const spanish = `Soy ${dependencyStatus}, ${maritalStatus}. Militar: ${veteranStatus === 'Yes' ? 'Si' : 'No'}.`;
+  const portuguese = `Sou ${dependencyStatus}, ${maritalStatus}. Militar: ${veteranStatus === 'Yes' ? 'Sim' : 'Nao'}.`;
+  const base = lang === 'es' ? spanish : (lang === 'pt' ? portuguese : english);
+  return Math.random() > 0.5 ? makeMessyText(base) : base;
+}
+
+function studentShareDocText(label, lang) {
+  const english = `Sharing ${label}.`;
+  const spanish = `Compartiendo ${label}.`;
+  const portuguese = `Enviando ${label}.`;
+  const base = lang === 'es' ? spanish : (lang === 'pt' ? portuguese : english);
+  return Math.random() > 0.5 ? makeMessyText(base) : base;
 }
 
 function recommendBanks({ veteran, income, dependencyStatus }) {
@@ -302,8 +465,9 @@ function buildScenario(name, type, complete, aidValue) {
   const studentName = name;
   const spanishHints = ['Rivera', 'Gomez', 'Martinez', 'Perez', 'Alvarez'];
   const likelySpanish = spanishHints.some((token) => studentName.includes(token));
-  const language = likelySpanish ? 'es' : (Math.random() > 0.85 ? 'es' : 'en');
-  const languageLabel = language === 'es' ? 'Spanish' : 'English';
+  const randLang = Math.random();
+  const language = likelySpanish ? 'es' : (randLang > 0.9 ? 'pt' : (randLang > 0.82 ? 'es' : 'en'));
+  const languageLabel = language === 'es' ? 'Spanish' : (language === 'pt' ? 'Portuguese' : 'English');
   const institution = pickRandom(['SNHU', 'Metro State', 'Purdue Global', 'ASU Online', 'UMass Global']);
   const enrollmentStatus = Math.random() > 0.2 ? 'Full-time' : 'Half-time';
   const dependencyStatus = Math.random() > 0.55 ? 'Independent' : 'Dependent';
@@ -344,13 +508,26 @@ function buildScenario(name, type, complete, aidValue) {
 
   const messages = [
     {
+      role: 'agent',
+      text: t(language, STANDARD_GREETING.en, STANDARD_GREETING.es, STANDARD_GREETING.pt),
+      reasoning: {
+        ask: 'Standardized intake greeting',
+        why: 'Sets expectations and shows how the intake will work.',
+        unlocks: 'Clarifies that document upload and explanations are available.',
+        differentiator: 'Generic bots do not explain the full aid workflow up front.',
+        fields: [],
+        language: languageLabel
+      }
+    },
+    {
       role: 'student',
       text: t(
         language,
-        `Hi, I'm ${studentName}. I'm trying to finish my financial aid for ${institution}.`,
-        `Hola, soy ${studentName}. Quiero terminar mi ayuda financiera para ${institution}.`
+        studentIntroText(studentName, institution, language),
+        `Hola, soy ${studentName}. Necesito ayuda con ayuda financiera para ${institution}.`,
+        `Oi, sou ${studentName}. Preciso de ajuda com ajuda financeira para ${institution}.`
       ),
-      delta: { name: studentName },
+      delta: { name: studentName, institution },
       reasoning: {
         ask: 'Initial intent and school context',
         why: 'Confirms the institution and starts the aid workflow without making the student search the form.',
@@ -380,11 +557,7 @@ function buildScenario(name, type, complete, aidValue) {
     },
     {
       role: 'student',
-      text: t(
-        language,
-        `Name ${studentName}. DOB ${dob}. Enrollment ${enrollmentStatus}.`,
-        `Nombre ${studentName}. Nacimiento ${dob}. Inscripcion ${enrollmentStatus}.`
-      ),
+      text: studentProvideBasics(studentName, dob, enrollmentStatus, language),
       delta: { name: studentName, dateOfBirth: dob, enrollmentStatus },
       reasoning: {
         ask: 'Student response captured',
@@ -412,11 +585,7 @@ function buildScenario(name, type, complete, aidValue) {
     },
     {
       role: 'student',
-      text: t(
-        language,
-        `I'm ${dependencyStatus}, ${maritalStatus}. Military: ${veteranStatus === 'Yes' ? 'Yes' : 'No'}.`,
-        `Soy ${dependencyStatus}, ${maritalStatus}. Militar: ${veteranStatus === 'Yes' ? 'Si' : 'No'}.`
-      ),
+      text: studentDependencyText(dependencyStatus, maritalStatus, veteranStatus, language),
       delta: {
         age,
         maritalStatus,
@@ -449,11 +618,7 @@ function buildScenario(name, type, complete, aidValue) {
     },
     {
       role: 'student',
-      text: t(
-        language,
-        `Sharing ${fafsaDoc.label}.`,
-        `Compartiendo ${fafsaDoc.label}.`
-      ),
+      text: studentShareDocText(fafsaDoc.label, language),
       doc: fafsaDoc,
       reasoning: {
         ask: 'Document intake',
@@ -482,13 +647,9 @@ function buildScenario(name, type, complete, aidValue) {
   if (veteranStatus === 'Yes') {
     messages.push(
       {
-        role: 'student',
-        text: t(
-          language,
-          `Sharing ${veteranDoc.label}.`,
-          `Compartiendo ${veteranDoc.label}.`
-        ),
-        doc: veteranDoc,
+      role: 'student',
+      text: studentShareDocText(veteranDoc.label, language),
+      doc: veteranDoc,
         reasoning: {
           ask: 'Veteran benefits proof',
           why: 'DD-214 verifies veteran eligibility and benefits.',
@@ -518,13 +679,9 @@ function buildScenario(name, type, complete, aidValue) {
     const bankList = recommendBanks({ veteran: veteranStatus, income, dependencyStatus });
     messages.push(
       {
-        role: 'student',
-        text: t(
-          language,
-          `Sharing ${transcriptDoc.label}.`,
-          `Compartiendo ${transcriptDoc.label}.`
-        ),
-        doc: transcriptDoc,
+      role: 'student',
+      text: studentShareDocText(transcriptDoc.label, language),
+      doc: transcriptDoc,
         reasoning: {
           ask: 'Transcript intake',
           why: 'GPA and enrollment confirm merit aid and SAP standing.',
@@ -548,13 +705,9 @@ function buildScenario(name, type, complete, aidValue) {
         }
       },
       {
-        role: 'student',
-        text: t(
-          language,
-          `Sharing ${taxDoc.label}.`,
-          `Compartiendo ${taxDoc.label}.`
-        ),
-        doc: taxDoc,
+      role: 'student',
+      text: studentShareDocText(taxDoc.label, language),
+      doc: taxDoc,
         reasoning: {
           ask: 'Tax document intake',
           why: 'Household income is required for need analysis.',
@@ -598,7 +751,7 @@ function buildScenario(name, type, complete, aidValue) {
         role: 'student',
         text: t(
           language,
-          'Appreciate the help.',
+          makeMessyText('Appreciate the help.'),
           'Gracias por la ayuda.'
         ),
         delta: { status: 'Complete', missingDocs: 'None' },
@@ -630,7 +783,7 @@ function buildScenario(name, type, complete, aidValue) {
         role: 'student',
         text: t(
           language,
-          `Household income is about $${income}. I'll share ${missingDocs} later.`,
+          makeMessyText(`Household income is about $${income}. I'll share ${missingDocs} later.`),
           `Ingreso familiar aproximado $${income}. Enviare ${missingDocs} despues.`
         ),
         delta: { income, status: 'Incomplete', missingDocs },
@@ -644,7 +797,7 @@ function buildScenario(name, type, complete, aidValue) {
     );
   }
 
-  const totalDuration = randomInt(40, 120);
+  const totalDuration = randomInt(60, 150);
   const weighted = messages.map((msg) => ({
     ...msg,
     length: Math.max(8, msg.text.split(' ').length)
@@ -712,6 +865,57 @@ function renderMetricMix() {
   metricMix.textContent = top.join(' | ');
 }
 
+function truncateText(text, limit = 88) {
+  if (!text) return '';
+  return text.length > limit ? `${text.slice(0, limit - 3)}...` : text;
+}
+
+function getSegmentLabel(text) {
+  if (!text) return '';
+  const cleaned = text.replace(/\s+/g, ' ').trim();
+  return truncateText(cleaned, 18);
+}
+
+function formatDateShort(date) {
+  const d = new Date(date);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function getCompletionStats(snapshot) {
+  const total = FIELD_LABELS.length;
+  const filled = FIELD_LABELS.reduce((count, field) => {
+    const value = snapshot[field.key];
+    return value !== undefined && value !== null && value !== '' ? count + 1 : count;
+  }, 0);
+  const percent = Math.round((filled / total) * 100);
+  return { filled, total, percent };
+}
+
+function getConversationPreview(conversation) {
+  const firstStudent = conversation.messages.find((msg) => msg.role === 'student');
+  return truncateText(firstStudent?.text || conversation.messages[0]?.text || '');
+}
+
+function hasAttachments(conversation) {
+  return conversation.messages.some((msg) => msg.doc);
+}
+
+function getLatestSnapshot(conversation) {
+  return conversation.snapshots[conversation.snapshots.length - 1] || {};
+}
+
+function getStageIndices(conversation) {
+  const stages = [];
+  FIELD_LABELS.forEach((field) => {
+    const idx = conversation.snapshots.findIndex((snap) => {
+      const value = snap[field.key];
+      return value !== undefined && value !== null && value !== '';
+    });
+    stages.push(idx === -1 ? null : idx);
+  });
+  return stages;
+}
+
 function updateMetrics() {
   metricCompleted.textContent = metrics.completed.toLocaleString();
   metricAid.textContent = formatCurrency(metrics.totalAid);
@@ -719,6 +923,195 @@ function updateMetrics() {
   metricRate.textContent = `${rate}%`;
   metricPending.textContent = metrics.completedIncomplete.toLocaleString();
   renderMetricMix();
+  updateImpactMetrics();
+}
+
+function renderBarChart(container, rows) {
+  if (!container) return;
+  container.innerHTML = '';
+  rows.forEach((row, index) => {
+    const line = document.createElement('div');
+    line.className = 'chart-row';
+
+    const label = document.createElement('span');
+    label.textContent = row.label;
+
+    const bar = document.createElement('div');
+    bar.className = 'chart-bar';
+    const fill = document.createElement('span');
+    fill.style.setProperty('--chart-width', `${row.value}%`);
+    bar.appendChild(fill);
+
+    const value = document.createElement('span');
+    value.textContent = row.display;
+
+    line.appendChild(label);
+    line.appendChild(bar);
+    line.appendChild(value);
+    container.appendChild(line);
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        fill.classList.add('animate');
+      }, 40 + index * 80);
+    });
+
+    line.addEventListener('mouseenter', (event) => {
+      showHoverTooltip(
+        `<div class="tooltip-title">${row.label}</div><div class="tooltip-row"><span>Value</span><strong>${row.display}</strong></div>`,
+        event.clientX,
+        event.clientY
+      );
+    });
+    line.addEventListener('mousemove', (event) => {
+      if (!hoverTooltip || !hoverTooltip.classList.contains('visible')) return;
+      positionHoverTooltipAt(event.clientX, event.clientY);
+    });
+    line.addEventListener('mouseleave', () => {
+      hideHoverTooltip();
+    });
+  });
+}
+
+function renderSparkline(container, points, accent) {
+  if (!container) return;
+  container.innerHTML = '';
+  const w = 320;
+  const h = 120;
+  const padding = 12;
+  const max = Math.max(...points.map((p) => p.value));
+  const min = Math.min(...points.map((p) => p.value));
+  const span = max - min || 1;
+  const step = (w - padding * 2) / (points.length - 1);
+
+  const coords = points.map((point, idx) => {
+    const x = padding + idx * step;
+    const y = h - padding - ((point.value - min) / span) * (h - padding * 2);
+    return { x, y, label: point.label, value: point.value };
+  });
+
+  const linePath = coords.map((c, i) => `${i === 0 ? 'M' : 'L'} ${c.x} ${c.y}`).join(' ');
+  const areaPath = `${linePath} L ${coords[coords.length - 1].x} ${h - padding} L ${coords[0].x} ${h - padding} Z`;
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  svg.setAttribute('role', 'img');
+
+  const area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  area.setAttribute('d', areaPath);
+  area.setAttribute('class', 'sparkline-area');
+  svg.appendChild(area);
+
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', linePath);
+  path.setAttribute('class', 'sparkline-path');
+  if (accent) path.setAttribute('style', `stroke:${accent};`);
+  svg.appendChild(path);
+
+  coords.forEach((point) => {
+    const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    dot.setAttribute('cx', `${point.x}`);
+    dot.setAttribute('cy', `${point.y}`);
+    dot.setAttribute('r', '4');
+    dot.setAttribute('class', 'sparkline-point');
+    dot.addEventListener('mouseenter', (event) => {
+      showHoverTooltip(
+        `<div class="tooltip-title">${point.label}</div><div class="tooltip-row"><span>Value</span><strong>${point.value}</strong></div>`,
+        event.clientX,
+        event.clientY
+      );
+    });
+    dot.addEventListener('mousemove', (event) => {
+      if (!hoverTooltip || !hoverTooltip.classList.contains('visible')) return;
+      positionHoverTooltipAt(event.clientX, event.clientY);
+    });
+    dot.addEventListener('mouseleave', () => {
+      hideHoverTooltip();
+    });
+    svg.appendChild(dot);
+  });
+
+  container.appendChild(svg);
+}
+
+function updateImpactMetrics(forceCharts = false) {
+  const pastCount = pastStreamsEl ? pastStreamsEl.children.length : 0;
+  const liveCount = liveStreamsEl ? liveStreamsEl.children.length : 0;
+  const totalStudents = metrics.completed + liveCount + pastCount;
+  const completionRate = metrics.completed ? Math.round((metrics.completedComplete / metrics.completed) * 100) : 0;
+  const avgTime = Math.max(10, 22 - agentsCount * 2);
+  const hoursSaved = Math.round(metrics.completed * 0.6);
+  const costPer = Math.max(12, 28 - completionRate / 5);
+  const errorRate = Math.min(90, 60 + completionRate / 2);
+  const docsProcessed = Math.round((metrics.completed + liveCount) * 1.8);
+  const autoFillRate = Math.min(96, 62 + Math.round(completionRate * 0.35));
+  const dropoffRisk = Math.max(6, 42 - completionRate / 2);
+  const complianceRate = Math.min(99, 88 + Math.round(completionRate / 12));
+  const aidUnlocked = metrics.totalAid + 320000;
+
+  if (impactStudents) impactStudents.textContent = totalStudents.toLocaleString();
+  if (impactTime) impactTime.textContent = `${avgTime} min`;
+  if (impactCompletion) impactCompletion.textContent = `${completionRate}%`;
+  if (impactHours) impactHours.textContent = `${hoursSaved} hrs`;
+  if (impactCost) impactCost.textContent = `$${costPer.toFixed(0)}`;
+  if (impactErrors) impactErrors.textContent = `${errorRate}%`;
+  if (impactAidVolume) impactAidVolume.textContent = formatCurrency(aidUnlocked);
+  if (impactGrantMix) impactGrantMix.textContent = 'Pell 62% | State 18% | Institutional 20%';
+  if (impactRefunds) impactRefunds.textContent = '76% direct deposit';
+  if (impactTitle) impactTitle.textContent = '98% clean checks';
+  if (impactAudit) impactAudit.textContent = '100% traceable';
+  if (impactReporting) impactReporting.textContent = 'On-time';
+  if (impactIntakes) impactIntakes.textContent = totalStudents.toLocaleString();
+  if (impactAutofill) impactAutofill.textContent = `${autoFillRate}%`;
+  if (impactDocs) impactDocs.textContent = docsProcessed.toLocaleString();
+  if (impactAidUnlocked) impactAidUnlocked.textContent = formatCurrency(aidUnlocked);
+  if (impactDropoff) impactDropoff.textContent = `${dropoffRisk}%`;
+  if (impactCompliance) impactCompliance.textContent = `${complianceRate}%`;
+
+  const now = Date.now();
+  const shouldRenderCharts = forceCharts || now - lastImpactChartRender > 6000;
+  if (!shouldRenderCharts) return;
+  lastImpactChartRender = now;
+
+  renderBarChart(document.getElementById('chart-dropoff'), [
+    { label: 'Started', value: 100, display: '100%' },
+    { label: 'Docs', value: 78, display: '78%' },
+    { label: 'Review', value: 64, display: '64%' },
+    { label: 'Complete', value: completionRate || 52, display: `${completionRate || 52}%` }
+  ]);
+  renderBarChart(document.getElementById('chart-throughput'), [
+    { label: '8 AM', value: 45, display: '45' },
+    { label: '12 PM', value: 72, display: '72' },
+    { label: '4 PM', value: 60, display: '60' },
+    { label: '8 PM', value: 38, display: '38' }
+  ]);
+  renderBarChart(document.getElementById('chart-aid'), [
+    { label: 'Pell', value: 68, display: '68%' },
+    { label: 'State', value: 22, display: '22%' },
+    { label: 'Inst', value: 40, display: '40%' }
+  ]);
+  renderBarChart(document.getElementById('chart-compliance'), [
+    { label: 'FAFSA', value: 92, display: '92%' },
+    { label: 'Title IV', value: 88, display: '88%' },
+    { label: 'Audit', value: 96, display: '96%' }
+  ]);
+
+  renderSparkline(document.getElementById('chart-aid-trend'), [
+    { label: 'Mon', value: 420 },
+    { label: 'Tue', value: 520 },
+    { label: 'Wed', value: 610 },
+    { label: 'Thu', value: 560 },
+    { label: 'Fri', value: 720 },
+    { label: 'Sat', value: 680 },
+    { label: 'Sun', value: 760 }
+  ]);
+  renderSparkline(document.getElementById('chart-doc-turnaround'), [
+    { label: 'Week 1', value: 34 },
+    { label: 'Week 2', value: 28 },
+    { label: 'Week 3', value: 22 },
+    { label: 'Week 4', value: 18 },
+    { label: 'Week 5', value: 16 }
+  ], '#0d7a71');
 }
 
 function addCompletionMetrics(conversation) {
@@ -752,9 +1145,36 @@ function createStreamRow(conversation) {
   statusEl.className = 'stream-status';
   statusEl.textContent = 'In Progress';
 
+  const previewEl = document.createElement('div');
+  previewEl.className = 'conversation-preview';
+  previewEl.textContent = getConversationPreview(conversation);
+
+  const metaRow = document.createElement('div');
+  metaRow.className = 'conversation-meta-row';
+
+  const progressEl = document.createElement('span');
+  progressEl.className = 'progress-pill';
+
+  const attachmentEl = document.createElement('span');
+  attachmentEl.className = 'attachment-pill';
+  attachmentEl.textContent = 'Attachments';
+  if (!hasAttachments(conversation)) {
+    attachmentEl.classList.add('hidden');
+  }
+
+  const dateEl = document.createElement('span');
+  dateEl.className = 'meta-date';
+  dateEl.textContent = formatDateShort(conversation.createdAt || Date.now());
+
+  metaRow.appendChild(progressEl);
+  metaRow.appendChild(attachmentEl);
+  metaRow.appendChild(dateEl);
+
   meta.appendChild(nameEl);
   meta.appendChild(typeEl);
   meta.appendChild(statusEl);
+  meta.appendChild(previewEl);
+  meta.appendChild(metaRow);
 
   const track = document.createElement('div');
   track.className = 'stream-track';
@@ -768,12 +1188,160 @@ function createStreamRow(conversation) {
     lockConversation(conversation, lastIndex);
   });
 
-  return { row, track, statusEl };
+  row.dataset.conversationId = conversation.id;
+
+  row.addEventListener('mouseenter', (event) => {
+    const snapshot = getLatestSnapshot(conversation);
+    const { filled, total, percent } = getCompletionStats(snapshot);
+    const html = conversation.rowTooltipHtml || buildRowTooltipHtml(conversation, filled, total, percent);
+    showHoverTooltip(html, event.clientX, event.clientY);
+  });
+  row.addEventListener('mouseleave', () => {
+    hideHoverTooltip();
+  });
+  row.addEventListener('mousemove', (event) => {
+    if (!hoverTooltip || !hoverTooltip.classList.contains('visible')) return;
+    positionHoverTooltipAt(event.clientX, event.clientY);
+  });
+
+  return { row, track, statusEl, previewEl, progressEl, attachmentEl };
+}
+
+function updateRowMeta(conversation, index) {
+  if (!conversation.rowRefs) return;
+  const snapshot = conversation.snapshots[index] || getLatestSnapshot(conversation);
+  const { filled, total, percent } = getCompletionStats(snapshot);
+  conversation.rowRefs.progressEl.textContent = `${filled}/${total}`;
+  conversation.rowRefs.progressEl.setAttribute('data-percent', `${percent}%`);
+  conversation.rowRefs.previewEl.textContent = getConversationPreview(conversation);
+
+  const row = conversation.rowRefs.row;
+  row.dataset.status = conversation.status.toLowerCase();
+  row.dataset.language = conversation.language;
+  row.dataset.attachments = hasAttachments(conversation) ? 'has' : 'none';
+  row.dataset.completion = percent;
+  if (conversation.createdAt) {
+    row.dataset.createdAt = `${conversation.createdAt}`;
+  }
+
+  if (hasAttachments(conversation)) {
+    conversation.rowRefs.attachmentEl.classList.remove('hidden');
+  } else {
+    conversation.rowRefs.attachmentEl.classList.add('hidden');
+  }
+
+  conversation.rowTooltipHtml = buildRowTooltipHtml(conversation, filled, total, percent);
+}
+
+function updateLiveCount() {
+  if (!liveCountEl) return;
+  const count = liveStreamsEl ? liveStreamsEl.children.length : 0;
+  liveCountEl.textContent = `${count} active`;
+}
+
+function moveToPast(conversation) {
+  if (!pastStreamsEl || !conversation.rowRefs) return;
+  const row = conversation.rowRefs.row;
+  row.classList.add('to-past');
+  setTimeout(() => {
+    row.classList.remove('to-past');
+    row.classList.add('past');
+    pastStreamsEl.prepend(row);
+    updateLiveCount();
+    applyPastFilters();
+    updateImpactMetrics(true);
+  }, 280);
+}
+
+function matchesCompletionFilter(value, filterValue) {
+  if (filterValue === 'all') return true;
+  const percent = Number(value) || 0;
+  if (filterValue === '0-50') return percent <= 50;
+  if (filterValue === '50-80') return percent > 50 && percent <= 80;
+  if (filterValue === '80-100') return percent > 80;
+  return true;
+}
+
+function applyPastFilters() {
+  if (!pastStreamsEl) return;
+  const statusVal = filterStatus?.value || 'all';
+  const languageVal = filterLanguage?.value || 'all';
+  const attachmentVal = filterAttachments?.value || 'all';
+  const completionVal = filterCompletion?.value || 'all';
+  const recencyVal = filterRecency?.value || 'all';
+
+  Array.from(pastStreamsEl.children).forEach((row) => {
+    const status = row.dataset.status || '';
+    const language = row.dataset.language || '';
+    const attachments = row.dataset.attachments || 'none';
+    const completion = row.dataset.completion || '0';
+    const createdAt = Number(row.dataset.createdAt || 0);
+
+    const statusOk = statusVal === 'all' || status === statusVal;
+    const languageOk = languageVal === 'all' || (languageVal === 'Other' ? !['English', 'Spanish'].includes(language) : language === languageVal);
+    const attachmentOk = attachmentVal === 'all' || attachments === attachmentVal;
+    const completionOk = matchesCompletionFilter(completion, completionVal);
+    let recencyOk = true;
+    if (recencyVal !== 'all' && createdAt) {
+      const days = Number(recencyVal);
+      const cutoff = Date.now() - days * 86400000;
+      recencyOk = createdAt >= cutoff;
+    }
+
+    row.classList.toggle('hidden', !(statusOk && languageOk && attachmentOk && completionOk && recencyOk));
+  });
+}
+
+function renderPastConversation(conversation) {
+  const { row, track, statusEl, previewEl, progressEl, attachmentEl } = createStreamRow(conversation);
+  conversation.rowRefs = { row, track, statusEl, previewEl, progressEl, attachmentEl };
+  conversation.track = track;
+  conversation.statusEl = statusEl;
+  row.classList.add('past');
+
+  statusEl.textContent = conversation.status === 'Complete' ? 'Complete' : 'Needs Docs';
+  if (conversation.status !== 'Complete') {
+    statusEl.classList.add('incomplete');
+  }
+
+  conversation.messages.forEach((msg, idx) => {
+    const segment = document.createElement('div');
+    segment.className = `segment ${msg.role} static`;
+    segment.style.width = `${calcSegmentWidth(msg.text)}px`;
+    const label = document.createElement('span');
+    label.className = 'segment-label';
+    label.textContent = getSegmentLabel(msg.text);
+    segment.appendChild(label);
+    if (msg.doc) {
+      const folder = document.createElement('span');
+      folder.className = 'segment-folder';
+      folder.title = 'Attachment';
+      segment.appendChild(folder);
+    }
+    segment.addEventListener('click', () => lockConversation(conversation, idx));
+    segment.addEventListener('mouseenter', (event) => {
+      showHoverTooltip(buildSegmentTooltipHtml(msg), event.clientX, event.clientY);
+    });
+    segment.addEventListener('mouseleave', (event) => {
+      if (row.matches(':hover')) {
+        const snapshot = conversation.snapshots[idx] || getLatestSnapshot(conversation);
+        const { filled, total, percent } = getCompletionStats(snapshot);
+        showHoverTooltip(buildRowTooltipHtml(conversation, filled, total, percent), event.clientX, event.clientY);
+      } else {
+        hideHoverTooltip();
+      }
+    });
+    track.appendChild(segment);
+  });
+
+  requestAnimationFrame(() => ensureTrackFits(track));
+  updateRowMeta(conversation, conversation.messages.length - 1);
+  pastStreamsEl.appendChild(row);
 }
 
 function calcSegmentWidth(text) {
   const tokens = text.split(' ').length;
-  return Math.min(260, Math.max(36, tokens * 8));
+  return Math.min(260, Math.max(60, tokens * 8));
 }
 
 function renderMarkdown(text) {
@@ -788,8 +1356,42 @@ function renderMarkdown(text) {
     .replace(/\n/g, '<br />');
 }
 
+function buildRowTooltipHtml(conversation, filled, total, percent) {
+  return `
+    <div class="tooltip-title">${conversation.studentName}</div>
+    <div class="tooltip-row"><span>Status</span><strong>${conversation.status}</strong></div>
+    <div class="tooltip-row"><span>Completion</span><strong>${filled}/${total} (${percent}%)</strong></div>
+    <div class="tooltip-row"><span>Language</span><strong>${conversation.language}</strong></div>
+    <div class="tooltip-row"><span>Preview</span><span>${getConversationPreview(conversation)}</span></div>
+  `;
+}
+
+function buildSegmentTooltipHtml(msg) {
+  const body = renderMarkdown(msg.text || '');
+  const attachment = msg.doc ? `<div class="tooltip-row"><span>Folder</span><strong>${msg.doc.label}</strong></div>` : '';
+  return `<div class="tooltip-title">${msg.role === 'agent' ? 'Agent' : 'Student'} message</div>${body}${attachment}`;
+}
+
+function createAttachmentButton(doc) {
+  if (!doc) return null;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'message-attachment';
+  btn.textContent = doc.label;
+  btn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    openAttachment(doc);
+  });
+  return btn;
+}
+
 function conversationSubtitle(conversation) {
   return `${conversation.status} form | Aid supported ${formatCurrency(conversation.aidValue)}`;
+}
+
+function setModalOpenState(isOpen) {
+  document.body.classList.toggle('modal-open', isOpen);
+  document.documentElement.classList.toggle('modal-open', isOpen);
 }
 
 function lockConversation(conversation, index) {
@@ -797,7 +1399,7 @@ function lockConversation(conversation, index) {
   lockState.conversationId = conversation.id;
   detailModal?.classList.add('locked');
   detailModal?.classList.add('open');
-  document.body.classList.add('modal-open');
+  setModalOpenState(true);
   const safeIndex = Number.isInteger(index) ? index : conversation.messages.length - 1;
   setActiveConversation(conversation, safeIndex, { force: true });
 }
@@ -808,7 +1410,9 @@ function unlockConversation() {
   lockState.conversationId = null;
   detailModal?.classList.remove('locked');
   detailModal?.classList.remove('open');
-  document.body.classList.remove('modal-open');
+  if (!attachmentModal || !attachmentModal.classList.contains('open')) {
+    setModalOpenState(false);
+  }
   if (lastAuto.conversationId) {
     const conv = conversationMap.get(lastAuto.conversationId);
     if (conv) {
@@ -819,6 +1423,7 @@ function unlockConversation() {
 }
 
 function setActiveConversation(conversation, index, options = {}) {
+  const isNewConversation = activeConversationId !== conversation.id;
   if (!options.force && !lockState.active) {
     lastAuto.conversationId = conversation.id;
     lastAuto.messageIndex = index;
@@ -827,6 +1432,9 @@ function setActiveConversation(conversation, index, options = {}) {
     return;
   }
   activeConversationId = conversation.id;
+  if (isNewConversation) {
+    transcriptAutoScroll = true;
+  }
   detailEyebrow.textContent = conversation.status === 'Complete' ? 'Completed' : 'In Progress';
   detailTitle.textContent = `${conversation.studentName} | ${conversation.studentType}`;
 
@@ -844,6 +1452,7 @@ function setActiveConversation(conversation, index, options = {}) {
 
   renderFormState(conversation, index);
   renderReasoning(conversation, index);
+  renderTimeline(conversation, index);
   renderAutoDocs(conversation);
 }
 
@@ -861,6 +1470,13 @@ function renderTranscriptUpTo(conversation, activeIndex) {
     textEl.innerHTML = renderMarkdown(msg.text);
     msgEl.appendChild(textEl);
 
+    if (msg.doc) {
+      const attachment = createAttachmentButton(msg.doc);
+      if (attachment) {
+        msgEl.appendChild(attachment);
+      }
+    }
+
     msgEl.addEventListener('click', () => {
       lockConversation(conversation, idx);
     });
@@ -869,6 +1485,9 @@ function renderTranscriptUpTo(conversation, activeIndex) {
   });
 
   conversation.renderedIndex = activeIndex;
+  if (transcriptAutoScroll) {
+    detailMessages.scrollTop = detailMessages.scrollHeight;
+  }
 }
 
 function appendStreamingMessage(conversation, msg, index) {
@@ -889,6 +1508,13 @@ function appendStreamingMessage(conversation, msg, index) {
   textEl.textContent = '';
   msgEl.appendChild(textEl);
 
+  if (msg.doc) {
+    const attachment = createAttachmentButton(msg.doc);
+    if (attachment) {
+      msgEl.appendChild(attachment);
+    }
+  }
+
   msgEl.addEventListener('click', () => {
     lockConversation(conversation, index);
   });
@@ -898,7 +1524,9 @@ function appendStreamingMessage(conversation, msg, index) {
 
   const durationMs = (msg.duration || 2) * 1000;
   streamText(textEl, msg.text, durationMs);
-  detailMessages.scrollTop = detailMessages.scrollHeight;
+  if (transcriptAutoScroll) {
+    detailMessages.scrollTop = detailMessages.scrollHeight;
+  }
   renderReasoning(conversation, index);
 }
 
@@ -921,7 +1549,9 @@ function showTypingIndicator(role) {
   indicator.className = `typing-indicator ${role}`;
   indicator.innerHTML = '<span></span><span></span><span></span>';
   detailMessages.appendChild(indicator);
-  detailMessages.scrollTop = detailMessages.scrollHeight;
+  if (transcriptAutoScroll) {
+    detailMessages.scrollTop = detailMessages.scrollHeight;
+  }
   return indicator;
 }
 
@@ -935,7 +1565,13 @@ function bindNestedScroll(child, parent) {
       parent.scrollTop += delta;
       event.preventDefault();
     }
+    event.stopPropagation();
   }, { passive: false });
+}
+
+function isTranscriptNearBottom() {
+  if (!detailMessages) return true;
+  return detailMessages.scrollTop + detailMessages.clientHeight >= detailMessages.scrollHeight - 24;
 }
 
 function showPendingSegment(track, role) {
@@ -943,6 +1579,7 @@ function showPendingSegment(track, role) {
   segment.className = `segment ${role} pending`;
   segment.style.width = '46px';
   track.appendChild(segment);
+  requestAnimationFrame(() => ensureTrackFits(track));
   return segment;
 }
 
@@ -957,10 +1594,17 @@ function appendSegment(track, msg, durationOverride) {
   const segment = document.createElement('div');
   segment.className = `segment ${msg.role}`;
 
-  const tooltip = document.createElement('div');
-  tooltip.className = 'tooltip';
-  tooltip.innerHTML = renderMarkdown(msg.text);
-  segment.appendChild(tooltip);
+  const label = document.createElement('span');
+  label.className = 'segment-label';
+  label.textContent = getSegmentLabel(msg.text);
+  segment.appendChild(label);
+
+  if (msg.doc) {
+    const folder = document.createElement('span');
+    folder.className = 'segment-folder';
+    folder.title = 'Attachment';
+    segment.appendChild(folder);
+  }
 
   const width = calcSegmentWidth(msg.text);
   segment.style.transitionDuration = `${durationOverride || msg.duration || 1.4}s`;
@@ -969,26 +1613,88 @@ function appendSegment(track, msg, durationOverride) {
   requestAnimationFrame(() => {
     segment.classList.add('playing');
     segment.style.width = `${width}px`;
+    ensureTrackFits(track);
   });
 
   setTimeout(() => {
     segment.classList.remove('playing');
   }, (durationOverride || msg.duration || 1.4) * 1000);
 
+  segment.addEventListener('mouseenter', (event) => {
+    showHoverTooltip(buildSegmentTooltipHtml(msg), event.clientX, event.clientY);
+  });
+  segment.addEventListener('mouseleave', (event) => {
+    const row = track.closest('.stream-row');
+    const conversationId = row?.dataset.conversationId;
+    const conv = conversationId ? conversationMap.get(conversationId) : null;
+    if (row && row.matches(':hover') && conv) {
+      const snapshot = getLatestSnapshot(conv);
+      const { filled, total, percent } = getCompletionStats(snapshot);
+      showHoverTooltip(buildRowTooltipHtml(conv, filled, total, percent), event.clientX, event.clientY);
+    } else {
+      hideHoverTooltip();
+    }
+  });
+
   return segment;
 }
 
+function ensureTrackFits(track) {
+  if (!track) return;
+  const maxWidth = track.clientWidth;
+  if (!maxWidth) return;
+  const overflowEl = track.querySelector('.segment.overflow');
+  if (overflowEl) overflowEl.remove();
+
+  const segments = Array.from(track.querySelectorAll('.segment'));
+  let total = 0;
+  segments.forEach((seg, idx) => {
+    if (idx === 0) {
+      total += seg.offsetWidth;
+    } else {
+      total += seg.offsetWidth + 6;
+    }
+  });
+
+  if (total <= maxWidth) return;
+
+  let removed = 0;
+  while (segments.length && total > maxWidth) {
+    const seg = segments.shift();
+    if (!seg) break;
+    total -= seg.offsetWidth + 6;
+    seg.remove();
+    removed += 1;
+  }
+
+  if (removed > 0) {
+    const overflowSegment = document.createElement('div');
+    overflowSegment.className = 'segment overflow static';
+    overflowSegment.style.width = '48px';
+    const label = document.createElement('span');
+    label.className = 'segment-label';
+    label.textContent = '...';
+    overflowSegment.appendChild(label);
+    track.prepend(overflowSegment);
+  }
+}
+
 function spawnConversation(conversation) {
-  const { row, track, statusEl } = createStreamRow(conversation);
-  streamsEl.prepend(row);
-  activeRows.unshift(row);
-  if (activeRows.length > 16) {
-    const removed = activeRows.pop();
+  const { row, track, statusEl, previewEl, progressEl, attachmentEl } = createStreamRow(conversation);
+  if (!liveStreamsEl) return;
+  liveStreamsEl.prepend(row);
+  liveRows.unshift(row);
+  if (liveRows.length > maxLiveRows) {
+    const removed = liveRows.pop();
     removed.remove();
   }
 
   conversation.track = track;
   conversation.statusEl = statusEl;
+  conversation.rowRefs = { row, track, statusEl, previewEl, progressEl, attachmentEl };
+  updateRowMeta(conversation, 0);
+  updateLiveCount();
+  updateImpactMetrics();
 
   let index = 0;
 
@@ -1001,6 +1707,7 @@ function spawnConversation(conversation) {
         statusEl.classList.add('incomplete');
       }
       addCompletionMetrics(conversation);
+      moveToPast(conversation);
       return;
     }
 
@@ -1030,9 +1737,13 @@ function spawnConversation(conversation) {
       statusEl.classList.remove('pending');
 
       setActiveConversation(conversation, segmentIndex, { stream: true, message: msg });
+      updateRowMeta(conversation, segmentIndex);
+      updateImpactMetrics();
 
       if (msg.doc) {
         await simulateDocProcessing(conversation, msg.doc, segmentIndex);
+        updateRowMeta(conversation, segmentIndex);
+        updateImpactMetrics();
       }
 
       setTimeout(() => {
@@ -1084,6 +1795,62 @@ function renderFormState(conversation, index) {
   }
   if (formProgressFill) {
     formProgressFill.style.width = `${percent}%`;
+  }
+
+  renderStageBar(conversation, index);
+}
+
+function renderStageBar(conversation, index) {
+  if (!formStageBar) return;
+  formStageBar.innerHTML = '';
+  const stages = getStageIndices(conversation);
+
+  let activeStage = null;
+  let activeStageIndex = null;
+  stages.forEach((stageIndex, idx) => {
+    if (stageIndex !== null && stageIndex <= index) {
+      activeStage = idx;
+      activeStageIndex = stageIndex;
+    }
+  });
+
+  stages.forEach((stageIndex, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'stage-dot';
+    btn.textContent = `${idx + 1}`;
+    btn.dataset.stage = `${idx + 1}`;
+    if (stageIndex === null) {
+      btn.classList.add('inactive');
+    } else {
+      btn.classList.add('done');
+    }
+    if (idx === activeStage) {
+      btn.classList.add('active');
+    }
+    btn.addEventListener('click', () => {
+      const targetIndex = stageIndex ?? index;
+      lockConversation(conversation, targetIndex);
+    });
+    formStageBar.appendChild(btn);
+  });
+
+  if (formStagePreview) {
+    formStagePreview.innerHTML = '';
+    const previewIndex = Number.isInteger(activeStageIndex) ? activeStageIndex : Math.min(index, conversation.messages.length - 1);
+    const msg = conversation.messages[previewIndex];
+    const previewText = msg ? truncateText(msg.text, 96) : 'No transcript yet.';
+    const textEl = document.createElement('span');
+    textEl.className = 'stage-preview-text';
+    textEl.textContent = previewText;
+    formStagePreview.appendChild(textEl);
+
+    if (msg?.doc) {
+      const docEl = document.createElement('span');
+      docEl.className = 'stage-preview-doc';
+      docEl.textContent = truncateText(msg.doc.label, 40);
+      formStagePreview.appendChild(docEl);
+    }
   }
 }
 
@@ -1151,6 +1918,38 @@ function renderReasoning(conversation, index) {
   });
 }
 
+function renderTimeline(conversation, index) {
+  if (!detailTimeline) return;
+  detailTimeline.innerHTML = '';
+
+  conversation.messages.forEach((msg, idx) => {
+    if (idx > index) return;
+    const item = document.createElement('div');
+    item.className = 'timeline-item';
+    if (idx === index) {
+      item.classList.add('active');
+    }
+
+    const header = document.createElement('button');
+    header.type = 'button';
+    header.className = `timeline-header ${msg.role}`;
+    header.textContent = `${msg.role === 'agent' ? 'Agent' : 'Student'} - ${truncateText(msg.text, 80)}`;
+    header.addEventListener('click', () => {
+      lockConversation(conversation, idx);
+    });
+
+    const body = document.createElement('div');
+    body.className = 'timeline-body';
+    body.textContent = msg.text;
+
+    item.appendChild(header);
+    if (idx === index) {
+      item.appendChild(body);
+    }
+    detailTimeline.appendChild(item);
+  });
+}
+
 function renderAutoDocs(conversation) {
   if (!autoDocsEl) return;
   autoDocsEl.innerHTML = '';
@@ -1169,11 +1968,11 @@ function renderAutoDocs(conversation) {
     row.className = 'auto-doc';
 
     const left = document.createElement('div');
-    const link = document.createElement('a');
-    link.href = doc.file || '#';
+    const link = document.createElement('button');
+    link.type = 'button';
+    link.className = 'doc-link';
     link.textContent = doc.label;
-    link.target = '_blank';
-    link.rel = 'noopener';
+    link.addEventListener('click', () => openAttachment(doc));
     left.appendChild(link);
 
     if (doc.fields && doc.fields.length) {
@@ -1236,12 +2035,15 @@ function renderTranscriptionLog(conversation) {
     top.appendChild(label);
 
     if (entry.link) {
-      const link = document.createElement('a');
+      const link = document.createElement('button');
+      link.type = 'button';
       link.className = 'log-link';
-      link.href = entry.link.href;
       link.textContent = entry.link.label;
-      link.target = '_blank';
-      link.rel = 'noopener';
+      link.addEventListener('click', () => {
+        if (entry.doc) {
+          openAttachment(entry.doc);
+        }
+      });
       top.appendChild(link);
     }
 
@@ -1261,6 +2063,42 @@ function setTranscriptionStatus(text) {
   if (!transcriptionStatus) return;
   transcriptionStatus.textContent = text;
   transcriptionStatus.style.display = text ? 'inline-flex' : 'none';
+}
+
+function openAttachment(doc) {
+  if (!attachmentModal || !doc) return;
+  if (attachmentTitle) attachmentTitle.textContent = doc.label || 'Attachment';
+  const preview = doc.previewFile || doc.file;
+  if (preview && preview.toLowerCase().endsWith('.pdf')) {
+    if (attachmentFrame) {
+      attachmentFrame.src = preview;
+      attachmentFrame.style.display = 'block';
+    }
+    if (attachmentText) {
+      attachmentText.textContent = '';
+      attachmentText.style.display = 'none';
+    }
+  } else {
+    if (attachmentFrame) {
+      attachmentFrame.src = '';
+      attachmentFrame.style.display = 'none';
+    }
+    if (attachmentText) {
+      attachmentText.textContent = doc.rawText || 'No preview available.';
+      attachmentText.style.display = 'block';
+    }
+  }
+  attachmentModal.classList.add('open');
+  setModalOpenState(true);
+}
+
+function closeAttachment() {
+  if (!attachmentModal) return;
+  attachmentModal.classList.remove('open');
+  if (attachmentFrame) attachmentFrame.src = '';
+  if (!detailModal || !detailModal.classList.contains('open')) {
+    setModalOpenState(false);
+  }
 }
 
 function parseTextToDelta(text) {
@@ -1316,6 +2154,34 @@ function upsertDoc(conversation, info) {
   }
 }
 
+function hydrateConversationDocs(conversation) {
+  conversation.docs = [];
+  conversation.logs = [];
+  conversation.messages.forEach((msg) => {
+    if (!msg.doc) return;
+    const delta = parseTextToDelta(msg.doc.rawText || '');
+    const fields = Object.keys(delta);
+    conversation.docs.push({
+      label: msg.doc.label,
+      file: msg.doc.file,
+      previewFile: msg.doc.previewFile,
+      status: fields.length ? 'Parsed' : 'Needs Review',
+      fields
+    });
+    conversation.logs.unshift({
+      text: `Fields detected: ${fields.length ? fields.join(', ') : 'None'}`,
+      state: fields.length ? 'success' : 'warn',
+      doc: msg.doc
+    });
+    conversation.logs.unshift({
+      text: `Raw text from ${msg.doc.label}`,
+      state: 'info',
+      rawText: msg.doc.rawText ? msg.doc.rawText.slice(0, 240) : '',
+      doc: msg.doc
+    });
+  });
+}
+
 async function processDocumentPipeline({ conversation, doc }) {
   const displayLabel = doc.label;
   const linkLabel = doc.file?.split('/').pop() || doc.label;
@@ -1323,6 +2189,8 @@ async function processDocumentPipeline({ conversation, doc }) {
   upsertDoc(conversation, {
     label: displayLabel,
     file: doc.file,
+    previewFile: doc.previewFile,
+    rawText: doc.rawText,
     status: 'Reading',
     fields: []
   });
@@ -1330,13 +2198,15 @@ async function processDocumentPipeline({ conversation, doc }) {
   addTranscriptionEntry(conversation, {
     text: `Received ${displayLabel}`,
     state: 'info',
-    link: doc.file ? { href: doc.file, label: linkLabel } : null
+    link: doc.file ? { href: doc.file, label: linkLabel } : null,
+    doc
   });
 
   setTranscriptionStatus('Transcribing...');
   const stageEntry = addTranscriptionEntry(conversation, {
     text: `Reading ${linkLabel}...`,
-    state: 'loading'
+    state: 'loading',
+    doc
   });
 
   const previousSubtitle = detailSubtitle.textContent;
@@ -1364,12 +2234,14 @@ async function processDocumentPipeline({ conversation, doc }) {
     addTranscriptionEntry(conversation, {
       text: `Raw text from ${linkLabel}`,
       state: 'info',
-      rawText: preview
+      rawText: preview,
+      doc
     });
   } else {
     addTranscriptionEntry(conversation, {
       text: `No text extracted from ${linkLabel}.`,
-      state: 'warn'
+      state: 'warn',
+      doc
     });
   }
 
@@ -1378,28 +2250,34 @@ async function processDocumentPipeline({ conversation, doc }) {
   if (keys.length) {
     addTranscriptionEntry(conversation, {
       text: `Fields detected: ${keys.join(', ')}`,
-      state: 'success'
+      state: 'success',
+      doc
     });
     upsertDoc(conversation, {
       label: displayLabel,
       file: doc.file,
+      previewFile: doc.previewFile,
+      rawText: doc.rawText,
       status: 'Parsed',
       fields: keys
     });
   } else {
     addTranscriptionEntry(conversation, {
       text: 'No structured fields detected.',
-      state: 'warn'
+      state: 'warn',
+      doc
     });
     upsertDoc(conversation, {
       label: displayLabel,
       file: doc.file,
+      previewFile: doc.previewFile,
+      rawText: doc.rawText,
       status: 'Needs Review',
       fields: []
     });
   }
 
-setTranscriptionStatus('');
+  setTranscriptionStatus('');
   if (activeConversationId === conversation.id) {
     detailSubtitle.textContent = previousSubtitle;
   }
@@ -1422,6 +2300,19 @@ async function simulateDocProcessing(conversation, doc, index) {
   }
 }
 
+function getSpawnDelay() {
+  const base = randomInt(18000, 26000);
+  return Math.max(5200, Math.floor(base / Math.max(1, agentsCount)));
+}
+
+function formatAgentsLabel(count) {
+  return `${count} agent${count === 1 ? '' : 's'}`;
+}
+
+function getBurstCount() {
+  return Math.min(4, Math.max(1, agentsCount));
+}
+
 function startSimulation() {
   updateMetrics();
 
@@ -1441,12 +2332,13 @@ function startSimulation() {
     scenario.renderedIndex = -1;
     scenario.docs = [];
     scenario.logs = [];
+    scenario.createdAt = Date.now();
     conversationMap.set(scenario.id, scenario);
     return scenario;
   };
 
-  const initialBurst = 3;
-  const burstSpacing = 2600;
+  const initialBurst = getBurstCount();
+  const burstSpacing = 2400;
   for (let i = 0; i < initialBurst; i += 1) {
     const conv = createInstance();
     setTimeout(() => spawnConversation(conv), i * burstSpacing);
@@ -1455,25 +2347,72 @@ function startSimulation() {
   const launchNext = () => {
     const conv = createInstance();
     spawnConversation(conv);
-    const delayTime = randomInt(12000, 18000);
+    const delayTime = getSpawnDelay();
     setTimeout(launchNext, delayTime);
   };
 
   setTimeout(launchNext, initialBurst * burstSpacing);
 }
 
+function seedPastConversations() {
+  if (!pastStreamsEl) return;
+  const pastCount = 5;
+  for (let i = 0; i < pastCount; i += 1) {
+    const studentName = UNIQUE_NAMES[(i + 40) % UNIQUE_NAMES.length];
+    const studentType = pickRandom(STUDENT_TYPES);
+    const complete = Math.random() > 0.4;
+    const aidValue = randomInt(5000, 16000);
+    const scenario = buildScenario(studentName, studentType, complete, aidValue);
+    scenario.id = `conv_past_${i + 1}`;
+    scenario.renderedIndex = scenario.messages.length - 1;
+    hydrateConversationDocs(scenario);
+    scenario.createdAt = Date.now() - randomInt(1, 20) * 86400000;
+    conversationMap.set(scenario.id, scenario);
+    renderPastConversation(scenario);
+    addCompletionMetrics(scenario);
+  }
+  applyPastFilters();
+}
+
 if (modalBackdrop) {
   modalBackdrop.addEventListener('click', () => unlockConversation());
 }
 
+if (attachmentBackdrop) {
+  attachmentBackdrop.addEventListener('click', () => closeAttachment());
+}
+
+if (attachmentClose) {
+  attachmentClose.addEventListener('click', () => closeAttachment());
+}
+
 setTranscriptionStatus('');
+seedPastConversations();
 startSimulation();
+updateImpactMetrics(true);
 
 if (modalPanel) {
   bindNestedScroll(detailMessages, modalPanel);
   bindNestedScroll(detailFormBody, modalPanel);
   bindNestedScroll(detailReasoning, modalPanel);
   bindNestedScroll(transcriptionLog, modalPanel);
+  modalPanel.addEventListener('wheel', (event) => {
+    event.stopPropagation();
+  }, { passive: true });
+}
+
+if (liveStreamsEl) {
+  liveStreamsEl.addEventListener('scroll', () => hideHoverTooltip());
+}
+
+if (pastStreamsEl) {
+  pastStreamsEl.addEventListener('scroll', () => hideHoverTooltip());
+}
+
+if (detailMessages) {
+  detailMessages.addEventListener('scroll', () => {
+    transcriptAutoScroll = isTranscriptNearBottom();
+  });
 }
 
 if (jumpButtons.length && modalBody && modalPanel) {
@@ -1495,6 +2434,20 @@ if (jumpButtons.length && modalBody && modalPanel) {
     });
   });
 }
+
+if (agentsRange && agentsValue) {
+  agentsValue.textContent = formatAgentsLabel(agentsCount);
+  agentsRange.addEventListener('input', () => {
+    agentsCount = parseInt(agentsRange.value, 10);
+    agentsValue.textContent = formatAgentsLabel(agentsCount);
+    maxLiveRows = 18 + agentsCount * 2;
+  });
+}
+
+[filterStatus, filterLanguage, filterAttachments, filterCompletion, filterRecency].forEach((filter) => {
+  if (!filter) return;
+  filter.addEventListener('change', applyPastFilters);
+});
 
 
 
