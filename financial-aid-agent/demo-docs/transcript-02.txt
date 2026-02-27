@@ -1,0 +1,6 @@
+Metro State Transcript (Demo)
+Student Name: Liam Nguyen
+Enrollment Status: Half-time
+Institution: Metro State
+GPA: 3.78
+Credits: 36

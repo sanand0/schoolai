@@ -1,6 +1,6 @@
 SNHU Transcript (Demo)
-Student: Jamie Rivera
-ID: 00987421
-Enrollment: Full-time
+Student Name: Ava Carter
+Enrollment Status: Full-time
+Institution: SNHU
 GPA: 3.42
 Credits: 54

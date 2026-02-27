@@ -2,3 +2,4 @@ DD-214 (Demo)
 Branch: U.S. Navy
 Service Years: 6
 Discharge: Honorable
+Veteran: Yes

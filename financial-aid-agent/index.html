@@ -1,19 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Penny+ : Agentic Financial Aid Assistant</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <title>Penny+ â€¢ Agentic Financial Aid</title>
+  
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%231d5b7c%27/%3E%3Cpath d=%27M18 34h28v6H18zm8-12h12v6H26z%27 fill=%27%23fef3c7%27/%3E%3Ctext x=%2732%27 y=%2752%27 text-anchor=%27middle%27 font-size=%2718%27 fill=%27%23fef3c7%27 font-family=%27Arial%27%3E+%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Archivo+SemiCondensed:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2-family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Archivo+SemiCondensed:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-</head>
+  <link rel="stylesheet" href="styles.css" /></head>
 <body>
   <div class="page-bg" aria-hidden="true">
     <div class="bg-orb orb-1"></div>
@@ -21,111 +20,152 @@
     <div class="bg-grid"></div>
     <div class="bg-noise"></div>
   </div>
+
   <div class="page">
     <header class="hero">
       <div>
-        <p class="eyebrow">SNHU Demo • Agentic Financial Aid</p>
+        <p class="eyebrow">SNHU Demo â€¢ Agentic Financial Aid</p>
         <h1>Penny+ : Agentic Financial Aid Assistant</h1>
         <p class="subhead">
-          A domain-intelligent agent that completes financial aid forms, infers eligibility, and explains every step. Automation is the hand; Straive support is the heart.
+          A domain-intelligent agent that completes financial aid forms, infers eligibility, explains why it asks, and ingests documents in real time. Automation is the hand; Straive support is the heart.
         </p>
-        <button id="apiKeyBtn" class="ghost-btn" type="button">Set OpenRouter API Key</button>
       </div>
     </header>
 
-    <section class="chat-section">
-      <div class="chat-window" id="chatWindow" aria-live="polite"></div>
-      <div class="chat-controls">
-        <div class="controls-left">
-          <label class="upload-btn" id="uploadLabel" for="fileInput">Upload Document</label>
-          <input id="fileInput" type="file" accept=".pdf,.txt,.doc,.docx" hidden />
-          <button id="downloadPdfBtn" class="ghost-btn" type="button">Download PDF Summary</button>
-          <div class="lang-toggle" role="group" aria-label="Language toggle">
-            <button id="langEn" class="toggle active" type="button">EN</button>
-            <button id="langEs" class="toggle" type="button">ES</button>
+    <section class="metrics-bar" aria-live="polite">
+      <div class="metric-card">
+        <p class="metric-label">Conversations Completed</p>
+        <strong id="metric-completed" class="metric-value">0</strong>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Total Aid Supported</p>
+        <strong id="metric-aid" class="metric-value">$0</strong>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Student Mix</p>
+        <strong id="metric-mix" class="metric-value">â€”</strong>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Completion Rate</p>
+        <strong id="metric-rate" class="metric-value">0%</strong>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Docs Pending</p>
+        <strong id="metric-pending" class="metric-value">0</strong>
+      </div>
+    </section>
+
+    <section class="live-layout">
+      <div class="streams-section">
+        <div class="streams-header">
+          <h2>Live Conversation Streams</h2>
+          <p>Live student journeys running in accelerated time. Hover any segment to preview; click to pin the form state.</p>
+        </div>
+        <div id="streams" class="streams" aria-live="polite"></div>
+      </div>
+
+      <div class="detail-modal" id="detail-modal">
+        <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"></div>
+        <aside class="live-panel modal-panel" id="detail-panel" role="dialog" aria-modal="false">
+        <header class="panel-header">
+          <div class="panel-head-row">
+            <div>
+              <p class="eyebrow" id="detail-eyebrow">Active Conversation</p>
+              <h2 id="detail-title">Waiting for intake</h2>
+              <p class="muted" id="detail-subtitle">Select any segment to inspect a specific moment.</p>
+            </div>
+            <div class="panel-jumps">
+              <button class="ghost-btn small" type="button" data-jump="latest">Latest</button>
+              <button class="ghost-btn small" type="button" data-jump="rationale">Rationale</button>
+              <button class="ghost-btn small" type="button" data-jump="sources">Sources</button>
+            </div>
           </div>
+        </header>
+        <div class="panel-body">
+          <div class="modal-top">
+            <section class="detail-chat">
+              <div class="detail-section-header">
+                <h3>Transcript</h3>
+                <p class="muted">Click a message to update the form snapshot.</p>
+              </div>
+              <div id="detail-messages" class="detail-messages empty-state">No conversation selected.</div>
+            </section>
+
+            <section class="detail-form">
+              <div class="detail-section-header">
+                <div class="section-title-row">
+                  <h3>Form State</h3>
+                </div>
+                <p class="muted" id="detail-form-subtitle">-</p>
+              </div>
+              <div class="form-progress">
+                <div class="form-progress-label">
+                  <span id="form-progress-count">0/14 fields</span>
+                  <span id="form-progress-percent">0%</span>
+                </div>
+                <div class="form-progress-track">
+                  <div id="form-progress-fill" class="form-progress-fill" style="width: 0%;"></div>
+                </div>
+              </div>
+              <div id="detail-form-body" class="detail-form-body"></div>
+            </section>
+          </div>
+
+          <section class="detail-reasoning" id="rationale-section">
+            <div class="detail-section-header">
+              <h3>Agent Rationale</h3>
+              <p class="muted">Why it asked, what it unlocked, and what a generic bot would miss.</p>
+            </div>
+            <div id="detail-reasoning" class="detail-reasoning-body">
+              <div class="reason-empty">Select a message to see the reasoning trace.</div>
+            </div>
+          </section>
+
+          <section class="detail-sources" id="sources-section">
+            <div class="detail-section-header">
+              <h3>Sources & Extracted Data</h3>
+              <p class="muted">Live document intake, raw text, and extracted fields.</p>
+            </div>
+            <div class="detail-sources-body">
+              <div class="auto-panel">
+                <div class="auto-panel-header">
+                  <div>
+                    <p class="auto-label">Document intake</p>
+                    <p class="muted auto-subtitle">Documents are ingested and processed in real time.</p>
+                  </div>
+                  <span id="transcriptionStatus" class="status-pill"></span>
+                </div>
+                <div id="auto-docs" class="auto-docs"></div>
+              </div>
+              <div class="transcription-wrap">
+                <p class="auto-label">Raw extractions</p>
+                <div id="transcription-log" class="transcription-log"></div>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class="controls-right">
-          <input id="userInput" type="text" placeholder="Type your response..." />
-          <button id="sendBtn" class="send-btn" type="button">Send</button>
-        </div>
+              </aside>
       </div>
     </section>
-
-    <section class="reasoning-section">
-      <div class="reasoning-header">
-        <div>
-          <h2 id="reasoningTitle">Agent Reasoning Panel</h2>
-          <p id="reasoningSubtitle">Transparent audit trail of fields, rules, and inferences.</p>
-        </div>
-        <div class="confidence">
-          <span id="confidenceLabel">Confidence</span>
-          <strong id="confidenceScore">0%</strong>
-        </div>
-      </div>
-      <div class="reasoning-grid">
-        <div class="card">
-          <h3 id="fieldsTitle">Fields Filled</h3>
-          <div id="fieldsList" class="card-body"></div>
-        </div>
-        <div class="card">
-          <h3 id="rulesTitle">Rules Applied</h3>
-          <div id="rulesList" class="card-body"></div>
-        </div>
-        <div class="card">
-          <h3 id="inferencesTitle">Inferences</h3>
-          <div id="inferencesList" class="card-body"></div>
-        </div>
-        <div class="card">
-          <h3 id="extractedTitle">Extracted Data</h3>
-          <div id="extractedList" class="card-body"></div>
-        </div>
-        <div class="card full">
-          <h3 id="recommendationsTitle">Loan Recommendations</h3>
-          <div id="recommendationsList" class="card-body"></div>
-        </div>
-        <div class="card full">
-          <h3 id="formTitle">Financial Aid Form Preview</h3>
-          <div id="formPreview" class="form-preview"></div>
-        </div>
-        <div class="card full">
-          <h3 id="checklistTitle">Completion Checklist</h3>
-          <div id="checklistList" class="card-body"></div>
-        </div>
-        <div class="card full">
-          <h3 id="summaryTitle">Financial Aid Completion Summary</h3>
-          <div id="finalSummary" class="card-body"></div>
-        </div>
-        <div class="card full">
-          <h3 id="sourcesTitle">Sources & Citations</h3>
-          <div id="sourcesList" class="card-body"></div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="modal-shell hidden" id="api-key-modal" role="dialog" aria-modal="true" aria-labelledby="api-key-title">
-    <div class="modal-backdrop" data-close="api-key"></div>
-    <div class="modal-window api-key-window">
-      <header class="modal-header">
-        <div>
-          <p class="eyebrow">OpenRouter</p>
-          <h2 id="api-key-title">Set API Key</h2>
-          <p class="muted">Paste your OpenRouter API key to enable live LLM responses.</p>
-        </div>
-        <button class="icon-btn" id="api-key-close-btn" type="button" aria-label="Close">✕</button>
-      </header>
-      <div class="api-key-body">
-        <label class="form-label" for="apiKeyInput">OpenRouter API key</label>
-        <input id="apiKeyInput" type="password" placeholder="sk-or-..." />
-        <div class="api-key-actions">
-          <button id="apiKeySaveBtn" class="send-btn" type="button">Save Key</button>
-          <button id="apiKeyCancelBtn" class="ghost-btn" type="button">Cancel</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script src="app.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
