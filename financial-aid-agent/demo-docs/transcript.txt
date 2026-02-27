@@ -1,0 +1,6 @@
+SNHU Transcript (Demo)
+Student: Jamie Rivera
+ID: 00987421
+Enrollment: Full-time
+GPA: 3.42
+Credits: 54

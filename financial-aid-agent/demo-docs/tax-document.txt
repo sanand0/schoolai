@@ -1,0 +1,4 @@
+IRS 1040 Summary (Demo)
+Tax Year: 2025
+Household Income: 28450
+Filing Status: Single
