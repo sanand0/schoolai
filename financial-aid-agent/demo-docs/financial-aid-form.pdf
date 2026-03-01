@@ -1,0 +1,91 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1178 >>
+stream
+BT
+/F1 11 Tf
+72 750 Td
+(FAFSA Preview \(Demo\)) Tj
+0 -14 Td
+72 736 Td
+(Section 1: Student Identity \(StudentAid.gov\)) Tj
+0 -14 Td
+72 722 Td
+(  Name, Date of Birth, SSN \(masked\), Email, Phone, Address) Tj
+0 -14 Td
+72 708 Td
+(Section 2: Personal Circumstances) Tj
+0 -14 Td
+72 694 Td
+(  Marital Status, Veteran Status, Dependency Status, FAFSA Section) Tj
+0 -14 Td
+72 680 Td
+(Section 3: Demographics) Tj
+0 -14 Td
+72 666 Td
+(  Citizenship Status) Tj
+0 -14 Td
+72 652 Td
+(Section 4: Financials) Tj
+0 -14 Td
+72 638 Td
+(  Household Income) Tj
+0 -14 Td
+72 624 Td
+(Section 5: Colleges & Career Schools) Tj
+0 -14 Td
+72 610 Td
+(  School List, Enrollment Status, GPA) Tj
+0 -14 Td
+72 596 Td
+(Section 6: Contributor Invite) Tj
+0 -14 Td
+72 582 Td
+(  Contributor Required, Contributor Email) Tj
+0 -14 Td
+72 568 Td
+(Section 7: Signature) Tj
+0 -14 Td
+72 554 Td
+(  Ready for e-sign) Tj
+0 -14 Td
+72 540 Td
+(Section 8: Military/Veteran Benefits \(SNHU add-on\)) Tj
+0 -14 Td
+72 526 Td
+(  GI Bill, Tuition Assistance, Priority Processing) Tj
+0 -14 Td
+72 512 Td
+(Section 9: Aid Outcomes \(Agent\)) Tj
+0 -14 Td
+72 498 Td
+(  Pell Eligibility, Merit Eligibility, Federal Aid Eligibility) Tj
+0 -14 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001470 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1540
+%%EOF

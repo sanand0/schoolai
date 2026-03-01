@@ -1,0 +1,6 @@
+FAFSA Submission Summary (Demo)
+Student Name: Ava Carter
+Student Aid Index (SAI): -620
+Dependency Status: Independent
+Enrollment Status: Full-time
+Institution: SNHU
