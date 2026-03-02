@@ -1,0 +1,5 @@
+IRS 1040 Summary (Demo)
+Tax Year: 2025
+Adjusted Gross Income: 28450
+Household Income: 28450
+Filing Status: Single

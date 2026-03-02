@@ -1,0 +1,6 @@
+SNHU Transcript (Demo)
+Student Name: Ava Carter
+Enrollment Status: Full-time
+Institution: SNHU
+GPA: 3.42
+Credits: 54
