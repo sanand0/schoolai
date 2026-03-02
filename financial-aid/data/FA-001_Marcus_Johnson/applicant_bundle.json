@@ -1,0 +1,430 @@
+{
+  "applicant_id": "FA-001",
+  "profile": {
+    "full_name": "Marcus Johnson",
+    "preferred_name": "Marcus",
+    "age": 18,
+    "background_summary": "First-generation first-year student balancing school and part-time fast-food work.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "Low",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Android smartphone",
+    "current_address": "1948 S Kedzie Ave Apt 3, Chicago, IL 60623",
+    "enrollment_goal": "AS Business Administration"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Dependent",
+    "sai_estimate": -980,
+    "reported_prior_year_income_usd": 8412,
+    "current_year_income_usd": 9200,
+    "household_size": 3,
+    "selected_for": [
+      "Federal Verification V1"
+    ],
+    "risk_flags": [
+      "high_stress",
+      "dropout_language_detected"
+    ]
+  },
+  "required_forms": [
+    "V1 Verification Worksheet",
+    "Untaxed Income Clarification"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA001-D1",
+      "doc_type": "W2_Phone_Photo",
+      "title": "Fast Food W-2 (Copy B)",
+      "file_name": "01_fast_food_w2_blurry.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "BrightBurger LLC Payroll",
+      "issue_date": "2026-01-15",
+      "render_template": "w2_photo",
+      "quality_flags": [
+        "blurry",
+        "2_degree_skew",
+        "low_light",
+        "monochrome_artifacting",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "employee_name": "Marcus Johnson",
+        "employer": "BrightBurger #147",
+        "tax_year": "2025",
+        "wages_tips": "$8,412.37",
+        "federal_withholding": "$282.00",
+        "state": "IL"
+      },
+      "body_lines": [
+        "Uploaded from Android camera at 11:42 PM in low bedroom lighting.",
+        "Top-right corner is clipped and text is slightly smeared."
+      ],
+      "file_link": "./01_fast_food_w2_blurry.webp"
+    },
+    {
+      "doc_id": "FA001-D2",
+      "doc_type": "Handwritten_Household_Note",
+      "title": "Household Note (Handwritten)",
+      "file_name": "02_household_note_handwritten.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Student Provided",
+      "issue_date": "2026-03-02",
+      "render_template": "handwritten_note_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "coffee_stain",
+        "scanner_noise"
+      ],
+      "structured_fields": {
+        "note_text": "Me, my mom Tanya Johnson, and my little sister Aaliyah (age 10)",
+        "phone_number": "312-555-0148",
+        "signed_by": "Marcus J."
+      },
+      "body_lines": [
+        "Written on notebook paper and photographed on kitchen table.",
+        "Coffee ring in lower-left area."
+      ],
+      "file_link": "./02_household_note_handwritten.webp"
+    },
+    {
+      "doc_id": "FA001-D3",
+      "doc_type": "V1_Verification_Worksheet_Draft",
+      "title": "The Uni V1 Verification Worksheet (Draft)",
+      "file_name": "03_v1_verification_worksheet_draft.pdf",
+      "format": "pdf",
+      "document_role": "ai_generated",
+      "issuer": "The Uni Financial Aid Bot",
+      "issue_date": "2026-03-02",
+      "render_template": "form_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Marcus Johnson",
+        "student_id": "U10449213",
+        "aid_year": "2026-2027",
+        "household_size": "3",
+        "student_income_from_w2": "$8,412.37",
+        "untaxed_income": "Pending advisor confirmation",
+        "completion_status": "90% complete"
+      },
+      "body_lines": [
+        "Sections completed from chat: Student info, household size, earned income.",
+        "Escalated to advisor for SSDI untaxed income policy confirmation."
+      ],
+      "file_link": "./03_v1_verification_worksheet_draft.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T09:12:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "seek_help",
+      "sentiment": "panicked",
+      "message": "The Uni says I have a hold and need a V1 Verification Worksheet. I do not know what that is."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T09:14:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "reassure_and_start_form",
+      "sentiment": "empathetic",
+      "message": "You are okay, Marcus. Your classes are safe. I opened your V1 worksheet and we can do this together. Who lives in your household right now?",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Marcus Johnson",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "student_id",
+          "field_label": "Student ID",
+          "new_value": "U10449213",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "aid_year",
+          "field_label": "Aid Year",
+          "new_value": "2026-2027",
+          "source": "institution_context",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T09:16:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "provide_household",
+      "sentiment": "anxious",
+      "message": "Just me, my mom, and my little sister."
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T09:18:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "clarify_household_details",
+      "sentiment": "supportive",
+      "message": "Got it. I entered household size as 3. Is your sister under 13, and is your mom working this year?",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "household_size",
+          "field_label": "Household Size",
+          "new_value": 3,
+          "source": "turn_3_message",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "household_members",
+          "field_label": "Household Members",
+          "new_value": [
+            "Marcus Johnson (student)",
+            "Tanya Johnson (mother)",
+            "Aaliyah Johnson (sister, age 10)"
+          ],
+          "source": "turn_3_message",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T09:20:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "provide_household_followup",
+      "sentiment": "worried",
+      "message": "Yes, my sister is 10. My mom does not work because of disability."
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T09:22:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "collect_income_docs",
+      "sentiment": "supportive",
+      "message": "Thanks. Did you work in 2025? If yes, snap your W-2 and upload it here.",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "sibling_under_13",
+          "field_label": "Sibling Under 13",
+          "new_value": true,
+          "source": "turn_5_message",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T09:24:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "nervous",
+      "message": "Yes, I worked at BrightBurger. Uploading W-2 and my handwritten note now.",
+      "document_links": [
+        {
+          "doc_id": "FA001-D1",
+          "file_link": "./01_fast_food_w2_blurry.webp"
+        },
+        {
+          "doc_id": "FA001-D2",
+          "file_link": "./02_household_note_handwritten.webp"
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "timestamp": "2026-03-02T09:26:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "autofill_income",
+      "sentiment": "reassuring",
+      "message": "I read your W-2. Wages are $8,412.37 from BrightBurger and federal withholding is $282. I filled the income section.",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "employer_name",
+          "field_label": "Employer Name",
+          "new_value": "BrightBurger #147",
+          "source": "FA001-D1_ocr",
+          "confidence": 0.94
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "student_wages",
+          "field_label": "Student Wages",
+          "new_value": 8412.37,
+          "source": "FA001-D1_ocr",
+          "confidence": 0.94
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "federal_tax_paid",
+          "field_label": "Federal Tax Paid",
+          "new_value": 282,
+          "source": "FA001-D1_ocr",
+          "confidence": 0.91
+        }
+      ],
+      "metadata": {
+        "ocr_quality": "medium",
+        "blur_detected": true
+      }
+    },
+    {
+      "turn": 9,
+      "timestamp": "2026-03-02T09:28:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "policy_question",
+      "sentiment": "confused",
+      "message": "The form asks for untaxed income. Does my mom's disability check count?"
+    },
+    {
+      "turn": 10,
+      "timestamp": "2026-03-02T09:30:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "escalate_to_human",
+      "sentiment": "empathetic",
+      "message": "Great question. I am pulling in Sarah, a human advisor, so you get the policy answer right away.",
+      "metadata": {
+        "escalation_trigger": "regulatory_complexity_and_student_confusion",
+        "distress_score": 0.88,
+        "handoff_to": "Sarah Kim",
+        "handoff_summary": "Worksheet mostly complete; pending policy treatment of parent SSDI as untaxed income.",
+        "advisor_action_items": [
+          "Confirm SSDI handling",
+          "Finalize untaxed income line",
+          "Approve for e-sign"
+        ]
+      }
+    },
+    {
+      "turn": 11,
+      "timestamp": "2026-03-02T09:32:00-06:00",
+      "speaker": "advisor",
+      "language": "en",
+      "intent": "human_takeover",
+      "sentiment": "calm",
+      "message": "Hi Marcus, I am Sarah. Thanks for staying with us. SSDI can count in specific untaxed lines, and I will place it correctly.",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "untaxed_income_parent_ssdi",
+          "field_label": "Parent SSDI Untaxed Income",
+          "new_value": 11880,
+          "source": "advisor_confirmation",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 12,
+      "timestamp": "2026-03-02T09:34:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "provide_amount",
+      "sentiment": "relieved",
+      "message": "It is around $990 each month."
+    },
+    {
+      "turn": 13,
+      "timestamp": "2026-03-02T09:36:00-06:00",
+      "speaker": "advisor",
+      "language": "en",
+      "intent": "confirm_math",
+      "sentiment": "supportive",
+      "message": "Perfect, that is $11,880 annual. I entered it and checked the advisor review box.",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "parent_ssdi_annual",
+          "field_label": "Parent SSDI Annual",
+          "new_value": 11880,
+          "source": "advisor_math",
+          "confidence": 1
+        },
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "review_status",
+          "field_label": "Review Status",
+          "new_value": "Ready for e-sign",
+          "source": "advisor_confirmation",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 14,
+      "timestamp": "2026-03-02T09:38:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "confirm_next_step",
+      "sentiment": "encouraging",
+      "message": "I attached your updated worksheet draft. Review and sign once you are ready.",
+      "document_links": [
+        {
+          "doc_id": "FA001-D3",
+          "file_link": "./03_v1_verification_worksheet_draft.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 15,
+      "timestamp": "2026-03-02T09:40:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "student_confirmation",
+      "sentiment": "relieved",
+      "message": "I signed it. Thank you for not making this scary."
+    },
+    {
+      "turn": 16,
+      "timestamp": "2026-03-02T09:42:00-06:00",
+      "speaker": "advisor",
+      "language": "en",
+      "intent": "close_case",
+      "sentiment": "calm",
+      "message": "Signed packet received. Your hold will clear after processing. You will stay enrolled.",
+      "form_updates": [
+        {
+          "form_id": "uni_v1_verification_worksheet_2026",
+          "field_id": "submission_status",
+          "field_label": "Submission Status",
+          "new_value": "Submitted by advisor",
+          "source": "advisor_confirmation",
+          "confidence": 1
+        }
+      ]
+    }
+  ],
+  "conversation_outcome": {
+    "status": "escalated_to_human_and_resolved",
+    "final_owner": "Advisor Sarah Kim",
+    "completion_percent_before_handoff": 90
+  },
+  "demo_hook": {
+    "title": "Step-by-step V1 auto-fill plus empathetic escalation",
+    "heart_moment": "AI reassures Marcus classes are safe, then escalates immediately when policy complexity appears."
+  },
+  "folder_name": "FA-001_Marcus_Johnson"
+}

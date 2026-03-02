@@ -1,0 +1,448 @@
+{
+  "applicant_id": "FA-003",
+  "profile": {
+    "full_name": "Carlos Mendoza",
+    "preferred_name": "Carlos",
+    "age": 29,
+    "background_summary": "Adult learner, Spanish-first speaker, no parental contact for five years.",
+    "first_language": "Spanish",
+    "english_proficiency": "Intermediate",
+    "tech_savviness": "Low",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Android smartphone",
+    "current_address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+    "enrollment_goal": "AAS HVAC Technology"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Pending override",
+    "sai_estimate": 6800,
+    "reported_prior_year_income_usd": 19800,
+    "current_year_income_usd": 22400,
+    "household_size": 1,
+    "selected_for": [
+      "Dependency Override Documentation"
+    ],
+    "risk_flags": [
+      "language_barrier",
+      "trauma_history"
+    ]
+  },
+  "required_forms": [
+    "Dependency Override Request",
+    "Independent Student Statement"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA003-D1",
+      "doc_type": "Utility_Bill",
+      "title": "City Electric Utility Bill",
+      "file_name": "01_utility_bill_current_address.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Orlando Municipal Utilities",
+      "issue_date": "2026-02-11",
+      "render_template": "statement_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "account_holder": "Carlos Mendoza",
+        "service_address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+        "billing_period": "2026-01-10 to 2026-02-09",
+        "amount_due": "$96.41"
+      },
+      "body_lines": [
+        "Used to verify current independent residence.",
+        "Address matches student profile."
+      ],
+      "file_link": "./01_utility_bill_current_address.pdf"
+    },
+    {
+      "doc_id": "FA003-D2",
+      "doc_type": "Therapist_Letter_of_Support",
+      "title": "Clinical Support Letter - Family Estrangement",
+      "file_name": "02_therapist_support_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Sunrise Behavioral Health",
+      "issue_date": "2026-02-14",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Carlos Mendoza",
+        "author_name": "Dr. Naomi Ellis, LCSW",
+        "author_phone": "407-555-0119",
+        "relationship_to_student": "Treating therapist",
+        "estrangement_duration": "5 years"
+      },
+      "body_lines": [
+        "Letter affirms long-term estrangement from abusive parents.",
+        "Recommends dependency override for student safety."
+      ],
+      "file_link": "./02_therapist_support_letter.pdf"
+    },
+    {
+      "doc_id": "FA003-D3",
+      "doc_type": "Landlord_Letter_of_Support",
+      "title": "Landlord Verification Letter",
+      "file_name": "03_landlord_support_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Vista Pines Apartments",
+      "issue_date": "2026-02-16",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "tenant_name": "Carlos Mendoza",
+        "landlord_name": "Miguel Alvarado",
+        "landlord_phone": "321-555-0182",
+        "lease_start": "2024-08-01",
+        "notes": "No parental co-signer or family support"
+      },
+      "body_lines": [
+        "Second third-party confirmation letter for override packet.",
+        "Confirms independent tenancy and financial responsibility."
+      ],
+      "file_link": "./03_landlord_support_letter.pdf"
+    },
+    {
+      "doc_id": "FA003-D4",
+      "doc_type": "Dependency_Override_Draft_Form",
+      "title": "Dependency Override Request (Draft)",
+      "file_name": "04_dependency_override_draft.pdf",
+      "format": "pdf",
+      "document_role": "ai_generated",
+      "issuer": "The Uni Financial Aid Bot",
+      "issue_date": "2026-03-02",
+      "render_template": "form_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Carlos Mendoza",
+        "address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+        "reference_1": "Dr. Naomi Ellis, LCSW",
+        "reference_2": "Miguel Alvarado, Landlord",
+        "translated_statement": "Completed from Spanish interview",
+        "status": "Ready for review"
+      },
+      "body_lines": [
+        "Bot translated student's Spanish responses into formal English narrative.",
+        "Reference contact fields auto-populated from uploaded letters."
+      ],
+      "file_link": "./04_dependency_override_draft.pdf"
+    },
+    {
+      "doc_id": "FA003-D5",
+      "doc_type": "Self_Support_Note_Photo",
+      "title": "Self Support Expense Note (Phone Photo)",
+      "file_name": "05_self_support_note_phone_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Student Provided",
+      "issue_date": "2026-03-02",
+      "render_template": "handwritten_note_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "blurry",
+        "low_light",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "student_name": "Carlos Mendoza",
+        "monthly_rent": "$1,050",
+        "food_transport": "$410",
+        "note": "Self-supported with hourly construction income"
+      },
+      "body_lines": [
+        "Handwritten personal budget note attached as supplemental evidence.",
+        "Used by AI to enrich separation and self-support details."
+      ],
+      "file_link": "./05_self_support_note_phone_photo.webp"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T10:18:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "report_estrangement",
+      "sentiment": "overwhelmed",
+      "message": "La FAFSA pide impuestos de mis padres, pero no hablo con ellos desde hace cinco anos.",
+      "translated_message_en": "FAFSA asks for my parents' taxes, but I have not spoken to them in five years."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T10:20:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "start_override_form",
+      "sentiment": "empathetic",
+      "message": "Lo siento mucho, Carlos. Podemos hacer una solicitud de Dependency Override. Ya abri el formulario. Cual es tu direccion actual?",
+      "translated_message_en": "I am very sorry, Carlos. We can submit a dependency override request. I opened the form. What is your current address?",
+      "form_updates": [
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Carlos Mendoza",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "language_preference",
+          "field_label": "Language Preference",
+          "new_value": "Spanish",
+          "source": "turn_1_message",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T10:22:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "provide_address",
+      "sentiment": "anxious",
+      "message": "8810 Liberty View Dr Apt 5C, Orlando Florida 32821.",
+      "translated_message_en": "8810 Liberty View Dr Apt 5C, Orlando Florida 32821."
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T10:24:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "collect_letters",
+      "sentiment": "supportive",
+      "message": "Gracias. Ya complete la informacion independiente. Ahora necesito dos cartas de apoyo de profesionales.",
+      "translated_message_en": "Thank you. I completed your independent student information. Now I need two professional support letters.",
+      "form_updates": [
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "current_address",
+          "field_label": "Current Address",
+          "new_value": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+          "source": "turn_3_message",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T10:26:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Subi carta de mi terapeuta, carta de mi arrendador y mi utility bill.",
+      "translated_message_en": "I uploaded my therapist letter, my landlord letter, and my utility bill.",
+      "document_links": [
+        {
+          "doc_id": "FA003-D1",
+          "file_link": "./01_utility_bill_current_address.pdf"
+        },
+        {
+          "doc_id": "FA003-D2",
+          "file_link": "./02_therapist_support_letter.pdf"
+        },
+        {
+          "doc_id": "FA003-D3",
+          "file_link": "./03_landlord_support_letter.pdf"
+        },
+        {
+          "doc_id": "FA003-D5",
+          "file_link": "./05_self_support_note_phone_photo.webp"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T10:28:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "parse_letters",
+      "sentiment": "encouraging",
+      "message": "Excelente. Ya extraje los nombres y telefonos de tus referencias. Ahora necesito como te mantienes economicamente.",
+      "translated_message_en": "Excellent. I extracted your references and phone numbers. Now I need to know how you support yourself financially.",
+      "form_updates": [
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "reference_1_name",
+          "field_label": "Reference 1 Name",
+          "new_value": "Dr. Naomi Ellis, LCSW",
+          "source": "FA003-D2_parse",
+          "confidence": 0.96
+        },
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "reference_1_phone",
+          "field_label": "Reference 1 Phone",
+          "new_value": "407-555-0119",
+          "source": "FA003-D2_parse",
+          "confidence": 0.95
+        },
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "reference_2_name",
+          "field_label": "Reference 2 Name",
+          "new_value": "Miguel Alvarado",
+          "source": "FA003-D3_parse",
+          "confidence": 0.96
+        },
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "reference_2_phone",
+          "field_label": "Reference 2 Phone",
+          "new_value": "321-555-0182",
+          "source": "FA003-D3_parse",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T10:30:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "provide_self_support_statement",
+      "sentiment": "hopeful",
+      "message": "Trabajo por horas en construccion, pago renta, comida y transporte yo solo.",
+      "translated_message_en": "I work hourly in construction and I pay rent, food, and transportation by myself."
+    },
+    {
+      "turn": 8,
+      "timestamp": "2026-03-02T10:32:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "collect_additional_context",
+      "sentiment": "supportive",
+      "message": "Gracias. Cuanto pagas de renta al mes y desde cuando vives sin apoyo familiar?",
+      "translated_message_en": "Thank you. How much rent do you pay monthly and since when have you lived without family support?"
+    },
+    {
+      "turn": 9,
+      "timestamp": "2026-03-02T10:34:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "provide_rent_history",
+      "sentiment": "steady",
+      "message": "Pago $1,050 por mes y llevo cinco anos sin apoyo de ellos.",
+      "translated_message_en": "I pay $1,050 per month and I have had no support from them for five years."
+    },
+    {
+      "turn": 10,
+      "timestamp": "2026-03-02T10:36:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "draft_statement",
+      "sentiment": "supportive",
+      "message": "Perfecto. Traduzco tu historia a ingles formal para la seccion Separation Details.",
+      "translated_message_en": "Perfect. I will translate your story into formal English for the Separation Details section.",
+      "form_updates": [
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "separation_details",
+          "field_label": "Separation Details",
+          "new_value": "Student reports five-year estrangement, self-support through hourly construction work, and no parental contact.",
+          "source": "turn_9_translation",
+          "confidence": 0.94
+        },
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "monthly_rent",
+          "field_label": "Monthly Rent",
+          "new_value": 1050,
+          "source": "turn_9_message",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "turn": 11,
+      "timestamp": "2026-03-02T10:38:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "policy_question",
+      "sentiment": "concerned",
+      "message": "Necesito reporte policial para aprobar esto?",
+      "translated_message_en": "Do I need a police report for this to be approved?"
+    },
+    {
+      "turn": 12,
+      "timestamp": "2026-03-02T10:40:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "policy_clarification",
+      "sentiment": "reassuring",
+      "message": "No necesariamente. Tus dos cartas profesionales y evidencia de domicilio normalmente son suficientes para revision inicial.",
+      "translated_message_en": "Not necessarily. Your two professional letters and address evidence are usually enough for initial review."
+    },
+    {
+      "turn": 13,
+      "timestamp": "2026-03-02T10:42:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "confirm_ready",
+      "sentiment": "relieved",
+      "message": "Entonces sigamos. Quiero enviarlo hoy.",
+      "translated_message_en": "Then let's continue. I want to submit it today."
+    },
+    {
+      "turn": 14,
+      "timestamp": "2026-03-02T10:44:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "finalize_draft",
+      "sentiment": "encouraging",
+      "message": "Listo. El borrador esta preparado para envio y ya inclui tus referencias, direccion y declaracion traducida.",
+      "translated_message_en": "Done. The draft is ready for submission with your references, address, and translated statement included.",
+      "form_updates": [
+        {
+          "form_id": "dependency_override_request_2026",
+          "field_id": "packet_status",
+          "field_label": "Packet Status",
+          "new_value": "Ready for submission",
+          "source": "workflow",
+          "confidence": 1
+        }
+      ],
+      "document_links": [
+        {
+          "doc_id": "FA003-D4",
+          "file_link": "./04_dependency_override_draft.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 15,
+      "timestamp": "2026-03-02T10:46:00-06:00",
+      "speaker": "student",
+      "language": "es",
+      "intent": "gratitude",
+      "sentiment": "relieved",
+      "message": "Gracias por explicarlo sin palabras complicadas.",
+      "translated_message_en": "Thank you for explaining this without complicated words."
+    },
+    {
+      "turn": 16,
+      "timestamp": "2026-03-02T10:48:00-06:00",
+      "speaker": "ai",
+      "language": "es",
+      "intent": "close_support",
+      "sentiment": "warm",
+      "message": "Siempre. Si la oficina pide algo extra, te aviso aqui en espanol y en ingles.",
+      "translated_message_en": "Always. If the office asks for anything else, I'll notify you here in Spanish and English."
+    }
+  ],
+  "conversation_outcome": {
+    "status": "draft_ready_for_office_review",
+    "final_owner": "Financial Aid Office",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Spanish-first dependency override auto-fill",
+    "heart_moment": "AI removes language and jargon barriers while preserving trauma-informed process."
+  },
+  "folder_name": "FA-003_Carlos_Mendoza"
+}

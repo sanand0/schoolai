@@ -1,0 +1,221 @@
+{
+  "applicant_id": "FA-006",
+  "profile": {
+    "full_name": "Lena Yazzie",
+    "preferred_name": "Lena",
+    "age": 31,
+    "background_summary": "Army veteran and tribal community member returning for cybersecurity training.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "High",
+    "financial_aid_literacy": "Medium",
+    "device_primary": "Laptop",
+    "current_address": "14210 Brookfield Loop Apt 412, Irving, TX 75063",
+    "enrollment_goal": "BS Cybersecurity"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent",
+    "sai_estimate": -450,
+    "reported_prior_year_income_usd": 28800,
+    "current_year_income_usd": 30200,
+    "household_size": 2,
+    "selected_for": [
+      "Veteran Benefit Coordination"
+    ],
+    "risk_flags": [
+      "benefit_overlap_confusion"
+    ]
+  },
+  "required_forms": [
+    "Benefit Coordination Form"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA006-D1",
+      "doc_type": "DD214_Summary",
+      "title": "DD214 Member-4 Summary (Redacted)",
+      "file_name": "01_dd214_member4_redacted.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Department of Defense",
+      "issue_date": "2024-09-19",
+      "render_template": "service_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "veteran_name": "Lena Yazzie",
+        "branch": "US Army",
+        "service_dates": "2017-03-12 to 2024-09-19",
+        "character_of_service": "Honorable",
+        "education_benefit_eligibility": "Post-9/11 GI Bill"
+      },
+      "body_lines": [
+        "Used for federal veteran benefit verification and overlap checks."
+      ],
+      "file_link": "./01_dd214_member4_redacted.pdf"
+    },
+    {
+      "doc_id": "FA006-D2",
+      "doc_type": "VA_Certificate_of_Eligibility",
+      "title": "VA Education Certificate of Eligibility",
+      "file_name": "02_va_certificate_of_eligibility.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "US Department of Veterans Affairs",
+      "issue_date": "2026-01-21",
+      "render_template": "benefits_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "beneficiary_name": "Lena Yazzie",
+        "benefit_chapter": "Chapter 33",
+        "percentage_eligibility": "80%",
+        "remaining_entitlement_months": "24"
+      },
+      "body_lines": [
+        "Confirms tuition and housing benefit percentages for coordination with federal aid."
+      ],
+      "file_link": "./02_va_certificate_of_eligibility.pdf"
+    },
+    {
+      "doc_id": "FA006-D3",
+      "doc_type": "Tribal_Residency_Affidavit",
+      "title": "Tribal Residency Affidavit",
+      "file_name": "03_tribal_residency_affidavit.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Navajo Nation Records Office",
+      "issue_date": "2026-02-18",
+      "render_template": "affidavit_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Lena Yazzie",
+        "community": "Window Rock Agency",
+        "in_state_tuition_eligibility": "Confirmed",
+        "affidavit_id": "NNR-26-4491"
+      },
+      "body_lines": [
+        "Supports resident tuition treatment and lower net cost calculations."
+      ],
+      "file_link": "./03_tribal_residency_affidavit.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T12:02:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "benefit_coordination_question",
+      "sentiment": "concerned",
+      "message": "I have GI Bill benefits. I do not want to lose Pell Grant because of it."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T12:04:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "open_benefit_form",
+      "sentiment": "reassuring",
+      "message": "I can coordinate both. I opened the Benefit Coordination form and entered your veteran profile.",
+      "form_updates": [
+        {
+          "form_id": "benefit_coordination_form_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Lena Yazzie",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "benefit_coordination_form_2026",
+          "field_id": "veteran_status",
+          "field_label": "Veteran Status",
+          "new_value": "Yes",
+          "source": "student_profile",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T12:06:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Uploading DD214 and VA certificate now.",
+      "document_links": [
+        {
+          "doc_id": "FA006-D1",
+          "file_link": "./01_dd214_member4_redacted.pdf"
+        },
+        {
+          "doc_id": "FA006-D2",
+          "file_link": "./02_va_certificate_of_eligibility.pdf"
+        },
+        {
+          "doc_id": "FA006-D3",
+          "file_link": "./03_tribal_residency_affidavit.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T12:08:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "autofill_benefit_sections",
+      "sentiment": "supportive",
+      "message": "I mapped your Chapter 33 eligibility (80%) and confirmed resident tuition status from your affidavit.",
+      "form_updates": [
+        {
+          "form_id": "benefit_coordination_form_2026",
+          "field_id": "gi_bill_chapter",
+          "field_label": "GI Bill Chapter",
+          "new_value": "Chapter 33",
+          "source": "FA006-D2_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "benefit_coordination_form_2026",
+          "field_id": "benefit_percent",
+          "field_label": "Benefit Percent",
+          "new_value": "80%",
+          "source": "FA006-D2_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "benefit_coordination_form_2026",
+          "field_id": "resident_tuition",
+          "field_label": "Resident Tuition",
+          "new_value": "Yes",
+          "source": "FA006-D3_parse",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T12:10:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "close_and_confirm",
+      "sentiment": "calm",
+      "message": "Your Pell eligibility remains in place; this form is now complete and ready for office validation.",
+      "metadata": {
+        "policy_note": "VA education benefits coordinated separately from federal need formula."
+      }
+    }
+  ],
+  "conversation_outcome": {
+    "status": "ready_for_validation",
+    "final_owner": "Veteran Services + Financial Aid",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "VA + Pell coordination",
+    "heart_moment": "AI removes fear of benefit conflicts by mapping military docs directly into aid fields."
+  },
+  "folder_name": "FA-006_Lena_Yazzie"
+}

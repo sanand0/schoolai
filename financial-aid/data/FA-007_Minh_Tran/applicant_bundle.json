@@ -1,0 +1,247 @@
+{
+  "applicant_id": "FA-007",
+  "profile": {
+    "full_name": "Minh Tran",
+    "preferred_name": "Minh",
+    "age": 20,
+    "background_summary": "DACA student navigating state-aid alternatives to FAFSA.",
+    "first_language": "Vietnamese",
+    "english_proficiency": "Advanced",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Low",
+    "device_primary": "iPhone",
+    "current_address": "4418 Senter Rd Unit 18, San Jose, CA 95111",
+    "enrollment_goal": "BS Nursing"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Dependent",
+    "sai_estimate": null,
+    "reported_prior_year_income_usd": 27400,
+    "current_year_income_usd": 28900,
+    "household_size": 4,
+    "selected_for": [
+      "State Dream Act Verification"
+    ],
+    "risk_flags": [
+      "federal_eligibility_confusion"
+    ]
+  },
+  "required_forms": [
+    "State Aid Support Packet"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA007-D1",
+      "doc_type": "EAD_Card_Phone_Photo",
+      "title": "Employment Authorization Card (Phone Photo)",
+      "file_name": "01_ead_card_mobile_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "USCIS",
+      "issue_date": "2025-10-03",
+      "render_template": "ead_card_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "shadow_glare",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "full_name": "Minh Tran",
+        "id_number": "A219-882-410",
+        "dob": "2005-07-21",
+        "expiration": "2027-10-03",
+        "citizenship_status": "DACA recipient"
+      },
+      "body_lines": [
+        "Card photo taken under fluorescent lighting in cafeteria."
+      ],
+      "file_link": "./01_ead_card_mobile_photo.webp"
+    },
+    {
+      "doc_id": "FA007-D2",
+      "doc_type": "State_Dream_Act_Confirmation",
+      "title": "California Dream Act Application Confirmation",
+      "file_name": "02_state_dream_act_confirmation.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "California Student Aid Commission",
+      "issue_date": "2026-02-07",
+      "render_template": "confirmation_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "applicant_name": "Minh Tran",
+        "cadAA_id": "CADAA-2026-550922",
+        "application_status": "Submitted",
+        "submission_date": "2026-02-07"
+      },
+      "body_lines": [
+        "State aid pathway active; federal FAFSA not primary path."
+      ],
+      "file_link": "./02_state_dream_act_confirmation.pdf"
+    },
+    {
+      "doc_id": "FA007-D3",
+      "doc_type": "Parent_Income_Affidavit",
+      "title": "Parent Cash Income Affidavit",
+      "file_name": "03_parent_income_affidavit.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Student Family Declaration",
+      "issue_date": "2026-02-10",
+      "render_template": "affidavit_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "parent_name": "Lan Tran",
+        "annual_cash_income": "$27,400",
+        "income_source": "Nail salon cash wages",
+        "notarized": "Yes"
+      },
+      "body_lines": [
+        "Affidavit used for state grant eligibility when formal tax docs unavailable."
+      ],
+      "file_link": "./03_parent_income_affidavit.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T12:28:00-06:00",
+      "speaker": "student",
+      "language": "vi",
+      "intent": "eligibility_question",
+      "sentiment": "confused",
+      "message": "Em có DACA, em không biết nên điền FAFSA hay Dream Act.",
+      "translated_message_en": "I have DACA and I don't know whether to fill FAFSA or Dream Act."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T12:30:00-06:00",
+      "speaker": "ai",
+      "language": "vi",
+      "intent": "route_to_state_aid",
+      "sentiment": "supportive",
+      "message": "Với tình trạng của em, mình đi theo California Dream Act. Tôi đã mở gói hồ sơ hỗ trợ tiểu bang.",
+      "translated_message_en": "For your status, we should use California Dream Act. I opened the state aid support packet.",
+      "form_updates": [
+        {
+          "form_id": "state_dream_act_support_packet_2026",
+          "field_id": "aid_pathway",
+          "field_label": "Aid Pathway",
+          "new_value": "California Dream Act",
+          "source": "eligibility_rules",
+          "confidence": 1
+        },
+        {
+          "form_id": "state_dream_act_support_packet_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Minh Tran",
+          "source": "student_profile",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T12:32:00-06:00",
+      "speaker": "student",
+      "language": "vi",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Em đã tải thẻ work permit, giấy xác nhận Dream Act và affidavit thu nhập của mẹ.",
+      "translated_message_en": "I uploaded the work permit card, Dream Act confirmation, and my mother's income affidavit.",
+      "document_links": [
+        {
+          "doc_id": "FA007-D1",
+          "file_link": "./01_ead_card_mobile_photo.webp"
+        },
+        {
+          "doc_id": "FA007-D2",
+          "file_link": "./02_state_dream_act_confirmation.pdf"
+        },
+        {
+          "doc_id": "FA007-D3",
+          "file_link": "./03_parent_income_affidavit.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T12:34:00-06:00",
+      "speaker": "ai",
+      "language": "vi",
+      "intent": "autofill_state_fields",
+      "sentiment": "encouraging",
+      "message": "Tôi đã lấy CADAA ID, ngày hết hạn thẻ và thu nhập phụ huynh để điền vào form.",
+      "translated_message_en": "I extracted the CADAA ID, permit expiration, and parent income to fill your form.",
+      "form_updates": [
+        {
+          "form_id": "state_dream_act_support_packet_2026",
+          "field_id": "cadaa_id",
+          "field_label": "CADAA ID",
+          "new_value": "CADAA-2026-550922",
+          "source": "FA007-D2_parse",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "state_dream_act_support_packet_2026",
+          "field_id": "ead_expiration",
+          "field_label": "EAD Expiration",
+          "new_value": "2027-10-03",
+          "source": "FA007-D1_parse",
+          "confidence": 0.94
+        },
+        {
+          "form_id": "state_dream_act_support_packet_2026",
+          "field_id": "parent_income",
+          "field_label": "Parent Income",
+          "new_value": 27400,
+          "source": "FA007-D3_parse",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T12:36:00-06:00",
+      "speaker": "student",
+      "language": "vi",
+      "intent": "ask_about_deadline",
+      "sentiment": "concerned",
+      "message": "Hạn nộp còn kịp không?",
+      "translated_message_en": "Will I still make the submission deadline?"
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T12:38:00-06:00",
+      "speaker": "ai",
+      "language": "vi",
+      "intent": "deadline_reassurance",
+      "sentiment": "reassuring",
+      "message": "Kịp. Hồ sơ của em đã sẵn sàng và chỉ còn bước ký điện tử.",
+      "translated_message_en": "Yes. Your packet is ready and only electronic signature remains."
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T12:40:00-06:00",
+      "speaker": "student",
+      "language": "vi",
+      "intent": "acknowledge_help",
+      "sentiment": "relieved",
+      "message": "Cảm ơn, bây giờ em hiểu rồi.",
+      "translated_message_en": "Thank you, I understand now."
+    }
+  ],
+  "conversation_outcome": {
+    "status": "state_packet_complete",
+    "final_owner": "State Aid Processing Team",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "DACA state-aid routing",
+    "heart_moment": "AI chooses the correct aid pathway and avoids dead-end FAFSA steps."
+  },
+  "folder_name": "FA-007_Minh_Tran"
+}

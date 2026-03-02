@@ -1,0 +1,303 @@
+{
+  "applicant_id": "FA-002",
+  "profile": {
+    "full_name": "Elena Rodriguez",
+    "preferred_name": "Elena",
+    "age": 35,
+    "background_summary": "Single mother returning to school after corporate layoff.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Laptop and mobile",
+    "current_address": "5826 Maple Glen Ct, San Antonio, TX 78240",
+    "enrollment_goal": "BS Supply Chain Management"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent with dependents",
+    "sai_estimate": 14200,
+    "reported_prior_year_income_usd": 75118,
+    "current_year_income_usd": 22152,
+    "household_size": 3,
+    "selected_for": [
+      "Income discrepancy review"
+    ],
+    "risk_flags": [
+      "income_shock",
+      "childcare_pressure"
+    ]
+  },
+  "required_forms": [
+    "Professional Judgment Appeal",
+    "Income Reduction Worksheet"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA002-D1",
+      "doc_type": "IRS_1040_Tax_Return",
+      "title": "IRS Form 1040 - Tax Year 2024",
+      "file_name": "01_2024_tax_return.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Internal Revenue Service",
+      "issue_date": "2025-04-12",
+      "render_template": "tax_return_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "taxpayer_name": "Elena Rodriguez",
+        "filing_status": "Head of Household",
+        "agi": "$75,118",
+        "wages": "$75,000",
+        "dependents": "2",
+        "refund_or_amount_owed": "$412 refund"
+      },
+      "body_lines": [
+        "Prior-prior year income is significantly above current circumstances.",
+        "Used by FAFSA baseline before job loss adjustment."
+      ],
+      "file_link": "./01_2024_tax_return.pdf"
+    },
+    {
+      "doc_id": "FA002-D2",
+      "doc_type": "Corporate_Layoff_Letter",
+      "title": "Termination Notice - Position Eliminated",
+      "file_name": "02_corporate_layoff_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "NorthBridge Logistics Inc.",
+      "issue_date": "2026-01-09",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "employee_name": "Elena Rodriguez",
+        "title": "Operations Supervisor",
+        "termination_date": "2026-01-08",
+        "reason": "Reduction in force / company-wide layoff",
+        "severance": "2 weeks"
+      },
+      "body_lines": [
+        "This letter confirms involuntary separation due to restructuring.",
+        "Employee eligible for unemployment benefits."
+      ],
+      "file_link": "./02_corporate_layoff_letter.pdf"
+    },
+    {
+      "doc_id": "FA002-D3",
+      "doc_type": "State_Unemployment_Statement",
+      "title": "Texas Workforce Commission Benefit Statement",
+      "file_name": "03_state_unemployment_statement.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Texas Workforce Commission",
+      "issue_date": "2026-02-20",
+      "render_template": "benefits_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "claimant_name": "Elena Rodriguez",
+        "weekly_benefit_amount": "$426",
+        "benefit_start": "2026-01-18",
+        "remaining_weeks": "20",
+        "projected_annualized_income": "$22,152"
+      },
+      "body_lines": [
+        "Current income level materially below FAFSA prior-prior year estimate.",
+        "Supports professional judgment review."
+      ],
+      "file_link": "./03_state_unemployment_statement.pdf"
+    },
+    {
+      "doc_id": "FA002-D4",
+      "doc_type": "Professional_Judgment_Form_Draft",
+      "title": "The Uni Professional Judgment Appeal (Draft)",
+      "file_name": "04_professional_judgment_appeal_draft.pdf",
+      "format": "pdf",
+      "document_role": "ai_generated",
+      "issuer": "The Uni Financial Aid Bot",
+      "issue_date": "2026-03-02",
+      "render_template": "form_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Elena Rodriguez",
+        "change_in_circumstance": "Loss of Employment",
+        "employment_end_date": "2026-01-08",
+        "projected_2026_income": "$22,152",
+        "personal_statement": "Drafted from conversation",
+        "status": "Ready for e-sign"
+      },
+      "body_lines": [
+        "Bot mapped documents to appeal checklist and drafted personal statement.",
+        "Packet assembled for one-click submission."
+      ],
+      "file_link": "./04_professional_judgment_appeal_draft.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T09:42:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "report_income_change",
+      "sentiment": "distressed",
+      "message": "The FAFSA says my contribution is too high, but I just lost my job and have nothing."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T09:44:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "start_pj_form",
+      "sentiment": "empathetic",
+      "message": "I am sorry you are going through this, Elena. You qualify to file a Professional Judgment Appeal. What date did your employment end?",
+      "form_updates": [
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Elena Rodriguez",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "appeal_reason",
+          "field_label": "Appeal Reason",
+          "new_value": "Loss of Employment",
+          "source": "turn_1_message",
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T09:46:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "answer_date",
+      "sentiment": "worried",
+      "message": "January 8, 2026."
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T09:48:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "collect_documents",
+      "sentiment": "supportive",
+      "message": "Got it. I entered 2026-01-08. Please upload your layoff letter and unemployment statement.",
+      "form_updates": [
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "employment_end_date",
+          "field_label": "Employment End Date",
+          "new_value": "2026-01-08",
+          "source": "turn_3_message",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T09:50:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Uploading my 2024 return, layoff letter, and unemployment statement.",
+      "document_links": [
+        {
+          "doc_id": "FA002-D1",
+          "file_link": "./01_2024_tax_return.pdf"
+        },
+        {
+          "doc_id": "FA002-D2",
+          "file_link": "./02_corporate_layoff_letter.pdf"
+        },
+        {
+          "doc_id": "FA002-D3",
+          "file_link": "./03_state_unemployment_statement.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T09:52:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "autofill_financial_grid",
+      "sentiment": "reassuring",
+      "message": "I verified job loss, checked the Loss of Employment box, and projected your new annual income at $22,152.",
+      "form_updates": [
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "loss_of_employment_checkbox",
+          "field_label": "Loss of Employment",
+          "new_value": true,
+          "source": "FA002-D2_parse",
+          "confidence": 0.97
+        },
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "projected_annual_income",
+          "field_label": "Projected 2026 Income",
+          "new_value": 22152,
+          "source": "FA002-D3_parse",
+          "confidence": 0.95
+        },
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "supporting_docs_complete",
+          "field_label": "Supporting Docs",
+          "new_value": "Complete",
+          "source": "doc_checklist",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T09:54:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "draft_statement_and_request_signature",
+      "sentiment": "supportive",
+      "message": "I drafted your personal statement in formal format and inserted it into the appeal packet. Please review and click Sign to submit.",
+      "form_updates": [
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "personal_statement",
+          "field_label": "Personal Statement",
+          "new_value": "Generated from chat: involuntary layoff, single parent, immediate income decline.",
+          "source": "llm_summary",
+          "confidence": 0.91
+        },
+        {
+          "form_id": "professional_judgment_appeal_2026",
+          "field_id": "packet_status",
+          "field_label": "Packet Status",
+          "new_value": "Ready for signature",
+          "source": "workflow",
+          "confidence": 1
+        }
+      ],
+      "document_links": [
+        {
+          "doc_id": "FA002-D4",
+          "file_link": "./04_professional_judgment_appeal_draft.pdf"
+        }
+      ]
+    }
+  ],
+  "conversation_outcome": {
+    "status": "packet_prepared_pending_esign",
+    "final_owner": "Student",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Professional Judgment auto-fill and packet assembly",
+    "heart_moment": "AI turns a high-stress life event into a nearly one-click appeal submission."
+  },
+  "folder_name": "FA-002_Elena_Rodriguez"
+}

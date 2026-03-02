@@ -2,6 +2,209 @@
 
 <!-- https://gemini.google.com/app/40837ce1a2d9c6cc -->
 
+# Home page
+
+Create an elegant, highly skimmable landing page at `./index.html` showcasing how AI can be used by educational institutions, targeting the executive leadership team of schools and universities.
+
+This page serves as a portal for interactive AI demos that prove our AI technology can help educational institutions scale learners while eliminating friction and preserving deep "social connectedness."
+
+Go through the demos at
+
+triage/
+credit-checking/
+financial-aid/
+
+... for information about the specic demos to link to. (There will be more to add later.)
+
+Align with the style of the other demos.
+Include subtle animations, engaging interactions, and a certain playfulness.
+
+**Principles** to follow:
+
+- Meaningfulness: think carefully about what will be meaningful and useful for the audience to see, based on their objective. The goal is to help them understand and act.
+- Visual quality: is critical. Use consistency, bold typography, contrast, visual hierarchy, progressive disclosure, repetition, alignment, information density calibration, and other principles of visual design - while also evaluating relevant visual format innovation.
+- Responsive design: all interactions, tooltips, and popups work well on different screen sizes and devices.
+- Accessibility: keyboard navigation, minimum contrast ratios, etc.
+
+Plan the design and layout carefully before coding. Sketch the information architecture, interaction inventory, design tokens, performance sensitive paths, responsive breakpoints, etc.
+
+## Corrections
+
+Drop the "Choose the outcome you want to prioritize" and "Branched complexity" sections and associated items. Keep it simple.
+
+# Financial Aid
+
+## Generate data
+
+We're pitching a Financial Aid Bot: An AI that can interact with students in a friendly, empathetic way to help them complete their financial aid forms by asking them questions, allowing them to upload documents, and filling out forms for them - as much as possible - while seamlessly escalating to a human advisor if the student seems stressed or confused. This bot will be available 24/7, so students can get help whenever they need it, without having to wait for business hours.
+
+To create a truly realistic, high-fidelity demo we need to show our AI interacting with students with diverse backgrounds, multiple backgrounds, varying levels of English proficiency, tech savviness, and financial aid literacy. We also need to show the bot handling a variety of different financial aid forms and documents, and escalating to a human advisor when necessary.
+
+Generate 12 applicants, each with a bundle of distinct documents. Here are examples of three applicants. Use these as examples when generating the data for the 12.
+
+Applicant 1: The Frustrated First-Gen Student (The "V1 Verification Worksheet" Auto-Fill)
+
+- **The Profile:** "Marcus," an 18-year-old first-generation college student with low financial literacy. His FAFSA was flagged for "Federal Verification," a common institutional hurdle. He is using a smartphone, is confused by the jargon, and is panicking that his classes will be dropped.
+- **The Document Bundle:** A blurry smartphone photo of a fast-food W-2 and a handwritten note about his family.
+- **The Demo Hook (Step-by-Step Form Filling & The "Heart"):**
+  1. Marcus texts the bot: "The Uni says I have a hold and need a V1 Verification Worksheet. I don't know what that is or how to do it."
+  2. The AI agent brings up a blank The Uni V1 Verification PDF on the screen. It replies: _"Don't worry Marcus, your classes are safe. We can fill this out together right now. First, who currently lives in your house?"_
+  3. Marcus texts: "Just me, my mom, and my little sister." The AI instantly maps this data, checking the appropriate boxes and auto-filling the "Household Size" section of the PDF on-screen.
+  4. The AI then asks: _"Did you work last year? If so, can you snap a picture of your W-2?"_ Marcus uploads his blurry W-2 photo. The AI parses the image, extracts his employer's name and exact wages, and populates the "Income Information" fields on the form.
+  5. Marcus then asks: "Wait, the form asks for untaxed income. Does my mom's disability check count?"
+  6. **The Escalation:** The AI detects confusion and potential regulatory complexity. It responds: _"That's a great question, Marcus. I am bringing in Sarah, a human financial aid advisor, to answer that and help us finish the last step."_ The human advisor enters the chat, already reviewing the 90% completed form as well as a concise summary of the conversation and what they need to do next, proving the bot eliminates friction without removing the human safety net.
+
+Applicant 2: "The Ander" Navigating a Life Crisis (The "Professional Judgment Appeal" Step-by-Step)
+
+- **The Profile:** "Elena," a 35-year-old single mother. The FAFSA requires tax information from two years ago. At that time, she had a high-paying job, but she was recently laid off. The automated federal system assumes she is wealthy and denies her aid. She needs a "Professional Judgment Appeal".
+- **The Document Bundle:** A 2024 tax return showing $75,000 in income, a recent corporate layoff letter, and a state unemployment benefits statement.
+- **The Demo Hook (Step-by-Step Form Filling & The "Hand"):**
+  1. Elena tells the bot: "The FAFSA says my Expected Family Contribution is too high, but I just lost my job and have nothing."
+  2. The AI recognizes this qualifies for a Professional Judgment Appeal and opens the corresponding blank appeal form on-screen.
+  3. The AI asks: _"I am so sorry to hear about your job loss, Elena. I can help you file an appeal to get your aid adjusted. What date did your employment end?"_ Elena answers, and the AI types the date into the "Change in Circumstance" field on the form.
+  4. The AI asks for proof. Elena drags and drops her layoff letter and unemployment statement into the chat.
+  5. The AI instantly ingests both documents. It automatically checks the "Loss of Employment" box on the form, calculates her new projected annual income based on the unemployment statement, and fills in the financial grid on the PDF.
+  6. Finally, the AI drafts a formal, empathetic "Personal Statement" based on Elena's chat history, places it into the required section of the form, and prompts Elena: _"I've completed your appeal packet. Please review the attached form and click 'Sign' so I can submit it to the financial aid office for you."_
+
+Applicant 3: The ESL / Non-Traditional Learner (The "Dependency Override" Auto-Fill)
+
+- **The Profile:** "Carlos," an adult learner whose first language is Spanish. He has been estranged from his abusive parents for five years, but the FAFSA is demanding his parents' tax information. He is overwhelmed by the process of filing a "Dependency Override".
+- **The Document Bundle:** A utility bill in his name, and two PDF letters of support from non-relatives (a therapist and a landlord) explaining his estrangement.
+- **The Demo Hook (Step-by-Step Form Filling & Friction Eliminator):**
+  1. Carlos asks the bot in Spanish: "The FAFSA wants my parents' taxes, but I haven't spoken to them in five years."
+  2. The AI replies in Spanish, explaining the Dependency Override process, and opens the blank override form on the screen.
+  3. The AI guides him step-by-step: _"First, I need your current address."_ Carlos types it, and the AI fills the "Independent Student Information" section.
+  4. The AI says: _"Because of your situation, the university requires two letters from professionals who know your story."_ Carlos uploads the two PDF letters from his therapist and landlord.
+  5. The AI parses the uploaded letters, extracting the names, professional titles, and contact information of both references. It automatically fills out the "Letter of Support 1" and "Letter of Support 2" reference fields on the override form.
+  6. The AI then asks Carlos a few conversational questions in Spanish about how he supports himself financially. It translates his answers into a formal English statement, auto-fills the "Separation Details" text box on the form, and readies the document for submission, completely bypassing the language and bureaucratic barriers.
+
+Generate synthetic financial aid data as well as chat conversations for 12 such profiles in JSON format.
+The chat conversations should include the fields filled out by the AI in the financial aid form at each stage (if it is able to fill out fields at that step of the conversation) as well as links to the documents uploaded by the user, and any other relevant metadata (e.g. timestamp). This should be enought to reproduce the entire chat experience in a realistic way, without having to create the actual application.
+Student may often have a mix of documents and document types.
+Include realistic addresses and figures.
+
+You can use two methods to generate images for these documents.
+
+**METHOD 1**: Use `gemimg` to render visually distinct .webp images that look exactly like the real-world scanned documents or photos (e.g. 2-degree skew, slight blur, coffee stains, monochrome artifacting, ...).
+
+```bash
+❯ uvx gemimg
+Installed 10 packages in 9ms
+usage: gemimg [-h] [-i INPUT_IMAGES [INPUT_IMAGES ...]] [-o OUTPUT_FILE] [--api-key API_KEY] [--model MODEL]
+              [--base-url BASE_URL] [--aspect-ratio ASPECT_RATIO] [--no-resize] [--output-dir OUTPUT_DIR]
+              [--temperature TEMPERATURE] [--webp] [-n N] [--store-prompt] [--image-size IMAGE_SIZE]
+              [--system-prompt SYSTEM_PROMPT] [--grid GRID] [--grid-aspect-ratio GRID_ASPECT_RATIO]
+              [--grid-image-size GRID_IMAGE_SIZE] [--save-grid-original] [-f]
+              prompt
+```
+
+**METHOD 2**: Drop the JSON data into REALISTIC HTML/CSS certificate template and print to PDF.
+
+Under `financial-aid/data/` create one folder for each student with the JSON (including the conversation) and relevant attachments. This should be sufficient to demonstrate the flow for the entire chat in a realistic manner, without having to create the actual application.
+
+## Create agent demo
+
+Create an application that demonstrates the Financial Aid Bot: An AI that can interact with students in a friendly, empathetic way to help them complete their financial aid forms by asking them questions, allowing them to upload documents, and filling out forms for them - as much as possible - while seamlessly escalating to a human advisor if the student seems stressed or confused. This bot will be available 24/7, so students can get help whenever they need it, without having to wait for business hours.
+
+This should show cards for each of the 12 financial aid applicants. Each card should show the student profile, financial aid context, and links to the original documents (PDFs, images, text) and a summary of what happened in the chat. Clicking on any of the files should show a popup with a preview of the file.
+
+Add a button in each card labelled "Chat Recording". This should trigger a simulated walk through of the chat.
+
+The walk through should show the student profile and financial aid context on top. Stream the chat realistically. The student chat messages should be typed out character by character with a realistic non-linear typing speed, and the AI's responses should be streamed word by word with a realistic "thinking" delay between each message. The AI's responses should also include animations to show that it is processing and analyzing the student's information before responding.
+
+At the end of the AI conversation, fill out the relevant fields in the financial aid form based on the information extracted from the chat and the uploaded documents. Show the form being filled out in real time as the AI extracts information and populates the fields.
+
+Include a slider that lets the user step through a process, pause, play, speed up, slow down, step forward/backward, or jump to any point in the chat timeline (like a video player), with visual cues to highlight relevant parts and metadata/tags across the chat steps.
+
+Use tooltips, popups, interactions, and animations as informative and engaging aids.
+
+**Tooltips** are for:
+
+- Context about non-obvious terms or phrases (only if relevant and useful)
+- Additional context about references (where possible)
+- Metadata and context about data points, table cells, chart elements, etc. (always)
+- Guidelines:
+  - On mobile, use tap-to-reveal with clear dismiss affordance (tap elsewhere or an × icon); auto-reposition to stay within the viewport.
+  - Debounce on hover. Only 1 tooltip at a time.
+
+**Popups** are for:
+
+- Files. Link liberally to files.
+  - Clicking on file links should open the files in a popup, with a link to open the original in a new tab.
+  - Syntax-highlighted if code
+  - Show sortable for tabular data, gradient-coloring important numeric / categorical columns if that will help understand the context
+- Data points. Provide extensive context for data points.
+  - Wherever useful, clicking on data points, table cells, chart elements, etc. should open a popup that provides full context about that element.
+  - Include narratives, cards, tables, charts, or even entire dashboards that answer what the user is likely to be curious about or wants to dig in for more details. E.g. context, examples, related metrics, trends over time, breakdown by relevant dimensions, etc.
+  - Standardize the format of these popups so users know what to expect. Reuse popups by archetype.
+- Guidelines: Trap keyboard focus inside. Contain scrolling. Show loading state when required. Use a consistent anatomy.
+
+**Interactions** can include:
+
+- Scrollytelling. As the user scrolls, trigger changes in charts, illustrations, narratives, etc. to guide them through the story.
+- Sliders that allow users to adjust assumptions, scenarios, etc. and see the impact in real time. Keep input & output close - without scrolling.
+- Interactive explainers that let the user step through a process, pause, play, speed up, slow down, step forward/backward, or jump to any point in the timeline via a slider (like a video player), with clear explanation of each step and visual cues to highlight relevant parts and metadata/tags for the current step.
+- Transition on value change. Animate chart values between states (e.g., bar heights morphing) rather than jump-cutting.
+- Streaming text to simulate LLM responses. Stream word-by-word, at ~4 words per second, with a controllable rate, using a blinking cursor at the end to show that it's still generating.
+- Progressive reveal quiz. Ask user a question, reveal answer against their guess. Related to scenario forking: choose your own adventure style branching based on user choices.
+- Comparisons. Pairwise comparisons, pinnable for comparison, swipe to compare, etc.
+- Brushing and linking. Select a region in one chart to highlight related data nearby.
+- Small multiples. Show a grid of small charts, letting user expand any SMOOTHLY into a full view - with more details.
+- Filters & search.
+- Also: Trails. Cursor morphing. Magnetic snapping. Intertial scrolling/panning. Contextual axis transitions.
+
+**Animated SVGs** are for:
+
+- Explaining processes, mechanisms, workflows, etc. The aim is to make users FEEL the process. One glance should give them an intuitive understanding of how it works, even before they read the accompanying text. Show how things are connected, what data flows from where to where, how elements, interact, etc.
+- Guidelines: Use GPU-friendly rendering (transform, opacity). Sequence multiple animations deliverately. Respect `prefers-reducted-motion`.
+
+**Principles** to follow:
+
+- Meaningfulness: think carefully about what will be meaningful and useful for the audience to see, based on their objective. The goal is to help them understand and act.
+- Visual quality: is critical. Use consistency, bold typography, contrast, visual hierarchy, progressive disclosure, repetition, alignment, information density calibration, and other principles of visual design - while also evaluating relevant visual format innovation.
+- Responsive design: all interactions, tooltips, and popups work well on different screen sizes and devices.
+- Accessibility: keyboard navigation, minimum contrast ratios, etc.
+- URL-driven state: Slider positions, toggle states, and selected scenarios should be reflected in bookmarkable URL parameters.
+
+**Errors to avoid**:
+
+- Visibility: ensure nothing overlaps, get cut off, or becomes inaccessible because we can't scroll to it, etc.
+- Performance: ensure loading is fast, latency < 100ms, even with large datasets or complex visualizations.
+- Common bugs: tooltip/popup positioning during scroll / resize, z-index warefare, orphaned event listeners, etc.
+
+Plan the design and layout carefully before coding. Sketch the information architecture, interaction inventory, design tokens, performance sensitive paths, responsive breakpoints, etc.
+
+Save the output in `financial-aid/index.html` (along with associated scripts, styles, or any other assets you need to create under `financial-aid/`)
+
+## Corrections
+
+- DO NOT show tooltips where the tooltips add no meaningful value or additional information beyond the text!
+- When "Chat recording" is clicked, auto-play after the popup loads.
+- Show meta tags (e.g. "concerned", "en", etc.) AFTER the chat message is fully streamed, not before.
+- Pause before the AI responds for a random thinking time between 1-3 seconds.
+- Show timestamps like "Mon 2 Mar 2026, 4:35 pm"
+- When clicking on a file or context from the recording simulator, the documents / context are shown BEHIND the chat simulator. It should be on top.
+- Render the financial aid form with the visual look and feel of the actual form used by the university. Details like source and confidence should appear on hover. Add an option to print the partly/fully filled form as a PDF.
+- Color code the outcomes (e.g. green for auto-filled, yellow for needs review, red for flagged for escalation, etc.) and label the outcomes, risk flags, etc. more intuitively (e.g. dropout_language_detected => "Dropout language detected".)
+- The hero animated workflow seems trivial. Show the branched complexity of typical workflows.
+- When an advisor is brought in, show the summary context that's shown to the advisor.
+
+Revise the data (and corresponding UI) so that:
+
+- Conversations for Arabic, Punjabi, etc. are ACTUALLY in the respective language, but translations are stored in the JSON and made visible AFTER the student / AI chat messages are displayed.
+- On the home page, show conversations sorted by descending length of the number of turns.
+- For some promising conversations, extend to 15-20 turns to show more of the back-and-forth.
+- Did you use `gemimg`? If not, use it for some of the .webp images (especially for those that'll appear near the top of the page, i.e. longer chats) to increase the visual quality and realism of the documents. The API key is in `.env`.
+
+Using the above as guidelines, think about the kinds of improvements / fixes I'd like made, find more places where you can apply such fixes, and proactively make those. Let me know what else you changed.
+
+## More corrections
+
+- Content inside .analysis-column can overflow the height of the screen sometimes, and there's no way to scroll to the bottom to see the rest of the content.
+- Add visual badges to attachments
+- .flow-node.active messes up the transform - I think removing transform-origin: center from `.flow-node.active circle` works
+- .flow-track is not visible. Maybe the problem is in url(#flowLine)?
+
 # Credit Checking
 
 ## Generate data

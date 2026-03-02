@@ -1,0 +1,234 @@
+{
+  "applicant_id": "FA-004",
+  "profile": {
+    "full_name": "Nia Thompson",
+    "preferred_name": "Nia",
+    "age": 19,
+    "background_summary": "Recent high-school graduate navigating aid without parental support.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Low",
+    "device_primary": "iPhone",
+    "current_address": "2337 W Devon Ave Unit 1, Chicago, IL 60659",
+    "enrollment_goal": "BA Psychology"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Dependent pending review",
+    "sai_estimate": 5400,
+    "reported_prior_year_income_usd": 0,
+    "current_year_income_usd": 0,
+    "household_size": 2,
+    "selected_for": [
+      "Unusual Circumstances Appeal"
+    ],
+    "risk_flags": [
+      "parental_signature_block",
+      "first_year_student"
+    ]
+  },
+  "required_forms": [
+    "Unusual Circumstances Appeal"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA004-D1",
+      "doc_type": "Parent_Incarceration_Verification",
+      "title": "County Corrections Verification Letter",
+      "file_name": "01_parent_incarceration_verification_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Cook County Department of Corrections",
+      "issue_date": "2026-02-25",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "incarcerated_parent": "Darnell Thompson",
+        "booking_number": "CCDOC-883119",
+        "custody_start": "2025-09-03",
+        "expected_release": "2027-02-17"
+      },
+      "body_lines": [
+        "Student cannot obtain parental FAFSA signatures while parent is incarcerated.",
+        "Supports unusual circumstances dependency review."
+      ],
+      "file_link": "./01_parent_incarceration_verification_letter.pdf"
+    },
+    {
+      "doc_id": "FA004-D2",
+      "doc_type": "School_Counselor_Support_Letter",
+      "title": "School Counselor Statement",
+      "file_name": "02_school_counselor_statement.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Westview High School Counseling Office",
+      "issue_date": "2026-02-26",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Nia Thompson",
+        "counselor_name": "Rachel Kim, M.Ed.",
+        "contact_phone": "773-555-0164",
+        "statement_type": "Third-party support"
+      },
+      "body_lines": [
+        "Counselor confirms ongoing independent support from grandmother.",
+        "No financial contribution from either parent."
+      ],
+      "file_link": "./02_school_counselor_statement.pdf"
+    },
+    {
+      "doc_id": "FA004-D3",
+      "doc_type": "No_Contact_Affidavit_Photo",
+      "title": "No Contact Affidavit (Phone Photo)",
+      "file_name": "03_no_contact_affidavit_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Student Provided",
+      "issue_date": "2026-03-02",
+      "render_template": "document_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "low_light",
+        "scanner_noise"
+      ],
+      "structured_fields": {
+        "student_name": "Nia Thompson",
+        "affidavit_date": "2026-03-02",
+        "declared_status": "No parental contact or support",
+        "witness": "Grandmother - Laverne Thompson"
+      },
+      "body_lines": [
+        "Signed document photographed in low light from bedroom desk.",
+        "Includes handwritten witness confirmation."
+      ],
+      "file_link": "./03_no_contact_affidavit_photo.webp"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T11:06:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "explain_unusual_circumstance",
+      "sentiment": "stressed",
+      "message": "My mom is incarcerated and my dad is not in my life. FAFSA keeps asking for parent signatures."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T11:08:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "open_form",
+      "sentiment": "empathetic",
+      "message": "I can help you submit an Unusual Circumstances Appeal. I opened the form and entered your student details.",
+      "form_updates": [
+        {
+          "form_id": "unusual_circumstances_appeal_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Nia Thompson",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "unusual_circumstances_appeal_2026",
+          "field_id": "appeal_reason",
+          "field_label": "Appeal Reason",
+          "new_value": "Parent incarceration and no contact",
+          "source": "turn_1_message",
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T11:10:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "confirm_docs",
+      "sentiment": "anxious",
+      "message": "I have a letter from county corrections and my counselor letter."
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T11:12:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "collect_docs",
+      "sentiment": "supportive",
+      "message": "Great. Please upload both letters and any signed affidavit you have."
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T11:14:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Uploaded all three.",
+      "document_links": [
+        {
+          "doc_id": "FA004-D1",
+          "file_link": "./01_parent_incarceration_verification_letter.pdf"
+        },
+        {
+          "doc_id": "FA004-D2",
+          "file_link": "./02_school_counselor_statement.pdf"
+        },
+        {
+          "doc_id": "FA004-D3",
+          "file_link": "./03_no_contact_affidavit_photo.webp"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T11:16:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "complete_checklist",
+      "sentiment": "reassuring",
+      "message": "I extracted all references and completed the documentation checklist. Your packet is queued for priority review.",
+      "form_updates": [
+        {
+          "form_id": "unusual_circumstances_appeal_2026",
+          "field_id": "third_party_letter_1",
+          "field_label": "Third-Party Letter 1",
+          "new_value": "County corrections verification",
+          "source": "FA004-D1_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "unusual_circumstances_appeal_2026",
+          "field_id": "third_party_letter_2",
+          "field_label": "Third-Party Letter 2",
+          "new_value": "School counselor statement",
+          "source": "FA004-D2_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "unusual_circumstances_appeal_2026",
+          "field_id": "signed_affidavit",
+          "field_label": "Signed Affidavit",
+          "new_value": "Uploaded",
+          "source": "FA004-D3_parse",
+          "confidence": 0.94
+        }
+      ]
+    }
+  ],
+  "conversation_outcome": {
+    "status": "submitted_for_review",
+    "final_owner": "Financial Aid Appeals Team",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "No-parent-contact appeal flow",
+    "heart_moment": "AI quickly packages third-party evidence so the student does not get stuck on signatures."
+  },
+  "folder_name": "FA-004_Nia_Thompson"
+}

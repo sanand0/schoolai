@@ -1,0 +1,292 @@
+{
+  "applicant_id": "FA-012",
+  "profile": {
+    "full_name": "Andre Simmons",
+    "preferred_name": "Andre",
+    "age": 18,
+    "background_summary": "First-year student athlete with parent non-filer verification complexity.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Android smartphone",
+    "current_address": "5219 Martin Luther King Jr Blvd Apt 14, Houston, TX 77021",
+    "enrollment_goal": "BS Kinesiology"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Dependent",
+    "sai_estimate": -210,
+    "reported_prior_year_income_usd": 12000,
+    "current_year_income_usd": 18900,
+    "household_size": 4,
+    "selected_for": [
+      "Federal Verification V1"
+    ],
+    "risk_flags": [
+      "income_discrepancy",
+      "high_stress"
+    ]
+  },
+  "required_forms": [
+    "V1 Verification Income Reconciliation"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA012-D1",
+      "doc_type": "IRS_Non_Filing_Letter",
+      "title": "IRS Verification of Non-Filing Letter",
+      "file_name": "01_parent_non_filing_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Internal Revenue Service",
+      "issue_date": "2026-02-12",
+      "render_template": "verification_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "taxpayer_name": "Darius Simmons",
+        "tax_year": "2024",
+        "status": "No return filed",
+        "irs_tracking_number": "NF-771203-99"
+      },
+      "body_lines": [
+        "Used in V1 verification for parent non-filer status."
+      ],
+      "file_link": "./01_parent_non_filing_letter.pdf"
+    },
+    {
+      "doc_id": "FA012-D2",
+      "doc_type": "Parent_Cash_Ledger_Photo",
+      "title": "Parent Handwritten Business Ledger (Phone Photo)",
+      "file_name": "02_parent_cash_ledger_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Student Family Record",
+      "issue_date": "2026-03-01",
+      "render_template": "ledger_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "blurry",
+        "low_light",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "owner_name": "Darius Simmons",
+        "business_type": "Lawn service",
+        "monthly_cash_entries": "Varies $800-$2,100",
+        "estimated_annual_net": "$18,900"
+      },
+      "body_lines": [
+        "Notebook photo with uneven lighting and partial corner crop.",
+        "Amounts conflict with prior FAFSA estimate."
+      ],
+      "file_link": "./02_parent_cash_ledger_photo.webp"
+    },
+    {
+      "doc_id": "FA012-D3",
+      "doc_type": "Income_Verification_Worksheet",
+      "title": "Income Verification Worksheet (Partially Completed)",
+      "file_name": "03_income_verification_worksheet_partial.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "The Uni Financial Aid Office",
+      "issue_date": "2026-02-28",
+      "render_template": "form_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Andre Simmons",
+        "parent_non_filer": "Checked",
+        "parent_income_reported": "$12,000",
+        "missing_fields": "Business net income detail"
+      },
+      "body_lines": [
+        "Student entered preliminary values manually before chat.",
+        "Bot must reconcile conflicting numbers with ledger evidence."
+      ],
+      "file_link": "./03_income_verification_worksheet_partial.pdf"
+    },
+    {
+      "doc_id": "FA012-D4",
+      "doc_type": "Advisor_Handoff_Note",
+      "title": "Income Discrepancy Handoff Note",
+      "file_name": "04_income_discrepancy_handoff_note.pdf",
+      "format": "pdf",
+      "document_role": "ai_generated",
+      "issuer": "The Uni Financial Aid Bot",
+      "issue_date": "2026-03-02",
+      "render_template": "summary_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Andre Simmons",
+        "issue": "Conflicting parent cash income values",
+        "worksheet_value": "$12,000",
+        "ledger_estimate": "$18,900",
+        "recommended_action": "Advisor reconciliation call"
+      },
+      "body_lines": [
+        "Bot completed all deterministic fields and escalated reconciliation decision to human advisor.",
+        "Includes concise summary for rapid handoff."
+      ],
+      "file_link": "./04_income_discrepancy_handoff_note.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T14:36:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "verification_help",
+      "sentiment": "stressed",
+      "message": "My coach said I still have a verification hold. We filed non-filing but now they want income proof."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T14:38:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "open_reconciliation_form",
+      "sentiment": "supportive",
+      "message": "I opened your V1 income reconciliation form and imported your partial worksheet.",
+      "form_updates": [
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Andre Simmons",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "parent_non_filer_status",
+          "field_label": "Parent Non-Filer",
+          "new_value": true,
+          "source": "FA012-D3_parse",
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T14:40:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "anxious",
+      "message": "Uploading IRS non-filing letter and my dad's notebook ledger.",
+      "document_links": [
+        {
+          "doc_id": "FA012-D1",
+          "file_link": "./01_parent_non_filing_letter.pdf"
+        },
+        {
+          "doc_id": "FA012-D2",
+          "file_link": "./02_parent_cash_ledger_photo.webp"
+        },
+        {
+          "doc_id": "FA012-D3",
+          "file_link": "./03_income_verification_worksheet_partial.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T14:42:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "detect_discrepancy",
+      "sentiment": "careful",
+      "message": "I extracted an estimated parent net income of $18,900 from the ledger, which conflicts with $12,000 on your worksheet.",
+      "form_updates": [
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "parent_income_worksheet",
+          "field_label": "Worksheet Parent Income",
+          "new_value": 12000,
+          "source": "FA012-D3_parse",
+          "confidence": 0.96
+        },
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "parent_income_ledger",
+          "field_label": "Ledger Parent Income",
+          "new_value": 18900,
+          "source": "FA012-D2_parse",
+          "confidence": 0.87
+        },
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "discrepancy_flag",
+          "field_label": "Discrepancy Flag",
+          "new_value": true,
+          "source": "rules_engine",
+          "confidence": 1
+        }
+      ],
+      "metadata": {
+        "ocr_quality": "medium_low",
+        "reason": "blur + handwriting"
+      }
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T14:44:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "distress_signal",
+      "sentiment": "high_stress",
+      "message": "I do not know which number is right. I am worried I will be dropped."
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T14:46:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "escalate_to_human",
+      "sentiment": "empathetic",
+      "message": "You will not be dropped for asking for help. I am bringing in an advisor now with a full summary so you do not repeat anything.",
+      "document_links": [
+        {
+          "doc_id": "FA012-D4",
+          "file_link": "./04_income_discrepancy_handoff_note.pdf"
+        }
+      ],
+      "metadata": {
+        "escalation_trigger": "high_stress + unresolved income discrepancy",
+        "distress_score": 0.9,
+        "handoff_to": "Advisor Miguel Santos"
+      }
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T14:48:00-06:00",
+      "speaker": "advisor",
+      "language": "en",
+      "intent": "human_takeover",
+      "sentiment": "calm",
+      "message": "Hi Andre, I am Miguel. I reviewed the handoff note and we can reconcile this quickly on a 5-minute call.",
+      "form_updates": [
+        {
+          "form_id": "v1_verification_income_reconciliation_2026",
+          "field_id": "advisor_review_status",
+          "field_label": "Advisor Review Status",
+          "new_value": "In progress",
+          "source": "advisor_confirmation",
+          "confidence": 1
+        }
+      ]
+    }
+  ],
+  "conversation_outcome": {
+    "status": "escalated_to_human_pending_call",
+    "final_owner": "Advisor Miguel Santos",
+    "completion_percent_before_handoff": 88
+  },
+  "demo_hook": {
+    "title": "Discrepancy detection with human safety net",
+    "heart_moment": "AI auto-fills everything deterministic and escalates exactly where human judgment is needed."
+  },
+  "folder_name": "FA-012_Andre_Simmons"
+}

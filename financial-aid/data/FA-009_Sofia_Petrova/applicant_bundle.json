@@ -1,0 +1,233 @@
+{
+  "applicant_id": "FA-009",
+  "profile": {
+    "full_name": "Sofia Petrova",
+    "preferred_name": "Sofia",
+    "age": 33,
+    "background_summary": "Divorced parent returning to school while carrying family medical debt.",
+    "first_language": "Bulgarian",
+    "english_proficiency": "Advanced",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Medium",
+    "device_primary": "Laptop",
+    "current_address": "3907 Belmont Rd Apt 2A, Philadelphia, PA 19104",
+    "enrollment_goal": "BS Public Health"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent with dependent child",
+    "sai_estimate": 5400,
+    "reported_prior_year_income_usd": 38700,
+    "current_year_income_usd": 30100,
+    "household_size": 2,
+    "selected_for": [
+      "Special Circumstances Review"
+    ],
+    "risk_flags": [
+      "household_change",
+      "medical_financial_strain"
+    ]
+  },
+  "required_forms": [
+    "Special Circumstances Income Adjustment"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA009-D1",
+      "doc_type": "Divorce_Decree_Excerpt",
+      "title": "Divorce Decree Excerpt",
+      "file_name": "01_divorce_decree_excerpt.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Philadelphia County Family Court",
+      "issue_date": "2025-10-12",
+      "render_template": "court_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Sofia Petrova",
+        "case_number": "FC-25-118302",
+        "status": "Divorce finalized",
+        "custody": "Shared custody - 1 dependent"
+      },
+      "body_lines": [
+        "Used to validate marital status and household composition changes."
+      ],
+      "file_link": "./01_divorce_decree_excerpt.pdf"
+    },
+    {
+      "doc_id": "FA009-D2",
+      "doc_type": "Child_Support_Paid_Statement",
+      "title": "Child Support Paid Statement",
+      "file_name": "02_child_support_paid_statement.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "PA Department of Human Services",
+      "issue_date": "2026-02-19",
+      "render_template": "statement_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "payer_name": "Sofia Petrova",
+        "annual_support_paid": "$4,800",
+        "beneficiary": "Mila Petrova",
+        "reporting_year": "2025"
+      },
+      "body_lines": [
+        "Reported child support paid can affect aid calculation fields."
+      ],
+      "file_link": "./02_child_support_paid_statement.pdf"
+    },
+    {
+      "doc_id": "FA009-D3",
+      "doc_type": "Medical_Debt_Statement",
+      "title": "Hospital Medical Debt Statement",
+      "file_name": "03_medical_debt_statement.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Mercy General Hospital Billing",
+      "issue_date": "2026-01-26",
+      "render_template": "statement_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "patient_name": "Mila Petrova",
+        "outstanding_balance": "$9,432",
+        "monthly_payment": "$260",
+        "financial_hardship_plan": "Active"
+      },
+      "body_lines": [
+        "Student requests special-circumstances review due ongoing mandatory medical payments."
+      ],
+      "file_link": "./03_medical_debt_statement.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T13:18:00-06:00",
+      "speaker": "student",
+      "language": "bg",
+      "intent": "special_circumstance_request",
+      "sentiment": "concerned",
+      "message": "Сега съм разведена и плащам издръжка и медицински сметки. FAFSA не го отразява.",
+      "translated_message_en": "I am now divorced and paying child support and medical bills. FAFSA does not reflect that."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T13:20:00-06:00",
+      "speaker": "ai",
+      "language": "bg",
+      "intent": "open_adjustment_form",
+      "sentiment": "supportive",
+      "message": "Отворих формуляра за Special Circumstances и започвам секцията за промяна в домакинството.",
+      "translated_message_en": "I opened the Special Circumstances form and started the household-change section.",
+      "form_updates": [
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Sofia Petrova",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "marital_status",
+          "field_label": "Marital Status",
+          "new_value": "Divorced",
+          "source": "turn_1_message",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T13:22:00-06:00",
+      "speaker": "student",
+      "language": "bg",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "Качвам съдебното решение, извлечението за издръжка и болничната сметка.",
+      "translated_message_en": "Uploading the divorce decree, child support statement, and hospital bill.",
+      "document_links": [
+        {
+          "doc_id": "FA009-D1",
+          "file_link": "./01_divorce_decree_excerpt.pdf"
+        },
+        {
+          "doc_id": "FA009-D2",
+          "file_link": "./02_child_support_paid_statement.pdf"
+        },
+        {
+          "doc_id": "FA009-D3",
+          "file_link": "./03_medical_debt_statement.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T13:24:00-06:00",
+      "speaker": "ai",
+      "language": "bg",
+      "intent": "autofill_expense_fields",
+      "sentiment": "reassuring",
+      "message": "Извлякох $4,800 платена издръжка и $9,432 медицински дълг с месечна вноска $260.",
+      "translated_message_en": "I extracted $4,800 child support paid and $9,432 medical debt with a $260 monthly payment.",
+      "form_updates": [
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "child_support_paid",
+          "field_label": "Child Support Paid",
+          "new_value": 4800,
+          "source": "FA009-D2_parse",
+          "confidence": 0.97
+        },
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "medical_debt_balance",
+          "field_label": "Medical Debt Balance",
+          "new_value": 9432,
+          "source": "FA009-D3_parse",
+          "confidence": 0.96
+        },
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "monthly_medical_payment",
+          "field_label": "Monthly Medical Payment",
+          "new_value": 260,
+          "source": "FA009-D3_parse",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T13:26:00-06:00",
+      "speaker": "ai",
+      "language": "bg",
+      "intent": "complete_form",
+      "sentiment": "calm",
+      "message": "Формулярът е готов за подаване с всички доказателства.",
+      "translated_message_en": "Your form is complete and ready for submission with all supporting evidence.",
+      "form_updates": [
+        {
+          "form_id": "special_circumstances_income_adjustment_2026",
+          "field_id": "status",
+          "field_label": "Status",
+          "new_value": "Ready for submission",
+          "source": "workflow",
+          "confidence": 1
+        }
+      ]
+    }
+  ],
+  "conversation_outcome": {
+    "status": "ready_for_submission",
+    "final_owner": "Student",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Household-change recalc with expense extraction",
+    "heart_moment": "AI converts legal and billing documents into usable aid adjustment data."
+  },
+  "folder_name": "FA-009_Sofia_Petrova"
+}

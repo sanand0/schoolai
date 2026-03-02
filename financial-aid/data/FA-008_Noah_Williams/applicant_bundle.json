@@ -1,0 +1,224 @@
+{
+  "applicant_id": "FA-008",
+  "profile": {
+    "full_name": "Noah Williams",
+    "preferred_name": "Noah",
+    "age": 22,
+    "background_summary": "Former foster youth with sudden housing instability mid-term.",
+    "first_language": "English",
+    "english_proficiency": "Fluent",
+    "tech_savviness": "Low",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Android smartphone",
+    "current_address": "118 Rosewood Court, Columbus, OH 43215",
+    "enrollment_goal": "AAS Health Information Technology"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent",
+    "sai_estimate": -1500,
+    "reported_prior_year_income_usd": 6400,
+    "current_year_income_usd": 7900,
+    "household_size": 1,
+    "selected_for": [
+      "Independent Status Confirmation",
+      "Emergency Housing Grant"
+    ],
+    "risk_flags": [
+      "housing_insecurity",
+      "enrollment_dropout_risk"
+    ]
+  },
+  "required_forms": [
+    "Independent Status Form",
+    "Emergency Housing Grant Request"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA008-D1",
+      "doc_type": "Foster_Youth_Status_Letter",
+      "title": "County Foster Youth Status Verification",
+      "file_name": "01_foster_youth_status_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Franklin County Youth Services",
+      "issue_date": "2026-01-30",
+      "render_template": "verification_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Noah Williams",
+        "status": "Former foster youth",
+        "case_end_date": "2024-11-12",
+        "case_worker": "Mira Collins"
+      },
+      "body_lines": [
+        "Supports independent status determination under federal aid rules."
+      ],
+      "file_link": "./01_foster_youth_status_letter.pdf"
+    },
+    {
+      "doc_id": "FA008-D2",
+      "doc_type": "Homeless_Liaison_Letter",
+      "title": "McKinney-Vento Liaison Determination",
+      "file_name": "02_homeless_liaison_determination.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Columbus Public Schools Student Services",
+      "issue_date": "2026-02-22",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Noah Williams",
+        "determination": "Unaccompanied homeless youth",
+        "effective_term": "Spring 2026",
+        "liaison_name": "Patricia Gomez"
+      },
+      "body_lines": [
+        "Enables independent filing and emergency housing aid consideration."
+      ],
+      "file_link": "./02_homeless_liaison_determination.pdf"
+    },
+    {
+      "doc_id": "FA008-D3",
+      "doc_type": "Lease_Termination_Notice",
+      "title": "Lease Termination Notice",
+      "file_name": "03_lease_termination_notice.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Rivergate Apartments",
+      "issue_date": "2026-02-18",
+      "render_template": "notice_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "tenant_name": "Noah Williams",
+        "termination_date": "2026-03-01",
+        "reason": "Non-renewal due roommate departure",
+        "balance_due": "$0"
+      },
+      "body_lines": [
+        "Shows immediate housing instability and need for emergency housing grant."
+      ],
+      "file_link": "./03_lease_termination_notice.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T12:52:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "crisis_disclosure",
+      "sentiment": "high_stress",
+      "message": "I might lose housing this week. I am scared I will have to stop school."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T12:54:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "stabilize_and_start",
+      "sentiment": "empathetic",
+      "message": "I am here with you. I opened the Independent Status + Housing Grant form and marked this as urgent.",
+      "form_updates": [
+        {
+          "form_id": "independent_status_housing_grant_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Noah Williams",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "independent_status_housing_grant_2026",
+          "field_id": "urgent_flag",
+          "field_label": "Urgent Flag",
+          "new_value": true,
+          "source": "sentiment_engine",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T12:56:00-06:00",
+      "speaker": "student",
+      "language": "en",
+      "intent": "upload_docs",
+      "sentiment": "anxious",
+      "message": "Uploading foster letter, school liaison letter, and lease termination.",
+      "document_links": [
+        {
+          "doc_id": "FA008-D1",
+          "file_link": "./01_foster_youth_status_letter.pdf"
+        },
+        {
+          "doc_id": "FA008-D2",
+          "file_link": "./02_homeless_liaison_determination.pdf"
+        },
+        {
+          "doc_id": "FA008-D3",
+          "file_link": "./03_lease_termination_notice.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T12:58:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "autofill_housing_fields",
+      "sentiment": "calm",
+      "message": "I verified independent status evidence and filled your emergency housing request section.",
+      "form_updates": [
+        {
+          "form_id": "independent_status_housing_grant_2026",
+          "field_id": "independent_status_basis",
+          "field_label": "Independent Status Basis",
+          "new_value": "Former foster youth + homeless liaison determination",
+          "source": "doc_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "independent_status_housing_grant_2026",
+          "field_id": "housing_insecurity_date",
+          "field_label": "Housing Insecurity Date",
+          "new_value": "2026-03-01",
+          "source": "FA008-D3_parse",
+          "confidence": 0.94
+        },
+        {
+          "form_id": "independent_status_housing_grant_2026",
+          "field_id": "emergency_grant_requested",
+          "field_label": "Emergency Grant Requested",
+          "new_value": "$1,500",
+          "source": "policy_default",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T13:00:00-06:00",
+      "speaker": "ai",
+      "language": "en",
+      "intent": "assure_and_route",
+      "sentiment": "reassuring",
+      "message": "A same-day advisor review was requested. You will not lose enrollment while this is being processed.",
+      "metadata": {
+        "advisor_queue": "Emergency Aid Team",
+        "sla": "same_day"
+      }
+    }
+  ],
+  "conversation_outcome": {
+    "status": "escalated_priority_review",
+    "final_owner": "Emergency Aid Team",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Emergency housing stabilization",
+    "heart_moment": "AI prioritizes immediate risk and auto-prepares grant paperwork in one session."
+  },
+  "folder_name": "FA-008_Noah_Williams"
+}

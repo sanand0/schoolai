@@ -1,0 +1,3604 @@
+{
+  "dataset_id": "financial_aid_bot_synthetic_demo_v1",
+  "generated_on": "2026-03-02",
+  "notes": [
+    "All records are synthetic and generated for product demonstration.",
+    "Each applicant bundle includes profile metadata, realistic chat timeline, form field updates, and document links.",
+    "No real student PII is included."
+  ],
+  "applicants": [
+    {
+      "applicant_id": "FA-001",
+      "profile": {
+        "full_name": "Marcus Johnson",
+        "preferred_name": "Marcus",
+        "age": 18,
+        "background_summary": "First-generation first-year student balancing school and part-time fast-food work.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "Low",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Android smartphone",
+        "current_address": "1948 S Kedzie Ave Apt 3, Chicago, IL 60623",
+        "enrollment_goal": "AS Business Administration"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Dependent",
+        "sai_estimate": -980,
+        "reported_prior_year_income_usd": 8412,
+        "current_year_income_usd": 9200,
+        "household_size": 3,
+        "selected_for": [
+          "Federal Verification V1"
+        ],
+        "risk_flags": [
+          "high_stress",
+          "dropout_language_detected"
+        ]
+      },
+      "required_forms": [
+        "V1 Verification Worksheet",
+        "Untaxed Income Clarification"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA001-D1",
+          "doc_type": "W2_Phone_Photo",
+          "title": "Fast Food W-2 (Copy B)",
+          "file_name": "01_fast_food_w2_blurry.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "BrightBurger LLC Payroll",
+          "issue_date": "2026-01-15",
+          "render_template": "w2_photo",
+          "quality_flags": [
+            "blurry",
+            "2_degree_skew",
+            "low_light",
+            "monochrome_artifacting",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "employee_name": "Marcus Johnson",
+            "employer": "BrightBurger #147",
+            "tax_year": "2025",
+            "wages_tips": "$8,412.37",
+            "federal_withholding": "$282.00",
+            "state": "IL"
+          },
+          "body_lines": [
+            "Uploaded from Android camera at 11:42 PM in low bedroom lighting.",
+            "Top-right corner is clipped and text is slightly smeared."
+          ],
+          "file_link": "./01_fast_food_w2_blurry.webp"
+        },
+        {
+          "doc_id": "FA001-D2",
+          "doc_type": "Handwritten_Household_Note",
+          "title": "Household Note (Handwritten)",
+          "file_name": "02_household_note_handwritten.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Student Provided",
+          "issue_date": "2026-03-02",
+          "render_template": "handwritten_note_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "coffee_stain",
+            "scanner_noise"
+          ],
+          "structured_fields": {
+            "note_text": "Me, my mom Tanya Johnson, and my little sister Aaliyah (age 10)",
+            "phone_number": "312-555-0148",
+            "signed_by": "Marcus J."
+          },
+          "body_lines": [
+            "Written on notebook paper and photographed on kitchen table.",
+            "Coffee ring in lower-left area."
+          ],
+          "file_link": "./02_household_note_handwritten.webp"
+        },
+        {
+          "doc_id": "FA001-D3",
+          "doc_type": "V1_Verification_Worksheet_Draft",
+          "title": "The Uni V1 Verification Worksheet (Draft)",
+          "file_name": "03_v1_verification_worksheet_draft.pdf",
+          "format": "pdf",
+          "document_role": "ai_generated",
+          "issuer": "The Uni Financial Aid Bot",
+          "issue_date": "2026-03-02",
+          "render_template": "form_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Marcus Johnson",
+            "student_id": "U10449213",
+            "aid_year": "2026-2027",
+            "household_size": "3",
+            "student_income_from_w2": "$8,412.37",
+            "untaxed_income": "Pending advisor confirmation",
+            "completion_status": "90% complete"
+          },
+          "body_lines": [
+            "Sections completed from chat: Student info, household size, earned income.",
+            "Escalated to advisor for SSDI untaxed income policy confirmation."
+          ],
+          "file_link": "./03_v1_verification_worksheet_draft.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T09:12:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "seek_help",
+          "sentiment": "panicked",
+          "message": "The Uni says I have a hold and need a V1 Verification Worksheet. I do not know what that is."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T09:14:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "reassure_and_start_form",
+          "sentiment": "empathetic",
+          "message": "You are okay, Marcus. Your classes are safe. I opened your V1 worksheet and we can do this together. Who lives in your household right now?",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Marcus Johnson",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "student_id",
+              "field_label": "Student ID",
+              "new_value": "U10449213",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "aid_year",
+              "field_label": "Aid Year",
+              "new_value": "2026-2027",
+              "source": "institution_context",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T09:16:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "provide_household",
+          "sentiment": "anxious",
+          "message": "Just me, my mom, and my little sister."
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T09:18:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "clarify_household_details",
+          "sentiment": "supportive",
+          "message": "Got it. I entered household size as 3. Is your sister under 13, and is your mom working this year?",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "household_size",
+              "field_label": "Household Size",
+              "new_value": 3,
+              "source": "turn_3_message",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "household_members",
+              "field_label": "Household Members",
+              "new_value": [
+                "Marcus Johnson (student)",
+                "Tanya Johnson (mother)",
+                "Aaliyah Johnson (sister, age 10)"
+              ],
+              "source": "turn_3_message",
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T09:20:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "provide_household_followup",
+          "sentiment": "worried",
+          "message": "Yes, my sister is 10. My mom does not work because of disability."
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T09:22:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "collect_income_docs",
+          "sentiment": "supportive",
+          "message": "Thanks. Did you work in 2025? If yes, snap your W-2 and upload it here.",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "sibling_under_13",
+              "field_label": "Sibling Under 13",
+              "new_value": true,
+              "source": "turn_5_message",
+              "confidence": 0.95
+            }
+          ]
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T09:24:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "nervous",
+          "message": "Yes, I worked at BrightBurger. Uploading W-2 and my handwritten note now.",
+          "document_links": [
+            {
+              "doc_id": "FA001-D1",
+              "file_link": "./01_fast_food_w2_blurry.webp"
+            },
+            {
+              "doc_id": "FA001-D2",
+              "file_link": "./02_household_note_handwritten.webp"
+            }
+          ]
+        },
+        {
+          "turn": 8,
+          "timestamp": "2026-03-02T09:26:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "autofill_income",
+          "sentiment": "reassuring",
+          "message": "I read your W-2. Wages are $8,412.37 from BrightBurger and federal withholding is $282. I filled the income section.",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "employer_name",
+              "field_label": "Employer Name",
+              "new_value": "BrightBurger #147",
+              "source": "FA001-D1_ocr",
+              "confidence": 0.94
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "student_wages",
+              "field_label": "Student Wages",
+              "new_value": 8412.37,
+              "source": "FA001-D1_ocr",
+              "confidence": 0.94
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "federal_tax_paid",
+              "field_label": "Federal Tax Paid",
+              "new_value": 282.0,
+              "source": "FA001-D1_ocr",
+              "confidence": 0.91
+            }
+          ],
+          "metadata": {
+            "ocr_quality": "medium",
+            "blur_detected": true
+          }
+        },
+        {
+          "turn": 9,
+          "timestamp": "2026-03-02T09:28:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "policy_question",
+          "sentiment": "confused",
+          "message": "The form asks for untaxed income. Does my mom's disability check count?"
+        },
+        {
+          "turn": 10,
+          "timestamp": "2026-03-02T09:30:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "escalate_to_human",
+          "sentiment": "empathetic",
+          "message": "Great question. I am pulling in Sarah, a human advisor, so you get the policy answer right away.",
+          "metadata": {
+            "escalation_trigger": "regulatory_complexity_and_student_confusion",
+            "distress_score": 0.88,
+            "handoff_to": "Sarah Kim",
+            "handoff_summary": "Worksheet mostly complete; pending policy treatment of parent SSDI as untaxed income.",
+            "advisor_action_items": [
+              "Confirm SSDI handling",
+              "Finalize untaxed income line",
+              "Approve for e-sign"
+            ]
+          }
+        },
+        {
+          "turn": 11,
+          "timestamp": "2026-03-02T09:32:00-06:00",
+          "speaker": "advisor",
+          "language": "en",
+          "intent": "human_takeover",
+          "sentiment": "calm",
+          "message": "Hi Marcus, I am Sarah. Thanks for staying with us. SSDI can count in specific untaxed lines, and I will place it correctly.",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "untaxed_income_parent_ssdi",
+              "field_label": "Parent SSDI Untaxed Income",
+              "new_value": 11880,
+              "source": "advisor_confirmation",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 12,
+          "timestamp": "2026-03-02T09:34:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "provide_amount",
+          "sentiment": "relieved",
+          "message": "It is around $990 each month."
+        },
+        {
+          "turn": 13,
+          "timestamp": "2026-03-02T09:36:00-06:00",
+          "speaker": "advisor",
+          "language": "en",
+          "intent": "confirm_math",
+          "sentiment": "supportive",
+          "message": "Perfect, that is $11,880 annual. I entered it and checked the advisor review box.",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "parent_ssdi_annual",
+              "field_label": "Parent SSDI Annual",
+              "new_value": 11880,
+              "source": "advisor_math",
+              "confidence": 1.0
+            },
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "review_status",
+              "field_label": "Review Status",
+              "new_value": "Ready for e-sign",
+              "source": "advisor_confirmation",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 14,
+          "timestamp": "2026-03-02T09:38:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "confirm_next_step",
+          "sentiment": "encouraging",
+          "message": "I attached your updated worksheet draft. Review and sign once you are ready.",
+          "document_links": [
+            {
+              "doc_id": "FA001-D3",
+              "file_link": "./03_v1_verification_worksheet_draft.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 15,
+          "timestamp": "2026-03-02T09:40:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "student_confirmation",
+          "sentiment": "relieved",
+          "message": "I signed it. Thank you for not making this scary."
+        },
+        {
+          "turn": 16,
+          "timestamp": "2026-03-02T09:42:00-06:00",
+          "speaker": "advisor",
+          "language": "en",
+          "intent": "close_case",
+          "sentiment": "calm",
+          "message": "Signed packet received. Your hold will clear after processing. You will stay enrolled.",
+          "form_updates": [
+            {
+              "form_id": "uni_v1_verification_worksheet_2026",
+              "field_id": "submission_status",
+              "field_label": "Submission Status",
+              "new_value": "Submitted by advisor",
+              "source": "advisor_confirmation",
+              "confidence": 1.0
+            }
+          ]
+        }
+      ],
+      "conversation_outcome": {
+        "status": "escalated_to_human_and_resolved",
+        "final_owner": "Advisor Sarah Kim",
+        "completion_percent_before_handoff": 90
+      },
+      "demo_hook": {
+        "title": "Step-by-step V1 auto-fill plus empathetic escalation",
+        "heart_moment": "AI reassures Marcus classes are safe, then escalates immediately when policy complexity appears."
+      },
+      "folder_name": "FA-001_Marcus_Johnson"
+    },
+    {
+      "applicant_id": "FA-002",
+      "profile": {
+        "full_name": "Elena Rodriguez",
+        "preferred_name": "Elena",
+        "age": 35,
+        "background_summary": "Single mother returning to school after corporate layoff.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Laptop and mobile",
+        "current_address": "5826 Maple Glen Ct, San Antonio, TX 78240",
+        "enrollment_goal": "BS Supply Chain Management"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent with dependents",
+        "sai_estimate": 14200,
+        "reported_prior_year_income_usd": 75118,
+        "current_year_income_usd": 22152,
+        "household_size": 3,
+        "selected_for": [
+          "Income discrepancy review"
+        ],
+        "risk_flags": [
+          "income_shock",
+          "childcare_pressure"
+        ]
+      },
+      "required_forms": [
+        "Professional Judgment Appeal",
+        "Income Reduction Worksheet"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA002-D1",
+          "doc_type": "IRS_1040_Tax_Return",
+          "title": "IRS Form 1040 - Tax Year 2024",
+          "file_name": "01_2024_tax_return.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Internal Revenue Service",
+          "issue_date": "2025-04-12",
+          "render_template": "tax_return_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "taxpayer_name": "Elena Rodriguez",
+            "filing_status": "Head of Household",
+            "agi": "$75,118",
+            "wages": "$75,000",
+            "dependents": "2",
+            "refund_or_amount_owed": "$412 refund"
+          },
+          "body_lines": [
+            "Prior-prior year income is significantly above current circumstances.",
+            "Used by FAFSA baseline before job loss adjustment."
+          ],
+          "file_link": "./01_2024_tax_return.pdf"
+        },
+        {
+          "doc_id": "FA002-D2",
+          "doc_type": "Corporate_Layoff_Letter",
+          "title": "Termination Notice - Position Eliminated",
+          "file_name": "02_corporate_layoff_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "NorthBridge Logistics Inc.",
+          "issue_date": "2026-01-09",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "employee_name": "Elena Rodriguez",
+            "title": "Operations Supervisor",
+            "termination_date": "2026-01-08",
+            "reason": "Reduction in force / company-wide layoff",
+            "severance": "2 weeks"
+          },
+          "body_lines": [
+            "This letter confirms involuntary separation due to restructuring.",
+            "Employee eligible for unemployment benefits."
+          ],
+          "file_link": "./02_corporate_layoff_letter.pdf"
+        },
+        {
+          "doc_id": "FA002-D3",
+          "doc_type": "State_Unemployment_Statement",
+          "title": "Texas Workforce Commission Benefit Statement",
+          "file_name": "03_state_unemployment_statement.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Texas Workforce Commission",
+          "issue_date": "2026-02-20",
+          "render_template": "benefits_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "claimant_name": "Elena Rodriguez",
+            "weekly_benefit_amount": "$426",
+            "benefit_start": "2026-01-18",
+            "remaining_weeks": "20",
+            "projected_annualized_income": "$22,152"
+          },
+          "body_lines": [
+            "Current income level materially below FAFSA prior-prior year estimate.",
+            "Supports professional judgment review."
+          ],
+          "file_link": "./03_state_unemployment_statement.pdf"
+        },
+        {
+          "doc_id": "FA002-D4",
+          "doc_type": "Professional_Judgment_Form_Draft",
+          "title": "The Uni Professional Judgment Appeal (Draft)",
+          "file_name": "04_professional_judgment_appeal_draft.pdf",
+          "format": "pdf",
+          "document_role": "ai_generated",
+          "issuer": "The Uni Financial Aid Bot",
+          "issue_date": "2026-03-02",
+          "render_template": "form_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Elena Rodriguez",
+            "change_in_circumstance": "Loss of Employment",
+            "employment_end_date": "2026-01-08",
+            "projected_2026_income": "$22,152",
+            "personal_statement": "Drafted from conversation",
+            "status": "Ready for e-sign"
+          },
+          "body_lines": [
+            "Bot mapped documents to appeal checklist and drafted personal statement.",
+            "Packet assembled for one-click submission."
+          ],
+          "file_link": "./04_professional_judgment_appeal_draft.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T09:42:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "report_income_change",
+          "sentiment": "distressed",
+          "message": "The FAFSA says my contribution is too high, but I just lost my job and have nothing."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T09:44:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "start_pj_form",
+          "sentiment": "empathetic",
+          "message": "I am sorry you are going through this, Elena. You qualify to file a Professional Judgment Appeal. What date did your employment end?",
+          "form_updates": [
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Elena Rodriguez",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "appeal_reason",
+              "field_label": "Appeal Reason",
+              "new_value": "Loss of Employment",
+              "source": "turn_1_message",
+              "confidence": 0.98
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T09:46:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "answer_date",
+          "sentiment": "worried",
+          "message": "January 8, 2026."
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T09:48:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "collect_documents",
+          "sentiment": "supportive",
+          "message": "Got it. I entered 2026-01-08. Please upload your layoff letter and unemployment statement.",
+          "form_updates": [
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "employment_end_date",
+              "field_label": "Employment End Date",
+              "new_value": "2026-01-08",
+              "source": "turn_3_message",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T09:50:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Uploading my 2024 return, layoff letter, and unemployment statement.",
+          "document_links": [
+            {
+              "doc_id": "FA002-D1",
+              "file_link": "./01_2024_tax_return.pdf"
+            },
+            {
+              "doc_id": "FA002-D2",
+              "file_link": "./02_corporate_layoff_letter.pdf"
+            },
+            {
+              "doc_id": "FA002-D3",
+              "file_link": "./03_state_unemployment_statement.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T09:52:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "autofill_financial_grid",
+          "sentiment": "reassuring",
+          "message": "I verified job loss, checked the Loss of Employment box, and projected your new annual income at $22,152.",
+          "form_updates": [
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "loss_of_employment_checkbox",
+              "field_label": "Loss of Employment",
+              "new_value": true,
+              "source": "FA002-D2_parse",
+              "confidence": 0.97
+            },
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "projected_annual_income",
+              "field_label": "Projected 2026 Income",
+              "new_value": 22152,
+              "source": "FA002-D3_parse",
+              "confidence": 0.95
+            },
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "supporting_docs_complete",
+              "field_label": "Supporting Docs",
+              "new_value": "Complete",
+              "source": "doc_checklist",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T09:54:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "draft_statement_and_request_signature",
+          "sentiment": "supportive",
+          "message": "I drafted your personal statement in formal format and inserted it into the appeal packet. Please review and click Sign to submit.",
+          "form_updates": [
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "personal_statement",
+              "field_label": "Personal Statement",
+              "new_value": "Generated from chat: involuntary layoff, single parent, immediate income decline.",
+              "source": "llm_summary",
+              "confidence": 0.91
+            },
+            {
+              "form_id": "professional_judgment_appeal_2026",
+              "field_id": "packet_status",
+              "field_label": "Packet Status",
+              "new_value": "Ready for signature",
+              "source": "workflow",
+              "confidence": 1.0
+            }
+          ],
+          "document_links": [
+            {
+              "doc_id": "FA002-D4",
+              "file_link": "./04_professional_judgment_appeal_draft.pdf"
+            }
+          ]
+        }
+      ],
+      "conversation_outcome": {
+        "status": "packet_prepared_pending_esign",
+        "final_owner": "Student",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Professional Judgment auto-fill and packet assembly",
+        "heart_moment": "AI turns a high-stress life event into a nearly one-click appeal submission."
+      },
+      "folder_name": "FA-002_Elena_Rodriguez"
+    },
+    {
+      "applicant_id": "FA-003",
+      "profile": {
+        "full_name": "Carlos Mendoza",
+        "preferred_name": "Carlos",
+        "age": 29,
+        "background_summary": "Adult learner, Spanish-first speaker, no parental contact for five years.",
+        "first_language": "Spanish",
+        "english_proficiency": "Intermediate",
+        "tech_savviness": "Low",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Android smartphone",
+        "current_address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+        "enrollment_goal": "AAS HVAC Technology"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Pending override",
+        "sai_estimate": 6800,
+        "reported_prior_year_income_usd": 19800,
+        "current_year_income_usd": 22400,
+        "household_size": 1,
+        "selected_for": [
+          "Dependency Override Documentation"
+        ],
+        "risk_flags": [
+          "language_barrier",
+          "trauma_history"
+        ]
+      },
+      "required_forms": [
+        "Dependency Override Request",
+        "Independent Student Statement"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA003-D1",
+          "doc_type": "Utility_Bill",
+          "title": "City Electric Utility Bill",
+          "file_name": "01_utility_bill_current_address.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Orlando Municipal Utilities",
+          "issue_date": "2026-02-11",
+          "render_template": "statement_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "account_holder": "Carlos Mendoza",
+            "service_address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+            "billing_period": "2026-01-10 to 2026-02-09",
+            "amount_due": "$96.41"
+          },
+          "body_lines": [
+            "Used to verify current independent residence.",
+            "Address matches student profile."
+          ],
+          "file_link": "./01_utility_bill_current_address.pdf"
+        },
+        {
+          "doc_id": "FA003-D2",
+          "doc_type": "Therapist_Letter_of_Support",
+          "title": "Clinical Support Letter - Family Estrangement",
+          "file_name": "02_therapist_support_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Sunrise Behavioral Health",
+          "issue_date": "2026-02-14",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Carlos Mendoza",
+            "author_name": "Dr. Naomi Ellis, LCSW",
+            "author_phone": "407-555-0119",
+            "relationship_to_student": "Treating therapist",
+            "estrangement_duration": "5 years"
+          },
+          "body_lines": [
+            "Letter affirms long-term estrangement from abusive parents.",
+            "Recommends dependency override for student safety."
+          ],
+          "file_link": "./02_therapist_support_letter.pdf"
+        },
+        {
+          "doc_id": "FA003-D3",
+          "doc_type": "Landlord_Letter_of_Support",
+          "title": "Landlord Verification Letter",
+          "file_name": "03_landlord_support_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Vista Pines Apartments",
+          "issue_date": "2026-02-16",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "tenant_name": "Carlos Mendoza",
+            "landlord_name": "Miguel Alvarado",
+            "landlord_phone": "321-555-0182",
+            "lease_start": "2024-08-01",
+            "notes": "No parental co-signer or family support"
+          },
+          "body_lines": [
+            "Second third-party confirmation letter for override packet.",
+            "Confirms independent tenancy and financial responsibility."
+          ],
+          "file_link": "./03_landlord_support_letter.pdf"
+        },
+        {
+          "doc_id": "FA003-D4",
+          "doc_type": "Dependency_Override_Draft_Form",
+          "title": "Dependency Override Request (Draft)",
+          "file_name": "04_dependency_override_draft.pdf",
+          "format": "pdf",
+          "document_role": "ai_generated",
+          "issuer": "The Uni Financial Aid Bot",
+          "issue_date": "2026-03-02",
+          "render_template": "form_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Carlos Mendoza",
+            "address": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+            "reference_1": "Dr. Naomi Ellis, LCSW",
+            "reference_2": "Miguel Alvarado, Landlord",
+            "translated_statement": "Completed from Spanish interview",
+            "status": "Ready for review"
+          },
+          "body_lines": [
+            "Bot translated student's Spanish responses into formal English narrative.",
+            "Reference contact fields auto-populated from uploaded letters."
+          ],
+          "file_link": "./04_dependency_override_draft.pdf"
+        },
+        {
+          "doc_id": "FA003-D5",
+          "doc_type": "Self_Support_Note_Photo",
+          "title": "Self Support Expense Note (Phone Photo)",
+          "file_name": "05_self_support_note_phone_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Student Provided",
+          "issue_date": "2026-03-02",
+          "render_template": "handwritten_note_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "blurry",
+            "low_light",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "student_name": "Carlos Mendoza",
+            "monthly_rent": "$1,050",
+            "food_transport": "$410",
+            "note": "Self-supported with hourly construction income"
+          },
+          "body_lines": [
+            "Handwritten personal budget note attached as supplemental evidence.",
+            "Used by AI to enrich separation and self-support details."
+          ],
+          "file_link": "./05_self_support_note_phone_photo.webp"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T10:18:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "report_estrangement",
+          "sentiment": "overwhelmed",
+          "message": "La FAFSA pide impuestos de mis padres, pero no hablo con ellos desde hace cinco anos.",
+          "translated_message_en": "FAFSA asks for my parents' taxes, but I have not spoken to them in five years."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T10:20:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "start_override_form",
+          "sentiment": "empathetic",
+          "message": "Lo siento mucho, Carlos. Podemos hacer una solicitud de Dependency Override. Ya abri el formulario. Cual es tu direccion actual?",
+          "translated_message_en": "I am very sorry, Carlos. We can submit a dependency override request. I opened the form. What is your current address?",
+          "form_updates": [
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Carlos Mendoza",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "language_preference",
+              "field_label": "Language Preference",
+              "new_value": "Spanish",
+              "source": "turn_1_message",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T10:22:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "provide_address",
+          "sentiment": "anxious",
+          "message": "8810 Liberty View Dr Apt 5C, Orlando Florida 32821.",
+          "translated_message_en": "8810 Liberty View Dr Apt 5C, Orlando Florida 32821."
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T10:24:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "collect_letters",
+          "sentiment": "supportive",
+          "message": "Gracias. Ya complete la informacion independiente. Ahora necesito dos cartas de apoyo de profesionales.",
+          "translated_message_en": "Thank you. I completed your independent student information. Now I need two professional support letters.",
+          "form_updates": [
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "current_address",
+              "field_label": "Current Address",
+              "new_value": "8810 Liberty View Dr Apt 5C, Orlando, FL 32821",
+              "source": "turn_3_message",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T10:26:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Subi carta de mi terapeuta, carta de mi arrendador y mi utility bill.",
+          "translated_message_en": "I uploaded my therapist letter, my landlord letter, and my utility bill.",
+          "document_links": [
+            {
+              "doc_id": "FA003-D1",
+              "file_link": "./01_utility_bill_current_address.pdf"
+            },
+            {
+              "doc_id": "FA003-D2",
+              "file_link": "./02_therapist_support_letter.pdf"
+            },
+            {
+              "doc_id": "FA003-D3",
+              "file_link": "./03_landlord_support_letter.pdf"
+            },
+            {
+              "doc_id": "FA003-D5",
+              "file_link": "./05_self_support_note_phone_photo.webp"
+            }
+          ]
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T10:28:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "parse_letters",
+          "sentiment": "encouraging",
+          "message": "Excelente. Ya extraje los nombres y telefonos de tus referencias. Ahora necesito como te mantienes economicamente.",
+          "translated_message_en": "Excellent. I extracted your references and phone numbers. Now I need to know how you support yourself financially.",
+          "form_updates": [
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "reference_1_name",
+              "field_label": "Reference 1 Name",
+              "new_value": "Dr. Naomi Ellis, LCSW",
+              "source": "FA003-D2_parse",
+              "confidence": 0.96
+            },
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "reference_1_phone",
+              "field_label": "Reference 1 Phone",
+              "new_value": "407-555-0119",
+              "source": "FA003-D2_parse",
+              "confidence": 0.95
+            },
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "reference_2_name",
+              "field_label": "Reference 2 Name",
+              "new_value": "Miguel Alvarado",
+              "source": "FA003-D3_parse",
+              "confidence": 0.96
+            },
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "reference_2_phone",
+              "field_label": "Reference 2 Phone",
+              "new_value": "321-555-0182",
+              "source": "FA003-D3_parse",
+              "confidence": 0.95
+            }
+          ]
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T10:30:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "provide_self_support_statement",
+          "sentiment": "hopeful",
+          "message": "Trabajo por horas en construccion, pago renta, comida y transporte yo solo.",
+          "translated_message_en": "I work hourly in construction and I pay rent, food, and transportation by myself."
+        },
+        {
+          "turn": 8,
+          "timestamp": "2026-03-02T10:32:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "collect_additional_context",
+          "sentiment": "supportive",
+          "message": "Gracias. Cuanto pagas de renta al mes y desde cuando vives sin apoyo familiar?",
+          "translated_message_en": "Thank you. How much rent do you pay monthly and since when have you lived without family support?"
+        },
+        {
+          "turn": 9,
+          "timestamp": "2026-03-02T10:34:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "provide_rent_history",
+          "sentiment": "steady",
+          "message": "Pago $1,050 por mes y llevo cinco anos sin apoyo de ellos.",
+          "translated_message_en": "I pay $1,050 per month and I have had no support from them for five years."
+        },
+        {
+          "turn": 10,
+          "timestamp": "2026-03-02T10:36:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "draft_statement",
+          "sentiment": "supportive",
+          "message": "Perfecto. Traduzco tu historia a ingles formal para la seccion Separation Details.",
+          "translated_message_en": "Perfect. I will translate your story into formal English for the Separation Details section.",
+          "form_updates": [
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "separation_details",
+              "field_label": "Separation Details",
+              "new_value": "Student reports five-year estrangement, self-support through hourly construction work, and no parental contact.",
+              "source": "turn_9_translation",
+              "confidence": 0.94
+            },
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "monthly_rent",
+              "field_label": "Monthly Rent",
+              "new_value": 1050,
+              "source": "turn_9_message",
+              "confidence": 0.94
+            }
+          ]
+        },
+        {
+          "turn": 11,
+          "timestamp": "2026-03-02T10:38:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "policy_question",
+          "sentiment": "concerned",
+          "message": "Necesito reporte policial para aprobar esto?",
+          "translated_message_en": "Do I need a police report for this to be approved?"
+        },
+        {
+          "turn": 12,
+          "timestamp": "2026-03-02T10:40:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "policy_clarification",
+          "sentiment": "reassuring",
+          "message": "No necesariamente. Tus dos cartas profesionales y evidencia de domicilio normalmente son suficientes para revision inicial.",
+          "translated_message_en": "Not necessarily. Your two professional letters and address evidence are usually enough for initial review."
+        },
+        {
+          "turn": 13,
+          "timestamp": "2026-03-02T10:42:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "confirm_ready",
+          "sentiment": "relieved",
+          "message": "Entonces sigamos. Quiero enviarlo hoy.",
+          "translated_message_en": "Then let's continue. I want to submit it today."
+        },
+        {
+          "turn": 14,
+          "timestamp": "2026-03-02T10:44:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "finalize_draft",
+          "sentiment": "encouraging",
+          "message": "Listo. El borrador esta preparado para envio y ya inclui tus referencias, direccion y declaracion traducida.",
+          "translated_message_en": "Done. The draft is ready for submission with your references, address, and translated statement included.",
+          "form_updates": [
+            {
+              "form_id": "dependency_override_request_2026",
+              "field_id": "packet_status",
+              "field_label": "Packet Status",
+              "new_value": "Ready for submission",
+              "source": "workflow",
+              "confidence": 1.0
+            }
+          ],
+          "document_links": [
+            {
+              "doc_id": "FA003-D4",
+              "file_link": "./04_dependency_override_draft.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 15,
+          "timestamp": "2026-03-02T10:46:00-06:00",
+          "speaker": "student",
+          "language": "es",
+          "intent": "gratitude",
+          "sentiment": "relieved",
+          "message": "Gracias por explicarlo sin palabras complicadas.",
+          "translated_message_en": "Thank you for explaining this without complicated words."
+        },
+        {
+          "turn": 16,
+          "timestamp": "2026-03-02T10:48:00-06:00",
+          "speaker": "ai",
+          "language": "es",
+          "intent": "close_support",
+          "sentiment": "warm",
+          "message": "Siempre. Si la oficina pide algo extra, te aviso aqui en espanol y en ingles.",
+          "translated_message_en": "Always. If the office asks for anything else, I'll notify you here in Spanish and English."
+        }
+      ],
+      "conversation_outcome": {
+        "status": "draft_ready_for_office_review",
+        "final_owner": "Financial Aid Office",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Spanish-first dependency override auto-fill",
+        "heart_moment": "AI removes language and jargon barriers while preserving trauma-informed process."
+      },
+      "folder_name": "FA-003_Carlos_Mendoza"
+    },
+    {
+      "applicant_id": "FA-004",
+      "profile": {
+        "full_name": "Nia Thompson",
+        "preferred_name": "Nia",
+        "age": 19,
+        "background_summary": "Recent high-school graduate navigating aid without parental support.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Low",
+        "device_primary": "iPhone",
+        "current_address": "2337 W Devon Ave Unit 1, Chicago, IL 60659",
+        "enrollment_goal": "BA Psychology"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Dependent pending review",
+        "sai_estimate": 5400,
+        "reported_prior_year_income_usd": 0,
+        "current_year_income_usd": 0,
+        "household_size": 2,
+        "selected_for": [
+          "Unusual Circumstances Appeal"
+        ],
+        "risk_flags": [
+          "parental_signature_block",
+          "first_year_student"
+        ]
+      },
+      "required_forms": [
+        "Unusual Circumstances Appeal"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA004-D1",
+          "doc_type": "Parent_Incarceration_Verification",
+          "title": "County Corrections Verification Letter",
+          "file_name": "01_parent_incarceration_verification_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Cook County Department of Corrections",
+          "issue_date": "2026-02-25",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "incarcerated_parent": "Darnell Thompson",
+            "booking_number": "CCDOC-883119",
+            "custody_start": "2025-09-03",
+            "expected_release": "2027-02-17"
+          },
+          "body_lines": [
+            "Student cannot obtain parental FAFSA signatures while parent is incarcerated.",
+            "Supports unusual circumstances dependency review."
+          ],
+          "file_link": "./01_parent_incarceration_verification_letter.pdf"
+        },
+        {
+          "doc_id": "FA004-D2",
+          "doc_type": "School_Counselor_Support_Letter",
+          "title": "School Counselor Statement",
+          "file_name": "02_school_counselor_statement.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Westview High School Counseling Office",
+          "issue_date": "2026-02-26",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Nia Thompson",
+            "counselor_name": "Rachel Kim, M.Ed.",
+            "contact_phone": "773-555-0164",
+            "statement_type": "Third-party support"
+          },
+          "body_lines": [
+            "Counselor confirms ongoing independent support from grandmother.",
+            "No financial contribution from either parent."
+          ],
+          "file_link": "./02_school_counselor_statement.pdf"
+        },
+        {
+          "doc_id": "FA004-D3",
+          "doc_type": "No_Contact_Affidavit_Photo",
+          "title": "No Contact Affidavit (Phone Photo)",
+          "file_name": "03_no_contact_affidavit_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Student Provided",
+          "issue_date": "2026-03-02",
+          "render_template": "document_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "low_light",
+            "scanner_noise"
+          ],
+          "structured_fields": {
+            "student_name": "Nia Thompson",
+            "affidavit_date": "2026-03-02",
+            "declared_status": "No parental contact or support",
+            "witness": "Grandmother - Laverne Thompson"
+          },
+          "body_lines": [
+            "Signed document photographed in low light from bedroom desk.",
+            "Includes handwritten witness confirmation."
+          ],
+          "file_link": "./03_no_contact_affidavit_photo.webp"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T11:06:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "explain_unusual_circumstance",
+          "sentiment": "stressed",
+          "message": "My mom is incarcerated and my dad is not in my life. FAFSA keeps asking for parent signatures."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T11:08:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "open_form",
+          "sentiment": "empathetic",
+          "message": "I can help you submit an Unusual Circumstances Appeal. I opened the form and entered your student details.",
+          "form_updates": [
+            {
+              "form_id": "unusual_circumstances_appeal_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Nia Thompson",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "unusual_circumstances_appeal_2026",
+              "field_id": "appeal_reason",
+              "field_label": "Appeal Reason",
+              "new_value": "Parent incarceration and no contact",
+              "source": "turn_1_message",
+              "confidence": 0.97
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T11:10:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "confirm_docs",
+          "sentiment": "anxious",
+          "message": "I have a letter from county corrections and my counselor letter."
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T11:12:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "collect_docs",
+          "sentiment": "supportive",
+          "message": "Great. Please upload both letters and any signed affidavit you have."
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T11:14:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Uploaded all three.",
+          "document_links": [
+            {
+              "doc_id": "FA004-D1",
+              "file_link": "./01_parent_incarceration_verification_letter.pdf"
+            },
+            {
+              "doc_id": "FA004-D2",
+              "file_link": "./02_school_counselor_statement.pdf"
+            },
+            {
+              "doc_id": "FA004-D3",
+              "file_link": "./03_no_contact_affidavit_photo.webp"
+            }
+          ]
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T11:16:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "complete_checklist",
+          "sentiment": "reassuring",
+          "message": "I extracted all references and completed the documentation checklist. Your packet is queued for priority review.",
+          "form_updates": [
+            {
+              "form_id": "unusual_circumstances_appeal_2026",
+              "field_id": "third_party_letter_1",
+              "field_label": "Third-Party Letter 1",
+              "new_value": "County corrections verification",
+              "source": "FA004-D1_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "unusual_circumstances_appeal_2026",
+              "field_id": "third_party_letter_2",
+              "field_label": "Third-Party Letter 2",
+              "new_value": "School counselor statement",
+              "source": "FA004-D2_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "unusual_circumstances_appeal_2026",
+              "field_id": "signed_affidavit",
+              "field_label": "Signed Affidavit",
+              "new_value": "Uploaded",
+              "source": "FA004-D3_parse",
+              "confidence": 0.94
+            }
+          ]
+        }
+      ],
+      "conversation_outcome": {
+        "status": "submitted_for_review",
+        "final_owner": "Financial Aid Appeals Team",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "No-parent-contact appeal flow",
+        "heart_moment": "AI quickly packages third-party evidence so the student does not get stuck on signatures."
+      },
+      "folder_name": "FA-004_Nia_Thompson"
+    },
+    {
+      "applicant_id": "FA-005",
+      "profile": {
+        "full_name": "Harpreet Singh",
+        "preferred_name": "Harpreet",
+        "age": 28,
+        "background_summary": "Working parent balancing coursework and childcare costs.",
+        "first_language": "Punjabi",
+        "english_proficiency": "Advanced",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Medium",
+        "device_primary": "Android smartphone",
+        "current_address": "917 Pine Crossing Rd, Tacoma, WA 98405",
+        "enrollment_goal": "BS Information Systems"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent married",
+        "sai_estimate": 3100,
+        "reported_prior_year_income_usd": 41200,
+        "current_year_income_usd": 43800,
+        "household_size": 3,
+        "selected_for": [
+          "COA Adjustment Review"
+        ],
+        "risk_flags": [
+          "childcare_cost_burden"
+        ]
+      },
+      "required_forms": [
+        "Dependent Care Cost Adjustment Worksheet"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA005-D1",
+          "doc_type": "Daycare_Invoice",
+          "title": "Little Oaks Daycare Monthly Invoice",
+          "file_name": "01_daycare_invoice_summary.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Little Oaks Childcare Center",
+          "issue_date": "2026-02-28",
+          "render_template": "invoice_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "child_name": "Aman Singh",
+            "monthly_care_cost": "$1,140",
+            "care_schedule": "Mon-Fri 7:30 AM - 5:30 PM",
+            "invoice_month": "February 2026"
+          },
+          "body_lines": [
+            "Student requests COA increase due mandatory childcare cost while attending classes.",
+            "Invoice is current and paid through ACH."
+          ],
+          "file_link": "./01_daycare_invoice_summary.pdf"
+        },
+        {
+          "doc_id": "FA005-D2",
+          "doc_type": "Spouse_Paystub_Photo",
+          "title": "Spouse Paystub (Phone Scan)",
+          "file_name": "02_spouse_paystub_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Metro Parcel Services",
+          "issue_date": "2026-02-27",
+          "render_template": "document_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "shadow_glare",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "employee_name": "Kiran Singh",
+            "gross_pay": "$1,845.12",
+            "net_pay": "$1,392.40",
+            "pay_period": "2026-02-10 to 2026-02-23"
+          },
+          "body_lines": [
+            "Photo captured while folded; lower-right edge shadowed.",
+            "Used for household cash-flow context."
+          ],
+          "file_link": "./02_spouse_paystub_photo.webp"
+        },
+        {
+          "doc_id": "FA005-D3",
+          "doc_type": "Dependent_Care_Budget_Form",
+          "title": "Dependent Care Cost Adjustment Worksheet",
+          "file_name": "03_dependent_care_budget_form.pdf",
+          "format": "pdf",
+          "document_role": "ai_generated",
+          "issuer": "The Uni Financial Aid Bot",
+          "issue_date": "2026-03-02",
+          "render_template": "form_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Harpreet Singh",
+            "requested_coa_increase": "$13,680 annual",
+            "supporting_invoice": "FA005-D1",
+            "household_cashflow_note": "Included spouse pay data",
+            "status": "Ready for signature"
+          },
+          "body_lines": [
+            "Annualized childcare costs calculated from invoice.",
+            "Form sections prefilled to reduce manual entry."
+          ],
+          "file_link": "./03_dependent_care_budget_form.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T11:34:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "ask_coa_adjustment",
+          "sentiment": "worried",
+          "message": "ਮੇਰਾ ਬੱਚਾ ਡੇਅਕੇਅਰ ਜਾਂਦਾ ਹੈ ਤੇ ਖਰਚਾ ਬਹੁਤ ਵੱਧ ਹੈ। ਕੀ ਇਸ ਲਈ ਕੋਈ ਫਾਰਮ ਹੈ?",
+          "translated_message_en": "My child goes to daycare and the cost is very high. Is there a form for this?"
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T11:36:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "start_dependent_care_form",
+          "sentiment": "supportive",
+          "message": "ਹਾਂ, ਮੈਂ Dependent Care Cost Adjustment ਫਾਰਮ ਖੋਲ੍ਹ ਦਿੱਤਾ ਹੈ। ਮਹੀਨੇ ਦਾ ਡੇਅਕੇਅਰ ਖਰਚਾ ਕਿੰਨਾ ਹੈ?",
+          "translated_message_en": "Yes, I opened the Dependent Care Cost Adjustment form. What is the monthly daycare cost?",
+          "form_updates": [
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Harpreet Singh",
+              "source": "student_profile",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T11:38:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "provide_cost",
+          "sentiment": "anxious",
+          "message": "ਮਹੀਨੇ ਦਾ $1,140 ਹੈ।",
+          "translated_message_en": "It is $1,140 per month."
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T11:40:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "autofill_and_collect_docs",
+          "sentiment": "reassuring",
+          "message": "ਠੀਕ ਹੈ। ਮੈਂ ਸਾਲਾਨਾ ਖਰਚਾ $13,680 ਭਰ ਦਿੱਤਾ ਹੈ। ਹੁਣ ਡੇਅਕੇਅਰ ਇਨਵੌਇਸ ਅਪਲੋਡ ਕਰੋ।",
+          "translated_message_en": "Great. I entered annual cost as $13,680. Now upload your daycare invoice.",
+          "form_updates": [
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "monthly_childcare_cost",
+              "field_label": "Monthly Childcare Cost",
+              "new_value": 1140,
+              "source": "turn_3_message",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "annual_childcare_cost",
+              "field_label": "Annual Childcare Cost",
+              "new_value": 13680,
+              "source": "computed",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T11:42:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "ਇਨਵੌਇਸ ਅਤੇ ਮੇਰੇ spouse ਦੀ paystub ਫੋਟੋ ਅਪਲੋਡ ਕਰ ਦਿੱਤੀ ਹੈ।",
+          "translated_message_en": "I uploaded the invoice and my spouse's paystub photo.",
+          "document_links": [
+            {
+              "doc_id": "FA005-D1",
+              "file_link": "./01_daycare_invoice_summary.pdf"
+            },
+            {
+              "doc_id": "FA005-D2",
+              "file_link": "./02_spouse_paystub_photo.webp"
+            }
+          ]
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T11:44:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "parse_docs",
+          "sentiment": "supportive",
+          "message": "ਵਧੀਆ। ਮੈਂ ਡੌਕੂਮੈਂਟ ਪੜ੍ਹ ਕੇ ਫਾਰਮ ਵਿੱਚ ਜੋੜ ਦਿੱਤੇ ਹਨ। ਕੀ ਬੱਚਾ ਹਫ਼ਤੇ ਵਿੱਚ 5 ਦਿਨ ਡੇਅਕੇਅਰ ਜਾਂਦਾ ਹੈ?",
+          "translated_message_en": "Great. I parsed the documents and added them to the form. Does your child attend daycare 5 days a week?",
+          "form_updates": [
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "supporting_docs",
+              "field_label": "Supporting Docs",
+              "new_value": "Invoice + paystub received",
+              "source": "doc_checklist",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T11:46:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "confirm_schedule",
+          "sentiment": "steady",
+          "message": "ਹਾਂ, ਸੋਮਵਾਰ ਤੋਂ ਸ਼ੁੱਕਰਵਾਰ ਤੱਕ ਜਾਂਦਾ ਹੈ।",
+          "translated_message_en": "Yes, Monday through Friday."
+        },
+        {
+          "turn": 8,
+          "timestamp": "2026-03-02T11:48:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "collect_spouse_income_frequency",
+          "sentiment": "supportive",
+          "message": "ਧੰਨਵਾਦ। spouse ਦੀ ਆਮਦਨ ਦੋ ਹਫ਼ਤਿਆਂ ਵਿੱਚ ਆਉਂਦੀ ਹੈ, ਠੀਕ?",
+          "translated_message_en": "Thank you. Your spouse income is biweekly, correct?"
+        },
+        {
+          "turn": 9,
+          "timestamp": "2026-03-02T11:50:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "confirm_income_frequency",
+          "sentiment": "calm",
+          "message": "ਹਾਂ, biweekly ਹੈ।",
+          "translated_message_en": "Yes, it is biweekly."
+        },
+        {
+          "turn": 10,
+          "timestamp": "2026-03-02T11:52:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "update_budget_detail",
+          "sentiment": "encouraging",
+          "message": "ਮੈਂ household cash-flow ਨੋਟ ਵੀ ਭਰ ਦਿੱਤਾ ਹੈ ਤਾਂ ਜੋ ਰਿਵਿਊ ਤੇਜ਼ ਹੋਵੇ।",
+          "translated_message_en": "I also filled the household cash-flow note so the review can move faster.",
+          "form_updates": [
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "cashflow_note",
+              "field_label": "Cashflow Note",
+              "new_value": "Spouse biweekly pay included",
+              "source": "turn_9_message",
+              "confidence": 0.92
+            }
+          ]
+        },
+        {
+          "turn": 11,
+          "timestamp": "2026-03-02T11:54:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "ask_processing_time",
+          "sentiment": "curious",
+          "message": "ਇਹਨੂੰ ਕਿੰਨਾ ਸਮਾਂ ਲੱਗੇਗਾ?",
+          "translated_message_en": "How long will this take?"
+        },
+        {
+          "turn": 12,
+          "timestamp": "2026-03-02T11:56:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "processing_eta",
+          "sentiment": "reassuring",
+          "message": "ਆਮ ਤੌਰ ਤੇ 3 ਤੋਂ 5 ਬਿਜ਼ਨਸ ਦਿਨ। ਮੈਂ ਤੁਰੰਤ ਸਬਮਿਟ ਲਈ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹਾਂ।",
+          "translated_message_en": "Usually 3 to 5 business days. I am preparing it for immediate submission."
+        },
+        {
+          "turn": 13,
+          "timestamp": "2026-03-02T11:58:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "confirm_submission",
+          "sentiment": "relieved",
+          "message": "ਠੀਕ ਹੈ, ਭੇਜੋ।",
+          "translated_message_en": "Okay, submit it."
+        },
+        {
+          "turn": 14,
+          "timestamp": "2026-03-02T12:00:00-06:00",
+          "speaker": "ai",
+          "language": "pa",
+          "intent": "complete_form",
+          "sentiment": "encouraging",
+          "message": "ਫਾਰਮ ਤਿਆਰ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਸਾਇਨ ਕਰੋ, ਫਿਰ ਮੈਂ Financial Aid Office ਨੂੰ ਭੇਜ ਦਿਆਂਗਾ।",
+          "translated_message_en": "The form is ready. Please sign, then I will send it to the Financial Aid Office.",
+          "form_updates": [
+            {
+              "form_id": "coa_adjustment_dependent_care_2026",
+              "field_id": "status",
+              "field_label": "Status",
+              "new_value": "Ready for signature",
+              "source": "workflow",
+              "confidence": 1.0
+            }
+          ],
+          "document_links": [
+            {
+              "doc_id": "FA005-D3",
+              "file_link": "./03_dependent_care_budget_form.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 15,
+          "timestamp": "2026-03-02T12:02:00-06:00",
+          "speaker": "student",
+          "language": "pa",
+          "intent": "gratitude",
+          "sentiment": "relieved",
+          "message": "ਧੰਨਵਾਦ, ਇਹ ਬਹੁਤ ਆਸਾਨ ਬਣ ਗਿਆ।",
+          "translated_message_en": "Thank you, this became much easier."
+        }
+      ],
+      "conversation_outcome": {
+        "status": "submitted_after_signature",
+        "final_owner": "Student",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Childcare COA adjustment automation",
+        "heart_moment": "AI converts a monthly invoice into a complete annual budget appeal in minutes."
+      },
+      "folder_name": "FA-005_Harpreet_Singh"
+    },
+    {
+      "applicant_id": "FA-006",
+      "profile": {
+        "full_name": "Lena Yazzie",
+        "preferred_name": "Lena",
+        "age": 31,
+        "background_summary": "Army veteran and tribal community member returning for cybersecurity training.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "High",
+        "financial_aid_literacy": "Medium",
+        "device_primary": "Laptop",
+        "current_address": "14210 Brookfield Loop Apt 412, Irving, TX 75063",
+        "enrollment_goal": "BS Cybersecurity"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent",
+        "sai_estimate": -450,
+        "reported_prior_year_income_usd": 28800,
+        "current_year_income_usd": 30200,
+        "household_size": 2,
+        "selected_for": [
+          "Veteran Benefit Coordination"
+        ],
+        "risk_flags": [
+          "benefit_overlap_confusion"
+        ]
+      },
+      "required_forms": [
+        "Benefit Coordination Form"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA006-D1",
+          "doc_type": "DD214_Summary",
+          "title": "DD214 Member-4 Summary (Redacted)",
+          "file_name": "01_dd214_member4_redacted.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Department of Defense",
+          "issue_date": "2024-09-19",
+          "render_template": "service_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "veteran_name": "Lena Yazzie",
+            "branch": "US Army",
+            "service_dates": "2017-03-12 to 2024-09-19",
+            "character_of_service": "Honorable",
+            "education_benefit_eligibility": "Post-9/11 GI Bill"
+          },
+          "body_lines": [
+            "Used for federal veteran benefit verification and overlap checks."
+          ],
+          "file_link": "./01_dd214_member4_redacted.pdf"
+        },
+        {
+          "doc_id": "FA006-D2",
+          "doc_type": "VA_Certificate_of_Eligibility",
+          "title": "VA Education Certificate of Eligibility",
+          "file_name": "02_va_certificate_of_eligibility.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "US Department of Veterans Affairs",
+          "issue_date": "2026-01-21",
+          "render_template": "benefits_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "beneficiary_name": "Lena Yazzie",
+            "benefit_chapter": "Chapter 33",
+            "percentage_eligibility": "80%",
+            "remaining_entitlement_months": "24"
+          },
+          "body_lines": [
+            "Confirms tuition and housing benefit percentages for coordination with federal aid."
+          ],
+          "file_link": "./02_va_certificate_of_eligibility.pdf"
+        },
+        {
+          "doc_id": "FA006-D3",
+          "doc_type": "Tribal_Residency_Affidavit",
+          "title": "Tribal Residency Affidavit",
+          "file_name": "03_tribal_residency_affidavit.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Navajo Nation Records Office",
+          "issue_date": "2026-02-18",
+          "render_template": "affidavit_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Lena Yazzie",
+            "community": "Window Rock Agency",
+            "in_state_tuition_eligibility": "Confirmed",
+            "affidavit_id": "NNR-26-4491"
+          },
+          "body_lines": [
+            "Supports resident tuition treatment and lower net cost calculations."
+          ],
+          "file_link": "./03_tribal_residency_affidavit.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T12:02:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "benefit_coordination_question",
+          "sentiment": "concerned",
+          "message": "I have GI Bill benefits. I do not want to lose Pell Grant because of it."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T12:04:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "open_benefit_form",
+          "sentiment": "reassuring",
+          "message": "I can coordinate both. I opened the Benefit Coordination form and entered your veteran profile.",
+          "form_updates": [
+            {
+              "form_id": "benefit_coordination_form_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Lena Yazzie",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "benefit_coordination_form_2026",
+              "field_id": "veteran_status",
+              "field_label": "Veteran Status",
+              "new_value": "Yes",
+              "source": "student_profile",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T12:06:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Uploading DD214 and VA certificate now.",
+          "document_links": [
+            {
+              "doc_id": "FA006-D1",
+              "file_link": "./01_dd214_member4_redacted.pdf"
+            },
+            {
+              "doc_id": "FA006-D2",
+              "file_link": "./02_va_certificate_of_eligibility.pdf"
+            },
+            {
+              "doc_id": "FA006-D3",
+              "file_link": "./03_tribal_residency_affidavit.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T12:08:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "autofill_benefit_sections",
+          "sentiment": "supportive",
+          "message": "I mapped your Chapter 33 eligibility (80%) and confirmed resident tuition status from your affidavit.",
+          "form_updates": [
+            {
+              "form_id": "benefit_coordination_form_2026",
+              "field_id": "gi_bill_chapter",
+              "field_label": "GI Bill Chapter",
+              "new_value": "Chapter 33",
+              "source": "FA006-D2_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "benefit_coordination_form_2026",
+              "field_id": "benefit_percent",
+              "field_label": "Benefit Percent",
+              "new_value": "80%",
+              "source": "FA006-D2_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "benefit_coordination_form_2026",
+              "field_id": "resident_tuition",
+              "field_label": "Resident Tuition",
+              "new_value": "Yes",
+              "source": "FA006-D3_parse",
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T12:10:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "close_and_confirm",
+          "sentiment": "calm",
+          "message": "Your Pell eligibility remains in place; this form is now complete and ready for office validation.",
+          "metadata": {
+            "policy_note": "VA education benefits coordinated separately from federal need formula."
+          }
+        }
+      ],
+      "conversation_outcome": {
+        "status": "ready_for_validation",
+        "final_owner": "Veteran Services + Financial Aid",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "VA + Pell coordination",
+        "heart_moment": "AI removes fear of benefit conflicts by mapping military docs directly into aid fields."
+      },
+      "folder_name": "FA-006_Lena_Yazzie"
+    },
+    {
+      "applicant_id": "FA-007",
+      "profile": {
+        "full_name": "Minh Tran",
+        "preferred_name": "Minh",
+        "age": 20,
+        "background_summary": "DACA student navigating state-aid alternatives to FAFSA.",
+        "first_language": "Vietnamese",
+        "english_proficiency": "Advanced",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Low",
+        "device_primary": "iPhone",
+        "current_address": "4418 Senter Rd Unit 18, San Jose, CA 95111",
+        "enrollment_goal": "BS Nursing"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Dependent",
+        "sai_estimate": null,
+        "reported_prior_year_income_usd": 27400,
+        "current_year_income_usd": 28900,
+        "household_size": 4,
+        "selected_for": [
+          "State Dream Act Verification"
+        ],
+        "risk_flags": [
+          "federal_eligibility_confusion"
+        ]
+      },
+      "required_forms": [
+        "State Aid Support Packet"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA007-D1",
+          "doc_type": "EAD_Card_Phone_Photo",
+          "title": "Employment Authorization Card (Phone Photo)",
+          "file_name": "01_ead_card_mobile_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "USCIS",
+          "issue_date": "2025-10-03",
+          "render_template": "ead_card_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "shadow_glare",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "full_name": "Minh Tran",
+            "id_number": "A219-882-410",
+            "dob": "2005-07-21",
+            "expiration": "2027-10-03",
+            "citizenship_status": "DACA recipient"
+          },
+          "body_lines": [
+            "Card photo taken under fluorescent lighting in cafeteria."
+          ],
+          "file_link": "./01_ead_card_mobile_photo.webp"
+        },
+        {
+          "doc_id": "FA007-D2",
+          "doc_type": "State_Dream_Act_Confirmation",
+          "title": "California Dream Act Application Confirmation",
+          "file_name": "02_state_dream_act_confirmation.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "California Student Aid Commission",
+          "issue_date": "2026-02-07",
+          "render_template": "confirmation_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "applicant_name": "Minh Tran",
+            "cadAA_id": "CADAA-2026-550922",
+            "application_status": "Submitted",
+            "submission_date": "2026-02-07"
+          },
+          "body_lines": [
+            "State aid pathway active; federal FAFSA not primary path."
+          ],
+          "file_link": "./02_state_dream_act_confirmation.pdf"
+        },
+        {
+          "doc_id": "FA007-D3",
+          "doc_type": "Parent_Income_Affidavit",
+          "title": "Parent Cash Income Affidavit",
+          "file_name": "03_parent_income_affidavit.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Student Family Declaration",
+          "issue_date": "2026-02-10",
+          "render_template": "affidavit_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "parent_name": "Lan Tran",
+            "annual_cash_income": "$27,400",
+            "income_source": "Nail salon cash wages",
+            "notarized": "Yes"
+          },
+          "body_lines": [
+            "Affidavit used for state grant eligibility when formal tax docs unavailable."
+          ],
+          "file_link": "./03_parent_income_affidavit.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T12:28:00-06:00",
+          "speaker": "student",
+          "language": "vi",
+          "intent": "eligibility_question",
+          "sentiment": "confused",
+          "message": "Em có DACA, em không biết nên điền FAFSA hay Dream Act.",
+          "translated_message_en": "I have DACA and I don't know whether to fill FAFSA or Dream Act."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T12:30:00-06:00",
+          "speaker": "ai",
+          "language": "vi",
+          "intent": "route_to_state_aid",
+          "sentiment": "supportive",
+          "message": "Với tình trạng của em, mình đi theo California Dream Act. Tôi đã mở gói hồ sơ hỗ trợ tiểu bang.",
+          "translated_message_en": "For your status, we should use California Dream Act. I opened the state aid support packet.",
+          "form_updates": [
+            {
+              "form_id": "state_dream_act_support_packet_2026",
+              "field_id": "aid_pathway",
+              "field_label": "Aid Pathway",
+              "new_value": "California Dream Act",
+              "source": "eligibility_rules",
+              "confidence": 1.0
+            },
+            {
+              "form_id": "state_dream_act_support_packet_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Minh Tran",
+              "source": "student_profile",
+              "confidence": 0.99
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T12:32:00-06:00",
+          "speaker": "student",
+          "language": "vi",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Em đã tải thẻ work permit, giấy xác nhận Dream Act và affidavit thu nhập của mẹ.",
+          "translated_message_en": "I uploaded the work permit card, Dream Act confirmation, and my mother's income affidavit.",
+          "document_links": [
+            {
+              "doc_id": "FA007-D1",
+              "file_link": "./01_ead_card_mobile_photo.webp"
+            },
+            {
+              "doc_id": "FA007-D2",
+              "file_link": "./02_state_dream_act_confirmation.pdf"
+            },
+            {
+              "doc_id": "FA007-D3",
+              "file_link": "./03_parent_income_affidavit.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T12:34:00-06:00",
+          "speaker": "ai",
+          "language": "vi",
+          "intent": "autofill_state_fields",
+          "sentiment": "encouraging",
+          "message": "Tôi đã lấy CADAA ID, ngày hết hạn thẻ và thu nhập phụ huynh để điền vào form.",
+          "translated_message_en": "I extracted the CADAA ID, permit expiration, and parent income to fill your form.",
+          "form_updates": [
+            {
+              "form_id": "state_dream_act_support_packet_2026",
+              "field_id": "cadaa_id",
+              "field_label": "CADAA ID",
+              "new_value": "CADAA-2026-550922",
+              "source": "FA007-D2_parse",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "state_dream_act_support_packet_2026",
+              "field_id": "ead_expiration",
+              "field_label": "EAD Expiration",
+              "new_value": "2027-10-03",
+              "source": "FA007-D1_parse",
+              "confidence": 0.94
+            },
+            {
+              "form_id": "state_dream_act_support_packet_2026",
+              "field_id": "parent_income",
+              "field_label": "Parent Income",
+              "new_value": 27400,
+              "source": "FA007-D3_parse",
+              "confidence": 0.95
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T12:36:00-06:00",
+          "speaker": "student",
+          "language": "vi",
+          "intent": "ask_about_deadline",
+          "sentiment": "concerned",
+          "message": "Hạn nộp còn kịp không?",
+          "translated_message_en": "Will I still make the submission deadline?"
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T12:38:00-06:00",
+          "speaker": "ai",
+          "language": "vi",
+          "intent": "deadline_reassurance",
+          "sentiment": "reassuring",
+          "message": "Kịp. Hồ sơ của em đã sẵn sàng và chỉ còn bước ký điện tử.",
+          "translated_message_en": "Yes. Your packet is ready and only electronic signature remains."
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T12:40:00-06:00",
+          "speaker": "student",
+          "language": "vi",
+          "intent": "acknowledge_help",
+          "sentiment": "relieved",
+          "message": "Cảm ơn, bây giờ em hiểu rồi.",
+          "translated_message_en": "Thank you, I understand now."
+        }
+      ],
+      "conversation_outcome": {
+        "status": "state_packet_complete",
+        "final_owner": "State Aid Processing Team",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "DACA state-aid routing",
+        "heart_moment": "AI chooses the correct aid pathway and avoids dead-end FAFSA steps."
+      },
+      "folder_name": "FA-007_Minh_Tran"
+    },
+    {
+      "applicant_id": "FA-008",
+      "profile": {
+        "full_name": "Noah Williams",
+        "preferred_name": "Noah",
+        "age": 22,
+        "background_summary": "Former foster youth with sudden housing instability mid-term.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "Low",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Android smartphone",
+        "current_address": "118 Rosewood Court, Columbus, OH 43215",
+        "enrollment_goal": "AAS Health Information Technology"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent",
+        "sai_estimate": -1500,
+        "reported_prior_year_income_usd": 6400,
+        "current_year_income_usd": 7900,
+        "household_size": 1,
+        "selected_for": [
+          "Independent Status Confirmation",
+          "Emergency Housing Grant"
+        ],
+        "risk_flags": [
+          "housing_insecurity",
+          "enrollment_dropout_risk"
+        ]
+      },
+      "required_forms": [
+        "Independent Status Form",
+        "Emergency Housing Grant Request"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA008-D1",
+          "doc_type": "Foster_Youth_Status_Letter",
+          "title": "County Foster Youth Status Verification",
+          "file_name": "01_foster_youth_status_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Franklin County Youth Services",
+          "issue_date": "2026-01-30",
+          "render_template": "verification_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Noah Williams",
+            "status": "Former foster youth",
+            "case_end_date": "2024-11-12",
+            "case_worker": "Mira Collins"
+          },
+          "body_lines": [
+            "Supports independent status determination under federal aid rules."
+          ],
+          "file_link": "./01_foster_youth_status_letter.pdf"
+        },
+        {
+          "doc_id": "FA008-D2",
+          "doc_type": "Homeless_Liaison_Letter",
+          "title": "McKinney-Vento Liaison Determination",
+          "file_name": "02_homeless_liaison_determination.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Columbus Public Schools Student Services",
+          "issue_date": "2026-02-22",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Noah Williams",
+            "determination": "Unaccompanied homeless youth",
+            "effective_term": "Spring 2026",
+            "liaison_name": "Patricia Gomez"
+          },
+          "body_lines": [
+            "Enables independent filing and emergency housing aid consideration."
+          ],
+          "file_link": "./02_homeless_liaison_determination.pdf"
+        },
+        {
+          "doc_id": "FA008-D3",
+          "doc_type": "Lease_Termination_Notice",
+          "title": "Lease Termination Notice",
+          "file_name": "03_lease_termination_notice.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Rivergate Apartments",
+          "issue_date": "2026-02-18",
+          "render_template": "notice_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "tenant_name": "Noah Williams",
+            "termination_date": "2026-03-01",
+            "reason": "Non-renewal due roommate departure",
+            "balance_due": "$0"
+          },
+          "body_lines": [
+            "Shows immediate housing instability and need for emergency housing grant."
+          ],
+          "file_link": "./03_lease_termination_notice.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T12:52:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "crisis_disclosure",
+          "sentiment": "high_stress",
+          "message": "I might lose housing this week. I am scared I will have to stop school."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T12:54:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "stabilize_and_start",
+          "sentiment": "empathetic",
+          "message": "I am here with you. I opened the Independent Status + Housing Grant form and marked this as urgent.",
+          "form_updates": [
+            {
+              "form_id": "independent_status_housing_grant_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Noah Williams",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "independent_status_housing_grant_2026",
+              "field_id": "urgent_flag",
+              "field_label": "Urgent Flag",
+              "new_value": true,
+              "source": "sentiment_engine",
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T12:56:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "anxious",
+          "message": "Uploading foster letter, school liaison letter, and lease termination.",
+          "document_links": [
+            {
+              "doc_id": "FA008-D1",
+              "file_link": "./01_foster_youth_status_letter.pdf"
+            },
+            {
+              "doc_id": "FA008-D2",
+              "file_link": "./02_homeless_liaison_determination.pdf"
+            },
+            {
+              "doc_id": "FA008-D3",
+              "file_link": "./03_lease_termination_notice.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T12:58:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "autofill_housing_fields",
+          "sentiment": "calm",
+          "message": "I verified independent status evidence and filled your emergency housing request section.",
+          "form_updates": [
+            {
+              "form_id": "independent_status_housing_grant_2026",
+              "field_id": "independent_status_basis",
+              "field_label": "Independent Status Basis",
+              "new_value": "Former foster youth + homeless liaison determination",
+              "source": "doc_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "independent_status_housing_grant_2026",
+              "field_id": "housing_insecurity_date",
+              "field_label": "Housing Insecurity Date",
+              "new_value": "2026-03-01",
+              "source": "FA008-D3_parse",
+              "confidence": 0.94
+            },
+            {
+              "form_id": "independent_status_housing_grant_2026",
+              "field_id": "emergency_grant_requested",
+              "field_label": "Emergency Grant Requested",
+              "new_value": "$1,500",
+              "source": "policy_default",
+              "confidence": 0.9
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T13:00:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "assure_and_route",
+          "sentiment": "reassuring",
+          "message": "A same-day advisor review was requested. You will not lose enrollment while this is being processed.",
+          "metadata": {
+            "advisor_queue": "Emergency Aid Team",
+            "sla": "same_day"
+          }
+        }
+      ],
+      "conversation_outcome": {
+        "status": "escalated_priority_review",
+        "final_owner": "Emergency Aid Team",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Emergency housing stabilization",
+        "heart_moment": "AI prioritizes immediate risk and auto-prepares grant paperwork in one session."
+      },
+      "folder_name": "FA-008_Noah_Williams"
+    },
+    {
+      "applicant_id": "FA-009",
+      "profile": {
+        "full_name": "Sofia Petrova",
+        "preferred_name": "Sofia",
+        "age": 33,
+        "background_summary": "Divorced parent returning to school while carrying family medical debt.",
+        "first_language": "Bulgarian",
+        "english_proficiency": "Advanced",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Medium",
+        "device_primary": "Laptop",
+        "current_address": "3907 Belmont Rd Apt 2A, Philadelphia, PA 19104",
+        "enrollment_goal": "BS Public Health"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent with dependent child",
+        "sai_estimate": 5400,
+        "reported_prior_year_income_usd": 38700,
+        "current_year_income_usd": 30100,
+        "household_size": 2,
+        "selected_for": [
+          "Special Circumstances Review"
+        ],
+        "risk_flags": [
+          "household_change",
+          "medical_financial_strain"
+        ]
+      },
+      "required_forms": [
+        "Special Circumstances Income Adjustment"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA009-D1",
+          "doc_type": "Divorce_Decree_Excerpt",
+          "title": "Divorce Decree Excerpt",
+          "file_name": "01_divorce_decree_excerpt.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Philadelphia County Family Court",
+          "issue_date": "2025-10-12",
+          "render_template": "court_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Sofia Petrova",
+            "case_number": "FC-25-118302",
+            "status": "Divorce finalized",
+            "custody": "Shared custody - 1 dependent"
+          },
+          "body_lines": [
+            "Used to validate marital status and household composition changes."
+          ],
+          "file_link": "./01_divorce_decree_excerpt.pdf"
+        },
+        {
+          "doc_id": "FA009-D2",
+          "doc_type": "Child_Support_Paid_Statement",
+          "title": "Child Support Paid Statement",
+          "file_name": "02_child_support_paid_statement.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "PA Department of Human Services",
+          "issue_date": "2026-02-19",
+          "render_template": "statement_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "payer_name": "Sofia Petrova",
+            "annual_support_paid": "$4,800",
+            "beneficiary": "Mila Petrova",
+            "reporting_year": "2025"
+          },
+          "body_lines": [
+            "Reported child support paid can affect aid calculation fields."
+          ],
+          "file_link": "./02_child_support_paid_statement.pdf"
+        },
+        {
+          "doc_id": "FA009-D3",
+          "doc_type": "Medical_Debt_Statement",
+          "title": "Hospital Medical Debt Statement",
+          "file_name": "03_medical_debt_statement.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Mercy General Hospital Billing",
+          "issue_date": "2026-01-26",
+          "render_template": "statement_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "patient_name": "Mila Petrova",
+            "outstanding_balance": "$9,432",
+            "monthly_payment": "$260",
+            "financial_hardship_plan": "Active"
+          },
+          "body_lines": [
+            "Student requests special-circumstances review due ongoing mandatory medical payments."
+          ],
+          "file_link": "./03_medical_debt_statement.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T13:18:00-06:00",
+          "speaker": "student",
+          "language": "bg",
+          "intent": "special_circumstance_request",
+          "sentiment": "concerned",
+          "message": "Сега съм разведена и плащам издръжка и медицински сметки. FAFSA не го отразява.",
+          "translated_message_en": "I am now divorced and paying child support and medical bills. FAFSA does not reflect that."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T13:20:00-06:00",
+          "speaker": "ai",
+          "language": "bg",
+          "intent": "open_adjustment_form",
+          "sentiment": "supportive",
+          "message": "Отворих формуляра за Special Circumstances и започвам секцията за промяна в домакинството.",
+          "translated_message_en": "I opened the Special Circumstances form and started the household-change section.",
+          "form_updates": [
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Sofia Petrova",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "marital_status",
+              "field_label": "Marital Status",
+              "new_value": "Divorced",
+              "source": "turn_1_message",
+              "confidence": 0.95
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T13:22:00-06:00",
+          "speaker": "student",
+          "language": "bg",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "Качвам съдебното решение, извлечението за издръжка и болничната сметка.",
+          "translated_message_en": "Uploading the divorce decree, child support statement, and hospital bill.",
+          "document_links": [
+            {
+              "doc_id": "FA009-D1",
+              "file_link": "./01_divorce_decree_excerpt.pdf"
+            },
+            {
+              "doc_id": "FA009-D2",
+              "file_link": "./02_child_support_paid_statement.pdf"
+            },
+            {
+              "doc_id": "FA009-D3",
+              "file_link": "./03_medical_debt_statement.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T13:24:00-06:00",
+          "speaker": "ai",
+          "language": "bg",
+          "intent": "autofill_expense_fields",
+          "sentiment": "reassuring",
+          "message": "Извлякох $4,800 платена издръжка и $9,432 медицински дълг с месечна вноска $260.",
+          "translated_message_en": "I extracted $4,800 child support paid and $9,432 medical debt with a $260 monthly payment.",
+          "form_updates": [
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "child_support_paid",
+              "field_label": "Child Support Paid",
+              "new_value": 4800,
+              "source": "FA009-D2_parse",
+              "confidence": 0.97
+            },
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "medical_debt_balance",
+              "field_label": "Medical Debt Balance",
+              "new_value": 9432,
+              "source": "FA009-D3_parse",
+              "confidence": 0.96
+            },
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "monthly_medical_payment",
+              "field_label": "Monthly Medical Payment",
+              "new_value": 260,
+              "source": "FA009-D3_parse",
+              "confidence": 0.96
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T13:26:00-06:00",
+          "speaker": "ai",
+          "language": "bg",
+          "intent": "complete_form",
+          "sentiment": "calm",
+          "message": "Формулярът е готов за подаване с всички доказателства.",
+          "translated_message_en": "Your form is complete and ready for submission with all supporting evidence.",
+          "form_updates": [
+            {
+              "form_id": "special_circumstances_income_adjustment_2026",
+              "field_id": "status",
+              "field_label": "Status",
+              "new_value": "Ready for submission",
+              "source": "workflow",
+              "confidence": 1.0
+            }
+          ]
+        }
+      ],
+      "conversation_outcome": {
+        "status": "ready_for_submission",
+        "final_owner": "Student",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Household-change recalc with expense extraction",
+        "heart_moment": "AI converts legal and billing documents into usable aid adjustment data."
+      },
+      "folder_name": "FA-009_Sofia_Petrova"
+    },
+    {
+      "applicant_id": "FA-010",
+      "profile": {
+        "full_name": "Jean Baptiste",
+        "preferred_name": "Jean",
+        "age": 24,
+        "background_summary": "Recent naturalized citizen with limited English confidence.",
+        "first_language": "Haitian Creole",
+        "english_proficiency": "Intermediate",
+        "tech_savviness": "Low",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Android smartphone",
+        "current_address": "66 Waverly Terrace Apt 1, Baltimore, MD 21217",
+        "enrollment_goal": "AAS Medical Assisting"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent",
+        "sai_estimate": -620,
+        "reported_prior_year_income_usd": 19760,
+        "current_year_income_usd": 20840,
+        "household_size": 1,
+        "selected_for": [
+          "Citizenship Status Correction"
+        ],
+        "risk_flags": [
+          "language_barrier",
+          "eligibility_misclassification"
+        ]
+      },
+      "required_forms": [
+        "Citizenship Status Correction Form"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA010-D1",
+          "doc_type": "Certificate_of_Naturalization",
+          "title": "Certificate of Naturalization",
+          "file_name": "01_certificate_of_naturalization.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "USCIS",
+          "issue_date": "2025-12-02",
+          "render_template": "certificate_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Jean Baptiste",
+            "certificate_number": "N-4429187",
+            "country_of_birth": "Haiti",
+            "naturalization_date": "2025-12-02"
+          },
+          "body_lines": [
+            "Used to update citizenship status from non-eligible to eligible for federal aid."
+          ],
+          "file_link": "./01_certificate_of_naturalization.pdf"
+        },
+        {
+          "doc_id": "FA010-D2",
+          "doc_type": "Selective_Service_Status_Letter",
+          "title": "Selective Service Status Information Letter",
+          "file_name": "02_selective_service_status_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Selective Service System",
+          "issue_date": "2026-01-15",
+          "render_template": "letter_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "registrant_name": "Jean Baptiste",
+            "registration_number": "S-925004137",
+            "status": "Registered",
+            "registration_date": "2024-08-11"
+          },
+          "body_lines": [
+            "Documentation included to clear federal eligibility checklist."
+          ],
+          "file_link": "./02_selective_service_status_letter.pdf"
+        },
+        {
+          "doc_id": "FA010-D3",
+          "doc_type": "Tax_Return_Translation_Summary",
+          "title": "Tax Return Translation Summary",
+          "file_name": "03_tax_return_translation_summary.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Community Translation Network",
+          "issue_date": "2026-02-03",
+          "render_template": "summary_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "taxpayer_name": "Jean Baptiste",
+            "translated_from": "French/Creole",
+            "agi_equivalent": "$19,760",
+            "notes": "Certified translation"
+          },
+          "body_lines": [
+            "Helps student understand and correctly enter income values in FAFSA fields."
+          ],
+          "file_link": "./03_tax_return_translation_summary.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T13:46:00-06:00",
+          "speaker": "student",
+          "language": "ht",
+          "intent": "citizenship_issue",
+          "sentiment": "confused",
+          "message": "Mwen pa pale angle byen. FAFSA di mwen pa kalifye men mwen vin sitwayen ane pase.",
+          "translated_message_en": "I do not speak English well. FAFSA says I am not eligible but I became a citizen last year."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T13:48:00-06:00",
+          "speaker": "ai",
+          "language": "ht",
+          "intent": "start_citizenship_form",
+          "sentiment": "supportive",
+          "message": "Mesi Jean. Mwen ka ede ou. Mwen louvri fòm koreksyon sitwayènte a etap pa etap.",
+          "translated_message_en": "Thank you, Jean. I can help. I opened the citizenship correction form step by step.",
+          "form_updates": [
+            {
+              "form_id": "citizenship_status_correction_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Jean Baptiste",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "citizenship_status_correction_2026",
+              "field_id": "language_assistance",
+              "field_label": "Language Assistance",
+              "new_value": "Haitian Creole requested",
+              "source": "turn_1_message",
+              "confidence": 0.97
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T13:50:00-06:00",
+          "speaker": "student",
+          "language": "ht",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "M ap voye sètifika natiralizasyon an, lèt Selective Service, ak tradiksyon taks la.",
+          "translated_message_en": "I am sending the naturalization certificate, Selective Service letter, and tax translation.",
+          "document_links": [
+            {
+              "doc_id": "FA010-D1",
+              "file_link": "./01_certificate_of_naturalization.pdf"
+            },
+            {
+              "doc_id": "FA010-D2",
+              "file_link": "./02_selective_service_status_letter.pdf"
+            },
+            {
+              "doc_id": "FA010-D3",
+              "file_link": "./03_tax_return_translation_summary.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T13:52:00-06:00",
+          "speaker": "ai",
+          "language": "ht",
+          "intent": "autofill_eligibility_fields",
+          "sentiment": "reassuring",
+          "message": "Mwen mete estati ou kòm US Citizen, ajoute nimewo Selective Service, epi AGI a se $19,760.",
+          "translated_message_en": "I set your status to US Citizen, added your Selective Service number, and AGI as $19,760.",
+          "form_updates": [
+            {
+              "form_id": "citizenship_status_correction_2026",
+              "field_id": "citizenship_status",
+              "field_label": "Citizenship Status",
+              "new_value": "US Citizen",
+              "source": "FA010-D1_parse",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "citizenship_status_correction_2026",
+              "field_id": "selective_service_number",
+              "field_label": "Selective Service Number",
+              "new_value": "S-925004137",
+              "source": "FA010-D2_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "citizenship_status_correction_2026",
+              "field_id": "agi",
+              "field_label": "AGI",
+              "new_value": 19760,
+              "source": "FA010-D3_parse",
+              "confidence": 0.95
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T13:54:00-06:00",
+          "speaker": "student",
+          "language": "ht",
+          "intent": "confirmation",
+          "sentiment": "relieved",
+          "message": "Trè byen. Mwen konprann pi byen kounye a.",
+          "translated_message_en": "Very good. I understand much better now."
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T13:56:00-06:00",
+          "speaker": "ai",
+          "language": "ht",
+          "intent": "finalize_with_translation",
+          "sentiment": "encouraging",
+          "message": "Fòm nan fini. Mwen mete yon rezime an kreyòl ak angle pou ou revize.",
+          "translated_message_en": "The form is complete. I added a summary in Creole and English for your review.",
+          "metadata": {
+            "translation_mode": "bi-lingual summary generated"
+          }
+        }
+      ],
+      "conversation_outcome": {
+        "status": "eligibility_status_corrected",
+        "final_owner": "Financial Aid Eligibility Team",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Eligibility correction with language support",
+        "heart_moment": "AI handles both compliance fields and language translation in one workflow."
+      },
+      "folder_name": "FA-010_Jean_Baptiste"
+    },
+    {
+      "applicant_id": "FA-011",
+      "profile": {
+        "full_name": "Fatima Al-Khalil",
+        "preferred_name": "Fatima",
+        "age": 27,
+        "background_summary": "Military spouse managing relocation while finishing degree.",
+        "first_language": "Arabic",
+        "english_proficiency": "Advanced",
+        "tech_savviness": "High",
+        "financial_aid_literacy": "Medium",
+        "device_primary": "Laptop",
+        "current_address": "7702 Alpenglow St, Colorado Springs, CO 80918",
+        "enrollment_goal": "BS Data Analytics"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Independent married",
+        "sai_estimate": 2400,
+        "reported_prior_year_income_usd": 24600,
+        "current_year_income_usd": 25900,
+        "household_size": 2,
+        "selected_for": [
+          "Consortium Coordination",
+          "VA Benefit Coordination"
+        ],
+        "risk_flags": [
+          "midyear_relocation"
+        ]
+      },
+      "required_forms": [
+        "Consortium Agreement and Benefit Coordination Form"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA011-D1",
+          "doc_type": "Military_PCS_Orders",
+          "title": "Spouse PCS Orders (Excerpt)",
+          "file_name": "01_spouse_pcs_orders.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Department of the Air Force",
+          "issue_date": "2026-02-02",
+          "render_template": "orders_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "service_member": "Omar Al-Khalil",
+            "dependent_spouse": "Fatima Al-Khalil",
+            "pcs_location": "Colorado Springs, CO",
+            "effective_date": "2026-05-01"
+          },
+          "body_lines": [
+            "Student requests remote consortium accommodations due relocation orders."
+          ],
+          "file_link": "./01_spouse_pcs_orders.pdf"
+        },
+        {
+          "doc_id": "FA011-D2",
+          "doc_type": "Chapter35_Eligibility_Letter",
+          "title": "DEA Chapter 35 Eligibility Letter",
+          "file_name": "02_chapter35_eligibility_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "US Department of Veterans Affairs",
+          "issue_date": "2026-01-19",
+          "render_template": "benefits_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "beneficiary_name": "Fatima Al-Khalil",
+            "benefit_type": "Chapter 35 DEA",
+            "monthly_benefit": "$1,536",
+            "eligibility_window": "2026-01 to 2030-01"
+          },
+          "body_lines": [
+            "Used to coordinate institutional aid packaging with VA educational assistance."
+          ],
+          "file_link": "./02_chapter35_eligibility_letter.pdf"
+        },
+        {
+          "doc_id": "FA011-D3",
+          "doc_type": "Current_Tuition_Statement",
+          "title": "Current Term Tuition and Fee Statement",
+          "file_name": "03_current_term_tuition_statement.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "The Uni Bursar Office",
+          "issue_date": "2026-02-24",
+          "render_template": "billing_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Fatima Al-Khalil",
+            "tuition_charges": "$7,880",
+            "fees": "$620",
+            "balance_after_grants": "$2,190"
+          },
+          "body_lines": [
+            "Provides net balance used in consortium and payment-planning sections."
+          ],
+          "file_link": "./03_current_term_tuition_statement.pdf"
+        },
+        {
+          "doc_id": "FA011-D4",
+          "doc_type": "Household_Budget_Note_Photo",
+          "title": "Household Budget Notes (Mobile Photo)",
+          "file_name": "04_household_budget_note_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Student Provided",
+          "issue_date": "2026-03-02",
+          "render_template": "budget_note_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "shadow_glare",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "student_name": "Fatima Al-Khalil",
+            "rent": "$1,840",
+            "utilities": "$290",
+            "childcare": "$460"
+          },
+          "body_lines": [
+            "Photo of handwritten budget notes to support consortium planning.",
+            "Used to contextualize relocation cash-flow constraints."
+          ],
+          "file_link": "./04_household_budget_note_photo.webp"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T14:08:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "consortium_question",
+          "sentiment": "concerned",
+          "message": "زوجي عنده أوامر نقل عسكري وأنا عندي مزايا Chapter 35. هل ممكن أحافظ على باقة المساعدات؟",
+          "translated_message_en": "My spouse has military transfer orders and I have Chapter 35 benefits. Can I keep my aid package stable?"
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T14:10:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "start_consortium_form",
+          "sentiment": "supportive",
+          "message": "نعم. فتحت نموذج التنسيق بين Consortium ومزايا Chapter 35 وأدخلت بياناتك الأساسية.",
+          "translated_message_en": "Yes. I opened the consortium and Chapter 35 coordination form and entered your basic profile.",
+          "form_updates": [
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Fatima Al-Khalil",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "coordination_needed",
+              "field_label": "Coordination Needed",
+              "new_value": "Consortium + Chapter 35",
+              "source": "turn_1_message",
+              "confidence": 0.98
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T14:12:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "upload_docs",
+          "sentiment": "cooperative",
+          "message": "رفعت أوامر النقل، خطاب VA، وكشف الرسوم الحالي.",
+          "translated_message_en": "I uploaded PCS orders, VA letter, and current tuition statement.",
+          "document_links": [
+            {
+              "doc_id": "FA011-D1",
+              "file_link": "./01_spouse_pcs_orders.pdf"
+            },
+            {
+              "doc_id": "FA011-D2",
+              "file_link": "./02_chapter35_eligibility_letter.pdf"
+            },
+            {
+              "doc_id": "FA011-D3",
+              "file_link": "./03_current_term_tuition_statement.pdf"
+            },
+            {
+              "doc_id": "FA011-D4",
+              "file_link": "./04_household_budget_note_photo.webp"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T14:14:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "autofill_consortium_fields",
+          "sentiment": "reassuring",
+          "message": "استخرجت تاريخ النقل 2026-05-01، ومبلغ Chapter 35 الشهري $1,536، والرصيد الحالي $2,190.",
+          "translated_message_en": "I extracted relocation date 2026-05-01, Chapter 35 monthly amount $1,536, and current balance $2,190.",
+          "form_updates": [
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "pcs_effective_date",
+              "field_label": "PCS Effective Date",
+              "new_value": "2026-05-01",
+              "source": "FA011-D1_parse",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "chapter35_monthly",
+              "field_label": "Chapter 35 Monthly Benefit",
+              "new_value": 1536,
+              "source": "FA011-D2_parse",
+              "confidence": 0.98
+            },
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "net_balance",
+              "field_label": "Current Net Balance",
+              "new_value": 2190,
+              "source": "FA011-D3_parse",
+              "confidence": 0.97
+            }
+          ]
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T14:16:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "ask_timeline",
+          "sentiment": "concerned",
+          "message": "طيب كم يوم تحتاج الموافقة؟",
+          "translated_message_en": "Okay, how many days will approval take?"
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T14:18:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "timeline_response",
+          "sentiment": "supportive",
+          "message": "عادة 3 أيام عمل. سأجهز لك ملخصًا للمراجع حتى لا تعيدي الشرح.",
+          "translated_message_en": "Usually 3 business days. I will prepare a reviewer summary so you do not have to repeat anything."
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T14:20:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "ask_about_housing_stipend",
+          "sentiment": "curious",
+          "message": "وهل بدل السكن من VA يؤثر على المنحة؟",
+          "translated_message_en": "Does VA housing stipend affect the grant?"
+        },
+        {
+          "turn": 8,
+          "timestamp": "2026-03-02T14:22:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "policy_clarification",
+          "sentiment": "careful",
+          "message": "سأحول هذا السؤال لمستشار مختص للتأكيد الرسمي، وأرفق له كل التفاصيل الآن.",
+          "translated_message_en": "I will route this question to a specialist advisor for official confirmation, and attach all details now.",
+          "metadata": {
+            "escalation_trigger": "benefit_policy_confirmation",
+            "distress_score": 0.52,
+            "handoff_to": "Advisor Omar Haddad",
+            "handoff_summary": "Consortium form drafted; confirm treatment of VA housing stipend with institutional grants.",
+            "advisor_action_items": [
+              "Confirm policy interaction",
+              "Approve consortium packet",
+              "Notify student in Arabic"
+            ]
+          }
+        },
+        {
+          "turn": 9,
+          "timestamp": "2026-03-02T14:24:00-06:00",
+          "speaker": "advisor",
+          "language": "ar",
+          "intent": "human_takeover",
+          "sentiment": "calm",
+          "message": "مرحبًا فاطمة، أنا المستشار عمر. راجعت الملخص وسأؤكد لك السياسة خلال دقائق.",
+          "translated_message_en": "Hi Fatima, I am Advisor Omar. I reviewed the summary and will confirm policy in a few minutes."
+        },
+        {
+          "turn": 10,
+          "timestamp": "2026-03-02T14:26:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "acknowledge",
+          "sentiment": "relieved",
+          "message": "شكرًا، هذا ممتاز.",
+          "translated_message_en": "Thank you, that's excellent."
+        },
+        {
+          "turn": 11,
+          "timestamp": "2026-03-02T14:28:00-06:00",
+          "speaker": "advisor",
+          "language": "ar",
+          "intent": "policy_confirmation",
+          "sentiment": "supportive",
+          "message": "تم التأكيد: بدل السكن لا يلغي المنحة تلقائيًا. أدخلت الملاحظة الرسمية في الملف.",
+          "translated_message_en": "Confirmed: housing stipend does not automatically cancel the grant. I added the official note to your file.",
+          "form_updates": [
+            {
+              "form_id": "consortium_and_benefit_coordination_2026",
+              "field_id": "policy_note",
+              "field_label": "Policy Note",
+              "new_value": "VA housing stipend reviewed; no automatic grant cancellation.",
+              "source": "advisor_confirmation",
+              "confidence": 1.0
+            }
+          ]
+        },
+        {
+          "turn": 12,
+          "timestamp": "2026-03-02T14:30:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "prepare_submission",
+          "sentiment": "encouraging",
+          "message": "الآن الملف كامل. سأرسله لمنسق الـ Consortium للموافقة النهائية.",
+          "translated_message_en": "Now the file is complete. I will send it to the consortium coordinator for final approval."
+        },
+        {
+          "turn": 13,
+          "timestamp": "2026-03-02T14:32:00-06:00",
+          "speaker": "student",
+          "language": "ar",
+          "intent": "confirm_submit",
+          "sentiment": "relieved",
+          "message": "ممتاز، أكملي الإرسال.",
+          "translated_message_en": "Great, proceed with submission."
+        },
+        {
+          "turn": 14,
+          "timestamp": "2026-03-02T14:34:00-06:00",
+          "speaker": "ai",
+          "language": "ar",
+          "intent": "submit_for_coordination",
+          "sentiment": "calm",
+          "message": "تم الإرسال بنجاح. ستصلكِ رسالة متابعة خلال 72 ساعة.",
+          "translated_message_en": "Submitted successfully. You will receive a follow-up message within 72 hours.",
+          "metadata": {
+            "queue": "Consortium Coordinator",
+            "expected_review_days": 3
+          }
+        },
+        {
+          "turn": 15,
+          "timestamp": "2026-03-02T14:36:00-06:00",
+          "speaker": "advisor",
+          "language": "ar",
+          "intent": "close_case",
+          "sentiment": "warm",
+          "message": "إذا وصلتك أي رسالة غير واضحة، أرسليها هنا وسأشرحها بالعربية.",
+          "translated_message_en": "If you receive any unclear message, send it here and I will explain it in Arabic."
+        }
+      ],
+      "conversation_outcome": {
+        "status": "escalated_and_submitted_for_coordinator_review",
+        "final_owner": "Consortium Coordinator",
+        "completion_percent": 100
+      },
+      "demo_hook": {
+        "title": "Military-family relocation support",
+        "heart_moment": "AI combines relocation, VA benefits, and billing data into one coherent packet."
+      },
+      "folder_name": "FA-011_Fatima_Al_Khalil"
+    },
+    {
+      "applicant_id": "FA-012",
+      "profile": {
+        "full_name": "Andre Simmons",
+        "preferred_name": "Andre",
+        "age": 18,
+        "background_summary": "First-year student athlete with parent non-filer verification complexity.",
+        "first_language": "English",
+        "english_proficiency": "Fluent",
+        "tech_savviness": "Medium",
+        "financial_aid_literacy": "Low",
+        "device_primary": "Android smartphone",
+        "current_address": "5219 Martin Luther King Jr Blvd Apt 14, Houston, TX 77021",
+        "enrollment_goal": "BS Kinesiology"
+      },
+      "financial_aid_context": {
+        "institution": "The Uni",
+        "aid_year": "2026-2027",
+        "dependency_status": "Dependent",
+        "sai_estimate": -210,
+        "reported_prior_year_income_usd": 12000,
+        "current_year_income_usd": 18900,
+        "household_size": 4,
+        "selected_for": [
+          "Federal Verification V1"
+        ],
+        "risk_flags": [
+          "income_discrepancy",
+          "high_stress"
+        ]
+      },
+      "required_forms": [
+        "V1 Verification Income Reconciliation"
+      ],
+      "document_bundle": [
+        {
+          "doc_id": "FA012-D1",
+          "doc_type": "IRS_Non_Filing_Letter",
+          "title": "IRS Verification of Non-Filing Letter",
+          "file_name": "01_parent_non_filing_letter.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "Internal Revenue Service",
+          "issue_date": "2026-02-12",
+          "render_template": "verification_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "taxpayer_name": "Darius Simmons",
+            "tax_year": "2024",
+            "status": "No return filed",
+            "irs_tracking_number": "NF-771203-99"
+          },
+          "body_lines": [
+            "Used in V1 verification for parent non-filer status."
+          ],
+          "file_link": "./01_parent_non_filing_letter.pdf"
+        },
+        {
+          "doc_id": "FA012-D2",
+          "doc_type": "Parent_Cash_Ledger_Photo",
+          "title": "Parent Handwritten Business Ledger (Phone Photo)",
+          "file_name": "02_parent_cash_ledger_photo.webp",
+          "format": "webp",
+          "document_role": "student_upload",
+          "issuer": "Student Family Record",
+          "issue_date": "2026-03-01",
+          "render_template": "ledger_photo",
+          "quality_flags": [
+            "2_degree_skew",
+            "blurry",
+            "low_light",
+            "compression_noise"
+          ],
+          "structured_fields": {
+            "owner_name": "Darius Simmons",
+            "business_type": "Lawn service",
+            "monthly_cash_entries": "Varies $800-$2,100",
+            "estimated_annual_net": "$18,900"
+          },
+          "body_lines": [
+            "Notebook photo with uneven lighting and partial corner crop.",
+            "Amounts conflict with prior FAFSA estimate."
+          ],
+          "file_link": "./02_parent_cash_ledger_photo.webp"
+        },
+        {
+          "doc_id": "FA012-D3",
+          "doc_type": "Income_Verification_Worksheet",
+          "title": "Income Verification Worksheet (Partially Completed)",
+          "file_name": "03_income_verification_worksheet_partial.pdf",
+          "format": "pdf",
+          "document_role": "student_upload",
+          "issuer": "The Uni Financial Aid Office",
+          "issue_date": "2026-02-28",
+          "render_template": "form_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Andre Simmons",
+            "parent_non_filer": "Checked",
+            "parent_income_reported": "$12,000",
+            "missing_fields": "Business net income detail"
+          },
+          "body_lines": [
+            "Student entered preliminary values manually before chat.",
+            "Bot must reconcile conflicting numbers with ledger evidence."
+          ],
+          "file_link": "./03_income_verification_worksheet_partial.pdf"
+        },
+        {
+          "doc_id": "FA012-D4",
+          "doc_type": "Advisor_Handoff_Note",
+          "title": "Income Discrepancy Handoff Note",
+          "file_name": "04_income_discrepancy_handoff_note.pdf",
+          "format": "pdf",
+          "document_role": "ai_generated",
+          "issuer": "The Uni Financial Aid Bot",
+          "issue_date": "2026-03-02",
+          "render_template": "summary_pdf",
+          "quality_flags": [],
+          "structured_fields": {
+            "student_name": "Andre Simmons",
+            "issue": "Conflicting parent cash income values",
+            "worksheet_value": "$12,000",
+            "ledger_estimate": "$18,900",
+            "recommended_action": "Advisor reconciliation call"
+          },
+          "body_lines": [
+            "Bot completed all deterministic fields and escalated reconciliation decision to human advisor.",
+            "Includes concise summary for rapid handoff."
+          ],
+          "file_link": "./04_income_discrepancy_handoff_note.pdf"
+        }
+      ],
+      "chat_conversation": [
+        {
+          "turn": 1,
+          "timestamp": "2026-03-02T14:36:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "verification_help",
+          "sentiment": "stressed",
+          "message": "My coach said I still have a verification hold. We filed non-filing but now they want income proof."
+        },
+        {
+          "turn": 2,
+          "timestamp": "2026-03-02T14:38:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "open_reconciliation_form",
+          "sentiment": "supportive",
+          "message": "I opened your V1 income reconciliation form and imported your partial worksheet.",
+          "form_updates": [
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "student_name",
+              "field_label": "Student Name",
+              "new_value": "Andre Simmons",
+              "source": "student_profile",
+              "confidence": 0.99
+            },
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "parent_non_filer_status",
+              "field_label": "Parent Non-Filer",
+              "new_value": true,
+              "source": "FA012-D3_parse",
+              "confidence": 0.97
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "timestamp": "2026-03-02T14:40:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "upload_docs",
+          "sentiment": "anxious",
+          "message": "Uploading IRS non-filing letter and my dad's notebook ledger.",
+          "document_links": [
+            {
+              "doc_id": "FA012-D1",
+              "file_link": "./01_parent_non_filing_letter.pdf"
+            },
+            {
+              "doc_id": "FA012-D2",
+              "file_link": "./02_parent_cash_ledger_photo.webp"
+            },
+            {
+              "doc_id": "FA012-D3",
+              "file_link": "./03_income_verification_worksheet_partial.pdf"
+            }
+          ]
+        },
+        {
+          "turn": 4,
+          "timestamp": "2026-03-02T14:42:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "detect_discrepancy",
+          "sentiment": "careful",
+          "message": "I extracted an estimated parent net income of $18,900 from the ledger, which conflicts with $12,000 on your worksheet.",
+          "form_updates": [
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "parent_income_worksheet",
+              "field_label": "Worksheet Parent Income",
+              "new_value": 12000,
+              "source": "FA012-D3_parse",
+              "confidence": 0.96
+            },
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "parent_income_ledger",
+              "field_label": "Ledger Parent Income",
+              "new_value": 18900,
+              "source": "FA012-D2_parse",
+              "confidence": 0.87
+            },
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "discrepancy_flag",
+              "field_label": "Discrepancy Flag",
+              "new_value": true,
+              "source": "rules_engine",
+              "confidence": 1.0
+            }
+          ],
+          "metadata": {
+            "ocr_quality": "medium_low",
+            "reason": "blur + handwriting"
+          }
+        },
+        {
+          "turn": 5,
+          "timestamp": "2026-03-02T14:44:00-06:00",
+          "speaker": "student",
+          "language": "en",
+          "intent": "distress_signal",
+          "sentiment": "high_stress",
+          "message": "I do not know which number is right. I am worried I will be dropped."
+        },
+        {
+          "turn": 6,
+          "timestamp": "2026-03-02T14:46:00-06:00",
+          "speaker": "ai",
+          "language": "en",
+          "intent": "escalate_to_human",
+          "sentiment": "empathetic",
+          "message": "You will not be dropped for asking for help. I am bringing in an advisor now with a full summary so you do not repeat anything.",
+          "document_links": [
+            {
+              "doc_id": "FA012-D4",
+              "file_link": "./04_income_discrepancy_handoff_note.pdf"
+            }
+          ],
+          "metadata": {
+            "escalation_trigger": "high_stress + unresolved income discrepancy",
+            "distress_score": 0.9,
+            "handoff_to": "Advisor Miguel Santos"
+          }
+        },
+        {
+          "turn": 7,
+          "timestamp": "2026-03-02T14:48:00-06:00",
+          "speaker": "advisor",
+          "language": "en",
+          "intent": "human_takeover",
+          "sentiment": "calm",
+          "message": "Hi Andre, I am Miguel. I reviewed the handoff note and we can reconcile this quickly on a 5-minute call.",
+          "form_updates": [
+            {
+              "form_id": "v1_verification_income_reconciliation_2026",
+              "field_id": "advisor_review_status",
+              "field_label": "Advisor Review Status",
+              "new_value": "In progress",
+              "source": "advisor_confirmation",
+              "confidence": 1.0
+            }
+          ]
+        }
+      ],
+      "conversation_outcome": {
+        "status": "escalated_to_human_pending_call",
+        "final_owner": "Advisor Miguel Santos",
+        "completion_percent_before_handoff": 88
+      },
+      "demo_hook": {
+        "title": "Discrepancy detection with human safety net",
+        "heart_moment": "AI auto-fills everything deterministic and escalates exactly where human judgment is needed."
+      },
+      "folder_name": "FA-012_Andre_Simmons"
+    }
+  ]
+}

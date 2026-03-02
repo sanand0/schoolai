@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SchoolAI Demo Portal | Executive Briefing</title>
+    <meta
+      name="description"
+      content="Executive portal for interactive AI demos in enrollment triage, credit checking, and financial aid support for schools and universities."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f5efdf;
+        --paper-2: #ece2cc;
+        --panel: rgba(255, 250, 239, 0.88);
+        --panel-strong: rgba(255, 252, 245, 0.95);
+        --ink: #111421;
+        --ink-soft: #44506a;
+        --line: rgba(13, 26, 36, 0.14);
+        --line-strong: rgba(13, 26, 36, 0.28);
+        --blue: #1f63d8;
+        --teal: #0a8f8b;
+        --gold: #d18b1b;
+        --coral: #d75b41;
+        --green: #198f59;
+        --radius-xl: 26px;
+        --radius-lg: 18px;
+        --radius-md: 13px;
+        --radius-sm: 9px;
+        --shadow-lg: 0 24px 60px rgba(17, 20, 33, 0.16), 0 3px 14px rgba(17, 20, 33, 0.09);
+        --shadow-md: 0 14px 30px rgba(17, 20, 33, 0.13), 0 2px 10px rgba(17, 20, 33, 0.08);
+        --font-display: "Fraunces", Georgia, serif;
+        --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+        --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 7% 10%, rgba(31, 99, 216, 0.12), transparent 36%),
+          radial-gradient(circle at 92% 18%, rgba(215, 91, 65, 0.12), transparent 37%),
+          radial-gradient(circle at 80% 84%, rgba(10, 143, 139, 0.12), transparent 33%),
+          linear-gradient(180deg, #f9f4e9 0%, var(--paper) 46%, var(--paper-2) 100%);
+        line-height: 1.42;
+        overflow-x: hidden;
+      }
+
+      a,
+      button {
+        font: inherit;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 2px;
+      }
+
+      .bg-orbs {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(24px);
+        opacity: 0.32;
+        animation: float 18s ease-in-out infinite;
+      }
+
+      .orb.one {
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(circle at 30% 30%, rgba(31, 99, 216, 0.35), transparent 72%);
+        left: -60px;
+        top: -40px;
+      }
+
+      .orb.two {
+        width: 340px;
+        height: 340px;
+        background: radial-gradient(circle at 60% 40%, rgba(215, 91, 65, 0.32), transparent 72%);
+        right: -80px;
+        top: 150px;
+        animation-duration: 21s;
+      }
+
+      .orb.three {
+        width: 290px;
+        height: 290px;
+        background: radial-gradient(circle at 50% 40%, rgba(10, 143, 139, 0.32), transparent 72%);
+        left: 55%;
+        bottom: -50px;
+        animation-duration: 24s;
+      }
+
+      .grain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.14;
+        background-image: radial-gradient(rgba(4, 7, 12, 0.75) 0.6px, transparent 0.6px);
+        background-size: 4px 4px;
+      }
+
+      .topbar,
+      .content,
+      .footer {
+        width: min(1240px, calc(100% - 2.4rem));
+        margin-inline: auto;
+      }
+
+      .topbar {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--blue), var(--teal));
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .brand-copy strong {
+        display: block;
+        font-size: 0.96rem;
+      }
+
+      .brand-copy span {
+        display: block;
+        font-size: 0.76rem;
+        color: var(--ink-soft);
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.42rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        border: 1px solid rgba(17, 20, 33, 0.12);
+        padding: 0.4rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.56);
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+      }
+
+      .content {
+        padding-bottom: 2rem;
+      }
+
+      .hero {
+        margin-top: 1rem;
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(125deg, rgba(13, 31, 39, 0.95), rgba(24, 58, 72, 0.91) 52%, rgba(17, 89, 99, 0.88)),
+          repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.06) 0 6px, transparent 6px 12px);
+        box-shadow: var(--shadow-lg);
+        padding: clamp(1rem, 2.7vw, 1.7rem);
+        color: #f5eee1;
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: 1rem;
+      }
+
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        font-size: 0.73rem;
+        opacity: 0.82;
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        font-family: var(--font-display);
+        line-height: 1.03;
+        letter-spacing: -0.02em;
+      }
+
+      .hero h1 {
+        margin-top: 0.45rem;
+        font-size: clamp(1.8rem, 3.7vw, 3rem);
+        max-width: 16ch;
+      }
+
+      .hero p {
+        margin: 0;
+      }
+
+      .hero-lede {
+        margin-top: 0.75rem;
+        color: rgba(245, 238, 225, 0.9);
+        max-width: 65ch;
+      }
+
+      .hero-actions {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .btn {
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 0.58rem 0.88rem;
+        font-weight: 600;
+        font-size: 0.88rem;
+        border: 1px solid transparent;
+        transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, #f7ca6c, #e6a640);
+        color: #1d2533;
+        box-shadow: 0 8px 18px rgba(209, 139, 27, 0.34);
+      }
+
+      .btn.secondary {
+        border-color: rgba(245, 238, 225, 0.36);
+        color: #f5eee1;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .hero-metrics {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+      }
+
+      .hero-metrics article {
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(245, 238, 225, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0.58rem 0.65rem;
+      }
+
+      .hero-metrics strong {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      .hero-metrics span {
+        display: block;
+        margin-top: 0.2rem;
+        font-size: 0.78rem;
+        color: rgba(245, 238, 225, 0.9);
+      }
+
+      .hero-aside {
+        border: 1px solid rgba(245, 238, 225, 0.22);
+        border-radius: var(--radius-lg);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03));
+        padding: 0.95rem;
+        display: grid;
+        align-content: start;
+        gap: 0.72rem;
+      }
+
+      .aside-title {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+      }
+
+      .check-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.52rem;
+      }
+
+      .check-list li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.45rem;
+        align-items: start;
+        font-size: 0.9rem;
+      }
+
+      .check-list li::before {
+        content: "*";
+        color: #f7ca6c;
+        font-size: 0.9rem;
+        margin-top: 0.06rem;
+      }
+
+      .panel {
+        margin-top: 1rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+        box-shadow: var(--shadow-md);
+        padding: 1rem;
+      }
+
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.9rem;
+        align-items: start;
+      }
+
+      .panel-head p {
+        margin: 0.4rem 0 0;
+        color: var(--ink-soft);
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+      }
+
+      .section-title + p {
+        margin: 0.5rem 0 0;
+      }
+
+      .demo-grid {
+        margin-top: 0.9rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .demo-card {
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(17, 20, 33, 0.12);
+        background: rgba(255, 255, 255, 0.74);
+        padding: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      }
+
+      .demo-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 32px rgba(17, 20, 33, 0.12);
+      }
+
+      .demo-card.is-priority {
+        border-color: rgba(14, 122, 130, 0.55);
+        box-shadow: 0 18px 30px rgba(10, 143, 139, 0.16);
+      }
+
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 0.6rem;
+      }
+
+      .card-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 20, 33, 0.14);
+        background: rgba(255, 255, 255, 0.74);
+        padding: 0.22rem 0.54rem;
+        font-size: 0.72rem;
+        color: var(--ink-soft);
+      }
+
+      .card-path {
+        font-family: var(--font-mono);
+        color: var(--ink-soft);
+        font-size: 0.72rem;
+      }
+
+      .demo-card h3 {
+        margin-top: 0.45rem;
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+      }
+
+      .demo-summary {
+        margin-top: 0.45rem;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+      }
+
+      .demo-points {
+        margin: 0.6rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .demo-points li {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 0.4rem;
+        font-size: 0.83rem;
+        color: var(--ink-soft);
+      }
+
+      .demo-points li::before {
+        content: "-";
+        color: var(--blue);
+      }
+
+      .card-actions {
+        margin-top: auto;
+        padding-top: 0.8rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .card-link {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 0.48rem 0.65rem;
+        border: 1px solid rgba(17, 20, 33, 0.14);
+        background: rgba(255, 255, 255, 0.8);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .card-link.primary {
+        background: linear-gradient(135deg, rgba(31, 99, 216, 0.9), rgba(10, 143, 139, 0.9));
+        border-color: transparent;
+        color: #fff;
+      }
+
+      .roadmap {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .roadmap article {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.75);
+        padding: 0.8rem;
+      }
+
+      .roadmap h3 {
+        font-family: var(--font-display);
+      }
+
+      .roadmap p {
+        margin: 0.44rem 0 0;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        margin-top: 1rem;
+        margin-bottom: 1.4rem;
+        border-top: 1px solid rgba(17, 20, 33, 0.16);
+        padding-top: 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        color: var(--ink-soft);
+        font-size: 0.82rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 400ms ease, transform 400ms ease;
+      }
+
+      .reveal.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1080px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          max-width: 100%;
+        }
+
+        .demo-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .topbar,
+        .content,
+        .footer {
+          width: min(1240px, calc(100% - 1.3rem));
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .hero,
+        .panel {
+          padding: 0.8rem;
+        }
+
+        .hero-metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .demo-grid,
+        .roadmap {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .orb,
+        .reveal,
+        .btn,
+        .demo-card {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) translateX(0px);
+        }
+
+        50% {
+          transform: translateY(-12px) translateX(8px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb one"></span>
+      <span class="orb two"></span>
+      <span class="orb three"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar reveal">
+      <a class="brand" href="#top" aria-label="SchoolAI Demo Portal top">
+        <span class="brand-mark">S</span>
+        <span class="brand-copy">
+          <strong>SchoolAI Demo Portal</strong>
+          <span>Executive Leadership Briefing</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#demos">Demo Portfolio</a>
+        <a href="#roadmap">Institutional Value</a>
+      </nav>
+    </header>
+
+    <main class="content" id="top">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">AI + Advisors | Enrollment to Completion</p>
+          <h1 id="hero-title">Scale learner support while preserving deep social connectedness.</h1>
+          <p class="hero-lede">
+            This portal gives leadership teams a direct way to evaluate AI workflows that reduce operational friction,
+            increase response speed, and keep human relationships central when stakes are high.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#demos">Explore Interactive Demos</a>
+          </div>
+          <div class="hero-metrics" aria-label="Executive headline metrics">
+            <article>
+              <strong data-counter="12" data-suffix=" demos">12 demos</strong>
+              <span>Cross-function scenarios from intake to aid completion</span>
+            </article>
+            <article>
+              <strong data-counter="24" data-suffix="/7">24/7</strong>
+              <span>Always-on student support with guided escalation</span>
+            </article>
+            <article>
+              <strong>&lt;5 min</strong>
+              <span>Target first-response coverage for routine inquiries</span>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-aside" aria-label="Leadership evaluation checklist">
+          <h2 class="aside-title">What Leaders Can Validate in 10 Minutes</h2>
+          <ul class="check-list">
+            <li>AI can absorb volume spikes without degrading student experience quality.</li>
+            <li>Policy-sensitive questions route to advisors with concise, actionable context.</li>
+            <li>Document-heavy workflows become structured data and partly completed forms.</li>
+            <li>Teams preserve human trust while reducing repetitive advisor workload.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="demos" class="panel reveal" aria-labelledby="demo-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Demo Portfolio</p>
+            <h2 class="section-title" id="demo-title">Interactive demos available now</h2>
+            <p>
+              Each demo is live and interactive. Open them directly to inspect data, workflow behavior, and human handoff logic.
+            </p>
+          </div>
+        </div>
+        <div class="demo-grid" id="demoGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="roadmap" class="roadmap reveal" aria-label="Institutional value">
+        <article>
+          <h3>Enrollment Operations</h3>
+          <p>
+            Move from reactive inbox management to structured, real-time workflow orchestration across every intake channel.
+          </p>
+        </article>
+        <article>
+          <h3>Student Experience</h3>
+          <p>
+            Preserve empathy at scale with clearer guidance, multilingual assistance, and consistent follow-through.
+          </p>
+        </article>
+        <article>
+          <h3>Advisor Effectiveness</h3>
+          <p>
+            Reserve human time for nuanced, high-trust conversations while automation handles repetitive evidence processing.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <span>SchoolAI Interactive Demo Hub</span>
+      <span>Tip: open any demo and return here to brief stakeholders quickly.</span>
+    </footer>
+
+    <script>
+      // @ts-check
+      const demos = [
+        {
+          id: "triage",
+          title: "Triage Agent",
+          path: "./triage/",
+          pill: "Realtime Intake",
+          summary:
+            "Omnichannel enrollment triage with live routing, confidence scoring, draft generation, and human handoffs.",
+          points: [
+            "Shows live queue flow from email, web, SMS, WhatsApp, and social channels.",
+            "Separates auto-draftable requests from FERPA-sensitive and specialist escalation paths.",
+            "Visualizes throughput, backlog, and first-response equivalent in one operator view."
+          ]
+        },
+        {
+          id: "credit-checking",
+          title: "Super-Fast AI Credit Checking",
+          path: "./credit-checking/",
+          pill: "Transfer Credit",
+          summary:
+            "Converts mixed evidence folders into structured, advisor-ready credit recommendations and degree pathways.",
+          points: [
+            "Handles transcripts, military records, certification artifacts, and international evaluations.",
+            "Streams extraction and reasoning as evidence is processed file by file.",
+            "Presents a clean advisor-format output to accelerate decision review."
+          ]
+        },
+        {
+          id: "financial-aid",
+          title: "Financial Aid Bot Experience Console",
+          path: "./financial-aid/",
+          pill: "Aid Completion",
+          summary:
+            "Multilingual, stress-aware financial aid support with document parsing, form auto-fill replay, and advisor escalation.",
+          points: [
+            "Demonstrates 12 diverse applicant scenarios with realistic document bundles.",
+            "Streams student + AI chats and maps extracted values into aid form fields.",
+            "Escalates at the right moment with advisor brief context already prepared."
+          ]
+        }
+      ];
+
+      const demoGrid = document.querySelector("#demoGrid");
+      const animatedCounters = [...document.querySelectorAll("[data-counter]")];
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function renderCards() {
+        if (!demoGrid) return;
+        demoGrid.innerHTML = demos
+          .map(
+            (demo) => `
+              <article class="demo-card">
+                <div class="card-top">
+                  <span class="card-kicker">${demo.pill}</span>
+                  <span class="card-path">${demo.path}</span>
+                </div>
+                <h3>${demo.title}</h3>
+                <p class="demo-summary">${demo.summary}</p>
+                <ul class="demo-points">
+                  ${demo.points.map((point) => `<li>${point}</li>`).join("")}
+                </ul>
+                <div class="card-actions">
+                  <a class="card-link primary" href="${demo.path}">Open Demo</a>
+                  <a class="card-link" href="${demo.path}" target="_blank" rel="noopener noreferrer">New Tab</a>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function setupReveal() {
+        const revealNodes = [...document.querySelectorAll(".reveal")];
+        if (reduceMotion || typeof IntersectionObserver === "undefined") {
+          revealNodes.forEach((node) => node.classList.add("in-view"));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("in-view");
+              io.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+        );
+        revealNodes.forEach((node) => io.observe(node));
+      }
+
+      function animateCounters() {
+        if (reduceMotion) {
+          animatedCounters.forEach((node) => {
+            const value = Number(node.getAttribute("data-counter") || 0);
+            const suffix = node.getAttribute("data-suffix") || "";
+            node.textContent = `${value}${suffix}`;
+          });
+          return;
+        }
+
+        animatedCounters.forEach((node) => {
+          const target = Number(node.getAttribute("data-counter") || 0);
+          const suffix = node.getAttribute("data-suffix") || "";
+          const start = performance.now();
+          const duration = 900;
+
+          const tick = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(1, elapsed / duration);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            node.textContent = `${Math.round(target * eased)}${suffix}`;
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            }
+          };
+
+          requestAnimationFrame(tick);
+        });
+      }
+
+      function init() {
+        renderCards();
+        setupReveal();
+        animateCounters();
+      }
+
+      init();
+    </script>
+  </body>
+</html>

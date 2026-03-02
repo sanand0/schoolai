@@ -1,0 +1,161 @@
+{
+  "dataset_id": "financial_aid_bot_synthetic_demo_v1",
+  "generated_on": "2026-03-02",
+  "notes": [
+    "All records are synthetic and generated for product demonstration.",
+    "Each applicant bundle includes profile metadata, realistic chat timeline, form field updates, and document links.",
+    "No real student PII is included."
+  ],
+  "applicant_count": 12,
+  "applicants": [
+    {
+      "applicant_id": "FA-001",
+      "full_name": "Marcus Johnson",
+      "folder": "FA-001_Marcus_Johnson",
+      "documents": [
+        "01_fast_food_w2_blurry.webp",
+        "02_household_note_handwritten.webp",
+        "03_v1_verification_worksheet_draft.pdf"
+      ],
+      "chat_turns": 16,
+      "outcome": "escalated_to_human_and_resolved"
+    },
+    {
+      "applicant_id": "FA-002",
+      "full_name": "Elena Rodriguez",
+      "folder": "FA-002_Elena_Rodriguez",
+      "documents": [
+        "01_2024_tax_return.pdf",
+        "02_corporate_layoff_letter.pdf",
+        "03_state_unemployment_statement.pdf",
+        "04_professional_judgment_appeal_draft.pdf"
+      ],
+      "chat_turns": 7,
+      "outcome": "packet_prepared_pending_esign"
+    },
+    {
+      "applicant_id": "FA-003",
+      "full_name": "Carlos Mendoza",
+      "folder": "FA-003_Carlos_Mendoza",
+      "documents": [
+        "01_utility_bill_current_address.pdf",
+        "02_therapist_support_letter.pdf",
+        "03_landlord_support_letter.pdf",
+        "04_dependency_override_draft.pdf",
+        "05_self_support_note_phone_photo.webp"
+      ],
+      "chat_turns": 16,
+      "outcome": "draft_ready_for_office_review"
+    },
+    {
+      "applicant_id": "FA-004",
+      "full_name": "Nia Thompson",
+      "folder": "FA-004_Nia_Thompson",
+      "documents": [
+        "01_parent_incarceration_verification_letter.pdf",
+        "02_school_counselor_statement.pdf",
+        "03_no_contact_affidavit_photo.webp"
+      ],
+      "chat_turns": 6,
+      "outcome": "submitted_for_review"
+    },
+    {
+      "applicant_id": "FA-005",
+      "full_name": "Harpreet Singh",
+      "folder": "FA-005_Harpreet_Singh",
+      "documents": [
+        "01_daycare_invoice_summary.pdf",
+        "02_spouse_paystub_photo.webp",
+        "03_dependent_care_budget_form.pdf"
+      ],
+      "chat_turns": 15,
+      "outcome": "submitted_after_signature"
+    },
+    {
+      "applicant_id": "FA-006",
+      "full_name": "Lena Yazzie",
+      "folder": "FA-006_Lena_Yazzie",
+      "documents": [
+        "01_dd214_member4_redacted.pdf",
+        "02_va_certificate_of_eligibility.pdf",
+        "03_tribal_residency_affidavit.pdf"
+      ],
+      "chat_turns": 5,
+      "outcome": "ready_for_validation"
+    },
+    {
+      "applicant_id": "FA-007",
+      "full_name": "Minh Tran",
+      "folder": "FA-007_Minh_Tran",
+      "documents": [
+        "01_ead_card_mobile_photo.webp",
+        "02_state_dream_act_confirmation.pdf",
+        "03_parent_income_affidavit.pdf"
+      ],
+      "chat_turns": 7,
+      "outcome": "state_packet_complete"
+    },
+    {
+      "applicant_id": "FA-008",
+      "full_name": "Noah Williams",
+      "folder": "FA-008_Noah_Williams",
+      "documents": [
+        "01_foster_youth_status_letter.pdf",
+        "02_homeless_liaison_determination.pdf",
+        "03_lease_termination_notice.pdf"
+      ],
+      "chat_turns": 5,
+      "outcome": "escalated_priority_review"
+    },
+    {
+      "applicant_id": "FA-009",
+      "full_name": "Sofia Petrova",
+      "folder": "FA-009_Sofia_Petrova",
+      "documents": [
+        "01_divorce_decree_excerpt.pdf",
+        "02_child_support_paid_statement.pdf",
+        "03_medical_debt_statement.pdf"
+      ],
+      "chat_turns": 5,
+      "outcome": "ready_for_submission"
+    },
+    {
+      "applicant_id": "FA-010",
+      "full_name": "Jean Baptiste",
+      "folder": "FA-010_Jean_Baptiste",
+      "documents": [
+        "01_certificate_of_naturalization.pdf",
+        "02_selective_service_status_letter.pdf",
+        "03_tax_return_translation_summary.pdf"
+      ],
+      "chat_turns": 6,
+      "outcome": "eligibility_status_corrected"
+    },
+    {
+      "applicant_id": "FA-011",
+      "full_name": "Fatima Al-Khalil",
+      "folder": "FA-011_Fatima_Al_Khalil",
+      "documents": [
+        "01_spouse_pcs_orders.pdf",
+        "02_chapter35_eligibility_letter.pdf",
+        "03_current_term_tuition_statement.pdf",
+        "04_household_budget_note_photo.webp"
+      ],
+      "chat_turns": 15,
+      "outcome": "escalated_and_submitted_for_coordinator_review"
+    },
+    {
+      "applicant_id": "FA-012",
+      "full_name": "Andre Simmons",
+      "folder": "FA-012_Andre_Simmons",
+      "documents": [
+        "01_parent_non_filing_letter.pdf",
+        "02_parent_cash_ledger_photo.webp",
+        "03_income_verification_worksheet_partial.pdf",
+        "04_income_discrepancy_handoff_note.pdf"
+      ],
+      "chat_turns": 7,
+      "outcome": "escalated_to_human_pending_call"
+    }
+  ]
+}

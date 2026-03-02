@@ -1,0 +1,379 @@
+{
+  "applicant_id": "FA-011",
+  "profile": {
+    "full_name": "Fatima Al-Khalil",
+    "preferred_name": "Fatima",
+    "age": 27,
+    "background_summary": "Military spouse managing relocation while finishing degree.",
+    "first_language": "Arabic",
+    "english_proficiency": "Advanced",
+    "tech_savviness": "High",
+    "financial_aid_literacy": "Medium",
+    "device_primary": "Laptop",
+    "current_address": "7702 Alpenglow St, Colorado Springs, CO 80918",
+    "enrollment_goal": "BS Data Analytics"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent married",
+    "sai_estimate": 2400,
+    "reported_prior_year_income_usd": 24600,
+    "current_year_income_usd": 25900,
+    "household_size": 2,
+    "selected_for": [
+      "Consortium Coordination",
+      "VA Benefit Coordination"
+    ],
+    "risk_flags": [
+      "midyear_relocation"
+    ]
+  },
+  "required_forms": [
+    "Consortium Agreement and Benefit Coordination Form"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA011-D1",
+      "doc_type": "Military_PCS_Orders",
+      "title": "Spouse PCS Orders (Excerpt)",
+      "file_name": "01_spouse_pcs_orders.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Department of the Air Force",
+      "issue_date": "2026-02-02",
+      "render_template": "orders_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "service_member": "Omar Al-Khalil",
+        "dependent_spouse": "Fatima Al-Khalil",
+        "pcs_location": "Colorado Springs, CO",
+        "effective_date": "2026-05-01"
+      },
+      "body_lines": [
+        "Student requests remote consortium accommodations due relocation orders."
+      ],
+      "file_link": "./01_spouse_pcs_orders.pdf"
+    },
+    {
+      "doc_id": "FA011-D2",
+      "doc_type": "Chapter35_Eligibility_Letter",
+      "title": "DEA Chapter 35 Eligibility Letter",
+      "file_name": "02_chapter35_eligibility_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "US Department of Veterans Affairs",
+      "issue_date": "2026-01-19",
+      "render_template": "benefits_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "beneficiary_name": "Fatima Al-Khalil",
+        "benefit_type": "Chapter 35 DEA",
+        "monthly_benefit": "$1,536",
+        "eligibility_window": "2026-01 to 2030-01"
+      },
+      "body_lines": [
+        "Used to coordinate institutional aid packaging with VA educational assistance."
+      ],
+      "file_link": "./02_chapter35_eligibility_letter.pdf"
+    },
+    {
+      "doc_id": "FA011-D3",
+      "doc_type": "Current_Tuition_Statement",
+      "title": "Current Term Tuition and Fee Statement",
+      "file_name": "03_current_term_tuition_statement.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "The Uni Bursar Office",
+      "issue_date": "2026-02-24",
+      "render_template": "billing_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Fatima Al-Khalil",
+        "tuition_charges": "$7,880",
+        "fees": "$620",
+        "balance_after_grants": "$2,190"
+      },
+      "body_lines": [
+        "Provides net balance used in consortium and payment-planning sections."
+      ],
+      "file_link": "./03_current_term_tuition_statement.pdf"
+    },
+    {
+      "doc_id": "FA011-D4",
+      "doc_type": "Household_Budget_Note_Photo",
+      "title": "Household Budget Notes (Mobile Photo)",
+      "file_name": "04_household_budget_note_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Student Provided",
+      "issue_date": "2026-03-02",
+      "render_template": "budget_note_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "shadow_glare",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "student_name": "Fatima Al-Khalil",
+        "rent": "$1,840",
+        "utilities": "$290",
+        "childcare": "$460"
+      },
+      "body_lines": [
+        "Photo of handwritten budget notes to support consortium planning.",
+        "Used to contextualize relocation cash-flow constraints."
+      ],
+      "file_link": "./04_household_budget_note_photo.webp"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T14:08:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "consortium_question",
+      "sentiment": "concerned",
+      "message": "زوجي عنده أوامر نقل عسكري وأنا عندي مزايا Chapter 35. هل ممكن أحافظ على باقة المساعدات؟",
+      "translated_message_en": "My spouse has military transfer orders and I have Chapter 35 benefits. Can I keep my aid package stable?"
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T14:10:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "start_consortium_form",
+      "sentiment": "supportive",
+      "message": "نعم. فتحت نموذج التنسيق بين Consortium ومزايا Chapter 35 وأدخلت بياناتك الأساسية.",
+      "translated_message_en": "Yes. I opened the consortium and Chapter 35 coordination form and entered your basic profile.",
+      "form_updates": [
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Fatima Al-Khalil",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "coordination_needed",
+          "field_label": "Coordination Needed",
+          "new_value": "Consortium + Chapter 35",
+          "source": "turn_1_message",
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T14:12:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "رفعت أوامر النقل، خطاب VA، وكشف الرسوم الحالي.",
+      "translated_message_en": "I uploaded PCS orders, VA letter, and current tuition statement.",
+      "document_links": [
+        {
+          "doc_id": "FA011-D1",
+          "file_link": "./01_spouse_pcs_orders.pdf"
+        },
+        {
+          "doc_id": "FA011-D2",
+          "file_link": "./02_chapter35_eligibility_letter.pdf"
+        },
+        {
+          "doc_id": "FA011-D3",
+          "file_link": "./03_current_term_tuition_statement.pdf"
+        },
+        {
+          "doc_id": "FA011-D4",
+          "file_link": "./04_household_budget_note_photo.webp"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T14:14:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "autofill_consortium_fields",
+      "sentiment": "reassuring",
+      "message": "استخرجت تاريخ النقل 2026-05-01، ومبلغ Chapter 35 الشهري $1,536، والرصيد الحالي $2,190.",
+      "translated_message_en": "I extracted relocation date 2026-05-01, Chapter 35 monthly amount $1,536, and current balance $2,190.",
+      "form_updates": [
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "pcs_effective_date",
+          "field_label": "PCS Effective Date",
+          "new_value": "2026-05-01",
+          "source": "FA011-D1_parse",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "chapter35_monthly",
+          "field_label": "Chapter 35 Monthly Benefit",
+          "new_value": 1536,
+          "source": "FA011-D2_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "net_balance",
+          "field_label": "Current Net Balance",
+          "new_value": 2190,
+          "source": "FA011-D3_parse",
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T14:16:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "ask_timeline",
+      "sentiment": "concerned",
+      "message": "طيب كم يوم تحتاج الموافقة؟",
+      "translated_message_en": "Okay, how many days will approval take?"
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T14:18:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "timeline_response",
+      "sentiment": "supportive",
+      "message": "عادة 3 أيام عمل. سأجهز لك ملخصًا للمراجع حتى لا تعيدي الشرح.",
+      "translated_message_en": "Usually 3 business days. I will prepare a reviewer summary so you do not have to repeat anything."
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T14:20:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "ask_about_housing_stipend",
+      "sentiment": "curious",
+      "message": "وهل بدل السكن من VA يؤثر على المنحة؟",
+      "translated_message_en": "Does VA housing stipend affect the grant?"
+    },
+    {
+      "turn": 8,
+      "timestamp": "2026-03-02T14:22:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "policy_clarification",
+      "sentiment": "careful",
+      "message": "سأحول هذا السؤال لمستشار مختص للتأكيد الرسمي، وأرفق له كل التفاصيل الآن.",
+      "translated_message_en": "I will route this question to a specialist advisor for official confirmation, and attach all details now.",
+      "metadata": {
+        "escalation_trigger": "benefit_policy_confirmation",
+        "distress_score": 0.52,
+        "handoff_to": "Advisor Omar Haddad",
+        "handoff_summary": "Consortium form drafted; confirm treatment of VA housing stipend with institutional grants.",
+        "advisor_action_items": [
+          "Confirm policy interaction",
+          "Approve consortium packet",
+          "Notify student in Arabic"
+        ]
+      }
+    },
+    {
+      "turn": 9,
+      "timestamp": "2026-03-02T14:24:00-06:00",
+      "speaker": "advisor",
+      "language": "ar",
+      "intent": "human_takeover",
+      "sentiment": "calm",
+      "message": "مرحبًا فاطمة، أنا المستشار عمر. راجعت الملخص وسأؤكد لك السياسة خلال دقائق.",
+      "translated_message_en": "Hi Fatima, I am Advisor Omar. I reviewed the summary and will confirm policy in a few minutes."
+    },
+    {
+      "turn": 10,
+      "timestamp": "2026-03-02T14:26:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "acknowledge",
+      "sentiment": "relieved",
+      "message": "شكرًا، هذا ممتاز.",
+      "translated_message_en": "Thank you, that's excellent."
+    },
+    {
+      "turn": 11,
+      "timestamp": "2026-03-02T14:28:00-06:00",
+      "speaker": "advisor",
+      "language": "ar",
+      "intent": "policy_confirmation",
+      "sentiment": "supportive",
+      "message": "تم التأكيد: بدل السكن لا يلغي المنحة تلقائيًا. أدخلت الملاحظة الرسمية في الملف.",
+      "translated_message_en": "Confirmed: housing stipend does not automatically cancel the grant. I added the official note to your file.",
+      "form_updates": [
+        {
+          "form_id": "consortium_and_benefit_coordination_2026",
+          "field_id": "policy_note",
+          "field_label": "Policy Note",
+          "new_value": "VA housing stipend reviewed; no automatic grant cancellation.",
+          "source": "advisor_confirmation",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 12,
+      "timestamp": "2026-03-02T14:30:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "prepare_submission",
+      "sentiment": "encouraging",
+      "message": "الآن الملف كامل. سأرسله لمنسق الـ Consortium للموافقة النهائية.",
+      "translated_message_en": "Now the file is complete. I will send it to the consortium coordinator for final approval."
+    },
+    {
+      "turn": 13,
+      "timestamp": "2026-03-02T14:32:00-06:00",
+      "speaker": "student",
+      "language": "ar",
+      "intent": "confirm_submit",
+      "sentiment": "relieved",
+      "message": "ممتاز، أكملي الإرسال.",
+      "translated_message_en": "Great, proceed with submission."
+    },
+    {
+      "turn": 14,
+      "timestamp": "2026-03-02T14:34:00-06:00",
+      "speaker": "ai",
+      "language": "ar",
+      "intent": "submit_for_coordination",
+      "sentiment": "calm",
+      "message": "تم الإرسال بنجاح. ستصلكِ رسالة متابعة خلال 72 ساعة.",
+      "translated_message_en": "Submitted successfully. You will receive a follow-up message within 72 hours.",
+      "metadata": {
+        "queue": "Consortium Coordinator",
+        "expected_review_days": 3
+      }
+    },
+    {
+      "turn": 15,
+      "timestamp": "2026-03-02T14:36:00-06:00",
+      "speaker": "advisor",
+      "language": "ar",
+      "intent": "close_case",
+      "sentiment": "warm",
+      "message": "إذا وصلتك أي رسالة غير واضحة، أرسليها هنا وسأشرحها بالعربية.",
+      "translated_message_en": "If you receive any unclear message, send it here and I will explain it in Arabic."
+    }
+  ],
+  "conversation_outcome": {
+    "status": "escalated_and_submitted_for_coordinator_review",
+    "final_owner": "Consortium Coordinator",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Military-family relocation support",
+    "heart_moment": "AI combines relocation, VA benefits, and billing data into one coherent packet."
+  },
+  "folder_name": "FA-011_Fatima_Al_Khalil"
+}

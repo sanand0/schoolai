@@ -1,0 +1,346 @@
+{
+  "applicant_id": "FA-005",
+  "profile": {
+    "full_name": "Harpreet Singh",
+    "preferred_name": "Harpreet",
+    "age": 28,
+    "background_summary": "Working parent balancing coursework and childcare costs.",
+    "first_language": "Punjabi",
+    "english_proficiency": "Advanced",
+    "tech_savviness": "Medium",
+    "financial_aid_literacy": "Medium",
+    "device_primary": "Android smartphone",
+    "current_address": "917 Pine Crossing Rd, Tacoma, WA 98405",
+    "enrollment_goal": "BS Information Systems"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent married",
+    "sai_estimate": 3100,
+    "reported_prior_year_income_usd": 41200,
+    "current_year_income_usd": 43800,
+    "household_size": 3,
+    "selected_for": [
+      "COA Adjustment Review"
+    ],
+    "risk_flags": [
+      "childcare_cost_burden"
+    ]
+  },
+  "required_forms": [
+    "Dependent Care Cost Adjustment Worksheet"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA005-D1",
+      "doc_type": "Daycare_Invoice",
+      "title": "Little Oaks Daycare Monthly Invoice",
+      "file_name": "01_daycare_invoice_summary.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Little Oaks Childcare Center",
+      "issue_date": "2026-02-28",
+      "render_template": "invoice_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "child_name": "Aman Singh",
+        "monthly_care_cost": "$1,140",
+        "care_schedule": "Mon-Fri 7:30 AM - 5:30 PM",
+        "invoice_month": "February 2026"
+      },
+      "body_lines": [
+        "Student requests COA increase due mandatory childcare cost while attending classes.",
+        "Invoice is current and paid through ACH."
+      ],
+      "file_link": "./01_daycare_invoice_summary.pdf"
+    },
+    {
+      "doc_id": "FA005-D2",
+      "doc_type": "Spouse_Paystub_Photo",
+      "title": "Spouse Paystub (Phone Scan)",
+      "file_name": "02_spouse_paystub_photo.webp",
+      "format": "webp",
+      "document_role": "student_upload",
+      "issuer": "Metro Parcel Services",
+      "issue_date": "2026-02-27",
+      "render_template": "document_photo",
+      "quality_flags": [
+        "2_degree_skew",
+        "shadow_glare",
+        "compression_noise"
+      ],
+      "structured_fields": {
+        "employee_name": "Kiran Singh",
+        "gross_pay": "$1,845.12",
+        "net_pay": "$1,392.40",
+        "pay_period": "2026-02-10 to 2026-02-23"
+      },
+      "body_lines": [
+        "Photo captured while folded; lower-right edge shadowed.",
+        "Used for household cash-flow context."
+      ],
+      "file_link": "./02_spouse_paystub_photo.webp"
+    },
+    {
+      "doc_id": "FA005-D3",
+      "doc_type": "Dependent_Care_Budget_Form",
+      "title": "Dependent Care Cost Adjustment Worksheet",
+      "file_name": "03_dependent_care_budget_form.pdf",
+      "format": "pdf",
+      "document_role": "ai_generated",
+      "issuer": "The Uni Financial Aid Bot",
+      "issue_date": "2026-03-02",
+      "render_template": "form_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Harpreet Singh",
+        "requested_coa_increase": "$13,680 annual",
+        "supporting_invoice": "FA005-D1",
+        "household_cashflow_note": "Included spouse pay data",
+        "status": "Ready for signature"
+      },
+      "body_lines": [
+        "Annualized childcare costs calculated from invoice.",
+        "Form sections prefilled to reduce manual entry."
+      ],
+      "file_link": "./03_dependent_care_budget_form.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T11:34:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "ask_coa_adjustment",
+      "sentiment": "worried",
+      "message": "ਮੇਰਾ ਬੱਚਾ ਡੇਅਕੇਅਰ ਜਾਂਦਾ ਹੈ ਤੇ ਖਰਚਾ ਬਹੁਤ ਵੱਧ ਹੈ। ਕੀ ਇਸ ਲਈ ਕੋਈ ਫਾਰਮ ਹੈ?",
+      "translated_message_en": "My child goes to daycare and the cost is very high. Is there a form for this?"
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T11:36:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "start_dependent_care_form",
+      "sentiment": "supportive",
+      "message": "ਹਾਂ, ਮੈਂ Dependent Care Cost Adjustment ਫਾਰਮ ਖੋਲ੍ਹ ਦਿੱਤਾ ਹੈ। ਮਹੀਨੇ ਦਾ ਡੇਅਕੇਅਰ ਖਰਚਾ ਕਿੰਨਾ ਹੈ?",
+      "translated_message_en": "Yes, I opened the Dependent Care Cost Adjustment form. What is the monthly daycare cost?",
+      "form_updates": [
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Harpreet Singh",
+          "source": "student_profile",
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T11:38:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "provide_cost",
+      "sentiment": "anxious",
+      "message": "ਮਹੀਨੇ ਦਾ $1,140 ਹੈ।",
+      "translated_message_en": "It is $1,140 per month."
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T11:40:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "autofill_and_collect_docs",
+      "sentiment": "reassuring",
+      "message": "ਠੀਕ ਹੈ। ਮੈਂ ਸਾਲਾਨਾ ਖਰਚਾ $13,680 ਭਰ ਦਿੱਤਾ ਹੈ। ਹੁਣ ਡੇਅਕੇਅਰ ਇਨਵੌਇਸ ਅਪਲੋਡ ਕਰੋ।",
+      "translated_message_en": "Great. I entered annual cost as $13,680. Now upload your daycare invoice.",
+      "form_updates": [
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "monthly_childcare_cost",
+          "field_label": "Monthly Childcare Cost",
+          "new_value": 1140,
+          "source": "turn_3_message",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "annual_childcare_cost",
+          "field_label": "Annual Childcare Cost",
+          "new_value": 13680,
+          "source": "computed",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T11:42:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "ਇਨਵੌਇਸ ਅਤੇ ਮੇਰੇ spouse ਦੀ paystub ਫੋਟੋ ਅਪਲੋਡ ਕਰ ਦਿੱਤੀ ਹੈ।",
+      "translated_message_en": "I uploaded the invoice and my spouse's paystub photo.",
+      "document_links": [
+        {
+          "doc_id": "FA005-D1",
+          "file_link": "./01_daycare_invoice_summary.pdf"
+        },
+        {
+          "doc_id": "FA005-D2",
+          "file_link": "./02_spouse_paystub_photo.webp"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T11:44:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "parse_docs",
+      "sentiment": "supportive",
+      "message": "ਵਧੀਆ। ਮੈਂ ਡੌਕੂਮੈਂਟ ਪੜ੍ਹ ਕੇ ਫਾਰਮ ਵਿੱਚ ਜੋੜ ਦਿੱਤੇ ਹਨ। ਕੀ ਬੱਚਾ ਹਫ਼ਤੇ ਵਿੱਚ 5 ਦਿਨ ਡੇਅਕੇਅਰ ਜਾਂਦਾ ਹੈ?",
+      "translated_message_en": "Great. I parsed the documents and added them to the form. Does your child attend daycare 5 days a week?",
+      "form_updates": [
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "supporting_docs",
+          "field_label": "Supporting Docs",
+          "new_value": "Invoice + paystub received",
+          "source": "doc_checklist",
+          "confidence": 1
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "timestamp": "2026-03-02T11:46:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "confirm_schedule",
+      "sentiment": "steady",
+      "message": "ਹਾਂ, ਸੋਮਵਾਰ ਤੋਂ ਸ਼ੁੱਕਰਵਾਰ ਤੱਕ ਜਾਂਦਾ ਹੈ।",
+      "translated_message_en": "Yes, Monday through Friday."
+    },
+    {
+      "turn": 8,
+      "timestamp": "2026-03-02T11:48:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "collect_spouse_income_frequency",
+      "sentiment": "supportive",
+      "message": "ਧੰਨਵਾਦ। spouse ਦੀ ਆਮਦਨ ਦੋ ਹਫ਼ਤਿਆਂ ਵਿੱਚ ਆਉਂਦੀ ਹੈ, ਠੀਕ?",
+      "translated_message_en": "Thank you. Your spouse income is biweekly, correct?"
+    },
+    {
+      "turn": 9,
+      "timestamp": "2026-03-02T11:50:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "confirm_income_frequency",
+      "sentiment": "calm",
+      "message": "ਹਾਂ, biweekly ਹੈ।",
+      "translated_message_en": "Yes, it is biweekly."
+    },
+    {
+      "turn": 10,
+      "timestamp": "2026-03-02T11:52:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "update_budget_detail",
+      "sentiment": "encouraging",
+      "message": "ਮੈਂ household cash-flow ਨੋਟ ਵੀ ਭਰ ਦਿੱਤਾ ਹੈ ਤਾਂ ਜੋ ਰਿਵਿਊ ਤੇਜ਼ ਹੋਵੇ।",
+      "translated_message_en": "I also filled the household cash-flow note so the review can move faster.",
+      "form_updates": [
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "cashflow_note",
+          "field_label": "Cashflow Note",
+          "new_value": "Spouse biweekly pay included",
+          "source": "turn_9_message",
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "turn": 11,
+      "timestamp": "2026-03-02T11:54:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "ask_processing_time",
+      "sentiment": "curious",
+      "message": "ਇਹਨੂੰ ਕਿੰਨਾ ਸਮਾਂ ਲੱਗੇਗਾ?",
+      "translated_message_en": "How long will this take?"
+    },
+    {
+      "turn": 12,
+      "timestamp": "2026-03-02T11:56:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "processing_eta",
+      "sentiment": "reassuring",
+      "message": "ਆਮ ਤੌਰ ਤੇ 3 ਤੋਂ 5 ਬਿਜ਼ਨਸ ਦਿਨ। ਮੈਂ ਤੁਰੰਤ ਸਬਮਿਟ ਲਈ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹਾਂ।",
+      "translated_message_en": "Usually 3 to 5 business days. I am preparing it for immediate submission."
+    },
+    {
+      "turn": 13,
+      "timestamp": "2026-03-02T11:58:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "confirm_submission",
+      "sentiment": "relieved",
+      "message": "ਠੀਕ ਹੈ, ਭੇਜੋ।",
+      "translated_message_en": "Okay, submit it."
+    },
+    {
+      "turn": 14,
+      "timestamp": "2026-03-02T12:00:00-06:00",
+      "speaker": "ai",
+      "language": "pa",
+      "intent": "complete_form",
+      "sentiment": "encouraging",
+      "message": "ਫਾਰਮ ਤਿਆਰ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਸਾਇਨ ਕਰੋ, ਫਿਰ ਮੈਂ Financial Aid Office ਨੂੰ ਭੇਜ ਦਿਆਂਗਾ।",
+      "translated_message_en": "The form is ready. Please sign, then I will send it to the Financial Aid Office.",
+      "form_updates": [
+        {
+          "form_id": "coa_adjustment_dependent_care_2026",
+          "field_id": "status",
+          "field_label": "Status",
+          "new_value": "Ready for signature",
+          "source": "workflow",
+          "confidence": 1
+        }
+      ],
+      "document_links": [
+        {
+          "doc_id": "FA005-D3",
+          "file_link": "./03_dependent_care_budget_form.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 15,
+      "timestamp": "2026-03-02T12:02:00-06:00",
+      "speaker": "student",
+      "language": "pa",
+      "intent": "gratitude",
+      "sentiment": "relieved",
+      "message": "ਧੰਨਵਾਦ, ਇਹ ਬਹੁਤ ਆਸਾਨ ਬਣ ਗਿਆ।",
+      "translated_message_en": "Thank you, this became much easier."
+    }
+  ],
+  "conversation_outcome": {
+    "status": "submitted_after_signature",
+    "final_owner": "Student",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Childcare COA adjustment automation",
+    "heart_moment": "AI converts a monthly invoice into a complete annual budget appeal in minutes."
+  },
+  "folder_name": "FA-005_Harpreet_Singh"
+}

@@ -1,0 +1,236 @@
+{
+  "applicant_id": "FA-010",
+  "profile": {
+    "full_name": "Jean Baptiste",
+    "preferred_name": "Jean",
+    "age": 24,
+    "background_summary": "Recent naturalized citizen with limited English confidence.",
+    "first_language": "Haitian Creole",
+    "english_proficiency": "Intermediate",
+    "tech_savviness": "Low",
+    "financial_aid_literacy": "Low",
+    "device_primary": "Android smartphone",
+    "current_address": "66 Waverly Terrace Apt 1, Baltimore, MD 21217",
+    "enrollment_goal": "AAS Medical Assisting"
+  },
+  "financial_aid_context": {
+    "institution": "The Uni",
+    "aid_year": "2026-2027",
+    "dependency_status": "Independent",
+    "sai_estimate": -620,
+    "reported_prior_year_income_usd": 19760,
+    "current_year_income_usd": 20840,
+    "household_size": 1,
+    "selected_for": [
+      "Citizenship Status Correction"
+    ],
+    "risk_flags": [
+      "language_barrier",
+      "eligibility_misclassification"
+    ]
+  },
+  "required_forms": [
+    "Citizenship Status Correction Form"
+  ],
+  "document_bundle": [
+    {
+      "doc_id": "FA010-D1",
+      "doc_type": "Certificate_of_Naturalization",
+      "title": "Certificate of Naturalization",
+      "file_name": "01_certificate_of_naturalization.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "USCIS",
+      "issue_date": "2025-12-02",
+      "render_template": "certificate_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "student_name": "Jean Baptiste",
+        "certificate_number": "N-4429187",
+        "country_of_birth": "Haiti",
+        "naturalization_date": "2025-12-02"
+      },
+      "body_lines": [
+        "Used to update citizenship status from non-eligible to eligible for federal aid."
+      ],
+      "file_link": "./01_certificate_of_naturalization.pdf"
+    },
+    {
+      "doc_id": "FA010-D2",
+      "doc_type": "Selective_Service_Status_Letter",
+      "title": "Selective Service Status Information Letter",
+      "file_name": "02_selective_service_status_letter.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Selective Service System",
+      "issue_date": "2026-01-15",
+      "render_template": "letter_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "registrant_name": "Jean Baptiste",
+        "registration_number": "S-925004137",
+        "status": "Registered",
+        "registration_date": "2024-08-11"
+      },
+      "body_lines": [
+        "Documentation included to clear federal eligibility checklist."
+      ],
+      "file_link": "./02_selective_service_status_letter.pdf"
+    },
+    {
+      "doc_id": "FA010-D3",
+      "doc_type": "Tax_Return_Translation_Summary",
+      "title": "Tax Return Translation Summary",
+      "file_name": "03_tax_return_translation_summary.pdf",
+      "format": "pdf",
+      "document_role": "student_upload",
+      "issuer": "Community Translation Network",
+      "issue_date": "2026-02-03",
+      "render_template": "summary_pdf",
+      "quality_flags": [],
+      "structured_fields": {
+        "taxpayer_name": "Jean Baptiste",
+        "translated_from": "French/Creole",
+        "agi_equivalent": "$19,760",
+        "notes": "Certified translation"
+      },
+      "body_lines": [
+        "Helps student understand and correctly enter income values in FAFSA fields."
+      ],
+      "file_link": "./03_tax_return_translation_summary.pdf"
+    }
+  ],
+  "chat_conversation": [
+    {
+      "turn": 1,
+      "timestamp": "2026-03-02T13:46:00-06:00",
+      "speaker": "student",
+      "language": "ht",
+      "intent": "citizenship_issue",
+      "sentiment": "confused",
+      "message": "Mwen pa pale angle byen. FAFSA di mwen pa kalifye men mwen vin sitwayen ane pase.",
+      "translated_message_en": "I do not speak English well. FAFSA says I am not eligible but I became a citizen last year."
+    },
+    {
+      "turn": 2,
+      "timestamp": "2026-03-02T13:48:00-06:00",
+      "speaker": "ai",
+      "language": "ht",
+      "intent": "start_citizenship_form",
+      "sentiment": "supportive",
+      "message": "Mesi Jean. Mwen ka ede ou. Mwen louvri fòm koreksyon sitwayènte a etap pa etap.",
+      "translated_message_en": "Thank you, Jean. I can help. I opened the citizenship correction form step by step.",
+      "form_updates": [
+        {
+          "form_id": "citizenship_status_correction_2026",
+          "field_id": "student_name",
+          "field_label": "Student Name",
+          "new_value": "Jean Baptiste",
+          "source": "student_profile",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "citizenship_status_correction_2026",
+          "field_id": "language_assistance",
+          "field_label": "Language Assistance",
+          "new_value": "Haitian Creole requested",
+          "source": "turn_1_message",
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "timestamp": "2026-03-02T13:50:00-06:00",
+      "speaker": "student",
+      "language": "ht",
+      "intent": "upload_docs",
+      "sentiment": "cooperative",
+      "message": "M ap voye sètifika natiralizasyon an, lèt Selective Service, ak tradiksyon taks la.",
+      "translated_message_en": "I am sending the naturalization certificate, Selective Service letter, and tax translation.",
+      "document_links": [
+        {
+          "doc_id": "FA010-D1",
+          "file_link": "./01_certificate_of_naturalization.pdf"
+        },
+        {
+          "doc_id": "FA010-D2",
+          "file_link": "./02_selective_service_status_letter.pdf"
+        },
+        {
+          "doc_id": "FA010-D3",
+          "file_link": "./03_tax_return_translation_summary.pdf"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "timestamp": "2026-03-02T13:52:00-06:00",
+      "speaker": "ai",
+      "language": "ht",
+      "intent": "autofill_eligibility_fields",
+      "sentiment": "reassuring",
+      "message": "Mwen mete estati ou kòm US Citizen, ajoute nimewo Selective Service, epi AGI a se $19,760.",
+      "translated_message_en": "I set your status to US Citizen, added your Selective Service number, and AGI as $19,760.",
+      "form_updates": [
+        {
+          "form_id": "citizenship_status_correction_2026",
+          "field_id": "citizenship_status",
+          "field_label": "Citizenship Status",
+          "new_value": "US Citizen",
+          "source": "FA010-D1_parse",
+          "confidence": 0.99
+        },
+        {
+          "form_id": "citizenship_status_correction_2026",
+          "field_id": "selective_service_number",
+          "field_label": "Selective Service Number",
+          "new_value": "S-925004137",
+          "source": "FA010-D2_parse",
+          "confidence": 0.98
+        },
+        {
+          "form_id": "citizenship_status_correction_2026",
+          "field_id": "agi",
+          "field_label": "AGI",
+          "new_value": 19760,
+          "source": "FA010-D3_parse",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "timestamp": "2026-03-02T13:54:00-06:00",
+      "speaker": "student",
+      "language": "ht",
+      "intent": "confirmation",
+      "sentiment": "relieved",
+      "message": "Trè byen. Mwen konprann pi byen kounye a.",
+      "translated_message_en": "Very good. I understand much better now."
+    },
+    {
+      "turn": 6,
+      "timestamp": "2026-03-02T13:56:00-06:00",
+      "speaker": "ai",
+      "language": "ht",
+      "intent": "finalize_with_translation",
+      "sentiment": "encouraging",
+      "message": "Fòm nan fini. Mwen mete yon rezime an kreyòl ak angle pou ou revize.",
+      "translated_message_en": "The form is complete. I added a summary in Creole and English for your review.",
+      "metadata": {
+        "translation_mode": "bi-lingual summary generated"
+      }
+    }
+  ],
+  "conversation_outcome": {
+    "status": "eligibility_status_corrected",
+    "final_owner": "Financial Aid Eligibility Team",
+    "completion_percent": 100
+  },
+  "demo_hook": {
+    "title": "Eligibility correction with language support",
+    "heart_moment": "AI handles both compliance fields and language translation in one workflow."
+  },
+  "folder_name": "FA-010_Jean_Baptiste"
+}

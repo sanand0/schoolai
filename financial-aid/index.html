@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Financial Aid Bot Demo Lab</title>
+    <meta
+      name="description"
+      content="Interactive Financial Aid Bot demo with applicant scenarios, document preview popups, and chat replay simulations."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,500;7..72,700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-layer" aria-hidden="true"></div>
+    <div class="grain-layer" aria-hidden="true"></div>
+
+    <header class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">24/7 Student Support Simulation</p>
+        <h1>Financial Aid Bot Experience Console</h1>
+        <p class="hero-summary">
+          Explore 12 realistic applicant scenarios with multilingual chat, stress-aware escalation, document ingestion,
+          and live form auto-fill playback.
+        </p>
+        <div class="hero-stats" id="heroStats" aria-live="polite"></div>
+      </div>
+      <div class="hero-flow" aria-label="Animated workflow">
+        <svg viewBox="0 0 900 320" class="flow-svg" id="flowSvg" role="img" aria-labelledby="flowTitle flowDesc">
+          <title id="flowTitle">Financial aid workflow</title>
+          <desc id="flowDesc">Branched intake, document parsing, policy review, escalation, and submission paths.</desc>
+          <defs>
+            <linearGradient id="flowLine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#0f7f9a" />
+              <stop offset="100%" stop-color="#e8952d" />
+            </linearGradient>
+            <linearGradient id="flowLine2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0f7f9a" />
+              <stop offset="100%" stop-color="#e35c45" />
+            </linearGradient>
+          </defs>
+          <path d="M72 166 H250" class="flow-track" />
+          <path d="M250 166 H430" class="flow-track" />
+          <path d="M430 166 H602" class="flow-track" />
+          <path d="M602 166 H820" class="flow-track" />
+          <path d="M430 166 C500 166, 520 90, 602 90 H770" class="flow-track-branch" />
+          <path d="M430 166 C500 166, 520 244, 602 244 H770" class="flow-track-branch" />
+
+          <g class="flow-node" data-stage="intake" transform="translate(72 166)">
+            <circle r="33"></circle>
+            <text y="6">Intake</text>
+          </g>
+          <g class="flow-node" data-stage="route" transform="translate(250 166)">
+            <circle r="33"></circle>
+            <text y="6">Route</text>
+          </g>
+          <g class="flow-node" data-stage="parse" transform="translate(430 166)">
+            <circle r="33"></circle>
+            <text y="6">Parse</text>
+          </g>
+          <g class="flow-node" data-stage="fill" transform="translate(602 166)">
+            <circle r="33"></circle>
+            <text y="6">Fill</text>
+          </g>
+          <g class="flow-node" data-stage="submit" transform="translate(820 166)">
+            <circle r="33"></circle>
+            <text y="6">Submit</text>
+          </g>
+          <g class="flow-node branch" data-stage="review" transform="translate(770 90)">
+            <circle r="28"></circle>
+            <text y="6">Review</text>
+          </g>
+          <g class="flow-node branch" data-stage="handoff" transform="translate(770 244)">
+            <circle r="28"></circle>
+            <text y="6">Advisor</text>
+          </g>
+          <circle class="flow-pulse" cx="72" cy="166" r="10"></circle>
+        </svg>
+      </div>
+    </header>
+
+    <section class="storyline" id="storyline" aria-label="How the bot works">
+      <article class="story-step" data-stage="intake">
+        <h2>1. Student Intake</h2>
+        <p>The bot starts in plain language, detects urgency, and avoids policy jargon unless needed.</p>
+      </article>
+      <article class="story-step" data-stage="route">
+        <h2>2. Eligibility Routing</h2>
+        <p>The workflow branches by aid type: verification, appeals, override, consortium, or emergency aid.</p>
+      </article>
+      <article class="story-step" data-stage="parse">
+        <h2>3. Documents Become Structured Data</h2>
+        <p>Every upload is parsed into field-level evidence with confidence, source, and quality metadata.</p>
+      </article>
+      <article class="story-step" data-stage="fill">
+        <h2>4. Form Sections Fill in Real Time</h2>
+        <p>AI updates relevant aid fields immediately, so students see progress while still in conversation.</p>
+      </article>
+      <article class="story-step" data-stage="review">
+        <h2>5. Compliance Review Branch</h2>
+        <p>Policy-sensitive questions fork into a review branch for deterministic checks and advisor prep.</p>
+      </article>
+      <article class="story-step" data-stage="handoff">
+        <h2>6. Human Safety Net</h2>
+        <p>Escalation triggers when stress or policy complexity is detected, with a complete advisor handoff brief.</p>
+      </article>
+      <article class="story-step" data-stage="submit">
+        <h2>7. Submission + Follow-Up</h2>
+        <p>Final packets are signed, submitted, and tracked with status updates for student and advisor.</p>
+      </article>
+    </section>
+
+    <main>
+      <section class="filters" aria-label="Applicant filters">
+        <div class="filter-control search-control">
+          <label for="searchInput">Search Students</label>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Name, language, risk flag, intent..."
+            autocomplete="off"
+          />
+        </div>
+        <div class="filter-control">
+          <label for="languageFilter">Language</label>
+          <select id="languageFilter">
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div class="filter-control">
+          <label for="riskFilter">Risk Flag</label>
+          <select id="riskFilter">
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div class="filter-control">
+          <label for="sortBy">Sort</label>
+          <select id="sortBy">
+            <option value="turns_desc">Longest Conversations First</option>
+            <option value="stress">Highest Stress First</option>
+            <option value="name">Name A-Z</option>
+            <option value="completion">Most Complete First</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="applicant-grid" id="applicantGrid" aria-live="polite"></section>
+
+      <section class="compare-dock" id="compareDock" aria-label="Pinned comparisons" hidden>
+        <div class="compare-head">
+          <h2>Pinned Comparison</h2>
+          <button class="ghost-btn" id="clearPinsBtn" type="button">Clear</button>
+        </div>
+        <div id="compareGrid" class="compare-grid"></div>
+      </section>
+    </main>
+
+    <div class="modal hidden" id="fileModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="file"></div>
+      <section class="modal-shell file-shell" role="dialog" aria-modal="true" aria-labelledby="fileModalTitle">
+        <header class="modal-header">
+          <div>
+            <p class="modal-kicker">Document Preview</p>
+            <h2 id="fileModalTitle">Preview</h2>
+          </div>
+          <div class="modal-actions">
+            <a id="openOriginalLink" class="text-link" href="#" target="_blank" rel="noopener noreferrer"
+              >Open Original</a
+            >
+            <button class="close-btn" type="button" data-close-modal="file" aria-label="Close popup">&times;</button>
+          </div>
+        </header>
+        <div class="modal-body" id="fileModalBody">
+          <div class="loading-state" id="fileLoading">Loading file preview...</div>
+          <div id="filePreview"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal hidden" id="contextModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="context"></div>
+      <section class="modal-shell context-shell" role="dialog" aria-modal="true" aria-labelledby="contextModalTitle">
+        <header class="modal-header">
+          <div>
+            <p class="modal-kicker">Data Context</p>
+            <h2 id="contextModalTitle">Detail</h2>
+          </div>
+          <div class="modal-actions">
+            <button class="close-btn" type="button" data-close-modal="context" aria-label="Close popup">&times;</button>
+          </div>
+        </header>
+        <div class="modal-body" id="contextModalBody"></div>
+      </section>
+    </div>
+
+    <div class="modal hidden" id="replayModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="replay"></div>
+      <section class="modal-shell replay-shell" role="dialog" aria-modal="true" aria-labelledby="replayTitle">
+        <header class="modal-header replay-header">
+          <div>
+            <p class="modal-kicker">Chat Recording Simulator</p>
+            <h2 id="replayTitle">Replay</h2>
+          </div>
+          <div class="modal-actions replay-top-actions">
+            <div class="speed-chip" id="speedChip">1.0x</div>
+            <button class="close-btn" type="button" data-close-modal="replay" aria-label="Close replay">&times;</button>
+          </div>
+        </header>
+
+        <div class="replay-top" id="replayTop"></div>
+
+        <div class="replay-main">
+          <section class="chat-column" aria-label="Streaming chat transcript">
+            <div class="chat-stream" id="chatStream"></div>
+          </section>
+
+          <aside class="analysis-column">
+            <section class="thinking-card" id="thinkingCard" aria-live="polite">
+              <p class="thinking-title">AI Analysis Engine</p>
+              <div class="thinking-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <p id="thinkingText">Waiting for next event...</p>
+            </section>
+
+            <section class="form-card" aria-label="Live financial aid form fill">
+              <div class="form-head">
+                <h3 id="formTitle">Form Fields</h3>
+                <div class="form-actions">
+                  <button class="ghost-btn small" id="openFormContext" type="button">Context</button>
+                  <button class="ghost-btn small" id="printFormBtn" type="button">Print PDF</button>
+                </div>
+              </div>
+              <div class="form-sheet-wrap">
+                <div class="form-sheet" id="formSheet">
+                  <div class="form-sheet-head">
+                    <p class="form-university">THE UNI - FINANCIAL AID OFFICE</p>
+                    <p class="form-subtitle">Automated Preparation Copy</p>
+                  </div>
+                  <div class="form-legend">
+                    <span class="legend-item auto">Auto-filled</span>
+                    <span class="legend-item review">Needs review</span>
+                    <span class="legend-item flag">Flagged for escalation</span>
+                  </div>
+                  <div id="formFieldList" class="form-field-list"></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="timeline-card" aria-label="Timeline metadata">
+              <h3>Timeline Tags</h3>
+              <div class="timeline-tags" id="timelineTags"></div>
+            </section>
+
+            <section class="advisor-card" id="advisorCard" hidden>
+              <h3>Advisor Handoff Brief</h3>
+              <div id="advisorCardBody" class="advisor-card-body"></div>
+            </section>
+          </aside>
+        </div>
+
+        <footer class="player-bar">
+          <div class="player-buttons" role="group" aria-label="Replay controls">
+            <button id="slowerBtn" type="button" class="icon-btn" title="Slow down">-</button>
+            <button id="stepBackBtn" type="button" class="icon-btn" title="Step back">&#9664;</button>
+            <button id="playPauseBtn" type="button" class="icon-btn primary" title="Play/Pause">
+              Play
+            </button>
+            <button id="stepForwardBtn" type="button" class="icon-btn" title="Step forward">
+              &#9654;
+            </button>
+            <button id="fasterBtn" type="button" class="icon-btn" title="Speed up">+</button>
+          </div>
+
+          <div class="timeline-control">
+            <label for="timelineSlider">Timeline</label>
+            <input id="timelineSlider" type="range" min="0" max="0" value="0" step="1" />
+            <div class="timeline-labels">
+              <span id="timelineLabel">Step 0/0</span>
+              <span id="timelineClock">00:00</span>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
+
+    <div class="tooltip hidden" id="tooltip" role="tooltip" aria-hidden="true">
+      <button type="button" class="tooltip-close" id="tooltipClose" aria-label="Dismiss tooltip">&times;</button>
+      <div id="tooltipContent"></div>
+    </div>
+
+    <template id="applicantCardTemplate">
+      <article class="applicant-card">
+        <header class="card-head">
+          <div>
+            <p class="card-id"></p>
+            <h2 class="card-name"></h2>
+          </div>
+          <button class="pin-btn" type="button" aria-pressed="false">Pin</button>
+        </header>
+
+        <p class="card-summary"></p>
+
+        <div class="profile-tags"></div>
+
+        <section class="card-section">
+          <h3>Financial Aid Context</h3>
+          <div class="context-grid"></div>
+        </section>
+
+        <section class="card-section">
+          <h3>Documents</h3>
+          <ul class="doc-list"></ul>
+        </section>
+
+        <section class="card-section">
+          <h3>Chat Outcome</h3>
+          <p class="chat-summary"></p>
+          <div class="chat-metrics"></div>
+        </section>
+
+        <footer class="card-actions">
+          <button class="chat-recording-btn" type="button">Chat Recording</button>
+        </footer>
+      </article>
+    </template>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
