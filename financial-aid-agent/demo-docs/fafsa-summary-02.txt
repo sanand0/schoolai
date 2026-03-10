@@ -1,0 +1,6 @@
+FAFSA Submission Summary (Demo)
+Student Name: Liam Nguyen
+SAI: 1450
+Dependency Status: Dependent
+Enrollment Status: Half-time
+Institution: Metro State
